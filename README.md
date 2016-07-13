@@ -51,7 +51,7 @@ $ sudo chgrp -R 82 sites/default/files
 $ sudo chmod -R 775 sites/default/files
 ```
 
-4\. You can switch between Drupal version by modifying the following envrionment variable (could 7 or 8) in the compose file:
+4\. Choose Drupal version by modifying the following environment variable (could be 7 or 8) in the compose file:
 ```yml
 DRUPAL_VERSION: 8
 ```
