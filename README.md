@@ -2,7 +2,7 @@
 
 Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows. 
 
-### Overview
+## Overview
 
 The Drupal bundle consist of the following containers:
 
@@ -12,11 +12,13 @@ The Drupal bundle consist of the following containers:
 | PHP 7   | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">wodby/drupal-php</a> |
 | MariaDB | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">wodby/drupal-mariadb</a> |
 
-### Instructions 
+PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
+
+## Instructions 
 
 Supported Drupal versions: 7 and 8
 
-#### Linux / Mac OS X
+### Linux / Mac OS X
 
 1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>
 
@@ -71,6 +73,8 @@ $ docker ps
 $ drush sql-cli < database-dump.sql
 ```
 
-9\. That's it! You drupal website should be up and running at http://localhost:8000. In case you have any problems submit an issue or contact us at hello [at] wodby.com.
+9\. That's it! You drupal website should be up and running at http://localhost:8000. 
+
+In case you have any problems submit an issue or contact us at hello [at] wodby.com.
 
 Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized docker-based environment for Drupal on your dev/staging or production servers.
