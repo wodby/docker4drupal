@@ -6,7 +6,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Instructions](#instructions)
 * [Importing database](#importing-database)
 * [Drush](#drush)
-* [Accessing containers](#accesssing-containers)
+* [Accessing containers](#accessing-containers)
 * [Logs](#logs)
 * [Troubleshooting](#troubleshooting)
 * [Going beyound local machine](#going-beyond-local-machine)
