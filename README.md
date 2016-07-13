@@ -18,11 +18,9 @@ PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularl
 
 Supported Drupal versions: 7 and 8
 
-### Linux / Mac OS X
+1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. For Linux additionally install <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a>
 
-1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>
-
-2\. Download the compose file from this repository
+2\. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml" target="_blank">the compose file</a> from this repository
 
 3\. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/" target="_blank">do not have a permanent storage</a>, directories from the host machine should be mounted: one with your Drupal project and another with database files. By default `docroot` and `mariadb` directories will be automatically created in the same directory as the compose file. 
 
@@ -62,13 +60,37 @@ $ docker-compose up -d
 $ docker ps
 ```
 
-8\. You can import your database via:
+8\. That's it! You drupal website should be up and running at http://localhost:8000. 
+
+## Importing database
+
+
+
+## Drush
+
+PHP container has installed drush, connect to the container to use drush.
+
+## Acessing a container
+
+You can connect to any container by executing the following command:
 ```bash
-$ drush sql-cli < database-dump.sql
+$ docker exec -ti [CONTAINER ID] sh
 ```
 
-9\. That's it! You drupal website should be up and running at http://localhost:8000. 
+You can find container id by executing:
+```bash
+$ docker ps 
+```
+
+Example: get id of PHP container:
+```bash
+$ docker ps | grep wodby/drupal-php | awk '{print $1}'
+```
+
+## Troubleshooting
 
 In case you have any problems submit an issue or contact us at hello [at] wodby.com.
+
+## Using on a dev/staging and production servers
 
 Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized docker-based environment for Drupal on your dev/staging or production servers.
