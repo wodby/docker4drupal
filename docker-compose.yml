@@ -1,7 +1,7 @@
 db:
   image: wodby/drupal-mariadb
   volumes:
-    - ./mysql/runtime:/var/lib/mysql
+    - ./mariadb:/var/lib/mysql
 app:
   image: wodby/drupal-php
   links:
