@@ -2,6 +2,15 @@
 
 Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows. 
 
+* [Overview](#overview)
+* [Instructions](#instructions)
+* [Importing database](#importing-database)
+* [Drush](#drush)
+* [Accessing containers](#accesssing-containers)
+* [Logs](#logs)
+* [Troubleshooting](#troubleshooting)
+* [Going beyound local machine](#going-beyond-local-machine)
+
 ## Overview
 
 The Drupal bundle consist of the following containers:
@@ -36,6 +45,12 @@ and replace it with your path:
 
 Additionally, you can adjust path to the database files directory (`- ./mariadb:/var/lib/mysql`). 
 
+*Linux only*: fix permissions for your files directory with:
+```bash
+$ sudo chgrp -R 82 sites/default/files
+$ sudo chmod -R 775 sites/default/files
+```
+
 4\. You can switch between Drupal version by modifying the following envrionment variable (could 7 or 8) in the compose file:
 ```yml
 DRUPAL_VERSION: 8
@@ -57,40 +72,47 @@ $ docker-compose up -d
 7\. Make sure all containers are running by executing:
 
 ```bash
-$ docker ps
+$ docker-compose ps
 ```
 
 8\. That's it! You drupal website should be up and running at http://localhost:8000. 
 
 ## Importing database
 
-
+Put your SQL dump to MariaDB volume. <a href="#accessing-containers">Access the mariadb container</a> and import the dump:
+```
+$ mysql -udrupal -pdrupal drupal < /var/lib/mysql/database-dump.sql
+```
 
 ## Drush
 
 PHP container has installed drush, connect to the container to use drush.
 
-## Acessing a container
+## Acessing containers
 
-You can connect to any container by executing the following command:
+You can connect to any container by executing the following command (example for PHP container):
 ```bash
-$ docker exec -ti [CONTAINER ID] sh
+$ docker-compose exec app sh
 ```
 
-You can find container id by executing:
-```bash
-$ docker ps 
+Replace `app` with the name of your service: `db` (mariadb) or `web` (nginx).
+
+## Logs
+
+To get logs of the container run:
+```
+$ docker-compose logs [service]
 ```
 
-Example: get id of PHP container:
-```bash
-$ docker ps | grep wodby/drupal-php | awk '{print $1}'
+Example: real-time logs of php container:
+```
+$ docker-compose logs -f app
 ```
 
 ## Troubleshooting
 
 In case you have any problems submit an issue or contact us at hello [at] wodby.com.
 
-## Using on a dev/staging and production servers
+## Going beyound local machine
 
-Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized docker-based environment for Drupal on your dev/staging or production servers.
+Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers. 
