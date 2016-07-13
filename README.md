@@ -33,7 +33,7 @@ Supported Drupal versions: 7 and 8
 
 3\. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/" target="_blank">do not have a permanent storage</a>, directories from the host machine should be mounted: one with your Drupal project and another with database files. By default `docroot` and `mariadb` directories will be automatically created in the same directory as the compose file. 
 
-First, let's edit the path to your Drupal project for PHP container. Find the following line
+First, let's edit the path to your Drupal project for PHP container. Find the following line in downloaded `drupal-compose.yml` file
 ```yml
 - ./docroot:/var/www/html
 ```
