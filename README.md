@@ -26,12 +26,12 @@ The Drupal 8 bundle consist of the following containers:
 
 First, let's edit the path to your Drupal project for PHP container. Find the following line
 ```yml
-    - ./docroot:/var/www/html
+- ./docroot:/var/www/html
 ```
 
 and replace it with your path:
 ```yml
- - /path/to/my/drupal/docroot:/var/www/html
+- /path/to/my/drupal/docroot:/var/www/html
 ```
 
 Additionally, you can adjust path to the database files directory (`- ./mariadb:/var/lib/mysql`). 
