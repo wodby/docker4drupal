@@ -15,11 +15,11 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 
 The Drupal bundle consist of the following containers:
 
-| Container | Image | 
-| --------- | ----- |
-| Nginx   | <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">wodby/drupal-nginx</a> |
-| PHP 7   | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">wodby/drupal-php</a> |
-| MariaDB | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">wodby/drupal-mariadb</a> |
+| Container | Service name | Image | 
+| --------- | ------- | ----- |
+| Nginx   | web | <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">wodby/drupal-nginx</a> |
+| PHP 7   | app | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">wodby/drupal-php</a> |
+| MariaDB | db  |<a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">wodby/drupal-mariadb</a> |
 
 PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
