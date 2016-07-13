@@ -113,6 +113,6 @@ $ docker-compose logs -f app
 
 In case you have any problems submit an issue or contact us at hello [at] wodby.com.
 
-## Going beyound local machine
+## Going beyond local machine
 
 Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers. 
