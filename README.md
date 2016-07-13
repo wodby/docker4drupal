@@ -88,7 +88,7 @@ $ mysql -udrupal -pdrupal drupal < /var/lib/mysql/database-dump.sql
 
 PHP container has installed drush, connect to the container to use drush.
 
-## Acessing containers
+## Accessing containers
 
 You can connect to any container by executing the following command (example for PHP container):
 ```bash
