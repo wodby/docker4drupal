@@ -1,12 +1,10 @@
-# Using docker for local development
+# Docker-based environment for Drupal
 
-This article explains how you can spin up a local environment using the *native Docker app* on Linux, Mac OS X and Windows. 
-
-## Drupal 8
+Use this Docker compose file to spin up local environment with a *native Docker app* on Linux, Mac OS X and Windows. 
 
 ### Overview
 
-The Drupal 8 bundle consist of the following containers:
+The Drupal bundle consist of the following containers:
 
 | Container | Image | 
 | --------- | ----- |
@@ -16,7 +14,9 @@ The Drupal 8 bundle consist of the following containers:
 
 ### Instructions 
 
-#### Linux / MacOS
+Supported Drupal versions: 7 and 8
+
+#### Linux / Mac OS X
 
 1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>
 
@@ -36,7 +36,12 @@ and replace it with your path:
 
 Additionally, you can adjust path to the database files directory (`- ./mariadb:/var/lib/mysql`). 
 
-4\. Specify database credentials in your settings.php file:
+4\. You can switch between Drupal version by modifying the following envrionment variable (could 7 or 8) in the compose file:
+```yml
+DRUPAL_VERSION: 8
+```
+
+5\. Specify database credentials in your settings.php file:
 ```php
 $databases['default']['default'] = array (
   'database' => 'drupal',
@@ -50,20 +55,20 @@ $databases['default']['default'] = array (
 );
 ```
 
-5\. Now, let's run the compose file. It will download the images and run the containers:
+6\. Now, let's run the compose file. It will download the images and run the containers:
 ```bash
 $ docker-compose up -d
 ```
 
-6\. Make sure all containers are running by executing:
+7\. Make sure all containers are running by executing:
 
 ```bash
 $ docker ps
 ```
 
-7\. You can import your database via:
+8\. You can import your database via:
 ```bash
 $ drush sql-cli < database-dump.sql
 ```
 
-8\. That's it. You drupal website should be up and running at http://localhost:8000
+9\. That's it. You drupal website should be up and running at http://localhost:8000
