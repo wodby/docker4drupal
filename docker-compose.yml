@@ -1,0 +1,18 @@
+db:
+  image: wodby/drupal-mariadb
+  volumes:
+    - ./mysql/runtime:/var/lib/mysql
+app:
+  image: wodby/drupal-php
+  links:
+    - db
+  volumes:
+    - ./docroot:/var/www/html
+web:
+  image: wodby/drupal-php
+  links:
+    - app
+  volumes_from:
+    - app
+  ports:
+        - "8000:80"
