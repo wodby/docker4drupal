@@ -9,7 +9,7 @@ app:
   volumes:
     - ./docroot:/var/www/html
 web:
-  image: wodby/drupal-php
+  image: wodby/drupal-nginx
   links:
     - app
   volumes_from:
