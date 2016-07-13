@@ -73,4 +73,4 @@ $ drush sql-cli < database-dump.sql
 
 9\. That's it. You drupal website should be up and running at http://localhost:8000
 
-Check out <a href="https://wodby.com" target="_blank">Wodby</dev> if you need optimized docker-based environment for Drupal on your dev/staging or production servers.
+Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized docker-based environment for Drupal on your dev/staging or production servers.
