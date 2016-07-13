@@ -4,6 +4,8 @@ db:
     - ./mariadb:/var/lib/mysql
 app:
   image: wodby/drupal-php
+  environment:
+    DRUPAL_VERSION: 8
   links:
     - db
   volumes:
