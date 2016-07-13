@@ -1,6 +1,6 @@
 # Docker-based environment for Drupal
 
-Use this Docker compose file to spin up local environment with a *native Docker app* on Linux, Mac OS X and Windows. 
+Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows. 
 
 ### Overview
 
