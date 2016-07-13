@@ -43,18 +43,12 @@ Additionally, you can adjust path to the database files directory (`- ./mariadb:
 DRUPAL_VERSION: 8
 ```
 
-5\. Specify database credentials in your settings.php file:
-```php
-$databases['default']['default'] = array (
-  'database' => 'drupal',
-  'username' => 'drupal',
-  'password' => 'drupal',
-  'host' => 'db',
-  'port' => '3306',
-  'driver' => 'mysql',
-  'prefix' => '',
-  'collation' => 'utf8mb4_general_ci',
-);
+5\. Update database credentials in your settings.php file:
+```
+database: drupal
+username: drupal
+password: drupal
+host: db
 ```
 
 6\. Now, let's run the compose file. It will download the images and run the containers:
