@@ -8,6 +8,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Drush](#drush)
 * [Accessing containers](#accessing-containers)
 * [Logs](#logs)
+* [Status](#status)
 * [Troubleshooting](#troubleshooting)
 * [Going beyound local machine](#going-beyond-local-machine)
 
@@ -99,7 +100,7 @@ Replace `app` with the name of your service: `db` (mariadb) or `web` (nginx).
 
 ## Logs
 
-To get logs of the container run:
+To get logs from a container simply run (skip the last param to get logs form all the containers):
 ```
 $ docker-compose logs [service]
 ```
@@ -108,6 +109,17 @@ Example: real-time logs of php container:
 ```
 $ docker-compose logs -f app
 ```
+
+## Updating
+
+We update containers from time to time, to get the lastest changes simply run again:
+```
+$ docker-compose up -d
+```
+
+## Status
+
+We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please sumbit an issue.
 
 ## Troubleshooting
 
