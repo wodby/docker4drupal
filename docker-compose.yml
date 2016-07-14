@@ -1,5 +1,10 @@
 db:
   image: wodby/drupal-mariadb
+  environment:
+    MYSQL_RANDOM_ROOT_PASSWORD: 1
+    MYSQL_DATABASE: drupal
+    MYSQL_USER: drupal
+    MYSQL_PASSWORD: drupal
   volumes:
     - ./mariadb:/var/lib/mysql
 app:
