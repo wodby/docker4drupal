@@ -68,25 +68,25 @@ password: drupal
 host: db
 ```
 
-6\. Now, let's run the compose file. It will download the images and run the containers:
+6\. If you want to import your database, uncomment the following line in the compose file:
+```yml
+#    - ./mariadb-init:/docker-entrypoint-initdb.d
+```
+
+Create the volume directory `mariadb-init` in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported during MariaDB container launch.
+
+7\. Now, let's run the compose file. It will download the images and run the containers:
 ```bash
 $ docker-compose up -d
 ```
 
-7\. Make sure all containers are running by executing:
+8\. Make sure all containers are running by executing:
 
 ```bash
 $ docker-compose ps
 ```
 
-8\. That's it! You drupal website should be up and running at http://localhost:8000. 
-
-## Importing database
-
-Put your SQL dump to MariaDB volume. <a href="#accessing-containers">Access the mariadb container</a> and import the dump:
-```
-$ mysql -udrupal -pdrupal drupal < /var/lib/mysql/database-dump.sql
-```
+9\. That's it! You drupal website should be up and running at http://localhost:8000. 
 
 ## Drush
 
