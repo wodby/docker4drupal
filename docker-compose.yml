@@ -7,10 +7,11 @@ db:
     MYSQL_PASSWORD: drupal
   volumes:
     - ./mariadb:/var/lib/mysql
+#    - ./mariadb-init:/docker-entrypoint-initdb.d
 app:
   image: wodby/drupal-php
   environment:
-    DRUPAL_VERSION: 8
+    DRUPAL_VERSION: 8 # Allowed 7, 8
   links:
     - db
   volumes:
