@@ -8,6 +8,8 @@ db:
   volumes:
     - ./mariadb:/var/lib/mysql
 #    - ./mariadb-init:/docker-entrypoint-initdb.d
+  ports:
+    - "3306:3306"
 app:
   image: wodby/drupal-php
   environment:
