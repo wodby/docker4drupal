@@ -73,7 +73,7 @@ host: db
 #    - ./mariadb-init:/docker-entrypoint-initdb.d
 ```
 
-Create the volume directory `mariadb-init` in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported during MariaDB container launch.
+Create the volume directory `mariadb-init` in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported once MariaDB container has started.
 
 7\. Now, let's run the compose file. It will download the images and run the containers:
 ```bash
