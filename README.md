@@ -31,9 +31,9 @@ Supported Drupal versions: 7 and 8
 
 2\. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml" target="_blank">the compose file</a> from this repository
 
-3\. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/" target="_blank">do not have a permanent storage</a>, directories from the host machine should be mounted: one with your Drupal project and another with database files. By default `docroot` and `mariadb` directories will be automatically created in the same directory as the compose file. 
+3\. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/" target="_blank">do not have a permanent storage</a>, directories from the host machine (volumes) should be mounted: one with your Drupal project and another with database files. By default `docroot` and `mariadb` directories will be automatically created in the same directory as the compose file. 
 
-First, let's edit the path to your Drupal project for PHP container. Find the following line in downloaded `drupal-compose.yml` file
+First, let's edit the path to volume with your Drupal project for the PHP container. Find the following line in the downloaded `drupal-compose.yml` file
 ```yml
 - ./docroot:/var/www/html
 ```
@@ -45,7 +45,7 @@ and replace it with your path:
 
 Additionally, you can adjust path to the database files directory (`- ./mariadb:/var/lib/mysql`). 
 
-*Linux only*: fix permissions for your files directory with:
+**Linux only**: fix permissions for your files directory with:
 ```bash
 $ sudo chgrp -R 82 sites/default/files
 $ sudo chmod -R 775 sites/default/files
