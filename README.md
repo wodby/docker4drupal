@@ -29,7 +29,9 @@ PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularl
 
 Supported Drupal versions: 7 and 8
 
-1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. For Linux additionally install <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a>
+1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. You need to install docker 1.12, not docker toolbox. 
+
+For Linux additionally install <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a>
 
 2\. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml" target="_blank">the compose file</a> from this repository
 
