@@ -18,6 +18,8 @@ app:
 #    XDEBUG_CONFIG: xdebug.remote_autostart=1
   links:
     - db
+#    - redis
+#    - memcached
   volumes:
     - ./docroot:/var/www/html
 
@@ -29,3 +31,13 @@ web:
     - app
   ports:
     - "8000:80"
+
+#redis:
+#  image: redis:3.2-alpine
+###  ports:
+###    - "6379:6379"
+
+#memcached:
+#  image: memcached:1.4-alpine
+###  ports:
+###    - "11211:11211"
