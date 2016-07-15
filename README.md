@@ -5,6 +5,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Overview](#overview)
 * [Instructions](#instructions)
 * [Importing database](#importing-database)
+* [Creating database dumps](#creating-database-dumps)
 * [Drush](#drush)
 * [Accessing containers](#accessing-containers)
 * [Logs](#logs)
@@ -75,18 +76,27 @@ host: db
 
 Create the volume directory `mariadb-init` in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported once MariaDB container has started.
 
-7\. Now, let's run the compose file. It will download the images and run the containers:
+7\. If you want to create a database dump just execute:
+```bash
+# Dump all databases.
+docker-compose exec db sh -c 'exec mysqldump --all-databases -uroot -p"root-password"' > databases.sql
+
+# Dump specific one.
+docker-compose exec db sh -c 'exec mysqldump -uroot -p"root-password" my-db' > my-db.sql
+```
+
+8\. Now, let's run the compose file. It will download the images and run the containers:
 ```bash
 $ docker-compose up -d
 ```
 
-8\. Make sure all containers are running by executing:
+9\. Make sure all containers are running by executing:
 
 ```bash
 $ docker-compose ps
 ```
 
-9\. That's it! You drupal website should be up and running at http://localhost:8000. 
+10\. That's it! You drupal website should be up and running at http://localhost:8000. 
 
 ## Drush
 
