@@ -6,6 +6,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Instructions](#instructions)
 * [Drush](#drush)
 * [Composer](#composer)
+* [Xdebug](#xdebug)
 * [Database](#database)
 * [Cache](#cache)
 * [Accessing containers](#accessing-containers)
@@ -101,6 +102,16 @@ PHP container has installed drush, connect to the container to use drush.
 ## Composer
 
 PHP container has installed composer, connect to the container to use composer.
+
+## Xdebug
+
+If you want to debug your project, uncomment the following line in the compose file:
+
+```yml
+#    XDEBUG_CONFIG: xdebug.remote_autostart=1
+```
+
+See the <a href="https://github.com/Wodby/drupal-php/issues/1" target="_blank">known issue</a> with Xdebug in Mac OS.
 
 ## Database
 
