@@ -10,15 +10,15 @@ services:
       MYSQL_PASSWORD: drupal
     volumes:
       - ./mariadb:/var/lib/mysql
-  #    - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
-  #  ports:
-  #    - "3306:3306"
+#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
+#    ports:
+#      - "3306:3306"
 
   app:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
     environment:
       DRUPAL_VERSION: 8 # Allowed: 7, 8
-  #    XDEBUG_CONFIG: xdebug.remote_autostart=1
+#      XDEBUG_CONFIG: xdebug.remote_autostart=1
     links:
       - db
       - cache
@@ -36,7 +36,7 @@ services:
 
   cache:
     image: redis:3.2-alpine
-  #  image: memcached:1.4-alpine
-  #  ports:
-  #    - "6379:6379" # For redis
-  ##    - "11211:11211" # For memcached
+#    image: memcached:1.4-alpine
+#    ports:
+#      - "6379:6379" # For redis
+##      - "11211:11211" # For memcached
