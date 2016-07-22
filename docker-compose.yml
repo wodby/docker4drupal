@@ -16,8 +16,7 @@ services:
 
   app:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
-    environment:
-      DRUPAL_VERSION: 8 # Allowed: 7, 8
+#    environment:
 #      XDEBUG_CONFIG: xdebug.remote_autostart=1
     links:
       - db
