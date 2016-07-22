@@ -34,6 +34,12 @@ services:
     ports:
       - "8000:80"
 
+  mailcatcher:
+    image: junxy/docker-mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+
   cache:
     image: redis:3.2-alpine
 #    image: memcached:1.4-alpine
