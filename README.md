@@ -1,7 +1,5 @@
 # Docker-based environment for Drupal
 
-[![Slack Status](http://docker.org.ru/badge.svg)](http://docker.org.ru/)
-
 Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows. 
 
 * [Overview](#overview)
