@@ -42,7 +42,7 @@ services:
     ports:
      - "8001:80"
 
-  mail:
+  smtp:
     image: junxy/docker-mailcatcher
     ports:
       - "8002:1080"
