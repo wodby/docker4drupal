@@ -17,32 +17,49 @@ services:
   app:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
     environment:
-      DRUPAL_VERSION: 8 # Allowed: 7, 8
-#      XDEBUG_CONFIG: xdebug.remote_autostart=1
-    links:
-      - db
-      - cache
+      XDEBUG_CONFIG: xdebug.remote_autostart=0 # Set 1 to enable Xdebug.
     volumes:
       - ./docroot:/var/www/html
 
   web:
     image: wodby/drupal-nginx
-    links:
-      - app
+    environment:
+      DRUPAL_VERSION: 8 # Allowed: 7, 8
     volumes_from:
       - app
     ports:
       - "8000:80"
 
-  mailcatcher:
+  pma:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: drupal
+      PMA_PASSWORD: drupal
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    ports:
+     - "8001:80"
+
+  mail:
     image: junxy/docker-mailcatcher
     ports:
-      - "1025:1025"
-      - "1080:1080"
+      - "8002:1080"
 
-  cache:
-    image: redis:3.2-alpine
+#  redis:
+#    image: redis:3.2-alpine
+#    ports:
+#      - "6379:6379"
+
+#  memcached:
 #    image: memcached:1.4-alpine
 #    ports:
-#      - "6379:6379" # For redis
-##      - "11211:11211" # For memcached
+#      - "11211:11211"
+
+#  solr:
+#    image: solr:5.5-alpine
+#    volumes:
+#      - ./solr:/opt/solr/server/solr/mycores
+#    ports:
+#      - "8983:8983"
