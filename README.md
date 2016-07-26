@@ -42,7 +42,7 @@ __Feel free to adjust volumes and ports in the compose file for your convenience
 
 Supported Drupal versions: 7 and 8
 
-Supported PHP versions: 7.0 (default) and 5.6 (adjust the compose file).
+Supported PHP versions: 7.x and 5.6.x.
 
 1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. You need to install docker 1.12, not docker toolbox. 
 
@@ -64,6 +64,9 @@ $ sudo chmod -R 775 sites/default/files
 ```yml
 DRUPAL_VERSION: 8
 ```
+
+Choose PHP version 
+```yml
 
 5\. Update database credentials in your settings.php file:
 ```
