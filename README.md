@@ -28,7 +28,7 @@ The Drupal bundle consist of the following containers:
 | <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">Nginx</a> | nginx || 8000 | ✓ |
 | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">PHP 7, 5.6</a> | php | `./` || ✓ |
 | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">MariaDB</a> | mariadb | `./docker-runtime/mariadb` || ✓ |
-| <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin">phpMyAdmin</a> | pma || 8001 | ✓ |
+| <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin" target="_blank">phpMyAdmin</a> | pma || 8001 | ✓ |
 | <a href="https://hub.docker.com/r/junxy/docker-mailcatcher" target="_blank">Mail catcher</a> | smtp || 8002 | ✓ |
 | <a href="https://hub.docker.com/_/redis/" target="_blank">Redis</a> | redis ||||
 | <a href="https://hub.docker.com/_/memcached/" target="_blank">Memcached</a> | memcached ||||
@@ -44,7 +44,7 @@ Supported Drupal versions: 7 and 8
 
 Supported PHP versions: 7.x and 5.6.x.
 
-1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. You need to install docker 1.12, not docker toolbox. 
+1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox. 
 
 For Linux additionally install <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a>
 
