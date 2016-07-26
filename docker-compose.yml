@@ -45,15 +45,15 @@ services:
     ports:
       - "8002:1080"
 
-  redis:
-    image: redis:3.2-alpine
-
-  memcached:
-    image: memcached:1.4-alpine
-
-  solr:
-    image: solr:5.5-alpine
-    volumes:
-      - ./docker-runtime/solr:/opt/solr/server/solr/mycores
-    ports:
-      - "8003:8983"
+#  redis:
+#    image: redis:3.2-alpine
+#
+#  memcached:
+#    image: memcached:1.4-alpine
+#
+#  solr:
+#    image: solr:5.5-alpine
+#    volumes:
+#      - ./docker-runtime/solr:/opt/solr/server/solr/mycores
+#    ports:
+#      - "8003:8983"
