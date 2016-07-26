@@ -26,13 +26,13 @@ The Drupal bundle consist of the following containers:
 | Container | Service name | Image | Volume | Port | Enabled by default |
 | --------- | ------------ | ----- | ------ | ---- | ------------------ |
 | Nginx | nginx | <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">wodby/drupal-nginx</a> || 8000 | ✓ |
-| PHP 7, 5.6 | php | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">wodby/drupal-php</a> | `./` || ✓ |
-| MariaDB | mariadb | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">wodby/drupal-mariadb</a> |  `./docker-runtime/mariadb` || ✓ |
+| PHP 7, 5.6 | php | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">wodby/drupal-php</a> | ✓ || ✓ |
+| MariaDB | mariadb | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">wodby/drupal-mariadb</a> | ✓ || ✓ |
 | phpMyAdmin | pma | <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin">phpmyadmin/phpmyadmin</a> || 8001 | ✓ |
 | Mail catcher | smtp | <a href="https://hub.docker.com/r/junxy/docker-mailcatcher" target="_blank">junxy/docker-mailcatcher</a> || 8002 | ✓ |
 | Redis | redis | <a href="https://hub.docker.com/_/redis/" target="_blank">redis:3.2-alpine</a> ||||
 | Memcached | memcached | <a href="https://hub.docker.com/_/memcached/" target="_blank">memcached:1.4-alpine</a> ||||
-| Search engine | solr | <a href="https://hub.docker.com/_/solr" target="_blank">solr:5.5-alpine</a> | `./docker-runtime/solr` |||
+| Search engine | solr | <a href="https://hub.docker.com/_/solr" target="_blank">solr:5.5-alpine</a> | ✓ |||
 
 PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
