@@ -22,9 +22,10 @@ services:
   nginx:
     image: wodby/drupal-nginx
     environment:
+      UPSTREAM: php
       DRUPAL_VERSION: 8 # Allowed: 7, 8
     volumes_from:
-      - app
+      - php
     ports:
       - "8000:80"
 
