@@ -23,16 +23,16 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 
 The Drupal bundle consist of the following containers:
 
-| Container | Service name | Image | Volume | Port | Enabled by default |
-| --------- | ------------ | ----- | ------ | ---- | ------------------ |
-| Nginx | nginx | <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">wodby/drupal-nginx</a> || 8000 | ✓ |
-| PHP 7, 5.6 | php | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">wodby/drupal-php</a> | ✓ || ✓ |
-| MariaDB | mariadb | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">wodby/drupal-mariadb</a> | ✓ || ✓ |
-| phpMyAdmin | pma | <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin">phpmyadmin/phpmyadmin</a> || 8001 | ✓ |
-| Mail catcher | smtp | <a href="https://hub.docker.com/r/junxy/docker-mailcatcher" target="_blank">junxy/docker-mailcatcher</a> || 8002 | ✓ |
-| Redis | redis | <a href="https://hub.docker.com/_/redis/" target="_blank">redis:3.2-alpine</a> ||||
-| Memcached | memcached | <a href="https://hub.docker.com/_/memcached/" target="_blank">memcached:1.4-alpine</a> ||||
-| Search engine | solr | <a href="https://hub.docker.com/_/solr" target="_blank">solr:5.5-alpine</a> | ✓ |||
+| Container | Service name | Volume | Port | Enabled by default |
+| --------- | ------------ | ------ | ---- | ------------------ |
+| <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">Nginx</a> | nginx || 8000 | ✓ |
+| <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">PHP 7, 5.6</a> | php | `./` || ✓ |
+| <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">MariaDB</a> | mariadb | `./docker-runtime/mariadb` || ✓ |
+| <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin">phpMyAdmin</a> | pma || 8001 | ✓ |
+| <a href="https://hub.docker.com/r/junxy/docker-mailcatcher" target="_blank">Mail catcher</a> | smtp || 8002 | ✓ |
+| <a href="https://hub.docker.com/_/redis/" target="_blank">Redis</a> | redis ||||
+| <a href="https://hub.docker.com/_/memcached/" target="_blank">Memcached</a> | memcached ||||
+| <a href="https://hub.docker.com/_/solr" target="_blank">Apache Solr</a> | solr | `./docker-runtime/solr` |||
 
 PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
