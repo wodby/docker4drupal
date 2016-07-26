@@ -97,15 +97,15 @@ $ docker-compose ps
 
 ## Drush
 
-PHP container has installed drush, connect to the container to use drush.
+PHP container has installed drush, [connect to the app container](#accessing-containers) to use drush.
 
 ## Composer
 
-PHP container has installed composer, connect to the container to use composer.
+PHP container has installed composer, [connect to the app container](#accessing-containers) to use composer.
 
 ## Xdebug
 
-If you want to debug your project, uncomment the following line in the compose file:
+If you want to use xdebug, uncomment the following line in the compose file:
 
 ```yml
 #    XDEBUG_CONFIG: xdebug.remote_autostart=1
@@ -115,15 +115,15 @@ See the <a href="https://github.com/Wodby/drupal-php/issues/1" target="_blank">k
 
 ## Database
 
-### Making a dump
+### Export
 
-Dump all databases:
+Exporting all databases:
 
 ```bash
 docker-compose exec db sh -c 'exec mysqldump --all-databases -uroot -p"root-password"' > databases.sql
 ```
 
-Dump a specific one:
+Exporting a specific database:
 
 ```bash
 docker-compose exec db sh -c 'exec mysqldump -uroot -p"root-password" my-db' > my-db.sql
@@ -158,7 +158,7 @@ $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_servers'] = array('cache:11211' => 'default');
 ```
 
-Also, don't forget to uncomment th following line in the compose file:
+Also, do not forget to uncomment the following line in the compose file:
 
 ```yml
 #  image: memcached:1.4-alpine
@@ -186,7 +186,7 @@ To get logs from a container simply run (skip the last param to get logs form al
 $ docker-compose logs [service]
 ```
 
-Example: real-time logs of php container:
+Example: real-time logs of the PHP (app) container:
 ```
 $ docker-compose logs -f app
 ```
