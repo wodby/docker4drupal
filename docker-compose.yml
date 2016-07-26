@@ -22,7 +22,7 @@ services:
   nginx:
     image: wodby/drupal-nginx
     environment:
-      UPSTREAM: php
+      NGINX_UPSTREAM_NAME: php
       DRUPAL_VERSION: 8 # Allowed: 7, 8
     volumes_from:
       - php
