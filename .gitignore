@@ -1,5 +1,2 @@
 .idea/
-docroot/
-mariadb/
-mariadb-init/
-solr/
+docker-runtime/

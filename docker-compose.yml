@@ -9,17 +9,15 @@ services:
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
     volumes:
-      - ./mariadb:/var/lib/mysql
-#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
-#    ports:
-#      - "3306:3306"
+      - ./docker-runtime/mariadb:/var/lib/mysql
+#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
 
   app:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
     environment:
       XDEBUG_CONFIG: xdebug.remote_autostart=0 # Set 1 to enable Xdebug.
     volumes:
-      - ./docroot:/var/www/html
+      - ./:/var/www/html
 
   web:
     image: wodby/drupal-nginx
@@ -47,19 +45,15 @@ services:
     ports:
       - "8002:1080"
 
-#  redis:
-#    image: redis:3.2-alpine
-#    ports:
-#      - "6379:6379"
+  redis:
+    image: redis:3.2-alpine
 
-#  memcached:
-#    image: memcached:1.4-alpine
-#    ports:
-#      - "11211:11211"
+  memcached:
+    image: memcached:1.4-alpine
 
-#  solr:
-#    image: solr:5.5-alpine
-#    volumes:
-#      - ./solr:/opt/solr/server/solr/mycores
-#    ports:
-#      - "8983:8983"
+  solr:
+    image: solr:5.5-alpine
+    volumes:
+      - ./docker-runtime/solr:/opt/solr/server/solr/mycores
+    ports:
+      - "8003:8983"
