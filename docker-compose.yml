@@ -1,7 +1,7 @@
 version: "2"
 
 services:
-  db:
+  mariadb:
     image: wodby/drupal-mariadb
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
@@ -12,14 +12,14 @@ services:
       - ./docker-runtime/mariadb:/var/lib/mysql
 #      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
 
-  app:
+  php:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
     environment:
       XDEBUG_CONFIG: xdebug.remote_autostart=0 # Set 1 to enable Xdebug.
     volumes:
       - ./:/var/www/html
 
-  web:
+  nginx:
     image: wodby/drupal-nginx
     environment:
       DRUPAL_VERSION: 8 # Allowed: 7, 8
@@ -32,7 +32,7 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: always
     environment:
-      PMA_HOST: db
+      PMA_HOST: mariadb
       PMA_USER: drupal
       PMA_PASSWORD: drupal
       PHP_UPLOAD_MAX_FILESIZE: 1G
