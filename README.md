@@ -42,7 +42,7 @@ __Feel free to adjust volumes and ports in the compose file for your convenience
 
 Supported Drupal versions: 7 and 8
 
-Supported PHP versions: 7.0 and 5.6
+Supported PHP versions: 7.0 (default) and 5.6 (adjust the compose file).
 
 1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. You need to install docker 1.12, not docker toolbox. 
 
@@ -133,7 +133,7 @@ docker-compose exec mariadb sh -c 'exec mysqldump -uroot -p"root-password" my-db
 
 To spin up a container with Redis cache and use it as a default cache storage follow these steps:
 
-1. Uncomment lines with memcached service definition in the compose file.
+1. Uncomment lines with redis service definition in the compose file.
 2. Download and install <a href="https://www.drupal.org/project/redis" target="_blank">redis module</a> 
 3. Add the following lines to the settings.php file:
 
