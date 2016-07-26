@@ -65,8 +65,10 @@ $ sudo chmod -R 775 sites/default/files
 DRUPAL_VERSION: 8
 ```
 
-Choose PHP version 
+Choose PHP version by modifying the name of the image:
 ```yml
+image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
+```
 
 5\. Update database credentials in your settings.php file:
 ```
