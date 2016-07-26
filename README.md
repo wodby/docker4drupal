@@ -32,7 +32,7 @@ The Drupal bundle consist of the following containers:
 | <a href="https://hub.docker.com/r/junxy/docker-mailcatcher" target="_blank">Mail catcher</a> | smtp || 8002 | ✓ |
 | <a href="https://hub.docker.com/_/redis/" target="_blank">Redis</a> | redis ||||
 | <a href="https://hub.docker.com/_/memcached/" target="_blank">Memcached</a> | memcached ||||
-| <a href="https://hub.docker.com/_/solr" target="_blank">Apache Solr</a> | solr | `./docker-runtime/solr` |||
+| <a href="https://hub.docker.com/_/solr" target="_blank">Apache Solr</a> | solr | `./docker-runtime/solr` | 8003 ||
 
 PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
