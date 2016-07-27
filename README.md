@@ -9,7 +9,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Xdebug](#xdebug)
 * [Database](#database)
 * [Cache](#cache)
-* [SMTP](#smtp)
+* [Mailhog](#mailhog)
 * [phpMyAdmin](#phpmyadmin)
 * [Apache Solr](#apache-solr)
 * [Accessing containers](#accessing-containers)
@@ -29,7 +29,7 @@ The Drupal bundle consist of the following containers:
 | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">PHP 7, 5.6</a> | php | `./` || ✓ |
 | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">MariaDB</a> | mariadb | `./docker-runtime/mariadb` || ✓ |
 | <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin" target="_blank">phpMyAdmin</a> | pma || 8001 | ✓ |
-| <a href="https://hub.docker.com/r/junxy/docker-mailcatcher" target="_blank">Mail catcher</a> | smtp || 8002 | ✓ |
+| <a href="https://hub.docker.com/r/mailhog/mailhog" target="_blank">Mailhog</a> | mailhog || 8002 | ✓ |
 | <a href="https://hub.docker.com/_/redis/" target="_blank">Redis</a> | redis ||||
 | <a href="https://hub.docker.com/_/memcached/" target="_blank">Memcached</a> | memcached ||||
 | <a href="https://hub.docker.com/_/solr" target="_blank">Apache Solr</a> | solr | `./docker-runtime/solr` | 8003 ||
@@ -169,9 +169,9 @@ $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_servers'] = array('memcached:11211' => 'default');
 ```
 
-## SMTP
+## Mailhog
 
-By default, container with mail catcher included in the bundle. It will catch all email sent from PHP container. You can view emails by visiting localhost:8002.
+By default, container with mailhog included in the bundle. It will catch all email sent from the PHP container. You can view emails by visiting its admin UI on localhost:8002.
 
 ## phpMyAdmin
 
