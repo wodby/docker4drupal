@@ -100,16 +100,17 @@ $ docker-compose ps
 
 ## Drush
 
-PHP container has installed drush, [connect to the php container](#accessing-containers) to use drush.
-
-If you want to run drush in the php containter, be sure to open the shell as user 82 (www-data) to avoid access problems in the web server, which is running as user 82, too:
+PHP container has installed drush. When running drush make sure to open the shell as user 82 (www-data) to avoid access problems in the web server, which is running as user 82, too:
 ```bash
 $ docker-compose exec --user 82 php drush
 ```
 
 ## Composer
 
-PHP container has installed composer, [connect to the php container](#accessing-containers) to use composer.
+PHP container has installed composer. Example:
+```bash
+$ docker-compose exec --user 82 php composer update
+```
 
 ## Xdebug
 
