@@ -15,7 +15,7 @@ services:
   php:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6.
     environment:
-      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S smtp:1025
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       PHP_XDEBUG_ENABLED: 0 # Set 1 to enable.
     volumes:
       - ./:/var/www/html
@@ -42,7 +42,7 @@ services:
     ports:
      - "8001:80"
 
-  smtp:
+  mailhog:
     image: mailhog/mailhog
     ports:
       - "8002:8025"
