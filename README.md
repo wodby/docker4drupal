@@ -44,7 +44,7 @@ Supported Drupal versions: 7 and 8
 
 Supported PHP versions: 7.x and 5.6.x.
 
-1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox. 
+1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. __For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.__ 
 
 For Linux additionally install <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a>
 
