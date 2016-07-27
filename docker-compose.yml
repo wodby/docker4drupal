@@ -13,9 +13,10 @@ services:
 #      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
 
   php:
-    image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
+    image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6.
     environment:
-      XDEBUG_CONFIG: xdebug.remote_autostart=0 # Set 1 to enable Xdebug.
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S smtp:1025
+      PHP_XDEBUG_ENABLED: 0 # Set 1 to enable.
     volumes:
       - ./:/var/www/html
 
@@ -23,7 +24,7 @@ services:
     image: wodby/drupal-nginx
     environment:
       NGINX_UPSTREAM_NAME: php
-      DRUPAL_VERSION: 8 # Allowed: 7, 8
+      DRUPAL_VERSION: 8 # Allowed: 7, 8.
     volumes_from:
       - php
     ports:
@@ -42,9 +43,9 @@ services:
      - "8001:80"
 
   smtp:
-    image: junxy/docker-mailcatcher
+    image: mailhog/mailhog
     ports:
-      - "8002:1080"
+      - "8002:8025"
 
 #  redis:
 #    image: redis:3.2-alpine
