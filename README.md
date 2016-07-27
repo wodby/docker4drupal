@@ -1,5 +1,7 @@
 # Docker-based environment for Drupal
 
+[![Join the chat at https://gitter.im/Wodby/drupal-compose](https://badges.gitter.im/Wodby/drupal-compose.svg)](https://gitter.im/Wodby/drupal-compose?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows. 
 
 * [Overview](#overview)
