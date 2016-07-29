@@ -6,6 +6,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Instructions](#instructions)
 * [Drush](#drush)
 * [Composer](#composer)
+* [Drupal Console](#drupal-console)
 * [Xdebug](#xdebug)
 * [Database](#database)
 * [Cache](#cache)
@@ -110,6 +111,13 @@ $ docker-compose exec --user 82 php drush
 PHP container has installed composer. Example:
 ```bash
 $ docker-compose exec --user 82 php composer update
+```
+
+## Drupal Console
+
+PHP container has installed drupal console. Example:
+```bash
+$ docker-compose exec --user 82 php drupal list
 ```
 
 ## Xdebug
