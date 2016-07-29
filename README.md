@@ -4,20 +4,23 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 
 * [Overview](#overview)
 * [Instructions](#instructions)
-* [Drush](#drush)
-* [Composer](#composer)
-* [Drupal Console](#drupal-console)
-* [Xdebug](#xdebug)
-* [Database](#database)
-* [Cache](#cache)
-* [Mailhog](#mailhog)
-* [phpMyAdmin](#phpmyadmin)
-* [Apache Solr](#apache-solr)
-* [Accessing containers](#accessing-containers)
+* [Containers](#containers)
+    * [Accessing containers](#accessing-containers)
+    * [PHP](#php)
+        * [Drush](#drush)
+        * [Composer](#composer)
+        * [Drupal Console](#drupal-console)
+        * [Xdebug](#xdebug)    
+    * [MariaDB](#mariadb)
+        * [Import](#import)
+        * [Export](#export)
+    * [Redis](#redis)
+    * [Memcached](#memcached)
+    * [Mailhog](#mailhog)
+    * [phpMyAdmin](#phpmyadmin)
+    * [Apache Solr](#apache-solr)
 * [Logs](#logs)
-* [Updating](#updating)
 * [Status](#status)
-* [Troubleshooting](#troubleshooting)
 * [Going beyond local machine](#going-beyond-local-machine)
 
 ## Overview
@@ -66,12 +69,12 @@ $ sudo chmod -R 775 sites/default/files
 DRUPAL_VERSION: 8
 ```
 
-Choose PHP version by modifying the name of the image:
+5\. Choose PHP version by modifying the name of the image:
 ```yml
 image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6
 ```
 
-5\. Update database credentials in your settings.php file:
+6\. Update database credentials in your settings.php file:
 ```
 database: drupal
 username: drupal
@@ -79,48 +82,65 @@ password: drupal
 host: mariadb
 ```
 
-6\. If you want to import your database, uncomment the following line in the compose file:
+7\. If you want to import your database, uncomment the following line in the compose file:
 ```yml
 #      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) her
 ```
 
 Create the volume directory `./docker-runtime/mariadb-init` in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported once MariaDB container has started.
 
-7\. Now, let's run the compose file. It will download the images and run the containers:
+8\. If you need to deploy one of the optional containers ([Redis](#redis), [Memcached](#memcached), [Apache Solr](#apache-solr)) uncomment the corresponding lines in the compose file.
+
+9\. Now, let's run the compose file. It will download the images and run the containers:
 ```bash
 $ docker-compose up -d
 ```
 
-8\. Make sure all containers are running by executing:
+10\. Make sure all containers are running by executing:
 
 ```bash
 $ docker-compose ps
 ```
 
-9\. That's it! You drupal website should be up and running at http://localhost:8000. 
+11\. That's it! You drupal website should be up and running at http://localhost:8000. 
 
-## Drush
+## Containers
+
+### Accessing containers
+
+You can connect to any container by executing the following command:
+```bash
+$ docker-compose exec php sh
+```
+
+Replace `php` with the name of your service (e.g. `mariadb`, `nginx`, etc).
+
+### PHP
+
+Currently PHP version 5.6 and 7 are provided. Check out [the instructions (step 5)](#instructions) to learn how to switch the version.
+
+#### Drush
 
 PHP container has installed drush. When running drush make sure to open the shell as user 82 (www-data) to avoid access problems in the web server, which is running as user 82, too:
 ```bash
 $ docker-compose exec --user 82 php drush
 ```
 
-## Composer
+#### Composer
 
 PHP container has installed composer. Example:
 ```bash
 $ docker-compose exec --user 82 php composer update
 ```
 
-## Drupal Console
+#### Drupal Console
 
 PHP container has installed drupal console. Example:
 ```bash
 $ docker-compose exec --user 82 php drupal list
 ```
 
-## Xdebug
+#### Xdebug
 
 If you want to use xdebug, uncomment the following line in the compose file:
 
@@ -130,9 +150,13 @@ If you want to use xdebug, uncomment the following line in the compose file:
 
 See the <a href="https://github.com/Wodby/drupal-php/issues/1" target="_blank">known issue</a> with Xdebug in Mac OS.
 
-## Database
+### MariaDB
 
-### Export
+#### Import
+
+Check out [the instructions (step 7)](#instructions) to learn how to import your existing database. 
+
+#### Export
 
 Exporting all databases:
 
@@ -145,8 +169,6 @@ Exporting a specific database:
 ```bash
 docker-compose exec mariadb sh -c 'exec mysqldump -uroot -p"root-password" my-db' > my-db.sql
 ```
-
-## Cache
 
 ### Redis
 
@@ -183,26 +205,17 @@ $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_servers'] = array('memcached:11211' => 'default');
 ```
 
-## Mailhog
+### Mailhog
 
 By default, container with mailhog included in the bundle. It will catch all email sent from the PHP container. You can view emails by visiting its admin UI on localhost:8002.
 
-## phpMyAdmin
+### phpMyAdmin
 
 By default, container with phpMyAdmin included in the bundle. You can accessit by localhost:8001
 
-## Apache Solr
+### Apache Solr
 
 To spin up a container with Apache Solr search engine uncomment lines with solr service definition in the compose file. Use  volume directory `./docker-runtime/solr` to access configuration files. Solr admin UI can be accessed by localhost:8003
-
-## Accessing containers
-
-You can connect to any container by executing the following command:
-```bash
-$ docker-compose exec php sh
-```
-
-Replace `php` with the name of your service (e.g. `mariadb`, `nginx`).
 
 ## Logs
 
@@ -216,20 +229,14 @@ Example: real-time logs of the PHP container:
 $ docker-compose logs -f php
 ```
 
-## Updating
+## Status
+
+We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please submit an issue.
 
 We update containers from time to time, to get the lastest changes simply run again:
 ```
 $ docker-compose up -d
 ```
-
-## Status
-
-We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please sumbit an issue.
-
-## Troubleshooting
-
-In case you have any problems submit an issue or contact us at hello [at] wodby.com.
 
 ## Going beyond local machine
 
