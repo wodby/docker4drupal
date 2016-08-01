@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: drupal
     volumes:
       - ./docker-runtime/mariadb:/var/lib/mysql
-#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
+#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 
   php:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6.
@@ -24,6 +24,7 @@ services:
     image: wodby/drupal-nginx
     environment:
       NGINX_UPSTREAM_NAME: php
+#      NGINX_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
     volumes_from:
       - php
