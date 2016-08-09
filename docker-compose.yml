@@ -8,13 +8,17 @@ services:
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
+#    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # The simple way to override the mariadb config.
     volumes:
       - ./docker-runtime/mariadb:/var/lib/mysql
-#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
+#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 
   php:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6.
     environment:
+      PHP_SITE_NAME: dev
+      PHP_HOST_NAME: localhost:8000
+#      PHP_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       PHP_XDEBUG_ENABLED: 0 # Set 1 to enable.
     volumes:
@@ -23,7 +27,9 @@ services:
   nginx:
     image: wodby/drupal-nginx
     environment:
+      NGINX_SERVER_NAME: localhost
       NGINX_UPSTREAM_NAME: php
+#      NGINX_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
     volumes_from:
       - php
@@ -32,7 +38,6 @@ services:
 
   pma:
     image: phpmyadmin/phpmyadmin
-    restart: always
     environment:
       PMA_HOST: mariadb
       PMA_USER: drupal
@@ -59,3 +64,15 @@ services:
 #      - ./docker-runtime/solr:/opt/solr/server/solr/mycores
 #    ports:
 #      - "8003:8983"
+
+#  varnish:
+#    image: wodby/drupal-varnish
+#    environment:
+#      VARNISH_SECRET: secret
+#      VARNISH_BACKEND_HOST: nginx
+#      VARNISH_BACKEND_PORT: 80
+#      VARNISH_MEMORY_SIZE: 256M
+#      VARNISH_STORAGE_SIZE: 1024M
+#    ports:
+#      - "8004:6081" # HTTP Proxy
+#      - "8005:6082" # Control terminal
