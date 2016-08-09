@@ -15,6 +15,9 @@ services:
   php:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6.
     environment:
+      PHP_SITE_NAME: dev
+      PHP_HOST_NAME: localhost:8000
+#      PHP_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       PHP_XDEBUG_ENABLED: 0 # Set 1 to enable.
     volumes:
@@ -23,6 +26,7 @@ services:
   nginx:
     image: wodby/drupal-nginx
     environment:
+      NGINX_SERVER_NAME: localhost
       NGINX_UPSTREAM_NAME: php
 #      NGINX_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
@@ -33,7 +37,6 @@ services:
 
   pma:
     image: phpmyadmin/phpmyadmin
-    restart: always
     environment:
       PMA_HOST: mariadb
       PMA_USER: drupal
