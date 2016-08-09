@@ -19,6 +19,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
     * [Mailhog](#mailhog)
     * [phpMyAdmin](#phpmyadmin)
     * [Apache Solr](#apache-solr)
+    * [Varnish](#varnish)
 * [Logs](#logs)
 * [Status](#status)
 * [Going beyond local machine](#going-beyond-local-machine)
@@ -37,8 +38,9 @@ The Drupal bundle consist of the following containers:
 | <a href="https://hub.docker.com/_/redis/" target="_blank">Redis</a> | redis ||||
 | <a href="https://hub.docker.com/_/memcached/" target="_blank">Memcached</a> | memcached ||||
 | <a href="https://hub.docker.com/_/solr" target="_blank">Apache Solr</a> | solr | `./docker-runtime/solr` | 8003 ||
+| <a href="https://hub.docker.com/r/wodby/drupal-varnish" target="_blank">Varnish 4.1</a> | varnish || 8004 ||
 
-PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
+PHP, Nginx, MariaDB and Varnish configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
 ## Instructions 
 
@@ -126,6 +128,11 @@ PHP container has installed drush. When running drush make sure to open the shel
 $ docker-compose exec --user 82 php drush
 ```
 
+Also, you can use preconfigured drush alias @dev:   
+```bash
+$ docker-compose exec --user 82 php drush @dev
+```
+
 #### Composer
 
 PHP container has installed composer. Example:
@@ -211,11 +218,15 @@ By default, container with mailhog included in the bundle. It will catch all ema
 
 ### phpMyAdmin
 
-By default, container with phpMyAdmin included in the bundle. You can accessit by localhost:8001
+By default, container with phpMyAdmin included in the bundle. You can access it by localhost:8001
 
 ### Apache Solr
 
 To spin up a container with Apache Solr search engine uncomment lines with solr service definition in the compose file. Use  volume directory `./docker-runtime/solr` to access configuration files. Solr admin UI can be accessed by localhost:8003
+
+### Varnish
+
+To spin up a container with Varnish uncomment lines with varnish service definition in the compose file.
 
 ## Logs
 
