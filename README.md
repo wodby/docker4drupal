@@ -6,6 +6,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Instructions](#instructions)
 * [Containers](#containers)
     * [Accessing containers](#accessing-containers)
+    * [Nginx](#nginx)
     * [PHP](#php)
         * [Drush](#drush)
         * [Composer](#composer)
@@ -20,6 +21,8 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
     * [phpMyAdmin](#phpmyadmin)
     * [Apache Solr](#apache-solr)
     * [Varnish](#varnish)
+* [Multiple projects](#multiple-projects)
+* [Docroot in subdirectory](#docroot-in-subdirectory)
 * [Logs](#logs)
 * [Status](#status)
 * [Going beyond local machine](#going-beyond-local-machine)
@@ -28,17 +31,17 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 
 The Drupal bundle consist of the following containers:
 
-| Container | Service name | Volume | Port | Enabled by default |
-| --------- | ------------ | ------ | ---- | ------------------ |
-| <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">Nginx</a> | nginx || 8000 | ✓ |
-| <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">PHP 7, 5.6</a> | php | `./` || ✓ |
-| <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">MariaDB</a> | mariadb | `./docker-runtime/mariadb` || ✓ |
-| <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin" target="_blank">phpMyAdmin</a> | pma || 8001 | ✓ |
-| <a href="https://hub.docker.com/r/mailhog/mailhog" target="_blank">Mailhog</a> | mailhog || 8002 | ✓ |
-| <a href="https://hub.docker.com/_/redis/" target="_blank">Redis</a> | redis ||||
-| <a href="https://hub.docker.com/_/memcached/" target="_blank">Memcached</a> | memcached ||||
-| <a href="https://hub.docker.com/_/solr" target="_blank">Apache Solr</a> | solr | `./docker-runtime/solr` | 8003 ||
-| <a href="https://hub.docker.com/r/wodby/drupal-varnish" target="_blank">Varnish 4.1</a> | varnish || 8004 ||
+| Container | Service name | Image | Public Port | Enabled by default |
+| --------- | ------------ | ----- | ----------- | ------------------ |
+| [Nginx](#nginx) | nginx | <a href="https://hub.docker.com/r/wodby/drupal-nginx/" target="_blank">wodby/drupal-nginx</a> | 8000 | ✓ |
+| [PHP 7 / 5.6](#php) | php | <a href="https://hub.docker.com/r/wodby/drupal-php/" target="_blank">wodby/drupal-php</a> |  | ✓ |
+| [MariaDB](#mariadb) | mariadb | <a href="https://hub.docker.com/r/wodby/drupal-mariadb/" target="_blank">wodby/drupal-mariadb</a> | | ✓ |
+| [phpMyAdmin](#phpmyadmin) | pma | <a href="https://hub.docker.com/r/phpmyadmin/phpmyadmin" target="_blank">phpmyadmin/phpmyadmin</a> | 8001 | ✓ |
+| [Mailhog](#mailhog) | mailhog | <a href="https://hub.docker.com/r/mailhog/mailhog" target="_blank">mailhog/mailhog</a> | 8002 | ✓ |
+| [Redis](#redis) | redis | <a href="https://hub.docker.com/_/redis/" target="_blank">redis/redis</a> |||
+| [Memcached](#memcached) | memcached | <a href="https://hub.docker.com/_/memcached/" target="_blank">_/memcached</a> |||
+| [Solr](#solr) | solr | <a href="https://hub.docker.com/_/solr" target="_blank">_/solr</a> | 8003 ||
+| [Varnish](#varnish) | varnish | <a href="https://hub.docker.com/r/wodby/drupal-varnish" target="_blank">wodby/drupal-varnish</a> | 8004 ||
 
 PHP, Nginx, MariaDB and Varnish configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
@@ -117,9 +120,13 @@ $ docker-compose exec php sh
 
 Replace `php` with the name of your service (e.g. `mariadb`, `nginx`, etc).
 
+### Nginx
+
+Nginx is being used as a web server. Nginx is pre-configured to be used with Drupal 7 and 8. 
+
 ### PHP
 
-Currently PHP version 5.6 and 7 are provided. Check out [the instructions (step 5)](#instructions) to learn how to switch the version.
+PHP is used with Nginx via PHP-FPM. Currently PHP version 5.6 and 7 are provided. Check out [the instructions (step 5)](#instructions) to learn how to switch the version.
 
 #### Drush
 
@@ -158,6 +165,13 @@ If you want to use xdebug, uncomment the following line in the compose file:
 See the <a href="https://github.com/Wodby/drupal-php/issues/1" target="_blank">known issue</a> with Xdebug in Mac OS.
 
 ### MariaDB
+
+#### Configuring
+
+Many configuration options can be passed as flags without adjusting a cnf file. See example in the compose file:
+```bash
+#    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+```
 
 #### Import
 
@@ -226,7 +240,15 @@ To spin up a container with Apache Solr search engine uncomment lines with solr 
 
 ### Varnish
 
-To spin up a container with Varnish uncomment lines with varnish service definition in the compose file.
+To spin up a container with Varnish uncomment lines with varnish service definition in the compose file. Use the port specified in the compose file to access the website via Varnish.
+
+## Multiple projects
+
+To use D4D with multiple projects simply adjust the ports in the compose file, e.g. instead of ports 8000, 8001, 8002 you can use 7000, 7001, 7002.
+
+## Docroot in subdirectory
+
+If your docroot located in a subdirectory use options `PHP_DOCROOT` and `NGINX_DOCROOT` to specify the path (relative path inside the /var/www/html/ directory) for PHP and Nginx containers.
 
 ## Logs
 
