@@ -67,6 +67,8 @@ services:
 
 #  varnish:
 #    image: wodby/drupal-varnish
+#    depends_on:
+#      - nginx
 #    environment:
 #      VARNISH_SECRET: secret
 #      VARNISH_BACKEND_HOST: nginx
