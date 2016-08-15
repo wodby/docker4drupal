@@ -17,7 +17,7 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
         * [Export](#export)
     * [Redis](#redis)
     * [Memcached](#memcached)
-    * [Memcached Admin](#Memcached-Admin)
+    * [Memcached Admin](#memcached-admin)
     * [Mailhog](#mailhog)
     * [phpMyAdmin](#phpmyadmin)
     * [Apache Solr](#apache-solr)
