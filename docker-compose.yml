@@ -58,6 +58,13 @@ services:
 #  memcached:
 #    image: memcached:1.4-alpine
 
+#  phpMemcachedAdmin:
+#    image: phynias/phpmemcachedadmin
+#    depends_on:
+#      - memcached
+#    ports:
+#      - "8006:80"
+
 #  solr:
 #    image: solr:5.5-alpine
 #    volumes:
