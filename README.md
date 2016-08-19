@@ -156,10 +156,10 @@ $ docker-compose exec --user 82 php drupal list
 
 #### Xdebug
 
-If you want to use xdebug, uncomment the following line in the compose file:
+If you want to use xdebug, enable the following option in the compose file:
 
 ```yml
-#    XDEBUG_CONFIG: xdebug.remote_autostart=1
+PHP_XDEBUG_ENABLED: 0 # Set 1 to enable.
 ```
 
 See the <a href="https://github.com/Wodby/drupal-php/issues/1" target="_blank">known issue</a> with Xdebug in Mac OS.
