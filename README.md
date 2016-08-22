@@ -227,10 +227,10 @@ $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_servers'] = array('memcached:11211' => 'default');
 ```
 
-### Memcached-Admin
+### Memcached Admin
 
-  To spin up a container with the Memcached Admin User interface uncommnent to phpMemcachedAdmin service definition.
-  To get started visit localhost:8006/index.php
+To spin up a container with the Memcached Admin User interface uncomment to memcached-admin service definition.
+To get started visit http://localhost:8006/index.php
 
 ### Mailhog
 

@@ -58,10 +58,8 @@ services:
 #  memcached:
 #    image: memcached:1.4-alpine
 
-#  phpMemcachedAdmin:
+#  memcached-admin:
 #    image: phynias/phpmemcachedadmin
-#    depends_on:
-#      - memcached
 #    ports:
 #      - "8006:80"
 
