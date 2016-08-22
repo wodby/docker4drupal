@@ -1,6 +1,6 @@
 # Native docker-based local environment for Drupal
 
-Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows. 
+Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows.
 
 * [Overview](#overview)
 * [Instructions](#instructions)
@@ -11,12 +11,13 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
         * [Drush](#drush)
         * [Composer](#composer)
         * [Drupal Console](#drupal-console)
-        * [Xdebug](#xdebug)    
+        * [Xdebug](#xdebug)
     * [MariaDB](#mariadb)
         * [Import](#import)
         * [Export](#export)
     * [Redis](#redis)
     * [Memcached](#memcached)
+    * [Memcached Admin](#memcached-admin)
     * [Mailhog](#mailhog)
     * [phpMyAdmin](#phpmyadmin)
     * [Apache Solr](#apache-solr)
@@ -45,7 +46,7 @@ The Drupal bundle consist of the following containers:
 
 PHP, Nginx, MariaDB and Varnish configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
-## Instructions 
+## Instructions
 
 __Feel free to adjust volumes and ports in the compose file for your convenience.__
 
@@ -53,15 +54,15 @@ Supported Drupal versions: 7 and 8
 
 Supported PHP versions: 7.x and 5.6.x.
 
-1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. __For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.__ 
+1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. __For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.__
 
 For Linux additionally install <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a>
 
-2\. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml" target="_blank">the compose file</a> from this repository and put it to your Drupal project codebase (you might want to add docker-compose.yml to .gitignore). 
+2\. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml" target="_blank">the compose file</a> from this repository and put it to your Drupal project codebase (you might want to add docker-compose.yml to .gitignore).
 
-3\. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/" target="_blank">do not have a permanent storage</a>, directories from the host machine (volumes) should be mounted: one with code of your Drupal project and another with database files. 
+3\. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/" target="_blank">do not have a permanent storage</a>, directories from the host machine (volumes) should be mounted: one with code of your Drupal project and another with database files.
 
-By default, the directory with the compose file (volume `./`) will be mounted to PHP container (assuming it's your codebase directory). Additionally `docker-runtime` directory will be created to store files for mariadb and, optionally, solr containers. Do not forget to add `docker-runtime` to your .gitignore file. 
+By default, the directory with the compose file (volume `./`) will be mounted to PHP container (assuming it's your codebase directory). Additionally `docker-runtime` directory will be created to store files for mariadb and, optionally, solr containers. Do not forget to add `docker-runtime` to your .gitignore file.
 
 **Linux only**: fix permissions for your files directory with:
 ```bash
@@ -107,7 +108,7 @@ $ docker-compose up -d
 $ docker-compose ps
 ```
 
-11\. That's it! You drupal website should be up and running at http://localhost:8000. 
+11\. That's it! You drupal website should be up and running at http://localhost:8000.
 
 ## Containers
 
@@ -122,7 +123,7 @@ Replace `php` with the name of your service (e.g. `mariadb`, `nginx`, etc).
 
 ### Nginx
 
-Nginx is being used as a web server. Nginx is pre-configured to be used with Drupal 7 and 8. 
+Nginx is being used as a web server. Nginx is pre-configured to be used with Drupal 7 and 8.
 
 ### PHP
 
@@ -135,7 +136,7 @@ PHP container has installed drush. When running drush make sure to open the shel
 $ docker-compose exec --user 82 php drush
 ```
 
-Also, you can use preconfigured drush alias @dev:   
+Also, you can use preconfigured drush alias @dev:
 ```bash
 $ docker-compose exec --user 82 php drush @dev
 ```
@@ -175,7 +176,7 @@ Many configuration options can be passed as flags without adjusting a cnf file. 
 
 #### Import
 
-Check out [the instructions (step 7)](#instructions) to learn how to import your existing database. 
+Check out [the instructions (step 7)](#instructions) to learn how to import your existing database.
 
 #### Export
 
@@ -196,7 +197,7 @@ docker-compose exec mariadb sh -c 'exec mysqldump -uroot -p"root-password" my-db
 To spin up a container with Redis cache and use it as a default cache storage follow these steps:
 
 1. Uncomment lines with redis service definition in the compose file.
-2. Download and install <a href="https://www.drupal.org/project/redis" target="_blank">redis module</a> 
+2. Download and install <a href="https://www.drupal.org/project/redis" target="_blank">redis module</a>
 3. Add the following lines to the settings.php file:
 
 ```php
@@ -214,7 +215,7 @@ $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 To spin up a container with Memcached and use it as a default cache storage follow these steps:
 
 1. Uncomment lines with memcached service definition in the compose file.
-2. Download and install <a href="https://www.drupal.org/project/memcache" target="_blank">memcache module</a> 
+2. Download and install <a href="https://www.drupal.org/project/memcache" target="_blank">memcache module</a>
 3. Add the following lines to the settings.php file:
 
 ```php
@@ -225,6 +226,11 @@ $conf['cache_default_class'] = 'MemCacheDrupal';
 $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_servers'] = array('memcached:11211' => 'default');
 ```
+
+### Memcached-Admin
+
+  To spin up a container with the Memcached Admin User interface uncommnent to phpMemcachedAdmin service definition.
+  To get started visit localhost:8006/index.php
 
 ### Mailhog
 
@@ -273,4 +279,4 @@ $ docker-compose up -d
 
 ## Going beyond local machine
 
-Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers. 
+Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers.
