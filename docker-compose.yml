@@ -9,8 +9,8 @@ services:
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
 #    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # The simple way to override the mariadb config.
-    volumes:
-      - ./docker-runtime/mariadb:/var/lib/mysql
+#   volumes:
+#      - ./docker-runtime/mariadb:/var/lib/mysql # If you wish to keep your database even if container volumes are removed, uncomment this line.
 #      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 
   php:
