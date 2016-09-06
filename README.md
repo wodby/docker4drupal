@@ -4,6 +4,8 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 
 Docker4Drupal is designed to be used for local development, if you're looking for a dev/staging/production solution check out <a href="https://wodby.com" target="_blank">Wodby</a>. Use Wodby to deploy container-based infrastructure consistent with Docker4Drupal to any server.
 
+---
+
 * [Overview](#overview)
 * [Instructions](#instructions)
 * [Containers](#containers)
