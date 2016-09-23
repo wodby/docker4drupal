@@ -2,6 +2,10 @@
 
 Use this Docker compose file to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows.
 
+Docker4Drupal is designed to be used for local development, if you're looking for a dev/staging/production solution check out <a href="https://wodby.com" target="_blank">Wodby</a>. Use Wodby to deploy container-based infrastructure consistent with Docker4Drupal to any server.
+
+---
+
 * [Overview](#overview)
 * [Instructions](#instructions)
 * [Containers](#containers)
@@ -26,7 +30,6 @@ Use this Docker compose file to spin up local environment for Drupal with a *nat
 * [Docroot in subdirectory](#docroot-in-subdirectory)
 * [Logs](#logs)
 * [Status](#status)
-* [Going beyond local machine](#going-beyond-local-machine)
 
 ## Overview
 
@@ -90,7 +93,7 @@ host: mariadb
 
 7\. If you want to import your database, uncomment the following line in the compose file:
 ```yml
-#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) her
+#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here
 ```
 
 Create the volume directory `./docker-runtime/mariadb-init` in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported once MariaDB container has started.
@@ -276,7 +279,3 @@ We update containers from time to time, to get the lastest changes simply run ag
 ```
 $ docker-compose up -d
 ```
-
-## Going beyond local machine
-
-Check out <a href="https://wodby.com" target="_blank">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers.
