@@ -21,6 +21,9 @@ services:
 #      PHP_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       PHP_XDEBUG_ENABLED: 0 # Set 1 to enable.
+      PHP_XDEBUG_AUTOSTART: 1
+      PHP_XDEBUG_REMOTE_CONNECT_BACK: 1
+      PHP_XDEBUG_REMOTE_HOST: "localhost"
     volumes:
       - ./:/var/www/html
 
