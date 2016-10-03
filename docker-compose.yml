@@ -20,10 +20,10 @@ services:
       PHP_HOST_NAME: localhost:8000
 #      PHP_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_XDEBUG_ENABLED: 0 # Set 1 to enable.
-      PHP_XDEBUG_AUTOSTART: 1
-      PHP_XDEBUG_REMOTE_CONNECT_BACK: 1
-      PHP_XDEBUG_REMOTE_HOST: "localhost"
+      # PHP_XDEBUG_ENABLED: 1
+      # PHP_XDEBUG_AUTOSTART: 1
+      # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
+      # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
       - ./:/var/www/html
 
