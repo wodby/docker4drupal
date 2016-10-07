@@ -92,7 +92,7 @@ services:
 #      - "8005:6082" # Control terminal
 
 #  sshd:
-#    image: sshd
+#    image: wodby/drupal-sshd
 #    environment:
 #      SSH_PUB_KEY: "ssh-rsa ..."
 #    volumes_from:
