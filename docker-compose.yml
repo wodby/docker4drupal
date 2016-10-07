@@ -86,3 +86,12 @@ services:
 #    ports:
 #      - "8004:6081" # HTTP Proxy
 #      - "8005:6082" # Control terminal
+
+#  sshd:
+#    image: sshd
+#    environment:
+#      SSH_PUB_KEY: "ssh-rsa ..."
+#    volumes_from:
+#      - php
+#    ports:
+#      - "8006:22"
