@@ -70,10 +70,10 @@ services:
 #    image: solr:5.5-alpine
 #    volumes:
 #      - ./docker-runtime/solr:/opt/solr/server/solr/mycores
-    entrypoint:
-      - docker-entrypoint.sh
-      - solr-precreate
-      - main
+#    entrypoint:
+#      - docker-entrypoint.sh
+#      - solr-precreate
+#      - main
 #    ports:
 #      - "8003:8983"
 
