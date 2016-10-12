@@ -9,24 +9,8 @@ Docker4Drupal is designed to be used for local development, if you're looking fo
 * [Overview](#overview)
 * [Instructions](#instructions)
 * [Containers](#containers)
-    * [Accessing containers](#accessing-containers)
-    * [Nginx](#nginx)
-    * [PHP](#php)
-        * [Drush](#drush)
-        * [Composer](#composer)
-        * [Drupal Console](#drupal-console)
-        * [Xdebug](#xdebug)
-    * [MariaDB](#mariadb)
-        * [Import](#import)
-        * [Export](#export)
-    * [Redis](#redis)
-    * [Memcached](#memcached)
-    * [Memcached Admin](#memcached-admin)
-    * [Mailhog](#mailhog)
-    * [phpMyAdmin](#phpmyadmin)
-    * [Apache Solr](#apache-solr)
-    * [Varnish](#varnish)
 * [Multiple projects](#multiple-projects)
+* [CI/CD](#cicd)
 * [Docroot in subdirectory](#docroot-in-subdirectory)
 * [Logs](#logs)
 * [Status](#status)
@@ -275,6 +259,12 @@ To spin up a container with Varnish uncomment lines with varnish service definit
 ## Multiple projects
 
 To use D4D with multiple projects simply adjust the ports in the compose file, e.g. instead of ports 8000, 8001, 8002 you can use 7000, 7001, 7002.
+
+## CI/CD
+
+You can use docker4drupal containers for your test environment in your CI/CD workflow:
+* <a href="https://blog.wodby.com/continuous-integration-and-delivery-drupal-docker-circleci-192c6ac97087#.gh8sggeze" target="_blank">CircleCI example</a>
+* Jenkins example TBD
 
 ## Docroot in subdirectory
 
