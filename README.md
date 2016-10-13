@@ -264,7 +264,7 @@ To use D4D with multiple projects simply adjust the ports in the compose file, e
 
 You can use docker4drupal containers for your test environment in your CI/CD workflow:
 * <a href="https://blog.wodby.com/continuous-integration-and-delivery-drupal-docker-circleci-192c6ac97087#.gh8sggeze" target="_blank">CircleCI example</a>
-* Jenkins example TBD
+* <a href="https://blog.wodby.com/drupal-8-ci-cd-with-jenkins-part-1-integration-eabd0f5c4f75#.obnyfv84i" target="_blank">Jenkins example</a>
 
 ## Docroot in subdirectory
 
