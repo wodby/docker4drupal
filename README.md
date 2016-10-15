@@ -286,11 +286,14 @@ $ docker-compose logs -f php
 
 ## FAQ
 
+### Windows permissions problems
+https://github.com/Wodby/docker4drupal/issues/35#issuecomment-253806588
+
 ### Why it slow on OS X?
 https://github.com/Wodby/docker4drupal/issues/4
 
-### Windows permissions problems
-https://github.com/Wodby/docker4drupal/issues/35#issuecomment-253806588
+### Xdebug on OS X
+https://github.com/Wodby/drupal-php/issues/1
 
 ## Status
 
