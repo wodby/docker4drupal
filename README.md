@@ -31,6 +31,7 @@ The Drupal bundle consist of the following containers:
 | [Memcached](#memcached) | memcached | <a href="https://hub.docker.com/_/memcached/" target="_blank">_/memcached</a> |||
 | [Solr](#solr) | solr | <a href="https://hub.docker.com/_/solr" target="_blank">_/solr</a> | 8003 ||
 | [Varnish](#varnish) | varnish | <a href="https://hub.docker.com/r/wodby/drupal-varnish" target="_blank">wodby/drupal-varnish</a> | 8004 ||
+| SSHD | sshd | <a href="https://hub.docker.com/r/wodby/drupal-sshd" target="_blank">wodby/drupal-sshd</a> | 8006 ||
 
 PHP, Nginx, MariaDB and Varnish configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
