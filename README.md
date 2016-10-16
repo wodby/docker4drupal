@@ -13,8 +13,8 @@ Docker4Drupal is designed to be used for local development, if you're looking fo
 * [CI/CD](#cicd)
 * [Docroot in subdirectory](#docroot-in-subdirectory)
 * [Logs](#logs)
-* [FAQ](#faq)
 * [Status](#status)
+* [FAQ](#faq)
 
 ## Overview
 
@@ -284,6 +284,15 @@ Example: real-time logs of the PHP container:
 $ docker-compose logs -f php
 ```
 
+## Status
+
+We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please submit an issue.
+
+We update containers from time to time, to get the lastest changes simply run again:
+```
+$ docker-compose up -d
+```
+
 ## FAQ
 
 ### Windows permissions problems
@@ -297,12 +306,3 @@ https://github.com/Wodby/docker4drupal/issues/4
 
 ### Xdebug on OS X
 https://github.com/Wodby/drupal-php/issues/1
-
-## Status
-
-We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please submit an issue.
-
-We update containers from time to time, to get the lastest changes simply run again:
-```
-$ docker-compose up -d
-```
