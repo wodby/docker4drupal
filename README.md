@@ -289,6 +289,9 @@ $ docker-compose logs -f php
 ### Windows permissions problems
 https://github.com/Wodby/docker4drupal/issues/35#issuecomment-253806588
 
+### Windows interactive mode isn't supported
+https://github.com/Wodby/docker4drupal/issues/41#issuecomment-254051955
+
 ### Why it slow on OS X?
 https://github.com/Wodby/docker4drupal/issues/4
 
