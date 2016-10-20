@@ -35,15 +35,17 @@ The Drupal bundle consist of the following containers:
 
 PHP, Nginx, MariaDB and Varnish configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.
 
+__All containers' images used in the bundle are either official or based on official with optimization for Drupal.__
+
 ## Instructions
 
-__Feel free to adjust volumes and ports in the compose file for your convenience.__
+Feel free to adjust volumes and ports in the compose file for your convenience.
 
 Supported Drupal versions: 7 and 8
 
 Supported PHP versions: 7.x and 5.6.x.
 
-1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows</a>. __For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.__
+1\. Install docker for <a href="https://docs.docker.com/engine/installation/" target="_blank">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac" target="_blank">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows" target="_blank">Windows (10+ Pro)</a>. For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.
 
 For Linux additionally install <a href="https://docs.docker.com/compose/install/" target="_blank">docker compose</a>
 
