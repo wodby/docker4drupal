@@ -308,3 +308,6 @@ https://github.com/Wodby/docker4drupal/issues/4
 
 ### Xdebug on OS X
 https://github.com/Wodby/drupal-php/issues/1
+
+### Drupal Console issues
+https://github.com/Wodby/docker4drupal/issues/49
