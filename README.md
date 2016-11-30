@@ -311,3 +311,6 @@ https://github.com/Wodby/drupal-php/issues/1
 
 ### Drupal Console issues
 https://github.com/Wodby/docker4drupal/issues/49
+
+### Site in a subdirectory
+https://github.com/Wodby/drupal-php/issues/16
