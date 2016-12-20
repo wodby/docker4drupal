@@ -347,7 +347,7 @@ $ docker-compose up -d
 
 ## Performance on macOS
 
-To fix Docker [poor performance](https://github.com/Wodby/docker4drupal/issues/4) on macOS (OSX) use the following workaround. The workaround is based on [docker-sync project](https://github.com/EugenMayer/docker-sync/). The core idea is to replace a standard slow volume with a file synchronizer tool like unison (used by default) or rsync.
+To fix Docker [poor performance](https://github.com/Wodby/docker4drupal/issues/4) on macOS (OSX) use the following workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/). The core idea is to replace a standard slow volume with a file synchronizer tool like unison (used by default) or rsync.
 
 ### Installation
 
