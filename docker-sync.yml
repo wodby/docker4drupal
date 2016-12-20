@@ -8,4 +8,3 @@ syncs:
     sync_host_port: '10871'
     sync_strategy: 'unison'
     sync_excludes: ['.gitignore', '.git/', '.idea/']
-#  sync_excludes: ['vendor/', '.gitignore', '.git/', '.idea/'] # When the project is composer based
