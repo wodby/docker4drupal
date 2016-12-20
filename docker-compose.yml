@@ -2,23 +2,23 @@ version: "2"
 
 services:
   mariadb:
-    image: wodby/drupal-mariadb
+    image: wodby/drupal-mariadb:1.0.0
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
 #    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # The simple way to override the mariadb config.
-    volumes:
-      - ./docker-runtime/mariadb:/var/lib/mysql
-#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+#    volumes:
+#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 
   php:
-    image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6.
+    image: wodby/drupal-php:7.0-1.0.0
+#    image: wodby/drupal-php:5.6-1.0.0
     environment:
       PHP_SITE_NAME: dev
       PHP_HOST_NAME: localhost:8000
-#      PHP_DOCROOT: public # Relative path inside the /var/www/html/ directory.
+#      PHP_DOCROOT: web # Relative path inside the /var/www/html/ directory.
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       # PHP_XDEBUG_ENABLED: 1
       # PHP_XDEBUG_AUTOSTART: 1
@@ -26,13 +26,14 @@ services:
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
       - ./:/var/www/html
+#      - d4d-unison-sync:/var/www/html:rw # Replace volume to this to use docker-sync for macOS users
 
   nginx:
-    image: wodby/drupal-nginx
+    image: wodby/drupal-nginx:1.0.0
     environment:
       NGINX_SERVER_NAME: localhost
       NGINX_UPSTREAM_NAME: php
-#      NGINX_DOCROOT: public # Relative path inside the /var/www/html/ directory.
+#      NGINX_DOCROOT: web # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
     volumes_from:
       - php
@@ -67,18 +68,15 @@ services:
 #      - "8006:80"
 
 #  solr:
-#    image: solr:5.5-alpine
-#    volumes:
-#      - ./docker-runtime/solr:/opt/solr/server/solr/mycores
-#    entrypoint:
-#      - docker-entrypoint.sh
-#      - solr-precreate
-#      - main
+#    image: wodby/solr:5.5-1.0.0
+##    image: wodby/solr:6.3-1.0.0
+#    environment:
+#      SOLR_HEAP: 1024m
 #    ports:
 #      - "8003:8983"
 
 #  varnish:
-#    image: wodby/drupal-varnish
+#    image: wodby/drupal-varnish:1.0.0
 #    depends_on:
 #      - nginx
 #    environment:
@@ -91,11 +89,6 @@ services:
 #      - "8004:6081" # HTTP Proxy
 #      - "8005:6082" # Control terminal
 
-#  sshd:
-#    image: wodby/drupal-sshd
-#    environment:
-#      SSH_PUB_KEY: "ssh-rsa ..."
-#    volumes_from:
-#      - php
-#    ports:
-#      - "8006:22"
+#volumes:
+#  d4d-unison-sync:
+#    external: true
