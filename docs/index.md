@@ -1,4 +1,4 @@
-Docker4Drupal is a set of containers to spin up local environment for Drupal with a *native Docker app* on Linux, Mac OS X and Windows.
+Docker4Drupal is a set of docker containers optimized for Drupal. Use docker-compose.yml file from [docker4drupal repository](https://github.com/wodby/docker4drupal) to spin up local environment on Linux, Mac OS X and Windows. 
 
 Docker4Drupal is designed to be used for local development, if you're looking for a dev/staging/production solution consistent with Docker4Drupal check out [Wodby](https://wodby.com). 
 
