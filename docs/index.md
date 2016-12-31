@@ -80,6 +80,11 @@ docker-compose ps
 
 10\. That's it! You drupal website should be up and running at http://localhost:8000.
 
+You can view your access and error logs by running:
+```bash
+docker-compose logs
+```
+
 You can stop all containers by executing:
 
 ```bash
