@@ -36,7 +36,7 @@ Full Docker4Drupal documentation is available at http://docs.docker4drupal.org/.
 
 ## Support
 
-If you need support please [post an issue](https://github.com/wodby/docker4drupal/issues/new) or join us on [slack](https://slack.wodby.com).
+If you need support please [post an issue](https://github.com/wodby/docker4drupal/issues/new) or join us on [slack](http://slack.wodby.com).
 
 ## License
 
