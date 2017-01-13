@@ -29,7 +29,7 @@ services:
 #      - d4d-unison-sync:/var/www/html:rw # Replace volume to this to use docker-sync for macOS users
 
   nginx:
-    image: wodby/drupal-nginx:1.0.0
+    image: wodby/drupal-nginx:1.10-1.1.0
     environment:
       NGINX_SERVER_NAME: localhost
       NGINX_UPSTREAM_NAME: php
