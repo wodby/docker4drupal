@@ -31,7 +31,7 @@ solr-reload-core core1
 
 Drupal 8 example:
 
-1. Create pre-configured solr core (available only for v5.5) `docker-compose solr exec solr-create-core my-core drupal8`
+1. Create pre-configured solr core (available only for v5.5) `docker-compose exec solr solr-create-core my-core drupal8`
 2. Download and enable [Search API Solr module](https://www.drupal.org/project/search_api_solr)
 3. Open module configuration page and add a new search server
 4. Choose Solr as a backend and _Standard_ Solr Connector
