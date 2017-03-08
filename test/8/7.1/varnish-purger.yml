@@ -1,0 +1,25 @@
+uuid: 91faa2b9-fd7a-4419-8dae-fc5a91b782b6
+langcode: en
+status: true
+dependencies: {  }
+id: PLUGIN_ID
+name: 'Varnish 4.1'
+invalidationtype: tag
+hostname: varnish
+port: 6081
+path: /
+request_method: BAN
+scheme: http
+verify: '1'
+headers:
+  -
+    field: Cache-Tags
+    value: '[invalidation:expression]'
+body: null
+body_content_type: null
+runtime_measurement: true
+timeout: !!float 1
+connect_timeout: !!float 1
+cooldown_time: !!float 0
+max_requests: 100
+http_errors: true

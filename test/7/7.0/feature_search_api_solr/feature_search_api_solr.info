@@ -1,0 +1,8 @@
+name = Search API Solr
+core = 7.x
+package = Features
+dependencies[] = entity
+dependencies[] = search_api
+dependencies[] = search_api_solr
+features[features_api][] = api:2
+features[search_api_server][] = apache_solr_6_4

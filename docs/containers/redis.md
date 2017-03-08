@@ -13,3 +13,5 @@ $conf['cache_backends'][] = 'sites/all/modules/redis/redis.autoload.inc';
 $conf['cache_default_class'] = 'Redis_Cache';
 $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 ```
+
+You can find more information about redis configuration on [wodby/redis](https://github.com/wodby/redis).

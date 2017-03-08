@@ -1,42 +1,43 @@
 # Docker-based Drupal environment for local development
 
 [![Documentation Status](https://readthedocs.org/projects/docker4drupal/badge/?version=latest)](http://docs.docker4drupal.org)
+[![Build Status](https://travis-ci.org/wodby/docker4drupal.svg?branch=master)](https://travis-ci.org/wodby/docker4drupal)
+
+[![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) Join us on Slack](https://slack.wodby.com/)
 
 ## Introduction
 
-Docker4Drupal is a set of docker containers optimized for Drupal. Use docker-compose.yml file from this repository to spin up local environment on Linux, Mac OS X and Windows.
+Docker4Drupal is a set of docker images optimized for local development with Drupal. Use docker-compose.yml file from this repository to spin up local environment on Linux, Mac OS X and Windows. 
 
-Docker4Drupal is designed to be used for local development, if you're looking for a dev/staging/production solution consistent with Docker4Drupal check out [Wodby](https://wodby.com).
+Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
 
-Read [getting started](http://docs.docker4drupal.org/en/latest/).
- 
 ## Bundle
 
 The Drupal bundle consist of the following containers:
 
 | Container | Service name | Image | Public Port | Enabled by default |
 | --------- | ------------ | ----- | ----------- | ------------------ |
-| Nginx | nginx | [wodby/drupal-nginx](https://hub.docker.com/r/wodby/drupal-nginx/) | 8000 | ✓ |
-| PHP 7 / 5.6 | php | [wodby/drupal-php](https://hub.docker.com/r/wodby/drupal-php/) |  | ✓ |
-| MariaDB | mariadb | [wodby/drupal-mariadb](https://hub.docker.com/r/wodby/drupal-mariadb/) | | ✓ |
-| phpMyAdmin | pma | [phpmyadmin/phpmyadmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin) | 8001 | ✓ |
-| Mailhog | mailhog | [mailhog/mailhog](https://hub.docker.com/r/mailhog/mailhog) | 8002 | ✓ |
-| Redis | redis | [redis/redis](https://hub.docker.com/_/redis) |||
-| Memcached | memcached | [_/memcached](https://hub.docker.com/_/memcached/) |||
-| Apache Solr | solr | [wodby/solr](https://hub.docker.com/r/wodby/solr) | 8003 ||
-| Varnish | varnish | [wodby/drupal-varnish](https://hub.docker.com/r/wodby/drupal-varnish) | 8004 ||
+| Nginx 1.10              | nginx     | [wodby/drupal-nginx](https://github.com/wodby/drupal-nginx/)            | 8000       | ✓ |
+| PHP 5.3/5.6/7.0/7.1     | php       | [wodby/drupal-php](https://github.com/wodby/drupal-php/)                |            | ✓ |
+| MariaDB 10.1            | mariadb   | [wodby/mariadb](https://github.com/wodby/mariadb/)                      |            | ✓ |
+| Redis 3.2               | redis     | [wodby/redis](https://hub.docker.com/wodby/redis)                       |            | ✓ |
+| Varnish 4.1             | varnish   | [wodby/drupal-varnish](https://github.com/wodby/drupal-varnish)         | 8004, 8005 |   |
+| Apache Solr 5.5/6.3/6.4 | solr      | [wodby/drupal-solr](https://github.com/wodby/drupal-solr)               | 8003       |   |
+| phpMyAdmin              | pma       | [phpmyadmin/phpmyadmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin) | 8001       | ✓ |
+| Mailhog                 | mailhog   | [mailhog/mailhog](https://hub.docker.com/r/mailhog/mailhog)             | 8002       | ✓ |
+| Node.js 7               | node      | [_/node](https://hub.docker.com/_/node)                                 | 3000       |   |
+| Memcached               | memcached | [_/memcached](https://hub.docker.com/_/memcached/)                      |            |   |
+| Traefik                 | traefik   | [_/traefik](https://hub.docker.com/_/traefik/)                          | 80, 8080   |   |
 
-Supported Drupal versions: 7 and 8.
-
-Supported PHP versions: 7.0.x and 5.6.x.
+Supported Drupal versions: 6/7/8.
 
 ## Documentation
 
-Full Docker4Drupal documentation is available at http://docs.docker4drupal.org/.
+Full documentation is available at http://docs.docker4drupal.org/.
 
-## Support
+## Using in Production
 
-If you need support please [post an issue](https://github.com/wodby/docker4drupal/issues/new) or join us on [slack](http://slack.wodby.com).
+Deploy docker-based infrastructure for Drupal to your own server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com).
 
 ## License
 

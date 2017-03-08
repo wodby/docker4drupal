@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  mariadb:
+    image: wodby/mariadb:10.1-$TAG
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+
+  php:
+    image: wodby/drupal-php:5.6-$TAG
+    volumes:
+      - ./test.sh:/var/www/html/test.sh
+      - ./test.settings.php:/var/www/html/test.settings.php
+
+  nginx:
+    image: wodby/drupal-nginx:6-1.10-$TAG
+    environment:
+      NGINX_BACKEND_HOST: php
+      NGINX_SERVER_ROOT: /var/www/html/web
+    depends_on:
+      - php
+    ports:
+      - "8000:80"
+
+  memcached:
+    image: memcached:1.4-alpine

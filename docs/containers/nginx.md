@@ -1,1 +1,1 @@
-Nginx is being used as a web server. Nginx is pre-configured to be used with Drupal 7 and 8.
+Nginx is being used as a web server. You can find more information about nginx configuration on [wodby/drupal-nginx](https://github.com/wodby/drupal-nginx).

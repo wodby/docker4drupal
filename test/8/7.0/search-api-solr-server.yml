@@ -1,0 +1,30 @@
+uuid: 705c9f7c-0819-4ff6-8d97-d94435c12184
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_solr
+id: solr_6_4
+name: 'Solr 6.4'
+description: ''
+backend: search_api_solr
+backend_config:
+  connector: standard
+  connector_config:
+    scheme: http
+    host: solr
+    port: '8983'
+    path: /solr
+    core: core1
+    timeout: 5
+    index_timeout: 5
+    optimize_timeout: 10
+    solr_version: ''
+    http_method: AUTO
+  retrieve_data: false
+  highlight_data: false
+  excerpt: false
+  skip_schema_check: false
+  site_hash: true
+  autocorrect_spell: true
+  autocorrect_suggest_words: true

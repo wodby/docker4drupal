@@ -1,0 +1,52 @@
+version: "2"
+
+services:
+  mariadb:
+    image: wodby/mariadb:10.1-$TAG
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+
+  php:
+    image: wodby/drupal:8-7.1-$TAG
+    volumes:
+      - ./test.sh:/var/www/html/test.sh
+      - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
+      - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
+      - ./search-api-solr-server.yml:/var/www/html/web/search-api-solr-server.yml
+
+  nginx:
+    image: wodby/drupal-nginx:8-1.10-$TAG
+    environment:
+      NGINX_BACKEND_HOST: php
+      NGINX_SERVER_ROOT: /var/www/html/web
+    depends_on:
+      - php
+    ports:
+      - "8000:80"
+
+  varnish:
+    image: wodby/drupal-varnish:4.1-$TAG
+    depends_on:
+      - nginx
+    environment:
+      VARNISH_SECRET: secret
+      VARNISH_BACKEND_HOST: nginx
+      VARNISH_BACKEND_PORT: 80
+      VARNISH_MEMORY_SIZE: 256M
+      VARNISH_STORAGE_SIZE: 1024M
+    ports:
+      - "8004:6081" # HTTP Proxy
+      - "8005:6082" # Control terminal
+
+  redis:
+    image: wodby/redis:3.2-$TAG
+
+  solr:
+    image: wodby/drupal-solr:8-6.4-$TAG
+    environment:
+      SOLR_HEAP: 1024m
+    ports:
+      - "8003:8983"

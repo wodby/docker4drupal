@@ -1,0 +1,35 @@
+language: python
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_COMPOSE_VERSION=1.10.0
+    - TAG=2.0.0
+  matrix:
+    - DRUPAL=6 PHP=5.3
+    - DRUPAL=6 PHP=5.6
+    - DRUPAL=7 PHP=5.6
+    - DRUPAL=7 PHP=7.0
+    - DRUPAL=7 PHP=7.1
+    - DRUPAL=8 PHP=7.0
+    - DRUPAL=8 PHP=7.1
+
+install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+script:
+  - make test drupal=$DRUPAL php=$PHP tag=$TAG
+
+after_failure:
+  - make logs
+
+notifications:
+  email:
+    on_success: never

@@ -1,1 +1,1 @@
-Docker4Drupal is designed to be used for local development, if you're looking for a dev/staging/production solution consistent with Docker4Drupal check out [Wodby](https://wodby.com). 
+Docker4Drupal is designed to be used for local development. Deploy docker-based infrastructure to your own server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com). 

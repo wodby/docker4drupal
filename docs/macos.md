@@ -19,3 +19,5 @@ Alternatively to docker-sync start you can do it all in one step
 run `docker-sync-stack start` to start sync services and docker-compose at the same time
 
 Now when you change your code and it will all end up in php and nginx containers.
+
+For more information visit [docker-sync project page](https://github.com/EugenMayer/docker-sync/).

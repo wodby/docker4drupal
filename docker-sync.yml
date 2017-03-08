@@ -1,3 +1,5 @@
+version: "2"
+
 syncs:
   d4d-unison-sync:
     src: './'

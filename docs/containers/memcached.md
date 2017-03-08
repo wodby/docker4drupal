@@ -5,6 +5,7 @@ To spin up a container with Memcached and use it as a default cache storage foll
 3. Add the following lines to the settings.php file:
 
 ```php
+$conf['memcache_extension'] = 'memcached';
 $conf['cache_backends'][] = 'sites/all/modules/memcache/memcache.inc';
 $conf['lock_inc'] = 'sites/all/modules/memcache/memcache-lock.inc';
 $conf['memcache_stampede_protection'] = TRUE;

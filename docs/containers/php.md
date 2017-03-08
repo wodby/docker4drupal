@@ -1,4 +1,4 @@
-PHP is used with Nginx via PHP-FPM. Currently PHP version 5.6 and 7 are provided. Check out [the instructions (step 5)](#instructions) to learn how to switch the version.
+PHP is used with Nginx via PHP-FPM. Check out [the instructions (step 5)](#instructions) to learn how to switch the version.
 
 ## Drush
 
@@ -54,3 +54,5 @@ sudo ifconfig lo0 alias 10.254.254.254
 ```
 
 For more details see the issue with [Xdebug in Mac OS](https://github.com/Wodby/drupal-php/issues/1).
+
+You can find more information about php configuration on [wodby/drupal-php](https://github.com/wodby/drupal-php).

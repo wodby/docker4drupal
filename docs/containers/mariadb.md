@@ -29,3 +29,5 @@ Exporting a specific database:
 ```bash
 docker-compose exec mariadb sh -c 'exec mysqldump -uroot -p"root-password" my-db' > my-db.sql
 ```
+
+You can find more information about MariaDB configuration and actions on [wodby/mariadb](https://github.com/wodby/mariadb).
