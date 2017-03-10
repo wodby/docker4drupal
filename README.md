@@ -20,7 +20,7 @@ The Drupal bundle consist of the following containers:
 | Nginx 1.10              | nginx     | [wodby/drupal-nginx](https://github.com/wodby/drupal-nginx/)            | 8000       | ✓ |
 | PHP 5.3/5.6/7.0/7.1     | php       | [wodby/drupal-php](https://github.com/wodby/drupal-php/)                |            | ✓ |
 | MariaDB 10.1            | mariadb   | [wodby/mariadb](https://github.com/wodby/mariadb/)                      |            | ✓ |
-| Redis 3.2               | redis     | [wodby/redis](https://hub.docker.com/wodby/redis)                       |            | ✓ |
+| Redis 3.2               | redis     | [wodby/redis](https://github.com/wodby/redis/)                          |            | ✓ |
 | Varnish 4.1             | varnish   | [wodby/drupal-varnish](https://github.com/wodby/drupal-varnish)         | 8004, 8005 |   |
 | Apache Solr 5.5/6.3/6.4 | solr      | [wodby/drupal-solr](https://github.com/wodby/drupal-solr)               | 8003       |   |
 | phpMyAdmin              | pma       | [phpmyadmin/phpmyadmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin) | 8001       | ✓ |
