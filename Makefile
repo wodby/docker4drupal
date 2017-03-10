@@ -4,9 +4,8 @@
 
 drupal ?= 8
 php ?= 7.1
-tag ?= 2.0.0
 
 default: test
 
 test:
-	cd ./test/$(drupal)/$(php) && TAG=$(tag) ./run.sh
+	cd ./test/$(drupal)/$(php) && ./run.sh

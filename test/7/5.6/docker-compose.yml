@@ -2,7 +2,7 @@ version: "2"
 
 services:
   mariadb:
-    image: wodby/mariadb:10.1-$TAG
+    image: $MARIADB
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: drupal
@@ -10,14 +10,14 @@ services:
       MYSQL_PASSWORD: drupal
 
   php:
-    image: wodby/drupal:7-5.6-$TAG
+    image: $DRUPAL7_PHP56
     volumes:
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
       - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
 
   nginx:
-    image: wodby/drupal-nginx:7-1.10-$TAG
+    image: $DRUPAL7_NGINX
     environment:
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
@@ -27,7 +27,7 @@ services:
       - "8000:80"
 
   varnish:
-    image: wodby/drupal-varnish:4.1-$TAG
+    image: $DRUPAL_VARNISH
     depends_on:
       - nginx
     environment:
@@ -39,10 +39,10 @@ services:
       - "8005:6082" # Control terminal
 
   redis:
-    image: wodby/redis:3.2-$TAG
+    image: $REDIS
 
   solr:
-    image: wodby/drupal-solr:7-6.4-$TAG
+    image: $DRUPAL7_SOLR
     environment:
       SOLR_HEAP: 1024m
     ports:
