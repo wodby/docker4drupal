@@ -44,10 +44,7 @@ Feel free to adjust volumes and ports in the compose file for your convenience.
 4. Optional: [import existing database](containers/mariadb.md#import-existing-database)
 6. Optional: add additional services (Varnish, Apache Solr, Memcached, Node.js) by uncommenting the corresponding lines in the compose file
 7. Optional: [attach domains](domains.md)
-8. Run containers:
-```bash
-docker-compose up -d
-```
+8. Run containers: `docker-compose up -d`
 9. That's it! You drupal website should be up and running at http://localhost:8000 (or http://drupal.docker.localhost if you use domains)
 
 You can stop containers by executing:
