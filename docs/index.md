@@ -30,7 +30,7 @@ Supported Drupal versions: 6/7/8.
 
 ## Must know before you start
 
-1. To make sure you don't lose your MariaDB data DO NOT use `docker-compose down` (Docker will destroy volumes), instead use `docker-compose down`. Alternatively, you can specify manual volume for `/var/lib/mysql` (see compose file), this way your data will always persist 
+1. To make sure you don't lose your MariaDB data DO NOT use `docker-compose down` (Docker will destroy volumes), instead use `docker-compose stop`. Alternatively, you can specify manual volume for `/var/lib/mysql` (see compose file), this way your data will always persist 
 2. To avoid potential problems with permissions between your host and containers please follow [this instructions](permissions.md)
 3. _For macOS users_: Out of box Docker for Mac has [poor performance](https://github.com/Wodby/docker4drupal/issues/4) on macOS. However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
 
