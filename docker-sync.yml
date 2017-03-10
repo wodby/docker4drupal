@@ -5,7 +5,6 @@ syncs:
     src: './'
     dest: '/var/www/html'
     sync_args: '-prefer newer'
-    sync_user: 'www-data'
     sync_userid: '82'
     sync_host_port: '10871'
     sync_strategy: 'unison'
