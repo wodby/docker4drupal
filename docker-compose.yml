@@ -61,7 +61,7 @@ services:
 #      - "8005:6082" # Control terminal
 
   redis:
-    image: wodby/redis:3.2-2.0.0
+    image: wodby/redis:3.2-2.0.1
 
   pma:
     image: phpmyadmin/phpmyadmin
