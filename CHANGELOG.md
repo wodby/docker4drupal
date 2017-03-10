@@ -1,6 +1,6 @@
 # Docker4Drupal Changelog
 
-## v2.0.0
+## 2.0.0
 
 * All-new 2.0.0 docker images: [drupal-nginx](https://github.com/wodby/drupal-nginx/), [drupal-php](https://github.com/wodby/drupal-php/), [mariadb](https://github.com/wodby/mariadb/), [redis](https://github.com/wodby/redis/), [drupal-varnish](https://github.com/wodby/drupal-varnish/). You can now customize images with environment variable and override entire configs by using .tpl template (based on confd). Some images come with actions you can execute (e.g. create Solr core with Search API configs)
 * Drupal 6 support
