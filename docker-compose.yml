@@ -41,8 +41,6 @@ services:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:drupal.docker.localhost'
-    ports:
-      - "8000:80"
 
 #  varnish:
 #    image: wodby/drupal-varnish:4.1-2.0.0
@@ -56,9 +54,6 @@ services:
 #      - 'traefik.backend=varnish'
 #      - 'traefik.port=6081'
 #      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
-#    ports:
-#      - "8004:6081" # HTTP Proxy
-#      - "8005:6082" # Control terminal
 
   redis:
     image: wodby/redis:3.2-2.0.1
@@ -75,8 +70,6 @@ services:
       - 'traefik.backend=pma'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:pma.drupal.docker.localhost'
-    ports:
-     - "8001:80"
 
   solr:
     image: wodby/drupal-solr:8-6.4-2.0.0
@@ -88,8 +81,6 @@ services:
       - 'traefik.backend=solr'
       - 'traefik.port=8983'
       - 'traefik.frontend.rule=Host:solr.drupal.docker.localhost'
-    ports:
-      - "8003:8983"
 
   mailhog:
     image: mailhog/mailhog
@@ -97,18 +88,16 @@ services:
       - 'traefik.backend=mailhog'
       - 'traefik.port=8025'
       - 'traefik.frontend.rule=Host:mailhog.drupal.docker.localhost'
-    ports:
-      - "8002:8025"
 
 #  node:
 #    image: node:7-alpine
 #    working_dir: /app
 #    labels:
 #      - 'traefik.backend=node'
-#      - 'traefik.port=80'
+#      - 'traefik.port=3000'
 #      - 'traefik.frontend.rule=Host:front.drupal.docker.localhost'
-#    ports:
-#      - "3000:3000"
+#    expose:
+#      - "3000"
 #    volumes:
 #      - ./path/to/your/single-page-app:/app
 #    command: sh -c 'npm install && npm run start'
@@ -116,15 +105,15 @@ services:
 #  memcached:
 #    image: memcached:1.4-alpine
 
-#  traefik:
-#    image: traefik
-#    restart: unless-stopped
-#    command: -c /dev/null --web --docker --logLevel=INFO
-#    ports:
-#      - '80:80'
-#      - '8080:8080'
-#    volumes:
-#      - /var/run/docker.sock:/var/run/docker.sock
+  traefik:
+    image: traefik
+    restart: unless-stopped
+    command: -c /dev/null --web --docker --logLevel=INFO
+    ports:
+      - '8000:80'
+      - '8080:8080'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 # Docker-sync for macOS users
 #volumes:

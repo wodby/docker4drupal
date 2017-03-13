@@ -20,6 +20,7 @@ The Drupal bundle consist of the following containers:
 | [Mailhog](containers/mailhog.md)                 | mailhog   | [mailhog/mailhog](https://hub.docker.com/r/mailhog/mailhog)             | 8002 | ✓ |
 | [Node.js 7](containers/node.md)                  | node      | [_/node](https://hub.docker.com/_/node)                                 | 3000 |   |
 | [Memcached](containers/memcached.md)             | memcached | [_/memcached](https://hub.docker.com/_/memcached/)                      |      |   |
+| Traefik                                          | traefik   | [_/traefik](https://hub.docker.com/_/traefik/)                          |      |   |
 
 Supported Drupal versions: 6/7/8.
 
@@ -43,9 +44,9 @@ Feel free to adjust volumes and ports in the compose file for your convenience.
 3. Make sure you have the same database credentials in your settings.php file and MariaDB service definition in the compose file 
 4. Optional: [import existing database](containers/mariadb.md#import-existing-database)
 6. Optional: add additional services (Varnish, Apache Solr, Memcached, Node.js) by uncommenting the corresponding lines in the compose file
-7. Optional: [attach domains](domains.md)
+7. Optional: [configure domains](domains.md)
 8. Run containers: `docker-compose up -d`
-9. That's it! You drupal website should be up and running at http://localhost:8000 (or http://drupal.docker.localhost if you use domains)
+9. That's it! You drupal website should be up and running at http://drupal.docker.localhost:8080
 
 You can stop containers by executing:
 ```bash

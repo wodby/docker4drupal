@@ -1,5 +1,11 @@
 # Docker4Drupal Changelog
 
+## 2.0.1
+
+* Traefik with domains is now enabled by default
+* Updates in documentation
+* Updated redis image
+
 ## 2.0.0
 
 * All-new 2.0.0 docker images: [drupal-nginx](https://github.com/wodby/drupal-nginx/), [drupal-php](https://github.com/wodby/drupal-php/), [mariadb](https://github.com/wodby/mariadb/), [redis](https://github.com/wodby/redis/), [drupal-varnish](https://github.com/wodby/drupal-varnish/). You can now customize images with environment variable and override entire configs by using .tpl template (based on confd). Some images come with actions you can execute (e.g. create Solr core with Search API configs)

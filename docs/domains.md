@@ -1,10 +1,16 @@
 # Domains configuration
 
-To use custom domain for your project follow these steps:
+Docker4Drupal uses [traefik](https://hub.docker.com/_/traefik/) container for routing. By default, we use port 8080 to avoid potential conflicts but if port 80 is free on your host machine just replace traefik's ports definition in the compose file.
 
-1. Uncomment definition of traefik service in the compose file 
-2. Make sure port 80 is free on your host machine
-3. Customize your base domain under services labels. The default base domain is `drupal.docker.localhost` in `traefik.frontend.rule=Host:mailhog.drupal.docker.localhost`. If domains end with `docker.localhost` you don't need to add records to /etc/hosts file
-4. Remove public ports definition from all services except traefik, you don't need them now
-5. That's it! Run the compose file and check that domains work fine (default `http://drupal.docker.localhost/`)
-6. Also you can visit traefik dashboard on `localhost:8080`
+Default domains:
+
+| Service | Domain | 
+| ------- | ------ | 
+| nginx   | http://drupal.docker.localhost:8080         | 
+| pma     | http://pma.drupal.docker.localhost:8080     | 
+| mailhog | http://mailhog.drupal.docker.localhost:8080 | 
+| solr    | http://solr.docker.localhost:8080           | 
+| node    | http://front.drupal.docker.localhost:8080   | 
+| varnish | http://varnish.drupal.docker.localhost:8080 |
+ 
+You can customize domains under labels definition, e.g. `traefik.frontend.rule=Host:mailhog.drupal.docker.localhost`. Note: if domains end with `docker.localhost` you don't need to add records to /etc/hosts file
