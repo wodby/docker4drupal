@@ -8,19 +8,19 @@ Docker4Drupal is designed to be used for local development, if you're looking fo
 
 The Drupal bundle consist of the following containers:
 
-| Container | Service name | Image | Public Port | Enabled by default |
-| --------- | ------------ | ----- | ----------- | ------------------ |
-| [Nginx 1.10](containers/nginx.md)                | nginx     | [wodby/drupal-nginx](https://github.com/wodby/drupal-nginx/)            | 8000 | ✓ |
-| [PHP 5.3/5.6/7.0/7.1](containers/php.md)         | php       | [wodby/drupal-php](https://github.com/wodby/drupal-php/)                |      | ✓ |
-| [MariaDB 10.1](containers/mariadb.md)            | mariadb   | [wodby/mariadb](https://github.com/wodby/mariadb/)                      |      | ✓ |
-| [Redis 3.2](containers/redis.md)                 | redis     | [wodby/redis](https://hub.docker.com/wodby/redis)                       |      | ✓ |
-| [Varnish 4.1](containers/varnish.md)             | varnish   | [wodby/drupal-varnish](https://github.com/wodby/drupal-varnish)         | 8004 |   |
-| [Apache Solr 5.5/6.3/6.4](containers/varnish.md) | solr      | [wodby/drupal-solr](https://github.com/wodby/drupal-solr)               | 8003 |   |
-| [phpMyAdmin](containers/pma.md)                  | pma       | [phpmyadmin/phpmyadmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin) | 8001 | ✓ |
-| [Mailhog](containers/mailhog.md)                 | mailhog   | [mailhog/mailhog](https://hub.docker.com/r/mailhog/mailhog)             | 8002 | ✓ |
-| [Node.js 7](containers/node.md)                  | node      | [_/node](https://hub.docker.com/_/node)                                 | 3000 |   |
-| [Memcached](containers/memcached.md)             | memcached | [_/memcached](https://hub.docker.com/_/memcached/)                      |      |   |
-| Traefik                                          | traefik   | [_/traefik](https://hub.docker.com/_/traefik/)                          |      |   |
+| Container | Service name | Image | Enabled by default |
+| --------- | ------------ | ----- | ------------------ |
+| [Nginx 1.10](containers/nginx.md)                | nginx     | [wodby/drupal-nginx](https://github.com/wodby/drupal-nginx/)            | ✓ |
+| [PHP 5.3/5.6/7.0/7.1](containers/php.md)         | php       | [wodby/drupal-php](https://github.com/wodby/drupal-php/)                | ✓ |
+| [MariaDB 10.1](containers/mariadb.md)            | mariadb   | [wodby/mariadb](https://github.com/wodby/mariadb/)                      | ✓ |
+| [Redis 3.2](containers/redis.md)                 | redis     | [wodby/redis](https://hub.docker.com/wodby/redis)                       | ✓ |
+| [Varnish 4.1](containers/varnish.md)             | varnish   | [wodby/drupal-varnish](https://github.com/wodby/drupal-varnish)         |   |
+| [Apache Solr 5.5/6.3/6.4](containers/varnish.md) | solr      | [wodby/drupal-solr](https://github.com/wodby/drupal-solr)               |   |
+| [phpMyAdmin](containers/pma.md)                  | pma       | [phpmyadmin/phpmyadmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin) | ✓ |
+| [Mailhog](containers/mailhog.md)                 | mailhog   | [mailhog/mailhog](https://hub.docker.com/r/mailhog/mailhog)             | ✓ |
+| [Node.js 7](containers/node.md)                  | node      | [_/node](https://hub.docker.com/_/node)                                 |   |
+| [Memcached](containers/memcached.md)             | memcached | [_/memcached](https://hub.docker.com/_/memcached/)                      |   |
+| Traefik                                          | traefik   | [_/traefik](https://hub.docker.com/_/traefik/)                          |   |
 
 Supported Drupal versions: 6/7/8.
 
