@@ -6,11 +6,11 @@ Default domains:
 
 | Service | Domain | 
 | ------- | ------ | 
-| nginx   | http://drupal.docker.localhost:8080         | 
-| pma     | http://pma.drupal.docker.localhost:8080     | 
-| mailhog | http://mailhog.drupal.docker.localhost:8080 | 
-| solr    | http://solr.docker.localhost:8080           | 
-| node    | http://front.drupal.docker.localhost:8080   | 
-| varnish | http://varnish.drupal.docker.localhost:8080 |
+| nginx   | http://drupal.docker.localhost:8000         | 
+| pma     | http://pma.drupal.docker.localhost:8000     | 
+| mailhog | http://mailhog.drupal.docker.localhost:8000 | 
+| solr    | http://solr.docker.localhost:8000           | 
+| node    | http://front.drupal.docker.localhost:8000   | 
+| varnish | http://varnish.drupal.docker.localhost:8000 |
  
 You can customize domains under labels definition, e.g. `traefik.frontend.rule=Host:mailhog.drupal.docker.localhost`. Note: if domains end with `docker.localhost` you don't need to add records to /etc/hosts file
