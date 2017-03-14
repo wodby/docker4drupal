@@ -1,6 +1,6 @@
 # Domains configuration
 
-Docker4Drupal uses [traefik](https://hub.docker.com/_/traefik/) container for routing. By default, we use port 8080 to avoid potential conflicts but if port 80 is free on your host machine just replace traefik's ports definition in the compose file.
+Docker4Drupal uses [traefik](https://hub.docker.com/_/traefik/) container for routing. By default, we use port 8000 to avoid potential conflicts but if port 80 is free on your host machine just replace traefik's ports definition in the compose file.
 
 Default domains:
 
