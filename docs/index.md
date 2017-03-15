@@ -12,7 +12,7 @@ The Drupal bundle consist of the following containers:
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
 [wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
-[wodby/redis]: https://hub.docker.com/wodby/redis
+[wodby/redis]: https://github.com/wodby/redis
 [wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
 [wodby/drupal-solr]: https://github.com/wodby/drupal-solr
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
