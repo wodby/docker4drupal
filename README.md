@@ -5,7 +5,7 @@
 
 [![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) Ask questions on Slack](https://slack.wodby.com/)
 
-[![Wodby Twitter](https://www.google.com/s2/favicons?domain=twitter.com) Follow us on Twitter to stay up to date](https://twitter.com/wodbyhq)
+[![Wodby Twitter](https://twitter.com/favicon.ico) Follow us on Twitter to stay up to date](https://twitter.com/wodbyhq)
 
 ## Introduction
 
