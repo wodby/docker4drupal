@@ -46,7 +46,7 @@ Feel free to adjust volumes and ports in the compose file for your convenience.
 6. Optional: add additional services (Varnish, Apache Solr, Memcached, Node.js) by uncommenting the corresponding lines in the compose file
 7. Optional: [configure domains](domains.md)
 8. Run containers: `docker-compose up -d`
-9. That's it! You drupal website should be up and running at http://drupal.docker.localhost:8000
+9. That's it! You drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000)
 
 You can stop containers by executing:
 ```bash
