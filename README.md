@@ -3,7 +3,9 @@
 [![Documentation Status](https://readthedocs.org/projects/docker4drupal/badge/?version=latest)](http://docs.docker4drupal.org)
 [![Build Status](https://travis-ci.org/wodby/docker4drupal.svg?branch=master)](https://travis-ci.org/wodby/docker4drupal)
 
-[![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) Join us on Slack](https://slack.wodby.com/)
+[![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) Ask questions on Slack](https://slack.wodby.com/)
+
+[![Wodby Twitter](https://www.google.com/s2/favicons?domain=twitter.com) Follow us on Twitter to stay up to date](https://twitter.com/wodbyhq)
 
 ## Introduction
 
