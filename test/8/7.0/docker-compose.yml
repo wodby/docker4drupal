@@ -11,6 +11,8 @@ services:
 
   php:
     image: $DRUPAL8_PHP70
+    environment:
+      PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
