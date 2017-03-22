@@ -27,5 +27,3 @@ pages:
     - 'Memcached': 'containers/memcached.md'
     - 'Apache Solr': 'containers/solr.md'
     - 'Varnish': 'containers/varnish.md'
-    - 'Mailhog': 'containers/mailhog.md'
-    - 'Node': 'containers/node.md'
