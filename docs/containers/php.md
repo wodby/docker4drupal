@@ -1,4 +1,6 @@
-PHP is used with Nginx via PHP-FPM. Check out [the instructions (step 5)](#instructions) to learn how to switch the version.
+# PHP container
+
+PHP is used with Nginx via PHP-FPM. 
 
 ## Drush
 
@@ -30,12 +32,13 @@ $ docker-compose exec --user 82 php drupal list
 
 If you want to use Xdebug, uncomment this line to enable it in the compose file before starting containers:
 ```yml
-PHP_XDEBUG_ENABLED: 1       # Comment out to disable (default).
+PHP_XDEBUG: 1                 # Enable Xdebug extension
+PHP_XDEBUG_DEFAULT_ENABLE: 1  # Comment out to disable (default).
 ```
 
 If you would like to autostart xdebug, uncomment this line:
 ```yml
-PHP_XDEBUG_AUTOSTART: 1     # Comment out to disable (default).
+PHP_XDEBUG_REMOTE_AUTOSTART: 1     # Comment out to disable (default).
 ```
 
 ## Xdebug on Mac OS X
@@ -55,4 +58,6 @@ sudo ifconfig lo0 alias 10.254.254.254
 
 For more details see the issue with [Xdebug in Mac OS](https://github.com/Wodby/drupal-php/issues/1).
 
-You can find more information about php configuration on [wodby/drupal-php](https://github.com/wodby/drupal-php).
+## Customization
+
+See the list of environment variables available for customization at [wodby/drupal-php](https://github.com/wodby/drupal-php).

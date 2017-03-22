@@ -28,10 +28,10 @@ The Drupal bundle consist of the following containers:
 | [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]           | ✓ |
 | [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish]  |   |
 | [Solr](containers/solr.md)           | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]     |   |
-| [phpMyAdmin](containers/pma.md)      | latest             | pma       | [phpmyadmin/phpmyadmin] | ✓ |
-| [Mailhog](containers/mailhog.md)     | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
-| [Node.js](containers/node.md)        | 7                  | node      | [_/node]                |   |
 | [Memcached](containers/memcached.md) | latest             | memcached | [_/memcached]           |   |
+| Mailhog                              | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
+| phpMyAdmin                           | latest             | pma       | [phpmyadmin/phpmyadmin] | ✓ |
+| Node.js                              | 7                  | node      | [_/node]                |   |
 | Traefik                              | latest             | traefik   | [_/traefik]             |   |
 
 Supported Drupal versions: 6, 7, 8.

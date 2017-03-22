@@ -1,3 +1,5 @@
+# Memcached container
+
 To spin up a container with Memcached and use it as a default cache storage follow these steps:
 
 1. Uncomment lines with memcached service definition in the compose file.
@@ -14,7 +16,3 @@ $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_servers'] = array('memcached:11211' => 'default');
 ```
 
-## Memcached Admin
-
-To spin up a container with the Memcached Admin User interface uncomment to memcached-admin service definition.
-To get started visit http://localhost:8006/index.php

@@ -1,15 +1,10 @@
+# MariaDB container
+
 MariaDB uses a persistent volume defined in Dockerfile. 
 
 IMPORTANT: Do not use `docker-compose down` command because it will purge MariaDB volume. Instead use `docker-compose stop`. If you restart Docker you WILL NOT lose your MariaDB data. 
 
-### Configuring
-
-Many configuration options can be passed as flags without adjusting a cnf file. See example in the compose file:
-```bash
-#    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-```
-
-### Import existing database
+## Import existing database
 
 if you want to import your database, uncomment the following line in the compose file:
 ```yml
@@ -18,7 +13,7 @@ if you want to import your database, uncomment the following line in the compose
 
 Create the volume directory `./mariadb-init` in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported once MariaDB container has started.
 
-### Export
+## Export
 
 Exporting all databases:
 ```bash
@@ -30,4 +25,6 @@ Exporting a specific database:
 docker-compose exec mariadb sh -c 'exec mysqldump -uroot -p"root-password" my-db' > my-db.sql
 ```
 
-You can find more information about MariaDB configuration and actions on [wodby/mariadb](https://github.com/wodby/mariadb).
+## Customization
+
+See the list of environment variables available for customization at [wodby/mariadb](https://github.com/wodby/mariadb).

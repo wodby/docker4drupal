@@ -1,17 +1,47 @@
+# Redis container
+
+## Integration
+
 To spin up a container with Redis cache and use it as a default cache storage follow these steps:
 
 1. Uncomment lines with redis service definition in the compose file.
 2. Download and install [redis module](https://www.drupal.org/project/redis)
 3. Add the following lines to the settings.php file:
 
+DRUPAL 7:
+
 ```php
-$conf['redis_client_host'] = 'redis';
+$contrib_path = is_dir('sites/all/modules/contrib') ? 'sites/all/modules/contrib' : 'sites/all/modules';
+
+$conf['redis_client_base'] = 0;
 $conf['redis_client_interface'] = 'PhpRedis';
 $conf['lock_inc'] = $contrib_path . '/redis/redis.lock.inc';
 $conf['path_inc'] = $contrib_path . '/redis/redis.path.inc';
-$conf['cache_backends'][] = 'sites/all/modules/redis/redis.autoload.inc';
+$conf['cache_backends'][] = $contrib_path . '/redis/redis.autoload.inc';
 $conf['cache_default_class'] = 'Redis_Cache';
 $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
+$conf['redis_client_host'] = 'redis';
+$conf['redis_client_port'] = '6379';
 ```
 
-You can find more information about redis configuration on [wodby/redis](https://github.com/wodby/redis).
+DRUPAL 8:
+
+```php
+$contrib_path = is_dir('sites/all/modules/contrib') ? 'sites/all/modules/contrib' : 'sites/all/modules';
+
+$settings['redis.connection']['host'] = 'redis';
+$settings['redis.connection']['port'] = '6379';
+$settings['redis.connection']['password'] = '';
+$settings['redis.connection']['base'] = 0;
+$settings['redis.connection']['interface'] = 'PhpRedis';
+$settings['cache']['default'] = 'cache.backend.redis';
+$settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
+
+$settings['container_yamls'][] = $contrib_path . '/redis/example.services.yml';
+```
+
+## Customization
+
+See the list of environment variables available for customization at [wodby/redis](https://github.com/wodby/redis).
