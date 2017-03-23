@@ -18,7 +18,7 @@ $conf['varnish_control_key'] = 'secret';
 
 ### Drupal 8
 
-Blog post is coming.
+Read https://wunderkraut.se/blogg/purge-cachetags-varnish
 
 ## Customization
 
