@@ -43,14 +43,14 @@ PHP_XDEBUG_REMOTE_AUTOSTART: 1     # Comment out to disable (default).
 
 ## Xdebug on Mac OS X
 
-There are two more things that need to be done on Mac OS X in order to have Xdebug working. Uncomment `PHP_XDEBUG_ENABLED` to enable Xdebug and uncomment the following two lines:
+There are two more things that need to be done on macOS in order to have Xdebug working (because there's no docker0 interface). Enable Xdebug as described in the previous section and uncomment the following two lines:
 
 ```yml
 PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # Disabled for remote.host to work (enabled by default)
 PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # Setting the host (localhost by default)
 ```
 
-It is also needed to have localhost loopback alias with IP from above. You need this only once and that settings stays active until logout or restart.
+You also need to have loopback alias with IP from above. You need this only once and that settings stays active until logout or restart.
 
 ```bash
 sudo ifconfig lo0 alias 10.254.254.254
