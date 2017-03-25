@@ -69,9 +69,9 @@ Also, read [how to access containers](access.md) and [how to get logs](logs.md)
 
 ## Status
 
-We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please [submit an issue on GitHub](https://github.com/wodby/docker4drupal/issues/new) or [![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) join us on Slack](https://slack.wodby.com/)
+We're actively working on these instructions and containers. More options will be added soon. If you have a feature request or found a bug please [submit an issue on GitHub](https://github.com/wodby/docker4drupal/issues/new) or [![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) join us on Slack](https://slack.wodby.com/)
 
-We update containers from time to time by releasing new images tags.
+We update containers from time to time by releasing new image tags.
 
 ## License
 
