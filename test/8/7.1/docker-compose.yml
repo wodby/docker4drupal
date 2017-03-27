@@ -24,6 +24,7 @@ services:
     environment:
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
+    restart: unless-stopped
     depends_on:
       - php
     ports:
