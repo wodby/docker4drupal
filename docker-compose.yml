@@ -32,6 +32,9 @@ services:
     image: wodby/drupal-nginx:8-1.10-2.0.0
 #    image: wodby/drupal-nginx:7-1.10-2.0.0
 #    image: wodby/drupal-nginx:6-1.10-2.0.0
+    restart: unless-stopped
+    depends_on:
+      - php
     environment:
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/
