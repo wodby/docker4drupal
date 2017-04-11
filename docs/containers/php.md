@@ -23,10 +23,7 @@ $ docker-compose exec --user 82 php composer update
 
 ## Drupal Console
 
-PHP container has installed drupal console. Example:
-```bash
-$ docker-compose exec --user 82 php drupal list
-```
+PHP container has installed drupal launcher. Drupal console itself must be installed per project manually via composer. 
 
 ## Xdebug
 
