@@ -11,6 +11,9 @@ services:
 
   php:
     image: $DRUPAL_PHP56
+    environment:
+      PHP_FPM_CLEAR_ENV: no
+      PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/test.settings.php
@@ -18,6 +21,8 @@ services:
   nginx:
     image: $DRUPAL6_NGINX
     environment:
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: off
+      NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
     restart: unless-stopped
