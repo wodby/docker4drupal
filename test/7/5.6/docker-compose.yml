@@ -12,7 +12,7 @@ services:
   php:
     image: $DRUPAL7_PHP56
     environment:
-      PHP_FPM_CLEAR_ENV: no
+      PHP_FPM_CLEAR_ENV: "no"
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - ./test.sh:/var/www/html/test.sh
