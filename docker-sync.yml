@@ -1,11 +1,13 @@
 version: "2"
 
 syncs:
-  d4d-unison-sync:
+  docker-sync-unison:
     src: './'
     dest: '/var/www/html'
-    sync_args: '-prefer newer'
     sync_userid: '82'
-    sync_host_port: '10871'
-    sync_strategy: 'unison'
     sync_excludes: ['.gitignore', '.git/', '.idea/']
+#  docker-sync-unison-another-project:
+#    src: '/absolute/path/to/project/codebase'
+#    dest: '/var/www/html'
+#    sync_userid: '82'
+#    sync_excludes: ['.gitignore', '.git/', '.idea/']
