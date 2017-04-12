@@ -20,13 +20,14 @@ services:
 #    image: wodby/drupal-php:5.3-2.0.0
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      PHP_FPM_CLEAR_ENV: "no"
       # PHP_XDEBUG: 1
       # PHP_XDEBUG_DEFAULT_ENABLE: 1
       # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
       - ./:/var/www/html
-#      - d4d-unison-sync:/var/www/html:rw # Replace volume to this to use docker-sync for macOS users
+#      - docker-sync-unison:/var/www/html # Replace volume to this to use docker-sync for macOS users
 
   nginx:
     image: wodby/drupal-nginx:8-1.10-2.0.0
@@ -36,10 +37,13 @@ services:
     depends_on:
       - php
     environment:
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/
     volumes:
       - ./:/var/www/html
+#      - docker-sync-unison:/var/www/html # Replace volume to this to use docker-sync for macOS users
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
@@ -120,5 +124,5 @@ services:
 
 # Docker-sync for macOS users
 #volumes:
-#  d4d-unison-sync:
+#  docker-sync-unison:
 #    external: true

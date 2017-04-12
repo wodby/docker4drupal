@@ -11,6 +11,8 @@ services:
 
   php:
     image: $DRUPAL_PHP53
+    environment:
+      PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/test.settings.php
@@ -18,13 +20,13 @@ services:
   nginx:
     image: $DRUPAL6_NGINX
     environment:
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html/web
+      NGINX_SERVER_ROOT: /var/www/html/app
     restart: unless-stopped
     depends_on:
       - php
-    ports:
-      - "8000:80"
 
   memcached:
     image: $MEMCACHED
