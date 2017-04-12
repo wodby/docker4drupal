@@ -28,7 +28,3 @@ script:
 
 after_failure:
   - make logs
-
-notifications:
-  email:
-    on_success: never
