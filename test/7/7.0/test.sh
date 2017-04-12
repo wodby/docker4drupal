@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ ! -z $DEBUG ]]; then
+if [[ ! -z "${DEBUG}" ]]; then
   set -x
 fi
 
@@ -10,10 +10,10 @@ DB_NAME=drupal
 DB_HOST=mariadb
 DB_USER=drupal
 DB_PASS=drupal
-DB_URL=mysql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
+DB_URL="mysql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}"
 
 installDrupal() {
-    drush si --db-url=${DB_URL} -y
+    drush si --db-url="${DB_URL}" -y
 }
 
 installModules() {
