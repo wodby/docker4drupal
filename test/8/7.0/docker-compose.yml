@@ -12,6 +12,11 @@ services:
   php:
     image: $DRUPAL8_PHP70
     environment:
+      DB_HOST: mariadb
+      DB_NAME: drupal
+      DB_USER: drupal
+      DB_PASSWORD: drupal
+      DB_DRIVER: mysql
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - codebase:/var/www/html

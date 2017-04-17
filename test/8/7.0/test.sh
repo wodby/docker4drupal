@@ -13,7 +13,7 @@ DB_PASS=drupal
 DB_URL="mysql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}"
 
 installDrupal() {
-    drush si --db-url="${DB_URL}" -y
+    drush si -y
 }
 
 installModules() {

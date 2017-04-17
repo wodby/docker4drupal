@@ -54,7 +54,7 @@ There 2 options how to use docker4drupal – you can either run [vanilla](https:
 ### 1. Run Vanilla Drupal from Image (default)
 
 1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml)
-2. Depending on Drupal version you want to run update images tags (versions) for php and nginx services, default is Drupal 8
+2. Optional: update _php_ and _nginx_ images tags if you want to run Drupal 6 or 7 (by default Drupal 8)
 3. Run containers: `docker-compose up -d` 
 4. Wait a few seconds for containers initialization 
 5. That's it! Proceed with Drupal installation at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). Default database user, password and database name are all `drupal`, database host is `mariadb`
