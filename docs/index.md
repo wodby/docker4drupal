@@ -43,29 +43,41 @@ Supported Drupal versions: 6, 7, 8.
 
 ## Must know before you start
 
-1. To make sure you don't lose your MariaDB data DO NOT use `docker-compose down` (Docker will destroy volumes), instead use `docker-compose stop`. Alternatively, you can specify manual volume for `/var/lib/mysql` (see compose file), this way your data will always persist 
+1. **You will lose MariaDB data** if you run `docker-compose down`. Instead use `docker-compose stop` to stop containers. Alternatively, you can use a manual volume for mariadb data (see compose file), this way your data will always persist 
 2. To avoid potential problems with permissions between your host and containers please follow [this instructions](permissions.md)
-3. _For macOS users_: Out of box Docker for Mac has [poor performance](https://github.com/Wodby/docker4drupal/issues/4) on macOS. However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
+3. _For macOS users_: Out of box Docker for Mac volumes has [poor performance](https://github.com/Wodby/docker4drupal/issues/4). However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
 
 ## Usage 
 
-Feel free to adjust volumes and ports in the compose file for your convenience.
+There 2 options how to use docker4drupal – you can either run [vanilla](https://en.wikipedia.org/wiki/Vanilla_software) Drupal from the image or mount your own Drupal codebase:
 
-1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) from [docker4drupal repository](https://github.com/wodby/docker4drupal) and put it to your Drupal project codebase directory. This directory will be mounted to PHP and Nginx containers 
-2. Depending on your Drupal version make sure you're using correct tags (versions) of Nginx and PHP images
-3. Make sure you have the same database credentials in your settings.php file and MariaDB service definition in the compose file 
-4. Optional: [import existing database](containers/mariadb.md#import-existing-database)
-6. Optional: add additional services (Varnish, Apache Solr, Memcached, Node.js) by uncommenting the corresponding lines in the compose file
-7. Optional: [configure domains](domains.md)
-8. Run containers: `docker-compose up -d`
-9. That's it! You drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). If you need to run multiple projects simultaneously see [this article](multiple-projects.md)
+### 1. Run Vanilla Drupal from Image (default)
+
+1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml)
+2. Depending on Drupal version you want to run update images tags (versions) for php and nginx services, default is Drupal 8
+3. Run containers: `docker-compose up -d` 
+4. Wait a few seconds for containers initialization 
+5. That's it! Proceed with Drupal installation at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). Default database user, password and database name are all `drupal`, database host is `mariadb`
+
+### 2. Mount my Drupal Codebase
+
+1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) from [docker4drupal repository](https://github.com/wodby/docker4drupal) and put it to your Drupal project root
+2. Replace php image to `wodby/drupal-php`. Depending on your Drupal version update nginx image
+3. Update nginx and php volumes to `- ./:/var/www/html`. This means that the directory with the compose file will be mounted to containers   
+4. If your project is not based on [composer template](https://github.com/drupal-composer/drupal-project), update `NGINX_SERVER_ROOT` to `/var/www/html` (drupal root == git root)
+5. Make sure you have the same database credentials in your settings.php file and MariaDB definition in the compose file 
+6. Optional: [import existing database](containers/mariadb.md#import-existing-database)
+7. Optional: add additional services (Redis, Solr, etc) by uncommenting the corresponding lines in the compose file
+8. Optional: [configure domains](domains.md)
+9. Run containers: `docker-compose up -d`
+10. That's it! Your drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). If you need to run multiple projects simultaneously see [this article](multiple-projects.md)
 
 You can stop containers by executing:
 ```bash
 docker-compose stop
 ```
 
-Also, read [how to access containers](access.md) and [how to get logs](logs.md)
+Feel free to adjust volumes and ports in the compose file for your convenience. Also, read [how to access containers](access.md) and [how to get logs](logs.md)
 
 ## Status
 

@@ -2,55 +2,67 @@ version: "2"
 
 services:
   mariadb:
-    image: wodby/mariadb:10.1-2.0.0
+    image: wodby/mariadb:10.1-2.1.0
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
-#    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # The simple way to override the mariadb config.
 #    volumes:
 #      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 #      - /path/to/mariadb/data/on/host:/var/lib/mysql # I want to manage volumes manually.
 
   php:
-    image: wodby/drupal-php:7.0-2.0.0
-#    image: wodby/drupal-php:7.1-2.0.0
-#    image: wodby/drupal-php:5.6-2.0.0
-#    image: wodby/drupal-php:5.3-2.0.0
+# 1. Images with vanilla Drupal – wodby/drupal:[DRUPAL_VERSION]-[PHP_VERSION]-[STABILITY_TAG].
+    image: wodby/drupal:8-7.1-2.1.0
+#    image: wodby/drupal:8-7.0-2.1.0
+#    image: wodby/drupal:7-7.1-2.1.0
+#    image: wodby/drupal:7-7.0-2.1.0
+#    image: wodby/drupal:7-5.6-2.1.0
+#    image: wodby/drupal:6-5.6-2.1.0
+#    image: wodby/drupal:6-5.3-2.1.0
+# 2. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG].
+#    image: wodby/drupal-php:7.1-2.1.0
+#    image: wodby/drupal-php:7.0-2.1.0
+#    image: wodby/drupal-php:5.6-2.1.0
+#    image: wodby/drupal-php:5.3-2.1.0
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_FPM_CLEAR_ENV: "no"
+      DB_HOST: mariadb
+      DB_USER: drupal
+      DB_PASSWORD: drupal
+      DB_NAME: drupal
+      DB_DRIVER: mysql
       # PHP_XDEBUG: 1
       # PHP_XDEBUG_DEFAULT_ENABLE: 1
       # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
-      - ./:/var/www/html
-#      - docker-sync-unison:/var/www/html # Replace volume to this to use docker-sync for macOS users
+      - codebase:/var/www/html
+#      - docker-sync-unison:/var/www/html # Docker-sync for macOS users
 
   nginx:
-    image: wodby/drupal-nginx:8-1.10-2.0.0
-#    image: wodby/drupal-nginx:7-1.10-2.0.0
-#    image: wodby/drupal-nginx:6-1.10-2.0.0
-    restart: unless-stopped
+# wodby/drupal-nginx:[DRUPAL_VERSION]-[NGINX_VERSION]-[STABILITY_TAG].
+    image: wodby/drupal-nginx:8-1.10-2.1.0
+#    image: wodby/drupal-nginx:7-1.10-2.1.0
+#    image: wodby/drupal-nginx:6-1.10-2.1.0
     depends_on:
       - php
     environment:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html/
+      NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
-      - ./:/var/www/html
-#      - docker-sync-unison:/var/www/html # Replace volume to this to use docker-sync for macOS users
+      - codebase:/var/www/html
+#      - docker-sync-unison:/var/www/html # Docker-sync for macOS users
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:drupal.docker.localhost'
 
 #  varnish:
-#    image: wodby/drupal-varnish:4.1-2.0.0
+#    image: wodby/drupal-varnish:4.1-2.1.0
 #    depends_on:
 #      - nginx
 #    environment:
@@ -62,32 +74,36 @@ services:
 #      - 'traefik.port=6081'
 #      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
 
-  redis:
-    image: wodby/redis:3.2-2.0.1
+#  redis:
+#    image: wodby/redis:3.2-2.1.0
 
-  pma:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      PMA_HOST: mariadb
-      PMA_USER: drupal
-      PMA_PASSWORD: drupal
-      PHP_UPLOAD_MAX_FILESIZE: 1G
-      PHP_MAX_INPUT_VARS: 1G
-    labels:
-      - 'traefik.backend=pma'
-      - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:pma.drupal.docker.localhost'
+#  pma:
+#    image: phpmyadmin/phpmyadmin
+#    environment:
+#      PMA_HOST: mariadb
+#      PMA_USER: drupal
+#      PMA_PASSWORD: drupal
+#      PHP_UPLOAD_MAX_FILESIZE: 1G
+#      PHP_MAX_INPUT_VARS: 1G
+#    labels:
+#      - 'traefik.backend=pma'
+#      - 'traefik.port=80'
+#      - 'traefik.frontend.rule=Host:pma.drupal.docker.localhost'
 
-  solr:
-    image: wodby/drupal-solr:8-6.4-2.0.0
-#    image: wodby/drupal-solr:8-6.3-2.0.0
-#    image: wodby/drupal-solr:7-5.5-2.0.0
-    environment:
-      SOLR_HEAP: 1024m
-    labels:
-      - 'traefik.backend=solr'
-      - 'traefik.port=8983'
-      - 'traefik.frontend.rule=Host:solr.drupal.docker.localhost'
+#  solr:
+## wodby/drupal-solr:[DRUPAL_VERSION]-[SOLR_VERSION]-[STABILITY_TAG].
+#    image: wodby/drupal-solr:8-6.4-2.0.0
+##    image: wodby/drupal-solr:8-6.3-2.0.0
+##    image: wodby/drupal-solr:8-5.5-2.0.0
+##    image: wodby/drupal-solr:7-6.4-2.0.0
+##    image: wodby/drupal-solr:7-6.3-2.0.0
+##    image: wodby/drupal-solr:7-5.5-2.0.0
+#    environment:
+#      SOLR_HEAP: 1024m
+#    labels:
+#      - 'traefik.backend=solr'
+#      - 'traefik.port=8983'
+#      - 'traefik.frontend.rule=Host:solr.drupal.docker.localhost'
 
   mailhog:
     image: mailhog/mailhog
@@ -110,15 +126,14 @@ services:
 #    command: sh -c 'npm install && npm run start'
 
 #  memcached:
-#    image: memcached:1.4-alpine
+#    image: wodby/memcached:1.4-2.0.0
 
   traefik:
     image: traefik
-    restart: unless-stopped
     command: -c /dev/null --web --docker --logLevel=INFO
     ports:
       - '8000:80'
-      - '8080:8080'
+#      - '8080:8080' # Dashboard
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
@@ -126,3 +141,6 @@ services:
 #volumes:
 #  docker-sync-unison:
 #    external: true
+
+volumes:
+  codebase:

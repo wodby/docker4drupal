@@ -34,10 +34,10 @@ The Drupal bundle consist of the following containers:
 | Nginx      | 1.10               | nginx     | [wodby/drupal-nginx]    | ✓ |
 | PHP        | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      | ✓ |
 | MariaDB    | 10.1               | mariadb   | [wodby/mariadb]         | ✓ |
-| Redis      | 3.2                | redis     | [wodby/redis]           | ✓ |
+| Redis      | 3.2                | redis     | [wodby/redis]           |   |
 | Varnish    | 4.1                | varnish   | [wodby/drupal-varnish]  |   |
 | Solr       | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]     |   |
-| phpMyAdmin | latest             | pma       | [phpmyadmin/phpmyadmin] | ✓ |
+| phpMyAdmin | latest             | pma       | [phpmyadmin/phpmyadmin] |   |
 | Mailhog    | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
 | Node.js    | 7                  | node      | [_/node]                |   |
 | Memcached  | latest             | memcached | [_/memcached]           |   |
