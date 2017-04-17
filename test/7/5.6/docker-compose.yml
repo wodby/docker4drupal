@@ -12,9 +12,9 @@ services:
   php:
     image: $DRUPAL7_PHP56
     environment:
-      PHP_FPM_CLEAR_ENV: "no"
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
+      - codebase:/var/www/html
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
       - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
@@ -26,6 +26,8 @@ services:
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
+    volumes:
+      - codebase:/var/www/html
     restart: unless-stopped
     depends_on:
       - php
@@ -46,3 +48,6 @@ services:
     image: $DRUPAL7_SOLR
     environment:
       SOLR_HEAP: 1024m
+
+volumes:
+  codebase:

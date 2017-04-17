@@ -12,9 +12,9 @@ services:
   php:
     image: $DRUPAL_PHP56
     environment:
-      PHP_FPM_CLEAR_ENV: "no"
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
+      - codebase:/var/www/html
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/test.settings.php
 
@@ -25,9 +25,13 @@ services:
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/app
-    restart: unless-stopped
+    volumes:
+      - codebase:/var/www/html
     depends_on:
       - php
 
   memcached:
     image: $MEMCACHED
+
+volumes:
+  codebase:
