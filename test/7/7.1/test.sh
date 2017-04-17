@@ -17,9 +17,6 @@ installDrupal() {
 }
 
 installModules() {
-    drush dl varnish redis
-    drush en -y varnish redis
-
     composer require -d /var/www/html \
         drupal/redis:3.x \
         drupal/search_api:1.x \
