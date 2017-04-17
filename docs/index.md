@@ -14,10 +14,10 @@ The Drupal bundle consist of the following containers:
 [wodby/redis]: https://github.com/wodby/redis
 [wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
 [wodby/drupal-solr]: https://github.com/wodby/drupal-solr
+[wodby/memcached]: https://github.com/wodby/memcached
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [_/node]: https://hub.docker.com/_/node
-[_/memcached]: https://hub.docker.com/_/memcached
 [_/traefik]: https://hub.docker.com/_/traefik
 
 | Container | Versions | Service name | Image | Enabled by default |
@@ -25,12 +25,12 @@ The Drupal bundle consist of the following containers:
 | [Nginx](containers/nginx.md)         | 1.10               | nginx     | [wodby/drupal-nginx]    | ✓ |
 | [PHP](containers/php.md)             | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      | ✓ |
 | [MariaDB](containers/mariadb.md)     | 10.1               | mariadb   | [wodby/mariadb]         | ✓ |
-| [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]           | ✓ |
+| [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]           |   |
 | [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish]  |   |
 | [Solr](containers/solr.md)           | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]     |   |
-| [Memcached](containers/memcached.md) | latest             | memcached | [_/memcached]           |   |
+| [Memcached](containers/memcached.md) | 1.4                | memcached | [wodby/memcached]       |   |
 | Mailhog                              | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
-| phpMyAdmin                           | latest             | pma       | [phpmyadmin/phpmyadmin] | ✓ |
+| phpMyAdmin                           | latest             | pma       | [phpmyadmin/phpmyadmin] |   |
 | Node.js                              | 7                  | node      | [_/node]                |   |
 | Traefik                              | latest             | traefik   | [_/traefik]             |   |
 

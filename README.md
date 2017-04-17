@@ -21,10 +21,10 @@ Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
 [wodby/redis]: https://github.com/wodby/redis
 [wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
 [wodby/drupal-solr]: https://github.com/wodby/drupal-solr
+[wodby/memcached]: https://github.com/wodby/memcached
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [_/node]: https://hub.docker.com/_/node
-[_/memcached]: https://hub.docker.com/_/memcached
 [_/traefik]: https://hub.docker.com/_/traefik
 
 The Drupal bundle consist of the following containers:
@@ -37,10 +37,10 @@ The Drupal bundle consist of the following containers:
 | Redis      | 3.2                | redis     | [wodby/redis]           |   |
 | Varnish    | 4.1                | varnish   | [wodby/drupal-varnish]  |   |
 | Solr       | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]     |   |
-| phpMyAdmin | latest             | pma       | [phpmyadmin/phpmyadmin] |   |
+| Memcached  | 1.4                | memcached | [wodby/memcached]       |   |
 | Mailhog    | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
+| phpMyAdmin | latest             | pma       | [phpmyadmin/phpmyadmin] |   |
 | Node.js    | 7                  | node      | [_/node]                |   |
-| Memcached  | latest             | memcached | [_/memcached]           |   |
 | Traefik    | latest             | traefik   | [_/traefik]             |   |
 
 Supported Drupal versions: 6, 7, 8.
