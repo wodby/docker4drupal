@@ -61,13 +61,13 @@ There 2 options how to use docker4drupal – you can either run [vanilla](https:
 
 ### 2. Mount my Drupal Codebase
 
-1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) from [docker4drupal repository](https://github.com/wodby/docker4drupal) and put it to your Drupal project root
-2. Replace php image to `wodby/drupal-php`. Depending on your Drupal version update nginx image
-3. Update nginx and php volumes to `- ./:/var/www/html`. This means that the directory with the compose file will be mounted to containers   
-4. If your project is not based on [composer template](https://github.com/drupal-composer/drupal-project), update `NGINX_SERVER_ROOT` to `/var/www/html` (drupal root == git root)
-5. Make sure you have the same database credentials in your settings.php file and MariaDB definition in the compose file 
+1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) to your Drupal project root
+2. Replace php image from `wodby/drupal` (PHP + vanilla Drupal) to `wodby/drupal-php` (just PHP). Depending on your Drupal version use appropriate tags for _php_ and _nginx_ images
+3. Update _nginx_ and _php_ volumes to `- ./:/var/www/html`. This means that the directory with the compose file will be mounted to containers   
+4. If your project is not based on [composer template](https://github.com/drupal-composer/drupal-project), update `NGINX_SERVER_ROOT` environment variable to `/var/www/html` (drupal root == git root)
+5. Ensure your settings.php uses the same credentials as _mariadb_ service 
 6. Optional: [import existing database](containers/mariadb.md#import-existing-database)
-7. Optional: add additional services (Redis, Solr, etc) by uncommenting the corresponding lines in the compose file
+7. Optional: uncomment lines in the compose file to run _redis_, _solr_, etc
 8. Optional: [configure domains](domains.md)
 9. Run containers: `docker-compose up -d`
 10. That's it! Your drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). If you need to run multiple projects simultaneously see [this article](multiple-projects.md)
