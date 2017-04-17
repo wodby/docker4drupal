@@ -43,7 +43,7 @@ Supported Drupal versions: 6, 7, 8.
 
 ## Must know before you start
 
-1. **You will lose MariaDB data** if you run `docker-compose down`. Instead use `docker-compose stop` to stop containers. Alternatively, you can use a manual volume for mariadb data (see compose file), this way your data will always persist 
+1. **(!!!) You will lose MariaDB data** if you run `docker-compose down`. Instead use `docker-compose stop` to stop containers. Alternatively, you can use a manual volume for mariadb data (see compose file), this way your data will always persist 
 2. To avoid potential problems with permissions between your host and containers please follow [this instructions](permissions.md)
 3. _For macOS users_: Out of box Docker for Mac volumes has [poor performance](https://github.com/Wodby/docker4drupal/issues/4). However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
 
@@ -61,10 +61,12 @@ There 2 options how to use docker4drupal – you can either run [vanilla](https:
 
 ### 2. Mount my Drupal Codebase
 
+0. Read [must know before you start](#must-know-before-you-start) 
 1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) to your Drupal project root
-2. Replace php image from `wodby/drupal` (PHP + vanilla Drupal) to `wodby/drupal-php` (just PHP). Depending on your Drupal version use appropriate tags for _php_ and _nginx_ images
-3. Update _nginx_ and _php_ volumes to `- ./:/var/www/html`. This means that the directory with the compose file will be mounted to containers   
-4. If your project is not based on [composer template](https://github.com/drupal-composer/drupal-project), update `NGINX_SERVER_ROOT` environment variable to `/var/www/html` (drupal root == git root)
+2. Replace php image from `wodby/drupal` (PHP + vanilla Drupal) to `wodby/drupal-php` (just PHP)
+3. Depending on your Drupal version use appropriate tags for _php_ and _nginx_ images
+4. Update _nginx_ and _php_ volumes to `- ./:/var/www/html` to mount your codebase
+4. Update `NGINX_SERVER_ROOT` to `/var/www/html` unless your project is based on [composer template](https://github.com/drupal-composer/drupal-project)
 5. Ensure your settings.php uses the same credentials as _mariadb_ service 
 6. Optional: [import existing database](containers/mariadb.md#import-existing-database)
 7. Optional: uncomment lines in the compose file to run _redis_, _solr_, etc
