@@ -28,7 +28,6 @@ services:
       NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
       - codebase:/var/www/html
-    restart: unless-stopped
     depends_on:
       - php
 
