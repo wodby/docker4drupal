@@ -31,19 +31,19 @@ drush cc all
 
 # Test solr server connection
 drush en -y feature_search_api_solr
-drush core-requirements | grep -s "Solr servers\s\+OK"
-drush core-requirements | grep -s "The Solr server could be reached."
+drush core-requirements | grep -q "Solr servers\s\+OK"
+drush core-requirements | grep -q "The Solr server could be reached."
 
-drush core-requirements | grep -s "Database system\s\+Info\s\+MySQL, MariaDB"
-drush core-requirements | grep -s "Redis\s\+OK\s\+Connected, using the PhpRedis client"
-drush core-requirements | grep -s "PHP\s\+Info\s\+7.2"
-drush core-requirements | grep -s "Varnish status\s\+Info\s\+Running"
+drush core-requirements | grep -q "Database system\s\+Info\s\+MySQL, MariaDB"
+drush core-requirements | grep -q "Redis\s\+OK\s\+Connected, using the PhpRedis client"
+drush core-requirements | grep -q "PHP\s\+Info\s\+7.1"
+drush core-requirements | grep -q "Varnish status\s\+Info\s\+Running"
 
 # Test varnish cache and purge
-curl -Is varnish:6081 | grep -s "X-Varnish-Cache: MISS"
-curl -Is varnish:6081 | grep -s "X-Varnish-Cache: HIT"
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
 
 drush varnish-purge-all
 
-curl -Is varnish:6081 | grep -s "X-Varnish-Cache: MISS"
-curl -Is varnish:6081 | grep -s "X-Varnish-Cache: HIT"
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"

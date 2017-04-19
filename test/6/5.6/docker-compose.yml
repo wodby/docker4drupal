@@ -25,7 +25,7 @@ services:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html/
+      NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
       - codebase:/var/www/html
     depends_on:

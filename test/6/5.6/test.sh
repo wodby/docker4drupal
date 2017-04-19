@@ -12,13 +12,15 @@ DB_USER=drupal
 DB_PASS=drupal
 DB_URL="mysql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}"
 
+cd ./web
+
 drush si --db-url="${DB_URL}" -y
 drush dl memcache-6.x-1.11
 
-chmod 755 "${APP_ROOT}/sites/default/settings.php"
-echo "include '${APP_ROOT}/test.settings.php';" >> "${APP_ROOT}/sites/default/settings.php"
+chmod 755 "${APP_ROOT}/web/sites/default/settings.php"
+echo "include '${APP_ROOT}/test.settings.php';" >> "${APP_ROOT}/web/sites/default/settings.php"
 
 drush en memcache -y
 
-drush core-requirements | grep -s "PHP\s\+Info\s\+5.6"
-drush core-requirements | grep -s "Memcache\s\+OK\s\+2.2.0"
+drush core-requirements | grep -q "PHP\s\+Info\s\+5.6"
+drush core-requirements | grep -q "Memcache\s\+OK\s\+2.2.0"
