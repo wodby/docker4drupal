@@ -13,9 +13,10 @@ Docker4Drupal is a set of docker images optimized for local development with Dru
 
 Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
 
-## Bundle
+## Stack
 
 [wodby/drupal-nginx]: https://github.com/wodby/drupal-nginx
+[wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
 [wodby/redis]: https://github.com/wodby/redis
@@ -27,12 +28,13 @@ Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
 [_/node]: https://hub.docker.com/_/node
 [_/traefik]: https://hub.docker.com/_/traefik
 
-The Drupal bundle consist of the following containers:
+The Drupal stack consist of the following containers:
 
 | Container | Versions | Service name | Image | Enabled by default |
 | --------- | -------- | ------------ | ----- | ------------------ |
 | Nginx      | 1.10               | nginx     | [wodby/drupal-nginx]    | ✓ |
-| PHP        | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      | ✓ |
+| Drupal     | 8, 7, 6            | php       | [wodby/drupal]          | ✓ |
+| PHP        | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      |   |
 | MariaDB    | 10.1               | mariadb   | [wodby/mariadb]         | ✓ |
 | Redis      | 3.2                | redis     | [wodby/redis]           |   |
 | Varnish    | 4.1                | varnish   | [wodby/drupal-varnish]  |   |

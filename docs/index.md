@@ -6,9 +6,10 @@ Docker4Drupal is designed to be used for local development, if you're looking fo
 
 ## Overview
 
-The Drupal bundle consist of the following containers:
+The Drupal stack consist of the following containers:
 
 [wodby/drupal-nginx]: https://github.com/wodby/drupal-nginx
+[wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
 [wodby/redis]: https://github.com/wodby/redis
@@ -23,7 +24,8 @@ The Drupal bundle consist of the following containers:
 | Container | Versions | Service name | Image | Enabled by default |
 | --------- | -------- | ------------ | ----- | ------------------ |
 | [Nginx](containers/nginx.md)         | 1.10               | nginx     | [wodby/drupal-nginx]    | ✓ |
-| [PHP](containers/php.md)             | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      | ✓ |
+| Drupal                               | 8, 7, 6            | php       | [wodby/drupal]          | ✓ |
+| [PHP](containers/php.md)             | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      |   |
 | [MariaDB](containers/mariadb.md)     | 10.1               | mariadb   | [wodby/mariadb]         | ✓ |
 | [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]           |   |
 | [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish]  |   |
