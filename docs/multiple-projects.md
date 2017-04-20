@@ -32,7 +32,7 @@ This set up also works for other Docker projects (non Drupal and non docker4drup
 
 - Check `docker ps` to see which containers are running and check if you have set up all names correctly.
 - Check `docker network ls` to check if the network names are matching.
-- Run `docker-composer logs -f` in site1 or site2 to see the log of each project.
+- Run `docker-compose logs -f` in site1 or site2 to see the log of each project.
 
 To report issues about multi-project set up with docker4drupal or if you have more suggestions and use-cases, please use this thread: https://github.com/wodby/docker4drupal/issues/124
 
