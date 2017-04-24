@@ -12,7 +12,8 @@ services:
   php:
     image: $DRUPAL7_PHP70
     environment:
-      DRUPAL_SKIP_INIT: 1
+      # To skip auto init.
+      DRUPAL_VERSION: 7
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - codebase:/var/www/html

@@ -12,7 +12,8 @@ services:
   php:
     image: $DRUPAL8_PHP70
     environment:
-      DRUPAL_SKIP_INIT: 1
+      # To skip auto init.
+      DRUPAL_VERSION: 8
       DB_HOST: mariadb
       DB_NAME: drupal
       DB_USER: drupal
