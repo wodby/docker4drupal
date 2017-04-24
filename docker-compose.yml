@@ -14,13 +14,13 @@ services:
 
   php:
 # 1. Images with vanilla Drupal – wodby/drupal:[DRUPAL_VERSION]-[PHP_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal:8-7.1-2.1.1
-#    image: wodby/drupal:8-7.0-2.1.1
-#    image: wodby/drupal:7-7.1-2.1.1
-#    image: wodby/drupal:7-7.0-2.1.1
-#    image: wodby/drupal:7-5.6-2.1.1
-#    image: wodby/drupal:6-5.6-2.1.1
-#    image: wodby/drupal:6-5.3-2.1.1
+    image: wodby/drupal:8-7.1-2.1.2
+#    image: wodby/drupal:8-7.0-2.1.2
+#    image: wodby/drupal:7-7.1-2.1.2
+#    image: wodby/drupal:7-7.0-2.1.2
+#    image: wodby/drupal:7-5.6-2.1.2
+#    image: wodby/drupal:6-5.6-2.1.2
+#    image: wodby/drupal:6-5.3-2.1.2
 # 2. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG].
 #    image: wodby/drupal-php:7.1-2.1.0
 #    image: wodby/drupal-php:7.0-2.1.0
