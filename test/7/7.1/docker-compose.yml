@@ -12,6 +12,7 @@ services:
   php:
     image: $DRUPAL7_PHP71
     environment:
+      DRUPAL_SKIP_INIT: 1
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - codebase:/var/www/html

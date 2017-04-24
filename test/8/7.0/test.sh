@@ -12,6 +12,8 @@ DB_USER=drupal
 DB_PASS=drupal
 DB_URL="mysql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}"
 
+make init -f /usr/local/bin/actions.mk
+
 composer require \
     drupal/redis \
     drupal/search_api \

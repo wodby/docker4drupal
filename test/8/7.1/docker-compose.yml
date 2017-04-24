@@ -12,6 +12,7 @@ services:
   php:
     image: $DRUPAL8_PHP71
     environment:
+      DRUPAL_SKIP_INIT: 1
       DB_HOST: mariadb
       DB_NAME: drupal
       DB_USER: drupal
