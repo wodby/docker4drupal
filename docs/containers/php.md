@@ -63,7 +63,7 @@ PHP_XDEBUG_REMOTE_HOST: "10.0.75.1"  # Setting the host (localhost by default)
 
 You also need to check firewall not to block your connection. Disabling firewall should help.
 
-### PHPUnit
+## PHPUnit
 
 1. Inside your drupal/core directory, copy the file `phpunit.xml.distand` rename it to `phpunit.xml`
 2. Open that file and make sure that you update `SIMPLETEST_BASE_URL` to `http://nginx`
