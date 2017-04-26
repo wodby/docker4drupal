@@ -52,7 +52,7 @@ You also need to have loopback alias with IP from above. You need this only once
 ```bash
 sudo ifconfig lo0 alias 10.254.254.254
 ```
-To add the loopback alias after a reboot, add the following contents to /Library/LauncDaemons/docker4drupal.loopback.plist
+To add the loopback alias after a reboot, add the following contents to /Library/LaunchDaemons/docker4drupal.loopback.plist
 
 ```<plist version="1.0">
   <dict>
