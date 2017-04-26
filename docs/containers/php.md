@@ -52,6 +52,26 @@ You also need to have loopback alias with IP from above. You need this only once
 ```bash
 sudo ifconfig lo0 alias 10.254.254.254
 ```
+To add the loopback alias after a reboot, add the following contents to /Library/LaunchDaemons/docker4drupal.loopback.plist
+
+```<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>Default Loopback alias</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/sbin/ifconfig</string>
+      <string>lo0</string>
+      <string>alias</string>
+      <string>10.254.254.254</string>
+      <string>netmask</string>
+      <string>255.255.255.0</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+  </dict>
+</plist>
+```
 
 ### Xdebug on Windows
 
