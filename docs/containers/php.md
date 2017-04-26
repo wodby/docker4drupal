@@ -54,7 +54,7 @@ sudo ifconfig lo0 alias 10.254.254.254
 ```
 To add the loopback alias after a reboot, add the following contents to /Library/LauncDaemons/docker4drupal.loopback.plist
 
-<plist version="1.0">
+```<plist version="1.0">
   <dict>
     <key>Label</key>
     <string>Default Loopback alias</string>
@@ -71,6 +71,7 @@ To add the loopback alias after a reboot, add the following contents to /Library
     <true/>
   </dict>
 </plist>
+```
 
 ### Xdebug on Windows
 
