@@ -6,31 +6,33 @@ Docker4Drupal is designed to be used for local development, if you're looking fo
 
 ## Overview
 
-The Drupal bundle consist of the following containers:
+The Drupal stack consist of the following containers:
 
 [wodby/drupal-nginx]: https://github.com/wodby/drupal-nginx
+[wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
 [wodby/redis]: https://github.com/wodby/redis
 [wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
 [wodby/drupal-solr]: https://github.com/wodby/drupal-solr
+[wodby/memcached]: https://github.com/wodby/memcached
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [_/node]: https://hub.docker.com/_/node
-[_/memcached]: https://hub.docker.com/_/memcached
 [_/traefik]: https://hub.docker.com/_/traefik
 
 | Container | Versions | Service name | Image | Enabled by default |
 | --------- | -------- | ------------ | ----- | ------------------ |
 | [Nginx](containers/nginx.md)         | 1.10               | nginx     | [wodby/drupal-nginx]    | ✓ |
-| [PHP](containers/php.md)             | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      | ✓ |
+| Drupal                               | 8, 7, 6            | php       | [wodby/drupal]          | ✓ |
+| [PHP](containers/php.md)             | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      |   |
 | [MariaDB](containers/mariadb.md)     | 10.1               | mariadb   | [wodby/mariadb]         | ✓ |
-| [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]           | ✓ |
+| [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]           |   |
 | [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish]  |   |
 | [Solr](containers/solr.md)           | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]     |   |
-| [Memcached](containers/memcached.md) | latest             | memcached | [_/memcached]           |   |
+| [Memcached](containers/memcached.md) | 1.4                | memcached | [wodby/memcached]       |   |
 | Mailhog                              | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
-| phpMyAdmin                           | latest             | pma       | [phpmyadmin/phpmyadmin] | ✓ |
+| phpMyAdmin                           | latest             | pma       | [phpmyadmin/phpmyadmin] |   |
 | Node.js                              | 7                  | node      | [_/node]                |   |
 | Traefik                              | latest             | traefik   | [_/traefik]             |   |
 
@@ -43,29 +45,43 @@ Supported Drupal versions: 6, 7, 8.
 
 ## Must know before you start
 
-1. To make sure you don't lose your MariaDB data DO NOT use `docker-compose down` (Docker will destroy volumes), instead use `docker-compose stop`. Alternatively, you can specify manual volume for `/var/lib/mysql` (see compose file), this way your data will always persist 
+1. **(!!!) You will lose MariaDB data** if you run `docker-compose down`. Instead use `docker-compose stop` to stop containers. Alternatively, you can use a manual volume for mariadb data (see compose file), this way your data will always persist 
 2. To avoid potential problems with permissions between your host and containers please follow [this instructions](permissions.md)
-3. _For macOS users_: Out of box Docker for Mac has [poor performance](https://github.com/Wodby/docker4drupal/issues/4) on macOS. However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
+3. _For macOS users_: Out of box Docker for Mac volumes has [poor performance](https://github.com/Wodby/docker4drupal/issues/4). However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
 
 ## Usage 
 
-Feel free to adjust volumes and ports in the compose file for your convenience.
+There 2 options how to use docker4drupal – you can either run [vanilla](https://en.wikipedia.org/wiki/Vanilla_software) Drupal from the image or mount your own Drupal codebase:
 
-1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) from [docker4drupal repository](https://github.com/wodby/docker4drupal) and put it to your Drupal project codebase directory. This directory will be mounted to PHP and Nginx containers 
-2. Depending on your Drupal version make sure you're using correct tags (versions) of Nginx and PHP images
-3. Make sure you have the same database credentials in your settings.php file and MariaDB service definition in the compose file 
-4. Optional: [import existing database](containers/mariadb.md#import-existing-database)
-6. Optional: add additional services (Varnish, Apache Solr, Memcached, Node.js) by uncommenting the corresponding lines in the compose file
-7. Optional: [configure domains](domains.md)
-8. Run containers: `docker-compose up -d`
-9. That's it! You drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). If you need to run multiple projects simultaneously see [this article](multiple-projects.md)
+### 1. Run Vanilla Drupal from Image (default)
+
+1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml)
+2. Optional: update _php_ and _nginx_ images tags if you want to run Drupal 6 or 7 (by default Drupal 8)
+3. Run containers: `docker-compose up -d` 
+4. Wait a few seconds for containers initialization 
+5. That's it! Proceed with Drupal installation at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). Default database user, password and database name are all `drupal`, database host is `mariadb`
+
+### 2. Mount my Drupal Codebase
+
+0. Read [must know before you start](#must-know-before-you-start) 
+1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) to your Drupal project root
+2. Replace php image from `wodby/drupal` (PHP + vanilla Drupal) to `wodby/drupal-php` (just PHP)
+3. Depending on your Drupal version use appropriate tags for _php_ and _nginx_ images
+4. Update _nginx_ and _php_ volumes to `- ./:/var/www/html` to mount your codebase
+4. Update `NGINX_SERVER_ROOT` to `/var/www/html` unless your project is based on [composer template](https://github.com/drupal-composer/drupal-project)
+5. Ensure your settings.php uses the same credentials as _mariadb_ service 
+6. Optional: [import existing database](containers/mariadb.md#import-existing-database)
+7. Optional: uncomment lines in the compose file to run _redis_, _solr_, etc
+8. Optional: [configure domains](domains.md)
+9. Run containers: `docker-compose up -d`
+10. That's it! Your drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). If you need to run multiple projects simultaneously see [this article](multiple-projects.md)
 
 You can stop containers by executing:
 ```bash
 docker-compose stop
 ```
 
-Also, read [how to access containers](access.md) and [how to get logs](logs.md)
+Feel free to adjust volumes and ports in the compose file for your convenience. Also, read [how to access containers](access.md) and [how to get logs](logs.md)
 
 ## Status
 

@@ -1,5 +1,13 @@
 # Docker4Drupal Changelog
 
+## 2.1.0
+
+* New 2.1.0 images for php, nginx, mariadb, redis and varnish
+* New memcached image
+* Updated documentation
+* New [Vanilla Drupal option](http://docs.docker4drupal.org/en/latest/#1-run-vanilla-drupal-from-image-default) is now default 
+* traefik.yml to [run multiple projects simultaneously](http://docs.docker4drupal.org/en/latest/multiple-projects/)
+
 ## 2.0.1
 
 * Traefik with domains is now enabled by default

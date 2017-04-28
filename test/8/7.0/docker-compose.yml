@@ -12,9 +12,16 @@ services:
   php:
     image: $DRUPAL8_PHP70
     environment:
-      PHP_FPM_CLEAR_ENV: "no"
+      # To skip auto init.
+      DRUPAL_VERSION: 8
+      DB_HOST: mariadb
+      DB_NAME: drupal
+      DB_USER: drupal
+      DB_PASSWORD: drupal
+      DB_DRIVER: mysql
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
+      - codebase:/var/www/html
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
       - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
@@ -27,7 +34,8 @@ services:
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
-    restart: unless-stopped
+    volumes:
+      - codebase:/var/www/html
     depends_on:
       - php
 
@@ -49,3 +57,6 @@ services:
     image: $DRUPAL8_SOLR
     environment:
       SOLR_HEAP: 1024m
+
+volumes:
+  codebase:

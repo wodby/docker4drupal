@@ -52,6 +52,27 @@ You also need to have loopback alias with IP from above. You need this only once
 ```bash
 sudo ifconfig lo0 alias 10.254.254.254
 ```
+To add the loopback alias after a reboot, add the following contents to /Library/LaunchDaemons/docker4drupal.loopback.plist
+
+```xml
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>Default Loopback alias</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/sbin/ifconfig</string>
+      <string>lo0</string>
+      <string>alias</string>
+      <string>10.254.254.254</string>
+      <string>netmask</string>
+      <string>255.255.255.0</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+  </dict>
+</plist>
+```
 
 ### Xdebug on Windows
 
@@ -62,6 +83,12 @@ PHP_XDEBUG_REMOTE_HOST: "10.0.75.1"  # Setting the host (localhost by default)
 ```
 
 You also need to check firewall not to block your connection. Disabling firewall should help.
+
+## PHPUnit
+
+1. Inside your drupal/core directory, copy the file `phpunit.xml.distand` rename it to `phpunit.xml`
+2. Open that file and make sure that you update `SIMPLETEST_BASE_URL` to `http://nginx`
+3. In order to make sure that your DB connection is working as well, update `SIMPLETEST_DB` to `mysql://drupal:drupal@mariadb/drupal`
 
 ## Customization
 

@@ -2,7 +2,7 @@
 
 To spin up a container with Apache Solr search engine uncomment lines with solr service definition in the compose file.  
 
-By default, Solr admin UI can be accessed by [http://solr.drupal.docker.localhost:8080](http://solr.drupal.docker.localhost:8080). Solr container has a persistent volume defined in Dockerfile, so your data won't be lost if you stop the container. Solr cores can be found under `/opt/solr/server/solr`.
+By default, Solr admin UI can be accessed by [http://solr.drupal.docker.localhost:8000](http://solr.drupal.docker.localhost:8000). Solr container has a persistent volume defined in Dockerfile, so your data won't be lost if you stop the container. Solr cores can be found under `/opt/solr/server/solr`.
 
 ## Integration with Search API Solr module
 
