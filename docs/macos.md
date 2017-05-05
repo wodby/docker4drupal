@@ -4,7 +4,6 @@ To fix Docker [poor performance](https://github.com/Wodby/docker4drupal/issues/4
 
 ```
 gem install docker-sync
-brew install fswatch
 ```
 
 ### Usage
