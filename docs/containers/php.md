@@ -86,7 +86,7 @@ You also need to check firewall not to block your connection. Disabling firewall
 
 ## PHPUnit
 
-1. Inside your drupal/core directory, copy the file `phpunit.xml.distand` rename it to `phpunit.xml`
+1. Inside your drupal/core directory, copy the file `phpunit.xml.dist` and rename it to `phpunit.xml`
 2. Open that file and make sure that you update `SIMPLETEST_BASE_URL` to `http://nginx`
 3. In order to make sure that your DB connection is working as well, update `SIMPLETEST_DB` to `mysql://drupal:drupal@mariadb/drupal`
 
