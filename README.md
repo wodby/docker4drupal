@@ -41,7 +41,7 @@ The Drupal stack consist of the following containers:
 | Mailhog    | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
 | phpMyAdmin | latest             | pma       | [phpmyadmin/phpmyadmin] |   |
 | Node.js    | 7                  | node      | [_/node]                |   |
-| Traefik    | latest             | traefik   | [_/traefik]             |   |
+| Traefik    | latest             | traefik   | [_/traefik]             | ✓ |
 
 Supported Drupal versions: 6, 7, 8.
 
