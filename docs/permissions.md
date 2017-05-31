@@ -11,6 +11,12 @@ sudo groupadd -r -g 82 alpine-www-data
 sudo usermod -a -G alpine-www-data $(id -un)
 ```
 
+Another solution is to use ACL mechanism, available on most of Linux platforms. 
+```bash
+sudo setfacl -dR -m u:$(whoami):rwX path_to_shared_volume
+sudo setfacl -R -m u:$(whoami):rwX path_to_shared_volume
+```
+
 ## macOS
 
 On macOS group with 82 already exists (_clamav). 
