@@ -39,7 +39,7 @@ services:
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
       - codebase:/var/www/html
-#      - docker-sync-unison:/var/www/html # Docker-sync for macOS users
+#      - docker-sync:/var/www/html # Docker-sync for macOS users
 
   nginx:
 # wodby/drupal-nginx:[DRUPAL_VERSION]-[NGINX_VERSION]-[STABILITY_TAG].
@@ -55,7 +55,7 @@ services:
       NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
       - codebase:/var/www/html
-#      - docker-sync-unison:/var/www/html # Docker-sync for macOS users
+#      - docker-sync:/var/www/html # Docker-sync for macOS users
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
@@ -137,10 +137,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-# Docker-sync for macOS users
-#volumes:
-#  docker-sync-unison:
-#    external: true
-
 volumes:
   codebase:
+## Docker-sync for macOS users
+#  docker-sync:
+#    external: true
