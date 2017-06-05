@@ -1,4 +1,4 @@
-# Docker-based Drupal environment for local development
+# Docker-based Drupal stack
 
 [![Documentation Status](https://readthedocs.org/projects/docker4drupal/badge/?version=latest)](http://docs.docker4drupal.org)
 [![Build Status](https://travis-ci.org/wodby/docker4drupal.svg?branch=master)](https://travis-ci.org/wodby/docker4drupal)
@@ -7,7 +7,7 @@
 
 ## Introduction
 
-Docker4Drupal is a set of docker images optimized for local development with Drupal. Use docker-compose.yml file from this repository to spin up local environment on Linux, Mac OS X and Windows. 
+Docker4Drupal is a set of docker images optimized for Drupal. Use docker-compose.yml file from this repository to spin up local environment on Linux, Mac OS X and Windows. 
 
 Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
 
