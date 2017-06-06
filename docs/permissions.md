@@ -11,6 +11,18 @@ sudo groupadd -r -g 82 alpine-www-data
 sudo usermod -a -G alpine-www-data $(id -un)
 ```
 
+Another solution is to use ACL mechanism, available on most of Linux distributions. 
+
+It's available by default on Ubuntu, with ext4 filesystem (starting from 14.04 version). 
+If you need more information, how to enable it on your Linux distribution, please check https://help.ubuntu.com/community/FilePermissionsACLs document. 
+
+
+```bash
+sudo setfacl -dR -m u:$(whoami):rwX -m u:82:rwX -m u:100:rX path_to_shared_volume
+sudo setfacl -R -m u:$(whoami):rwX -m u:82:rwX -m u:100:rX path_to_shared_volume
+```
+Code above will make sure that both your current user and php-fpm have full permissions to all files, and nginx worker has read-only access to all files in workspace. 
+
 ## macOS
 
 On macOS group with 82 already exists (_clamav). 
