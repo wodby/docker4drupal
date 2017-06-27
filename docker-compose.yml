@@ -2,7 +2,7 @@ version: "2"
 
 services:
   mariadb:
-    image: wodby/mariadb:10.1-2.1.0
+    image: wodby/mariadb:10.1-2.3.3
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: drupal
@@ -14,18 +14,18 @@ services:
 
   php:
 # 1. Images with vanilla Drupal – wodby/drupal:[DRUPAL_VERSION]-[PHP_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal:8-7.1-2.1.2
-#    image: wodby/drupal:8-7.0-2.1.2
-#    image: wodby/drupal:7-7.1-2.1.2
-#    image: wodby/drupal:7-7.0-2.1.2
-#    image: wodby/drupal:7-5.6-2.1.2
-#    image: wodby/drupal:6-5.6-2.1.2
-#    image: wodby/drupal:6-5.3-2.1.2
+    image: wodby/drupal:8-7.1-2.4.3
+#    image: wodby/drupal:8-7.0-2.4.3
+#    image: wodby/drupal:7-7.1-2.4.3
+#    image: wodby/drupal:7-7.0-2.4.3
+#    image: wodby/drupal:7-5.6-2.4.3
+#    image: wodby/drupal:6-5.6-2.4.3
+#    image: wodby/drupal:6-5.3-2.4.3
 # 2. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG].
-#    image: wodby/drupal-php:7.1-2.1.0
-#    image: wodby/drupal-php:7.0-2.1.0
-#    image: wodby/drupal-php:5.6-2.1.0
-#    image: wodby/drupal-php:5.3-2.1.0
+#    image: wodby/drupal-php:7.1-2.4.2
+#    image: wodby/drupal-php:7.0-2.4.2
+#    image: wodby/drupal-php:5.6-2.4.2
+#    image: wodby/drupal-php:5.3-2.4.2
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       DB_HOST: mariadb
@@ -39,13 +39,18 @@ services:
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
       - codebase:/var/www/html
-#      - docker-sync:/var/www/html # Docker-sync for macOS users
+# Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
+#      - docker-sync:/var/www/html # Docker-sync
+#      - codebase:/var/www/html:cached # User-guided caching
 
   nginx:
 # wodby/drupal-nginx:[DRUPAL_VERSION]-[NGINX_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal-nginx:8-1.10-2.1.0
-#    image: wodby/drupal-nginx:7-1.10-2.1.0
-#    image: wodby/drupal-nginx:6-1.10-2.1.0
+    image: wodby/drupal-nginx:8-1.13-2.4.0
+#    image: wodby/drupal-nginx:7-1.13-2.4.0
+#    image: wodby/drupal-nginx:6-1.13-2.4.0
+#    image: wodby/drupal-nginx:8-1.12-2.4.0
+#    image: wodby/drupal-nginx:7-1.12-2.4.0
+#    image: wodby/drupal-nginx:6-1.12-2.4.0
     depends_on:
       - php
     environment:
@@ -55,14 +60,34 @@ services:
       NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
       - codebase:/var/www/html
-#      - docker-sync:/var/www/html # Docker-sync for macOS users
+# Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
+#      - docker-sync:/var/www/html # Docker-sync
+#      - codebase:/var/www/html:cached # User-guided caching
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:drupal.docker.localhost'
 
+#  apache:
+#    image: wodby/drupal-apache:2.4-1.0.0
+#    depends_on:
+#      - php
+#    environment:
+#      APACHE_LOG_LEVEL: debug
+#      APACHE_BACKEND_HOST: php
+#      APACHE_SERVER_ROOT: /var/www/html/web
+#    volumes:
+#      - codebase:/var/www/html
+# Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
+#      - docker-sync:/var/www/html # Docker-sync
+#      - codebase:/var/www/html:cached # User-guided caching
+#    labels:
+#      - 'traefik.backend=apache'
+#      - 'traefik.port=80'
+#      - 'traefik.frontend.rule=Host:drupal.docker.localhost'
+
 #  varnish:
-#    image: wodby/drupal-varnish:4.1-2.1.0
+#    image: wodby/drupal-varnish:4.1-2.1.2
 #    depends_on:
 #      - nginx
 #    environment:
@@ -75,7 +100,7 @@ services:
 #      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
 
 #  redis:
-#    image: wodby/redis:3.2-2.1.0
+#    image: wodby/redis:3.2-2.1.1
 
 #  pma:
 #    image: phpmyadmin/phpmyadmin
@@ -92,12 +117,10 @@ services:
 
 #  solr:
 ## wodby/drupal-solr:[DRUPAL_VERSION]-[SOLR_VERSION]-[STABILITY_TAG].
-#    image: wodby/drupal-solr:8-6.4-2.0.0
-##    image: wodby/drupal-solr:8-6.3-2.0.0
-##    image: wodby/drupal-solr:8-5.5-2.0.0
-##    image: wodby/drupal-solr:7-6.4-2.0.0
-##    image: wodby/drupal-solr:7-6.3-2.0.0
-##    image: wodby/drupal-solr:7-5.5-2.0.0
+#    image: wodby/drupal-solr:8-6.4-2.1.0
+##    image: wodby/drupal-solr:8-6.3-2.1.0
+##    image: wodby/drupal-solr:8-5.5-2.1.0
+##    image: wodby/drupal-solr:7-5.4-2.1.0
 #    environment:
 #      SOLR_HEAP: 1024m
 #    labels:
@@ -112,8 +135,20 @@ services:
       - 'traefik.port=8025'
       - 'traefik.frontend.rule=Host:mailhog.drupal.docker.localhost'
 
+#  nodejs:
+#    image: wodby/drupal-node:1.0-1.0.0
+#    environment:
+#       NODE_SERVICE_KEY: node-service-key
+#    labels:
+#      - 'traefik.backend=nodejs'
+#      - 'traefik.port=8080'
+#      - 'traefik.frontend.rule=Host:nodejs.drupal.docker.localhost'
+#    volumes:
+#      - ./path/to/your/single-page-app:/app
+#    command: sh -c 'npm install && npm run start'
+
 #  node:
-#    image: node:7-alpine
+#    image: node:alpine
 #    working_dir: /app
 #    labels:
 #      - 'traefik.backend=node'

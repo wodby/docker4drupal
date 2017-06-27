@@ -20,6 +20,6 @@ $conf['varnish_control_key'] = 'secret';
 
 Read https://wunderkraut.se/blogg/purge-cachetags-varnish
 
-## Customization
+## Configuration
 
-See the list of environment variables available for customization at [wodby/drupal-varnish](https://github.com/wodby/drupal-varnish).
+Configuration is possible via environment variables. See the full list of variables on [GitHub](https://github.com/wodby/drupal-varnish).

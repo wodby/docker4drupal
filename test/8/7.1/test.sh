@@ -48,31 +48,30 @@ drush core-requirements | grep -q "Redis\s\+OK\s\+Connected, using the PhpRedis 
 drush core-requirements | grep -q "PHP OPcode caching\s\+Info\s\+Enabled"
 drush core-requirements | grep -q "PHP\s\+Info\s\+7.1"
 
-# TODO: return after drupal console fix https://github.com/hechoendrupal/drupal-console/issues/3223
 # Test solr server connection
-#drupal cis --name "search_api.server.solr_6_4" --file search-api-solr-server.yml
-#drush core-requirements | grep -q "Solr servers\s\+OK"
-#drush core-requirements | grep -q "The Solr server could be reached."
+drupal cis --name "search_api.server.solr_6_4" --file search-api-solr-server.yml
+drush core-requirements | grep -q "Solr servers\s\+OK"
+drush core-requirements | grep -q "The Solr server could be reached."
 
 # Test varnish cache and purge
-#cp varnish-purger.yml purger.yml
-#
-#drush ppa varnish
-#drush cr
-#
+cp varnish-purger.yml purger.yml
+
+drush ppa varnish
+drush cr
+
 ## Workaround for varnish purger import https://www.drupal.org/node/2856221
-#PURGER_ID="$(drush ppu | awk 'NR==2{print $1}' | tr -cd '[[:alnum:]]')"
-#
-#sed -i "s/PLUGIN_ID/${PURGER_ID}/g" purger.yml
-#drupal cis --name "varnish_purger.settings.${PURGER_ID}" --file purger.yml
-#
-#drush -y config-set system.performance cache.page.max_age 43200
-#
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
-#
-#drush cc render
-#drush pqw
-#
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
+PURGER_ID="$(drush ppu | awk 'NR==2{print $1}' | tr -cd '[[:alnum:]]')"
+
+sed -i "s/PLUGIN_ID/${PURGER_ID}/g" purger.yml
+drupal cis --name "varnish_purger.settings.${PURGER_ID}" --file purger.yml
+
+drush -y config-set system.performance cache.page.max_age 43200
+
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
+
+drush cc render
+drush pqw
+
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
+curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"

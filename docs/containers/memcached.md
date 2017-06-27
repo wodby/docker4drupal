@@ -16,3 +16,6 @@ $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_servers'] = array('memcached:11211' => 'default');
 ```
 
+## Configuration
+
+Configuration is possible via environment variables. See the full list of variables on [GitHub](https://github.com/wodby/memcached).

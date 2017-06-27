@@ -13,4 +13,6 @@ By default, Solr admin UI can be accessed by [http://solr.drupal.docker.localhos
 5. Specify `solr` as a Solr host, `8983` as a port, `/solr` as a solr path and your core name (`core1` from step 1)
 6. That's it! Now Drupal should be connected to our Solr backend 
 
-You can find more information about solr configuration and actions on [wodby/drupal-solr](https://github.com/wodby/drupal-solr).
+## Configuration
+
+Configuration is possible via environment variables. See the full list of variables on [GitHub](https://github.com/wodby/drupal-solr).

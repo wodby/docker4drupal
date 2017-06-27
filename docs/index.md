@@ -15,26 +15,35 @@ The Drupal stack consist of the following containers:
 [wodby/redis]: https://github.com/wodby/redis
 [wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
 [wodby/drupal-solr]: https://github.com/wodby/drupal-solr
+[wodby/drupal-node]: https://github.com/wodby/drupal-node
 [wodby/memcached]: https://github.com/wodby/memcached
-[phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
+[wodby/rsyslog]: https://hub.docker.com/r/wodby/rsyslog
+[arachnysdocker/athenapdf-service]: https://hub.docker.com/r/arachnysdocker/athenapdf-service
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
+[wodby/adminer]: https://hub.docker.com/r/wodby/adminer
+[phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [_/node]: https://hub.docker.com/_/node
 [_/traefik]: https://hub.docker.com/_/traefik
 
 | Container | Versions | Service name | Image | Enabled by default |
 | --------- | -------- | ------------ | ----- | ------------------ |
-| [Nginx](containers/nginx.md)         | 1.10               | nginx     | [wodby/drupal-nginx]    | ✓ |
-| Drupal                               | 8, 7, 6            | php       | [wodby/drupal]          | ✓ |
-| [PHP](containers/php.md)             | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]      |   |
-| [MariaDB](containers/mariadb.md)     | 10.1               | mariadb   | [wodby/mariadb]         | ✓ |
-| [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]           |   |
-| [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish]  |   |
-| [Solr](containers/solr.md)           | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]     |   |
-| [Memcached](containers/memcached.md) | 1.4                | memcached | [wodby/memcached]       |   |
-| Mailhog                              | latest             | mailhog   | [mailhog/mailhog]       | ✓ |
-| phpMyAdmin                           | latest             | pma       | [phpmyadmin/phpmyadmin] |   |
-| Node.js                              | 7                  | node      | [_/node]                |   |
-| Traefik                              | latest             | traefik   | [_/traefik]             |   |
+| [Nginx](containers/nginx.md)         | 1.13, 1.12         | nginx     | [wodby/drupal-nginx]               | ✓ |
+| [Apache](containers/apache.md)       | 2.4                | apache    | [wodby/drupal-apache]              |   |
+| [Drupal](containers/drupal.md)       | 8, 7, 6            | php       | [wodby/drupal]                     | ✓ |
+| [PHP](containers/php.md)             | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]                 |   |
+| [MariaDB](containers/mariadb.md)     | 10.1               | mariadb   | [wodby/mariadb]                    | ✓ |
+| [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]                      |   |
+| [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish]             |   |
+| [Solr](containers/solr.md)           | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]                |   |
+| [Node.js](containers/nodejs.md)      | 1.0                | nodejs    | [wodby/drupal-node]                |   |
+| [Memcached](containers/memcached.md) | 1.4                | memcached | [wodby/memcached]                  |   |
+| [Rsyslog](containers/rsyslog)        | latest             | rsyslog   | [wodby/rsyslog]                    |   |
+| [AthenaPDF](containers/athenapdf.md) | latest             | athenapdf | [arachnysdocker/athenapdf-service] |   |
+| Mailhog                              | latest             | mailhog   | [mailhog/mailhog]                  | ✓ |
+| Adminer                              | 4.2                | adminer   | [wodby/adminer]                    |   |
+| phpMyAdmin                           | latest             | pma       | [phpmyadmin/phpmyadmin]            |   |
+| Node (front-end development)         | latest             | node      | [_/node]                           |   |
+| Traefik                              | latest             | traefik   | [_/traefik]                        |   |
 
 Supported Drupal versions: 6, 7, 8.
 

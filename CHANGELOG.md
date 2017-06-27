@@ -1,5 +1,33 @@
 # Docker4Drupal Changelog
 
+## 2.2.0
+
+* New [Apache 2.4 container](http://docs.docker4drupal.org/en/latest/containers/apache)
+* New [Node.js container](http://docs.docker4drupal.org/en/latest/containers/nodejs), for drupal nodejs module
+* New [AthenaPDF container](http://docs.docker4drupal.org/en/latest/containers/athenapdf), drop-in replacement for wkhtmltopdf
+* New [rsyslog](http://docs.docker4drupal.org/en/latest/containers/rsyslog) to stream watchdog logs
+* Drupal: updated Vanilla Drupal 8.3.4, 7.56
+* PHP: update PHP7: 7.0.20, 7.1.6
+* PHP: 5.6, 7.0, 7.1 images rebased to Alpine Linux 3.6 and now use LibreSSL instead of OpenSSL
+* PHP: extension are now frozen, see https://github.com/wodby/php
+* PHP: runtime libraries are now frozen
+* PHP: mongoDB extension downgraded to 1.1.10
+* PHP: imagick removed from 5.3 
+* PHP: expose header now disabled by default
+* PHP: dropped few environment variables
+* PHP: APCu extension is now configurable
+* Nginx: new version 1.13, 1.12
+* Nginx: 1.10 dropped
+* Nginx: options to allow all XML endpoints
+* Nginx: you can now override include of drupal.conf file
+* Nginx: additional configuration for xmlrpc endpoint
+* MariaDB: revamped optimized configuration
+* Bug fix: resolved imagick segfault caused by a bug in ImageMagick library
+* Bug fix: private files not accessible
+* Bug fix: some environment variables missed in SSH container
+* Bug fix: authorize.php endpoint did not work
+* New way to improve volumes performance on macOS: http://docs.docker4drupal.org/en/latest/macos
+
 ## 2.1.0
 
 * New 2.1.0 images for php, nginx, mariadb, redis and varnish

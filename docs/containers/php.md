@@ -90,6 +90,6 @@ You also need to check firewall not to block your connection. Disabling firewall
 2. Open that file and make sure that you update `SIMPLETEST_BASE_URL` to `http://nginx`
 3. In order to make sure that your DB connection is working as well, update `SIMPLETEST_DB` to `mysql://drupal:drupal@mariadb/drupal`
 
-## Customization
+## Configuration
 
-See the list of environment variables available for customization at [wodby/drupal-php](https://github.com/wodby/drupal-php).
+Configuration is possible via environment variables. See the full list of variables on [GitHub](https://github.com/wodby/drupal-php).
