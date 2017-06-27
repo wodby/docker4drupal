@@ -102,6 +102,15 @@ services:
 #  redis:
 #    image: wodby/redis:3.2-2.1.1
 
+#  adminer:
+#    image: wodby/adminer:4.2-1.0.4
+#    environment:
+#      ADMINER_SALT: adminer-salt
+#    labels:
+#      - 'traefik.backend=adminer'
+#      - 'traefik.port=9000'
+#      - 'traefik.frontend.rule=Host:adminer.drupal.docker.localhost'
+
 #  pma:
 #    image: phpmyadmin/phpmyadmin
 #    environment:
