@@ -14,6 +14,7 @@ Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
 ## Stack
 
 [wodby/drupal-nginx]: https://github.com/wodby/drupal-nginx
+[wodby/drupal-apache]: https://github.com/wodby/drupal-apache
 [wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb

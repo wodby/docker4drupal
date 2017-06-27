@@ -9,6 +9,7 @@ Docker4Drupal is designed to be used for local development, if you're looking fo
 The Drupal stack consist of the following containers:
 
 [wodby/drupal-nginx]: https://github.com/wodby/drupal-nginx
+[wodby/drupal-apache]: https://github.com/wodby/drupal-apache
 [wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
