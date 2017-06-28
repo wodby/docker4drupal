@@ -7,6 +7,7 @@
 * New [AthenaPDF container](http://docs.docker4drupal.org/en/latest/containers/athenapdf), drop-in replacement for wkhtmltopdf
 * New [rsyslog](http://docs.docker4drupal.org/en/latest/containers/rsyslog) to stream watchdog logs
 * New adminer container (simplified version of phpmyadmin)
+* Solr: new 5.4 version required by search_api_solr module for Drupal 7
 * Drupal: updated Vanilla Drupal 8.3.4, 7.56
 * PHP: update PHP7: 7.0.20, 7.1.6
 * PHP: 5.6, 7.0, 7.1 images rebased to Alpine Linux 3.6 and now use LibreSSL instead of OpenSSL
