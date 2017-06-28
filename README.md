@@ -48,7 +48,7 @@ The Drupal stack consist of the following containers:
 | Rsyslog             | latest             | rsyslog   | [wodby/rsyslog]        |   |
 | AthenaPDF           | latest             | athenapdf | [athenapdf-service]    |   |
 | Mailhog             | latest             | mailhog   | [mailhog]              | ✓ |
-| Adminer             | 4.2                | adminer   | [wodby/adminer]        |   |
+| Adminer             | 4.3                | adminer   | [wodby/adminer]        |   |
 | phpMyAdmin          | latest             | pma       | [phpmyadmin]           |   |
 | Node                | latest             | node      | [_/node]               |   |
 | Traefik             | latest             | traefik   | [_/traefik]            | ✓ |

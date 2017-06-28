@@ -41,7 +41,7 @@ The Drupal stack consist of the following containers:
 | [Rsyslog](containers/rsyslog)        | latest             | rsyslog   | [wodby/rsyslog]        |   |
 | [AthenaPDF](containers/athenapdf.md) | latest             | athenapdf | [athenapdf-service]    |   |
 | Mailhog                              | latest             | mailhog   | [mailhog]              | ✓ |
-| Adminer                              | 4.2                | adminer   | [wodby/adminer]        |   |
+| Adminer                              | 4.3                | adminer   | [wodby/adminer]        |   |
 | phpMyAdmin                           | latest             | pma       | [phpmyadmin]           |   |
 | Node                                 | latest             | node      | [_/node]               |   |
 | Traefik                              | latest             | traefik   | [_/traefik]            |   |
@@ -78,7 +78,7 @@ There 2 options how to use docker4drupal – you can either run [vanilla](https:
 2. Replace php image from `wodby/drupal` (PHP + vanilla Drupal) to `wodby/drupal-php` (just PHP)
 3. Depending on your Drupal version use appropriate tags for _php_ and _nginx_ images
 4. Update _nginx_ and _php_ volumes to `- ./:/var/www/html` to mount your codebase
-4. Update `NGINX_SERVER_ROOT` to `/var/www/html` unless your project is based on [composer template](https://github.com/drupal-composer/drupal-project)
+4. Update `NGINX_SERVER_ROOT` (or `APACHE_SERVER_ROOT`) to `/var/www/html` unless your project is based on [composer template](https://github.com/drupal-composer/drupal-project)
 5. Ensure your settings.php uses the same credentials as _mariadb_ service 
 6. Optional: [import existing database](containers/mariadb.md#import-existing-database)
 7. Optional: uncomment lines in the compose file to run _redis_, _solr_, etc
@@ -97,7 +97,7 @@ Feel free to adjust volumes and ports in the compose file for your convenience. 
 
 We're actively working on these instructions and containers. More options will be added soon. If you have a feature request or found a bug please [submit an issue on GitHub](https://github.com/wodby/docker4drupal/issues/new) or [![Wodby Slack](https://www.google.com/s2/favicons?domain=www.slack.com) join us on Slack](https://slack.wodby.com/)
 
-We update containers from time to time by releasing new image tags.
+We update containers from time to time by releasing new images (stability tags change).
 
 ## License
 
