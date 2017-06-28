@@ -35,14 +35,14 @@ The Drupal stack consist of the following containers:
 
 | Container | Versions | Service name | Image | Enabled by default |
 | --------- | -------- | ------------ | ----- | ------------------ |
-| Nginx               | 1.10               | nginx     | [wodby/drupal-nginx]   | ✓ |
+| Nginx               | 1.13, 1.12         | nginx     | [wodby/drupal-nginx]   | ✓ |
 | Apache              | 2.4                | apache    | [wodby/drupal-apache]  |   |
 | Drupal              | 8, 7, 6            | php       | [wodby/drupal]         | ✓ |
-| PHP                 | 5.3, 5.6, 7.0, 7.1 | php       | [wodby/drupal-php]     |   |
+| PHP                 | 7.1, 7.0, 5.6, 5.3 | php       | [wodby/drupal-php]     |   |
 | MariaDB             | 10.1               | mariadb   | [wodby/mariadb]        | ✓ |
 | Redis               | 3.2                | redis     | [wodby/redis]          |   |
 | Varnish             | 4.1                | varnish   | [wodby/drupal-varnish] |   |
-| Solr                | 5.5, 6.3, 6.4      | solr      | [wodby/drupal-solr]    |   |
+| Solr                | 6.4, 6.3, 5.5, 5.4 | solr      | [wodby/drupal-solr]    |   |
 | Node.js             | 1.0                | nodejs    | [wodby/drupal-node]    |   |
 | Memcached           | 1.4                | memcached | [wodby/memcached]      |   |
 | Rsyslog             | latest             | rsyslog   | [wodby/rsyslog]        |   |
