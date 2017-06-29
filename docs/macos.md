@@ -2,7 +2,15 @@
 
 There 2 ways how can improve [performance](https://github.com/Wodby/docker4drupal/issues/4) of docker volumes on macOS:
 
-## 1. Docker-sync
+## 1. User-guided Caching
+
+Since Docker for Mac 17.06 there's a new `:cached` option available for volumes. You can find more information about this in [docker blog](https://blog.docker.com/2017/05/user-guided-caching-in-docker-for-mac/).
+
+### Usage
+
+Replace _codebase_ volume definition of _php_ and _nginx_/_apache_ services with the option below marked as "User-guided caching". 
+
+## 2. Docker-sync
 
 The core idea of this project is to use an external volume that will sync your files with a file synchronizer tool.
 
@@ -22,11 +30,3 @@ $ gem install docker-sync
 Now when you change your code on the host machine docker-sync will sync your data to php and nginx/apache containers.
 
 For more information visit [docker-sync project page](https://github.com/EugenMayer/docker-sync/).
-
-## 2. User-guided Caching
-
-Since 17.04 Edge version (which should become stable at 17.06) of Docker for Mac there's a new `:cached` option available for volumes. You can find more information about this in [docker blog](https://blog.docker.com/2017/05/user-guided-caching-in-docker-for-mac/).
-
-### Usage
-
-Replace _volumes_ definition of _php_ and _nginx_/_apache_ services with the option below marked as "User-guided caching". 
