@@ -44,7 +44,8 @@ The Drupal stack consist of the following containers:
 | Adminer                              | 4.3                | adminer   | [wodby/adminer]        |   |
 | phpMyAdmin                           | latest             | pma       | [phpmyadmin]           |   |
 | Node                                 | latest             | node      | [_/node]               |   |
-| Traefik                              | latest             | traefik   | [_/traefik]            |   |
+| Portainer                            | latest             | portainer | [_/portainer]          | ✓ |
+| Traefik                              | latest             | traefik   | [_/traefik]            | ✓ |
 
 Supported Drupal versions: 6, 7, 8.
 
@@ -70,6 +71,7 @@ There 2 options how to use docker4drupal – you can either run [vanilla](https:
 3. Run containers: `docker-compose up -d` 
 4. Wait a few seconds for containers initialization 
 5. That's it! Proceed with Drupal installation at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). Default database user, password and database name are all `drupal`, database host is `mariadb`
+6. You can see status of your containers and their logs via portainer: [http://portainer.drupal.docker.localhost:8000](http://portainer.drupal.docker.localhost:8000)
 
 ### 2. Mount my Drupal Codebase
 
@@ -85,6 +87,7 @@ There 2 options how to use docker4drupal – you can either run [vanilla](https:
 8. Optional: [configure domains](domains.md)
 9. Run containers: `docker-compose up -d`
 10. That's it! Your drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). If you need to run multiple projects simultaneously see [this article](multiple-projects.md)
+11. You can see status of your containers and their logs via portainer: [http://portainer.drupal.docker.localhost:8000](http://portainer.drupal.docker.localhost:8000)
 
 You can stop containers by executing:
 ```bash

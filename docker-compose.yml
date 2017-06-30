@@ -185,6 +185,16 @@ services:
 #      WEAVER_WORKER_TIMEOUT: 90
 #      WEAVER_CONVERSION_FALLBACK: false
 
+  portainer:
+    image: portainer/portainer
+    command: --no-auth
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - 'traefik.backend=portainer'
+      - 'traefik.port=9000'
+      - 'traefik.frontend.rule=Host:portainer.drupal.docker.localhost'
+
   traefik:
     image: traefik
     command: -c /dev/null --web --docker --logLevel=INFO

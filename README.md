@@ -51,6 +51,7 @@ The Drupal stack consist of the following containers:
 | Adminer             | 4.3                | adminer   | [wodby/adminer]        |   |
 | phpMyAdmin          | latest             | pma       | [phpmyadmin]           |   |
 | Node                | latest             | node      | [_/node]               |   |
+| Portainer           | latest             | portainer | [_/portainer]          | ✓ |
 | Traefik             | latest             | traefik   | [_/traefik]            | ✓ |
 
 Supported Drupal versions: 6, 7, 8.
