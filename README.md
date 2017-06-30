@@ -28,6 +28,7 @@ Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
 [mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [wodby/adminer]: https://hub.docker.com/r/wodby/adminer
 [phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
+[portainer]: https://hub.docker.com/portainer/portainer
 [_/node]: https://hub.docker.com/_/node
 [_/traefik]: https://hub.docker.com/_/traefik
 
@@ -51,7 +52,7 @@ The Drupal stack consist of the following containers:
 | Adminer             | 4.3                | adminer   | [wodby/adminer]        |   |
 | phpMyAdmin          | latest             | pma       | [phpmyadmin]           |   |
 | Node                | latest             | node      | [_/node]               |   |
-| Portainer           | latest             | portainer | [_/portainer]          | ✓ |
+| Portainer           | latest             | portainer | [portainer]            | ✓ |
 | Traefik             | latest             | traefik   | [_/traefik]            | ✓ |
 
 Supported Drupal versions: 6, 7, 8.
