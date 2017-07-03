@@ -78,9 +78,9 @@ services:
 #      APACHE_SERVER_ROOT: /var/www/html/web
 #    volumes:
 #      - codebase:/var/www/html
-# Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
-#      - codebase:/var/www/html:cached # User-guided caching
-#      - docker-sync:/var/www/html # Docker-sync
+## Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
+##      - codebase:/var/www/html:cached # User-guided caching
+##      - docker-sync:/var/www/html # Docker-sync
 #    labels:
 #      - 'traefik.backend=apache'
 #      - 'traefik.port=80'
