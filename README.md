@@ -9,7 +9,7 @@
 
 Docker4Drupal is a set of docker images optimized for Drupal. Use docker-compose.yml file from this repository to spin up local environment on Linux, Mac OS X and Windows. 
 
-Read [**Getting Started**](http://docs.docker4drupal.org/en/latest/).
+Read [**Getting Started**](https://docker4drupal.readthedocs.io).
 
 ## Stack
 
@@ -59,7 +59,7 @@ Supported Drupal versions: 6, 7, 8.
 
 ## Documentation
 
-Full documentation is available at http://docs.docker4drupal.org/.
+Full documentation is available at https://docker4drupal.readthedocs.io.
 
 ## Deployment
 
