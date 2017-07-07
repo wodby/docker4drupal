@@ -4,7 +4,7 @@
 
 ### Drupal 7
 
-To spin up a container with Redis cache and use it as a default cache storage follow these steps:
+To spin up a container with Varnish cache and use it as a cache solution follow these steps:
 
 1. Uncomment lines with varnish service definition in the compose file.
 2. Download and install [varnish module](https://www.drupal.org/project/varnish)
@@ -18,7 +18,7 @@ $conf['varnish_control_key'] = 'secret';
 
 ### Drupal 8
 
-Read https://wunderkraut.se/blogg/purge-cachetags-varnish
+Read [https://wunderkraut.se/blogg/purge-cachetags-varnish](https://wunderkraut.se/blogg/purge-cachetags-varnish).
 
 ## Configuration
 
