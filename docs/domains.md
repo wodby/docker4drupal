@@ -10,7 +10,7 @@ Default domains:
 | pma          | [http://pma.drupal.docker.localhost:8000](http://pma.drupal.docker.localhost:8000)             |
 | adminer      | [http://adminer.drupal.docker.localhost:8000](http://adminer.drupal.docker.localhost:8000)     |
 | mailhog      | [http://mailhog.drupal.docker.localhost:8000](http://mailhog.drupal.docker.localhost:8000)     |
-| solr         | [http://solr.docker.localhost:8000](http://solr.docker.localhost:8000)                         |
+| solr         | [http://solr.drupal.docker.localhost:8000](http://solr.drupal.docker.localhost:8000)           |
 | nodejs       | [http://nodejs.drupal.docker.localhost:8000](http://nodejs.drupal.docker.localhost:8000)       |
 | node         | [http://front.drupal.docker.localhost:8000](http://front.drupal.docker.localhost:8000)         |
 | varnish      | [http://varnish.drupal.docker.localhost:8000](http://varnish.drupal.docker.localhost:8000)     |
