@@ -1,5 +1,20 @@
 # Docker4Drupal Changelog
 
+## 2.3.0
+
+* New default container [Portainer](https://portainer.io/), simple UI for containers management
+* PHP updates: [7.1.7](http://php.net/ChangeLog-7.php#7.1.7), [7.0.21](http://php.net/ChangeLog-7.php#7.0.21), [5.6.31](http://php.net/ChangeLog-5.php#5.6.31) with security fixes
+* Nginx updates: [1.13.3](http://nginx.org/en/CHANGES), [1.12.1](http://nginx.org/en/CHANGES-1.12) with a fix in the range filter vulnerability (CVE-2017-7529).
+* Apache2 updates: [2.4.27](http://www.apache.org/dist/httpd/CHANGES_2.4.27)
+* Vanilla Drupal updates: [8.3.5](https://www.drupal.org/project/drupal/releases/8.3.5)
+* Solr: new versions 6.6 and 6.5 for Drupal 8
+* Solr: search_api_solr version update to 8.x-1.0 (configs used from this version)
+* `.localhost`, `.local`, `.loc` added as default trusted hosts for Vanilla Drupal 8
+* Nginx: Content-Type is now set only if not empty https://github.com/wodby/drupal-nginx/issues/27
+* Bugfix: Vanilla Drupal always re-synced Drupal sources https://github.com/wodby/drupal/issues/2 
+* Solr versions are now frozen https://github.com/wodby/solr#versions
+* Redis version is now frozen https://github.com/wodby/redis#versions
+
 ## 2.2.0
 
 * New [Apache 2.4 container](http://docs.docker4drupal.org/en/latest/containers/apache)

@@ -14,18 +14,18 @@ services:
 
   php:
 # 1. Images with vanilla Drupal – wodby/drupal:[DRUPAL_VERSION]-[PHP_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal:8-7.1-2.4.3
-#    image: wodby/drupal:8-7.0-2.4.3
-#    image: wodby/drupal:7-7.1-2.4.3
-#    image: wodby/drupal:7-7.0-2.4.3
-#    image: wodby/drupal:7-5.6-2.4.3
-#    image: wodby/drupal:6-5.6-2.4.3
-#    image: wodby/drupal:6-5.3-2.4.3
+    image: wodby/drupal:8-7.1-2.4.4
+#    image: wodby/drupal:8-7.0-2.4.4
+#    image: wodby/drupal:7-7.1-2.4.4
+#    image: wodby/drupal:7-7.0-2.4.4
+#    image: wodby/drupal:7-5.6-2.4.4
+#    image: wodby/drupal:6-5.6-2.4.4
+#    image: wodby/drupal:6-5.3-2.4.4
 # 2. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG].
-#    image: wodby/drupal-php:7.1-2.4.2
-#    image: wodby/drupal-php:7.0-2.4.2
-#    image: wodby/drupal-php:5.6-2.4.2
-#    image: wodby/drupal-php:5.3-2.4.2
+#    image: wodby/drupal-php:7.1-2.4.3
+#    image: wodby/drupal-php:7.0-2.4.3
+#    image: wodby/drupal-php:5.6-2.4.3
+#    image: wodby/drupal-php:5.3-2.4.3
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       DB_HOST: mariadb
@@ -45,12 +45,12 @@ services:
 
   nginx:
 # wodby/drupal-nginx:[DRUPAL_VERSION]-[NGINX_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal-nginx:8-1.13-2.4.0
-#    image: wodby/drupal-nginx:7-1.13-2.4.0
-#    image: wodby/drupal-nginx:6-1.13-2.4.0
-#    image: wodby/drupal-nginx:8-1.12-2.4.0
-#    image: wodby/drupal-nginx:7-1.12-2.4.0
-#    image: wodby/drupal-nginx:6-1.12-2.4.0
+    image: wodby/drupal-nginx:8-1.13-2.4.2
+#    image: wodby/drupal-nginx:7-1.13-2.4.2
+#    image: wodby/drupal-nginx:6-1.13-2.4.2
+#    image: wodby/drupal-nginx:8-1.12-2.4.2
+#    image: wodby/drupal-nginx:7-1.12-2.4.2
+#    image: wodby/drupal-nginx:6-1.12-2.4.2
     depends_on:
       - php
     environment:
@@ -69,7 +69,7 @@ services:
       - 'traefik.frontend.rule=Host:drupal.docker.localhost'
 
 #  apache:
-#    image: wodby/drupal-apache:2.4-1.0.0
+#    image: wodby/drupal-apache:2.4-1.0.2
 #    depends_on:
 #      - php
 #    environment:
@@ -100,7 +100,7 @@ services:
 #      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
 
 #  redis:
-#    image: wodby/redis:3.2-2.1.1
+#    image: wodby/redis:3.2-2.1.2
 
 #  adminer:
 #    image: wodby/adminer:4.3-1.1.0
@@ -126,10 +126,12 @@ services:
 
 #  solr:
 ## wodby/drupal-solr:[DRUPAL_VERSION]-[SOLR_VERSION]-[STABILITY_TAG].
-#    image: wodby/drupal-solr:8-6.4-2.1.0
-##    image: wodby/drupal-solr:8-6.3-2.1.0
-##    image: wodby/drupal-solr:8-5.5-2.1.0
-##    image: wodby/drupal-solr:7-5.4-2.1.0
+#    image: wodby/drupal-solr:8-6.6-2.2.0
+##    image: wodby/drupal-solr:8-6.5-2.2.0
+##    image: wodby/drupal-solr:8-6.4-2.2.0
+##    image: wodby/drupal-solr:8-6.3-2.2.0
+##    image: wodby/drupal-solr:8-5.5-2.2.0
+##    image: wodby/drupal-solr:7-5.4-2.2.0
 #    environment:
 #      SOLR_HEAP: 1024m
 #    labels:
