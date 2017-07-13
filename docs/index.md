@@ -36,7 +36,7 @@ The Drupal stack consist of the following containers:
 | [MariaDB](containers/mariadb.md)     | 10.1               | mariadb   | [wodby/mariadb]        | ✓ |
 | [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]          |   |
 | [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish] |   |
-| [Solr](containers/solr.md)           | 6.4, 6.3, 5.5, 5.4 | solr      | [wodby/drupal-solr]    |   |
+| [Solr](containers/solr.md)           | 6.6-6.3, 5.5, 5.4  | solr      | [wodby/drupal-solr]    |   |
 | [Node.js](containers/nodejs.md)      | 1.0                | nodejs    | [wodby/drupal-node]    |   |
 | [Memcached](containers/memcached.md) | 1.4                | memcached | [wodby/memcached]      |   |
 | [Rsyslog](containers/rsyslog)        | latest             | rsyslog   | [wodby/rsyslog]        |   |
