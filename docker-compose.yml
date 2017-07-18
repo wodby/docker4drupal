@@ -39,7 +39,7 @@ services:
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
       - codebase:/var/www/html
-# Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
+# Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
 #      - codebase:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
 
@@ -60,7 +60,7 @@ services:
       NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
       - codebase:/var/www/html
-# Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
+# Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
 #      - codebase:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
     labels:
@@ -78,7 +78,7 @@ services:
 #      APACHE_SERVER_ROOT: /var/www/html/web
 #    volumes:
 #      - codebase:/var/www/html
-## Options for macOS users (http://docs.docker4drupal.org/en/latest/macos)
+## Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
 ##      - codebase:/var/www/html:cached # User-guided caching
 ##      - docker-sync:/var/www/html # Docker-sync
 #    labels:
