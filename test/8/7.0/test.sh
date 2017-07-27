@@ -56,7 +56,7 @@ drush core-requirements | grep -q "The Solr server could be reached."
 # Test varnish cache and purge
 cp varnish-purger.yml purger.yml
 
-drush ppa varnish
+drush ppadd varnish
 drush cr
 
 ## Workaround for varnish purger import https://www.drupal.org/node/2856221
