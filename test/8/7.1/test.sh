@@ -60,7 +60,7 @@ drush ppadd varnish
 drush cr
 
 ## Workaround for varnish purger import https://www.drupal.org/node/2856221
-PURGER_ID="$(drush ppu | awk 'NR==2{print $1}' | tr -cd '[[:alnum:]]')"
+PURGER_ID="$(drush ppls | awk 'NR==2{print $1}' | tr -cd '[[:alnum:]]')"
 
 sed -i "s/PLUGIN_ID/${PURGER_ID}/g" purger.yml
 drupal cis --name "varnish_purger.settings.${PURGER_ID}" --file purger.yml
