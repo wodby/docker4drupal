@@ -209,7 +209,7 @@ services:
   ssh:
     image: jeroenpeeters/docker-ssh
     environment:
-      CONTAINER: docker4drupal_mariadb_1
+      CONTAINER: confcatsdocker_php_1
       AUTH_MECHANISM: noAuth
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
