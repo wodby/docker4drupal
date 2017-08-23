@@ -22,9 +22,9 @@ services:
 #    image: wodby/drupal:6-5.6-2.4.4
 #    image: wodby/drupal:6-5.3-2.4.4
 # 2. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal-php:7.1-2.4.3
+#    image: wodby/drupal-php:7.1-2.4.3
 #    image: wodby/drupal-php:7.0-2.4.3
-#    image: wodby/drupal-php:5.6-2.4.3
+    image: wodby/drupal-php:5.6-2.4.3
 #    image: wodby/drupal-php:5.3-2.4.3
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
@@ -66,7 +66,7 @@ services:
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:drupal.docker.localhost'
+      - 'traefik.frontend.rule=Host:confcatsd8.docker.localhost'
 
 #  apache:
 #    image: wodby/drupal-apache:2.4-1.0.2
@@ -84,7 +84,7 @@ services:
 #    labels:
 #      - 'traefik.backend=apache'
 #      - 'traefik.port=80'
-#      - 'traefik.frontend.rule=Host:drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:confcatsd8.docker.localhost'
 
 #  varnish:
 #    image: wodby/drupal-varnish:4.1-2.1.2
@@ -97,32 +97,32 @@ services:
 #    labels:
 #      - 'traefik.backend=varnish'
 #      - 'traefik.port=6081'
-#      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:varnish.confcatsd8.docker.localhost'
 
 #  redis:
 #    image: wodby/redis:3.2-2.1.2
 
-  adminer:
-    image: wodby/adminer:4.3-1.1.0
-    environment:
-      ADMINER_SALT: adminer-salt
-    labels:
-      - 'traefik.backend=adminer'
-      - 'traefik.port=9000'
-      - 'traefik.frontend.rule=Host:adminer.drupal.docker.localhost'
-
-#  pma:
-#    image: phpmyadmin/phpmyadmin
+#  adminer:
+#    image: wodby/adminer:4.3-1.1.0
 #    environment:
-#      PMA_HOST: mariadb
-#      PMA_USER: drupal
-#      PMA_PASSWORD: drupal
-#      PHP_UPLOAD_MAX_FILESIZE: 1G
-#      PHP_MAX_INPUT_VARS: 1G
+#      ADMINER_SALT: adminer-salt
 #    labels:
-#      - 'traefik.backend=pma'
-#      - 'traefik.port=80'
-#      - 'traefik.frontend.rule=Host:pma.drupal.docker.localhost'
+#      - 'traefik.backend=adminer'
+#      - 'traefik.port=9000'
+#      - 'traefik.frontend.rule=Host:adminer.confcatsd8.docker.localhost'
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    labels:
+      - 'traefik.backend=pma'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:pma.confcatsd8.docker.localhost'
 
 #  solr:
 ## wodby/drupal-solr:[DRUPAL_VERSION]-[SOLR_VERSION]-[STABILITY_TAG].
@@ -137,14 +137,14 @@ services:
 #    labels:
 #      - 'traefik.backend=solr'
 #      - 'traefik.port=8983'
-#      - 'traefik.frontend.rule=Host:solr.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:solr.confcatsd8.docker.localhost'
 
-  mailhog:
-    image: mailhog/mailhog
-    labels:
-      - 'traefik.backend=mailhog'
-      - 'traefik.port=8025'
-      - 'traefik.frontend.rule=Host:mailhog.drupal.docker.localhost'
+#  mailhog:
+#    image: mailhog/mailhog
+#    labels:
+#      - 'traefik.backend=mailhog'
+#      - 'traefik.port=8025'
+#      - 'traefik.frontend.rule=Host:mailhog.confcatsd8.docker.localhost'
 
 #  nodejs:
 #    image: wodby/drupal-node:1.0-1.0.0
@@ -153,7 +153,7 @@ services:
 #    labels:
 #      - 'traefik.backend=nodejs'
 #      - 'traefik.port=8080'
-#      - 'traefik.frontend.rule=Host:nodejs.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:nodejs.confcatsd8.docker.localhost'
 #    volumes:
 #      - ./path/to/your/single-page-app:/app
 #    command: sh -c 'npm install && npm run start'
@@ -164,7 +164,7 @@ services:
 #    labels:
 #      - 'traefik.backend=node'
 #      - 'traefik.port=3000'
-#      - 'traefik.frontend.rule=Host:front.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:front.confcatsd8.docker.localhost'
 #    expose:
 #      - "3000"
 #    volumes:
@@ -174,8 +174,8 @@ services:
 #  memcached:
 #    image: wodby/memcached:1.4-2.0.0
 
-#  rsyslog:
-#    image: wodby/rsyslog
+  rsyslog:
+    image: wodby/rsyslog
 
 #  athenapdf:
 #    image: arachnysdocker/athenapdf-service
@@ -195,7 +195,7 @@ services:
     labels:
       - 'traefik.backend=portainer'
       - 'traefik.port=9000'
-      - 'traefik.frontend.rule=Host:portainer.drupal.docker.localhost'
+      - 'traefik.frontend.rule=Host:portainer.confcatsd8.docker.localhost'
 
   traefik:
     image: traefik
