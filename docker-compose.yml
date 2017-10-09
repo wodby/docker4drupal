@@ -42,6 +42,8 @@ services:
 # Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
 #      - codebase:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
+      - ./confcatsd8/drush:/home/www-data/.drush
+      - ./confcatsd8/ssh:/home/www-data/.ssh
 
   nginx:
 # wodby/drupal-nginx:[DRUPAL_VERSION]-[NGINX_VERSION]-[STABILITY_TAG].
