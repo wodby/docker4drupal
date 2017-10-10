@@ -25,6 +25,6 @@ Exporting a specific database:
 docker-compose exec mariadb sh -c 'exec mysqldump -uroot -p"root-password" my-db' > my-db.sql
 ```
 
-## Customization
+## Configuration
 
-See the list of environment variables available for customization at [wodby/mariadb](https://github.com/wodby/mariadb).
+Configuration is possible via environment variables. See the full list of variables on [GitHub](https://github.com/wodby/mariadb).

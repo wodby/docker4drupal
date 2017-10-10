@@ -27,7 +27,7 @@ $conf['redis_client_port'] = '6379';
 DRUPAL 8:
 
 ```php
-$contrib_path = is_dir('sites/all/modules/contrib') ? 'sites/all/modules/contrib' : 'sites/all/modules';
+$contrib_path = is_dir('modules/contrib') ? 'modules/contrib' : 'modules';
 
 $settings['redis.connection']['host'] = 'redis';
 $settings['redis.connection']['port'] = '6379';
@@ -42,6 +42,6 @@ $settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
 $settings['container_yamls'][] = $contrib_path . '/redis/example.services.yml';
 ```
 
-## Customization
+## Configuration
 
-See the list of environment variables available for customization at [wodby/redis](https://github.com/wodby/redis).
+Configuration is possible via environment variables. See the full list of variables on [GitHub](https://github.com/wodby/redis).
