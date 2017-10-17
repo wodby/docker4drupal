@@ -68,7 +68,7 @@ services:
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:confcatsd8.docker.localhost'
+      - 'traefik.frontend.rule=Host:site1.confcatsd8.docker.localhost,site2.confcatsd8.docker.localhost,site3.confcatsd8.docker.localhost'
 
 #  apache:
 #    image: wodby/drupal-apache:2.4-1.0.2
