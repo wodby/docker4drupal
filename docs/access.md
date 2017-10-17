@@ -7,5 +7,5 @@ $ docker-compose exec [service] sh
 
 Make sure you're using correct users to access the container, e.g. use user www-data (82) for Nginx and PHP containers:
 ```bash
-$ docker-compose exec --user=82 php sh
+$ docker-compose exec php sh
 ``` 

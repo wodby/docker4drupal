@@ -49,7 +49,7 @@ drush core-requirements | grep -q "PHP OPcode caching\s\+Info\s\+Enabled"
 drush core-requirements | grep -q "PHP\s\+Info\s\+7.0"
 
 # Test solr server connection
-drupal cis --name "search_api.server.solr_6_4" --file search-api-solr-server.yml
+drupal cis --file search_api.server.solr_6_4.yml
 drush core-requirements | grep -q "Solr servers\s\+OK"
 drush core-requirements | grep -q "The Solr server could be reached."
 
@@ -63,7 +63,8 @@ drush cr
 PURGER_ID="$(drush ppls | awk 'NR==2{print $1}' | tr -cd '[[:alnum:]]')"
 
 sed -i "s/PLUGIN_ID/${PURGER_ID}/g" purger.yml
-drupal cis --name "varnish_purger.settings.${PURGER_ID}" --file purger.yml
+mv purger.yml "varnish_purger.settings.${PURGER_ID}.yml"
+drupal cis --file "varnish_purger.settings.${PURGER_ID}.yml"
 
 drush -y config-set system.performance cache.page.max_age 43200
 

@@ -1,4 +1,4 @@
-# Redis container
+# Redis
 
 ## Integration
 

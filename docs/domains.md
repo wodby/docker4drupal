@@ -1,11 +1,13 @@
 # Domains Configuration
 
-Docker4Drupal uses [traefik](https://hub.docker.com/_/traefik/) container for routing. By default, we use port 8000 to avoid potential conflicts but if port 80 is free on your host machine just replace traefik's ports definition in the compose file.
+Docker4Drupal uses [traefik](https://hub.docker.com/_/traefik/) container for routing. By default, we use port `8000` to avoid potential conflicts but if port `80` is free on your host machine just replace traefik's ports definition in the compose file.
+
+Add all *.docker.localhost domains manually to your /etc/hosts file (some browsers like Chrome may work without it).
 
 Default domains:
 
-| Service | Domain | 
-| ------- | ------ | 
+| Service      | Domain                                                                                         |
+| ------------ | ---------------------------------------------------------------------------------------------- |
 | nginx/apache | [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000)                     |
 | pma          | [http://pma.drupal.docker.localhost:8000](http://pma.drupal.docker.localhost:8000)             |
 | adminer      | [http://adminer.drupal.docker.localhost:8000](http://adminer.drupal.docker.localhost:8000)     |
@@ -16,6 +18,4 @@ Default domains:
 | varnish      | [http://varnish.drupal.docker.localhost:8000](http://varnish.drupal.docker.localhost:8000)     |
 | portainer    | [http://portainer.drupal.docker.localhost:8000](http://portainer.drupal.docker.localhost:8000) |
 
-You can modify domains under labels definition, e.g. `traefik.frontend.rule=Host:mailhog.drupal.docker.localhost`. Note: if domains end with `docker.localhost` you don't need to add records to /etc/hosts file
-
-> IMPORTANT: you might need to add *.docker.localhost domains manually to your /etc/hosts file 
+You can modify domains under labels definition, e.g. `traefik.frontend.rule=Host:mailhog.drupal.docker.localhost`.

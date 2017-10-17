@@ -13,6 +13,7 @@ services:
     image: $DRUPAL8_PHP70
     environment:
       # To skip auto init.
+      WODBY_APP_NAME: drupal
       DRUPAL_VERSION: 8
       DB_HOST: mariadb
       DB_NAME: drupal
@@ -25,7 +26,7 @@ services:
       - ./test.sh:/var/www/html/test.sh
       - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
       - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
-      - ./search-api-solr-server.yml:/var/www/html/web/search-api-solr-server.yml
+      - ./search-api-solr-server.yml:/var/www/html/web/search_api.server.solr_6_4.yml
 
   nginx:
     image: $DRUPAL8_NGINX

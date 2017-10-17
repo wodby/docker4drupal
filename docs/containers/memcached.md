@@ -1,4 +1,4 @@
-# Memcached container
+# Memcached
 
 To spin up a container with Memcached and use it as a default cache storage follow these steps:
 

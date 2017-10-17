@@ -9,7 +9,7 @@ Docker4Drupal is designed to be used for local development, if you're looking fo
 The Drupal stack consist of the following containers:
 
 [wodby/drupal-nginx]: https://github.com/wodby/drupal-nginx
-[wodby/drupal-apache]: https://github.com/wodby/drupal-apache
+[wodby/php-apache]: https://github.com/wodby/php-apache
 [wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
@@ -18,37 +18,55 @@ The Drupal stack consist of the following containers:
 [wodby/drupal-solr]: https://github.com/wodby/drupal-solr
 [wodby/drupal-node]: https://github.com/wodby/drupal-node
 [wodby/memcached]: https://github.com/wodby/memcached
+[wodby/webgrind]: https://hub.docker.com/r/wodby/webgrind
+[blackfire/blackfire]: https://hub.docker.com/r/blackfire/blackfire
 [wodby/rsyslog]: https://hub.docker.com/r/wodby/rsyslog
-[athenapdf-service]: https://hub.docker.com/r/arachnysdocker/athenapdf-service
-[mailhog]: https://hub.docker.com/r/mailhog/mailhog
+[arachnysdocker/athenapdf-service]: https://hub.docker.com/r/arachnysdocker/athenapdf-service
+[mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [wodby/adminer]: https://hub.docker.com/r/wodby/adminer
-[phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
-[portainer]: https://hub.docker.com/r/portainer/portainer
+[phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
+[portainer/portainer]: https://hub.docker.com/portainer/portainer
 [_/node]: https://hub.docker.com/_/node
 [_/traefik]: https://hub.docker.com/_/traefik
+[Nginx]: containers/nginx.md
+[Apache]: containers/apache.md
+[Drupal]: containers/drupal.md
+[PHP]: containers/php.md
+[MariaDB]: containers/mariadb.md
+[Redis]: containers/redis.md
+[Varnish]: containers/varnish.md
+[Solr]: containers/solr.md
+[Node.js]: containers/nodejs.md
+[Memcached]: containers/memcached.md
+[Webgrind]: containers/webgrind.md
+[Blackfire]: containers/blackfire.md
+[Rsyslog]: containers/rsyslog.md
+[AthenaPDF]: containers/athenapdf.md
 
-| Container | Versions | Service name | Image | Enabled by default |
-| --------- | -------- | ------------ | ----- | ------------------ |
-| [Nginx](containers/nginx.md)         | 1.13, 1.12         | nginx     | [wodby/drupal-nginx]   | ✓ |
-| [Apache](containers/apache.md)       | 2.4                | apache    | [wodby/drupal-apache]  |   |
-| [Drupal](containers/drupal.md)       | 8, 7, 6            | php       | [wodby/drupal]         | ✓ |
-| [PHP](containers/php.md)             | 7.1, 7.0, 5.6, 5.3 | php       | [wodby/drupal-php]     |   |
-| [MariaDB](containers/mariadb.md)     | 10.1               | mariadb   | [wodby/mariadb]        | ✓ |
-| [Redis](containers/redis.md)         | 3.2                | redis     | [wodby/redis]          |   |
-| [Varnish](containers/varnish.md)     | 4.1                | varnish   | [wodby/drupal-varnish] |   |
-| [Solr](containers/solr.md)           | 6.6-6.3, 5.5, 5.4  | solr      | [wodby/drupal-solr]    |   |
-| [Node.js](containers/nodejs.md)      | 1.0                | nodejs    | [wodby/drupal-node]    |   |
-| [Memcached](containers/memcached.md) | 1.4                | memcached | [wodby/memcached]      |   |
-| [Rsyslog](containers/rsyslog)        | latest             | rsyslog   | [wodby/rsyslog]        |   |
-| [AthenaPDF](containers/athenapdf.md) | latest             | athenapdf | [athenapdf-service]    |   |
-| Mailhog                              | latest             | mailhog   | [mailhog]              | ✓ |
-| Adminer                              | 4.3                | adminer   | [wodby/adminer]        |   |
-| phpMyAdmin                           | latest             | pma       | [phpmyadmin]           |   |
-| Node                                 | latest             | node      | [_/node]               |   |
-| Portainer                            | latest             | portainer | [portainer]            | ✓ |
-| Traefik                              | latest             | traefik   | [_/traefik]            | ✓ |
+| Container   | Versions           | Service name | Image                              | Enabled by default |
+| ---------   | ------------------ | ------------ | ---------------------------------- | ------------------ |
+| [Nginx]     | 1.13, 1.12         | nginx        | [wodby/drupal-nginx]               | ✓                  |
+| [Apache]    | 2.4                | apache       | [wodby/php-apache]                 |                    |
+| [Drupal]    | 8, 7, 6            | php          | [wodby/drupal]                     | ✓                  |
+| [PHP]       | 7.1, 7.0, 5.6, 5.3 | php          | [wodby/drupal-php]                 |                    |
+| [MariaDB]   | 10.1               | mariadb      | [wodby/mariadb]                    | ✓                  |
+| [Redis]     | 3.2, 4.0           | redis        | [wodby/redis]                      |                    |
+| [Varnish]   | 4.1                | varnish      | [wodby/drupal-varnish]             |                    |
+| [Solr]      | 6.6-6.3, 5.5, 5.4  | solr         | [wodby/drupal-solr]                |                    |
+| [Node.js]   | 1.0                | nodejs       | [wodby/drupal-node]                |                    |
+| [Memcached] | 1.4                | memcached    | [wodby/memcached]                  |                    |
+| [Webgrind]  | 1.5                | webgrind     | [wodby/webgrind]                   |                    |
+| [Blackfire] | latest             | blackfire    | [blackfire/blackfire]              |                    |
+| [Rsyslog]   | latest             | rsyslog      | [wodby/rsyslog]                    |                    |
+| [AthenaPDF] | 2.10.0             | athenapdf    | [arachnysdocker/athenapdf-service] |                    |
+| Mailhog     | latest             | mailhog      | [mailhog/mailhog]                  | ✓                  |
+| Adminer     | 4.3                | adminer      | [wodby/adminer]                    |                    |
+| phpMyAdmin  | latest             | pma          | [phpmyadmin/phpmyadmin]            |                    |
+| Node        | latest             | node         | [_/node]                           |                    |
+| Portainer   | latest             | portainer    | [portainer/portainer]              | ✓                  |
+| Traefik     | latest             | traefik      | [_/traefik]                        | ✓                  |
 
-Supported Drupal versions: 6, 7, 8.
+Supported Drupal versions: 8 / 7 / 6
 
 ## Requirements
 
@@ -60,15 +78,17 @@ Supported Drupal versions: 6, 7, 8.
 1. **(!!!) You will lose MariaDB data** if you run `docker-compose down`. Instead use `docker-compose stop` to stop containers. Alternatively, you can use a manual volume for mariadb data (see compose file), this way your data will always persist 
 2. To avoid potential problems with permissions between your host and containers please follow [these instructions](permissions.md)
 3. _For macOS users_: Out of box Docker for Mac volumes has [poor performance](https://github.com/Wodby/docker4drupal/issues/4). However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
+4. For better reliability we release images with stability tags (e.g. wodby/drupal-php:7.1-X.X.X) which correspond to git tags. We strongly recommend using images only with stability tags. Below listed basic tags:
 
 ## Usage 
 
 There 2 options how to use docker4drupal – you can either run [vanilla](https://en.wikipedia.org/wiki/Vanilla_software) Drupal from the image or mount your own Drupal codebase:
 
+
 ### 1. Run Vanilla Drupal from Image (default)
 
 1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml)
-2. Optional: update _php_ and _nginx_ images tags if you want to run Drupal 6 or 7 (by default Drupal 8)
+2. Optional: update _php_ and _nginx_ images tags if you want to run Drupal 7 or 6 (by default Drupal 8)
 3. Run containers: `docker-compose up -d` 
 4. Wait a few seconds for containers initialization 
 5. That's it! Proceed with Drupal installation at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). Default database user, password and database name are all `drupal`, database host is `mariadb`
@@ -85,7 +105,7 @@ There 2 options how to use docker4drupal – you can either run [vanilla](https:
 5. Ensure your settings.php uses the same credentials as _mariadb_ service 
 6. Optional: [import existing database](containers/mariadb.md#import-existing-database)
 7. Optional: uncomment lines in the compose file to run _redis_, _solr_, etc
-8. Optional: [configure domains](domains.md)
+8. [Configure domains](domains.md) 
 9. Run containers: `docker-compose up -d`
 10. That's it! Your drupal website should be up and running at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). If you need to run multiple projects simultaneously see [this article](multiple-projects.md)
 11. You can see status of your containers and their logs via portainer: [http://portainer.drupal.docker.localhost:8000](http://portainer.drupal.docker.localhost:8000)

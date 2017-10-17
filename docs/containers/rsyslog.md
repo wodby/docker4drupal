@@ -2,7 +2,7 @@
 
 Rsyslog can be used to stream your applications logs (watchdog). It's similar to using syslog, however there's no syslog in PHP container (one process per container). Rsyslog will stream all incoming logs to a container output.
 
-Here how you can use it with Monolog:
+Here how you can use it with Monolog (Drupal 8):
 
 1. Install [monolog module](https://www.drupal.org/project/monolog). Make sure all dependencies being downloaded
 2. Add new handler at `monolog/monolog.services.yml`:

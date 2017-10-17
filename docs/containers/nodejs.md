@@ -1,4 +1,4 @@
-# Node.js container
+# Node.js
 
 Server app for the [Node.js Integration Drupal module](https://www.drupal.org/project/nodejs)
 

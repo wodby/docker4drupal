@@ -1,4 +1,4 @@
-# Nginx container
+# Nginx
 
 Nginx is being used as a default http server. 
 

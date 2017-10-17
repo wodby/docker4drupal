@@ -1,4 +1,4 @@
-# AthenaPDF container
+# AthenaPDF
 
 AthenaPDF is a drop-in replacement for wkhtmltopdf
 
