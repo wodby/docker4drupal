@@ -77,13 +77,12 @@ Supported Drupal versions: 8 / 7 / 6
 
 1. **(!!!) You will lose MariaDB data** if you run `docker-compose down`. Instead use `docker-compose stop` to stop containers. Alternatively, you can use a manual volume for mariadb data (see compose file), this way your data will always persist 
 2. To avoid potential problems with permissions between your host and containers please follow [these instructions](permissions.md)
-3. _For macOS users_: Out of box Docker for Mac volumes has [poor performance](https://github.com/Wodby/docker4drupal/issues/4). However there's a workaround based on [docker-sync project](https://github.com/EugenMayer/docker-sync/), read instructions [here](macos.md)
-4. For better reliability we release images with stability tags (e.g. wodby/drupal-php:7.1-X.X.X) which correspond to git tags. We strongly recommend using images only with stability tags. Below listed basic tags:
+3. _For macOS users_: Out of box Docker for Mac volumes has [poor performance](https://github.com/Wodby/docker4drupal/issues/4). However there are workarounds, read more [here](macos.md)
+4. For better reliability we release images with stability tags (e.g. `wodby/drupal-php:7.1-X.X.X`) which correspond to git tags. We strongly recommend using images only with stability tags. 
 
 ## Usage 
 
-There 2 options how to use docker4drupal – you can either run [vanilla](https://en.wikipedia.org/wiki/Vanilla_software) Drupal from the image or mount your own Drupal codebase:
-
+There are 2 options how to use docker4drupal – you can either run [vanilla](https://en.wikipedia.org/wiki/Vanilla_software) Drupal from the image or mount your own Drupal codebase:
 
 ### 1. Run Vanilla Drupal from Image (default)
 
