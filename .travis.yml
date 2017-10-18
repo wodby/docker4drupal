@@ -25,3 +25,15 @@ install:
 
 script:
   - make test
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_ACCESS_TOKEN
+  overwrite: true
+  skip_cleanup: true
+  file_glob: true
+  file:
+    - docker-compose.yml
+    - docker-sync.yml
+  on:
+    tags: true
