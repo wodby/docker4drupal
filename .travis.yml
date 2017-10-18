@@ -1,4 +1,4 @@
-language: bash
+language: python
 
 sudo: required
 
