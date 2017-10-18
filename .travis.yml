@@ -1,4 +1,4 @@
-language: python
+language: bash
 
 sudo: required
 
@@ -24,6 +24,7 @@ install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
+  - stty cols 80
   - make test
 
 deploy:
