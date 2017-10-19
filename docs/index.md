@@ -2,7 +2,7 @@
 
 Docker4Drupal is a set of docker containers optimized for Drupal. Use docker-compose.yml file from [docker4drupal repository](https://github.com/wodby/docker4drupal) to spin up local environment on Linux, Mac OS X and Windows. 
 
-Docker4Drupal is designed to be used for local development, if you're looking for a production solution see [Using in Production](production.md).
+Docker4Drupal is designed to be used for local development, if you're looking for a production solution see [using in production](production.md).
 
 ## Overview
 
@@ -86,7 +86,7 @@ There are 2 options how to use docker4drupal – you can either run [vanilla](ht
 
 ### 1. Run Vanilla Drupal from Image (default)
 
-1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml)
+1. Download `docker-compose.yml` file from the [latest stable release](https://github.com/wodby/docker4drupal/releases)
 2. Optional: update _php_ and _nginx_ images tags if you want to run Drupal 7 or 6 (by default Drupal 8)
 3. Run containers: `docker-compose up -d` 
 4. Wait a few seconds for containers initialization
@@ -97,7 +97,7 @@ There are 2 options how to use docker4drupal – you can either run [vanilla](ht
 ### 2. Mount my Drupal Codebase
 
 0. Read [must know before you start](#must-know-before-you-start) 
-1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml) to your Drupal project root
+1. Download `docker-compose.yml` file from the [latest stable release](https://github.com/wodby/docker4drupal/releases) to your Drupal project root
 2. Replace php image from `wodby/drupal` (PHP + vanilla Drupal) to `wodby/drupal-php` (just PHP)
 3. Depending on your Drupal version use appropriate tags for _php_ and _nginx_ images
 4. Update _nginx_ and _php_ volumes to `- ./:/var/www/html` to mount your codebase

@@ -22,10 +22,11 @@ $ gem install docker-sync
 
 ### Usage
 
-1. Uncomment _docker-sync_ volume definition in your compose file
-2. Replace _volumes_ definition of _php_ and _nginx_/_apache_ services with the option below marked as "Docker-sync".
-3. Start docker-sync: `docker-sync start`
-4. In a new shell run after you started docker-sync `docker-compose up -d`
+1. Download `docker-sync.yml` file from the [latest stable release](https://github.com/wodby/docker4drupal/releases)
+2. Uncomment _docker-sync_ volume definition in your compose file
+3. Replace _volumes_ definition of _php_ and _nginx_/_apache_ services with the option below marked as "Docker-sync".
+4. Start docker-sync: `docker-sync start`
+5. In a new shell run after you started docker-sync `docker-compose up -d`
 
 Now when you change your code on the host machine docker-sync will sync your data to php and nginx/apache containers.
 
