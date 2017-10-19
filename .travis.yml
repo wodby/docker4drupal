@@ -35,5 +35,6 @@ deploy:
   file:
     - docker-compose.yml
     - docker-sync.yml
+    - traefik.yml
   on:
     tags: true
