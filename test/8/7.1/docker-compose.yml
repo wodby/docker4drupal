@@ -14,6 +14,7 @@ services:
     environment:
       # To skip auto init.
       WODBY_APP_NAME: drupal
+      DEBUG: 1
       DRUPAL_VERSION: 8
       DB_HOST: mariadb
       DB_NAME: drupal
