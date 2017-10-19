@@ -7,7 +7,7 @@ services:
 
 env:
   global:
-    - DOCKER_COMPOSE_VERSION=1.10.0 COLUMNS=80
+    - DOCKER_COMPOSE_VERSION=1.10.0
   matrix:
     - DRUPAL_VER=6 PHP_VER=5.3
     - DRUPAL_VER=6 PHP_VER=5.6

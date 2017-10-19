@@ -30,7 +30,6 @@ The Drupal stack consist of the following containers:
 [_/traefik]: https://hub.docker.com/_/traefik
 [Nginx]: containers/nginx.md
 [Apache]: containers/apache.md
-[Drupal]: containers/drupal.md
 [PHP]: containers/php.md
 [MariaDB]: containers/mariadb.md
 [Redis]: containers/redis.md
@@ -47,7 +46,7 @@ The Drupal stack consist of the following containers:
 | ---------   | ------------------ | ------------ | ---------------------------------- | ------------------ |
 | [Nginx]     | 1.13, 1.12         | nginx        | [wodby/drupal-nginx]               | ✓                  |
 | [Apache]    | 2.4                | apache       | [wodby/php-apache]                 |                    |
-| [Drupal]    | 8, 7, 6            | php          | [wodby/drupal]                     | ✓                  |
+| Drupal      | 8, 7, 6            | php          | [wodby/drupal]                     | ✓                  |
 | [PHP]       | 7.1, 7.0, 5.6, 5.3 | php          | [wodby/drupal-php]                 |                    |
 | [MariaDB]   | 10.1               | mariadb      | [wodby/mariadb]                    | ✓                  |
 | [Redis]     | 3.2, 4.0           | redis        | [wodby/redis]                      |                    |
