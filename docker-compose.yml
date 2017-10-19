@@ -37,6 +37,7 @@ services:
       PHP_XDEBUG_DEFAULT_ENABLE: 1
       PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting below
       PHP_XDEBUG_REMOTE_HOST: "10.0.75.1"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
+      ENV_LOCAL: confcats_docker
     volumes:
       - ./confcatsd8:/var/www/html
 # Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
