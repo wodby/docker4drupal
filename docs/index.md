@@ -2,7 +2,7 @@
 
 Docker4Drupal is a set of docker containers optimized for Drupal. Use docker-compose.yml file from [docker4drupal repository](https://github.com/wodby/docker4drupal) to spin up local environment on Linux, Mac OS X and Windows. 
 
-Docker4Drupal is designed to be used for local development, if you're looking for a dev/staging/production solution consistent with Docker4Drupal check out [Wodby](https://wodby.com). 
+Docker4Drupal is designed to be used for local development, if you're looking for a production solution see [Using in Production](production.md).
 
 ## Overview
 
@@ -52,7 +52,7 @@ The Drupal stack consist of the following containers:
 | [MariaDB]   | 10.1               | mariadb      | [wodby/mariadb]                    | ✓                  |
 | [Redis]     | 3.2, 4.0           | redis        | [wodby/redis]                      |                    |
 | [Varnish]   | 4.1                | varnish      | [wodby/drupal-varnish]             |                    |
-| [Solr]      | 6.6-6.3, 5.5, 5.4  | solr         | [wodby/drupal-solr]                |                    |
+| [Solr]      | 6.x, 5.5, 5.4      | solr         | [wodby/drupal-solr]                |                    |
 | [Node.js]   | 1.0                | nodejs       | [wodby/drupal-node]                |                    |
 | [Memcached] | 1.4                | memcached    | [wodby/memcached]                  |                    |
 | [Webgrind]  | 1.5                | webgrind     | [wodby/webgrind]                   |                    |
@@ -89,9 +89,10 @@ There are 2 options how to use docker4drupal – you can either run [vanilla](ht
 1. Download [docker-compose.yml file](https://github.com/wodby/docker4drupal/blob/master/docker-compose.yml)
 2. Optional: update _php_ and _nginx_ images tags if you want to run Drupal 7 or 6 (by default Drupal 8)
 3. Run containers: `docker-compose up -d` 
-4. Wait a few seconds for containers initialization 
-5. That's it! Proceed with Drupal installation at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). Default database user, password and database name are all `drupal`, database host is `mariadb`
-6. You can see status of your containers and their logs via portainer: [http://portainer.drupal.docker.localhost:8000](http://portainer.drupal.docker.localhost:8000)
+4. Wait a few seconds for containers initialization
+5. Add `127.0.0.1 drupal.docker.localhost` to your `/etc/hosts` (some browsers like Chrome may work without it)
+6. That's it! Proceed with Drupal installation at [http://drupal.docker.localhost:8000](http://drupal.docker.localhost:8000). Default database user, password and database name are all `drupal`, database host is `mariadb`
+7. You can see status of your containers and their logs via portainer: [http://portainer.drupal.docker.localhost:8000](http://portainer.drupal.docker.localhost:8000)
 
 ### 2. Mount my Drupal Codebase
 
