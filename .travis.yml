@@ -7,7 +7,7 @@ services:
 
 env:
   global:
-    - DOCKER_COMPOSE_VERSION=1.10.0
+    - DOCKER_COMPOSE_VERSION=1.10.0 COLUMNS=80
   matrix:
     - DRUPAL_VER=6 PHP_VER=5.3
     - DRUPAL_VER=6 PHP_VER=5.6
@@ -24,5 +24,16 @@ install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - stty cols 80
   - make test
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_ACCESS_TOKEN
+  overwrite: true
+  skip_cleanup: true
+  file_glob: true
+  file:
+    - docker-compose.yml
+    - docker-sync.yml
+  on:
+    tags: true
