@@ -2,7 +2,7 @@
 
 You can profile your Drupal application via blackfire.io by following the next steps:
 
-* Enable blackfire probe extension by adding the environment variable `PHP_BLACKFIRE` with any value to PHP (Drupal) service
+* Enable blackfire probe extension by uncommenting the environment variable `PHP_BLACKFIRE: 1` in the PHP (Drupal) service
 * Uncomment `blackfire` agent service in your docker compose file 
 * Specify values for `BLACKFIRE_SERVER_ID` and `BLACKFIRE_SERVER_TOKEN` environment variables (you can acquire them from your blackfire.io profile)
 * Install blackfire companion extension for [Chrome](https://blackfire.io/docs/integrations/chrome) or [Firefox](https://blackfire.io/docs/integrations/firefox)
