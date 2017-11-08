@@ -40,6 +40,7 @@ services:
 #      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
 #      PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler
 #      PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces
+#      PHP_BLACKFIRE: 1
     volumes:
       - codebase:/var/www/html
 ## Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
