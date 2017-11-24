@@ -6,7 +6,7 @@ You can find containers logs from portainer UI: [http://portainer.drupal.docker.
 
 ## CLI
 
-To get logs from a container simply run (skip the last param to get logs form all the containers):
+To get logs from a container simply run (skip the last param to get logs from all the containers):
 ```
 $ docker-compose logs [service]
 ```
