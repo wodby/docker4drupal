@@ -2,8 +2,8 @@
 
 set -e
 
-if [[ ! -z "${DEBUG}" ]]; then
-  set -x
+if [[ -n "${DEBUG}" ]]; then
+    set -x
 fi
 
 DB_NAME=drupal
@@ -23,6 +23,3 @@ chmod 755 "${APP_ROOT}/web/sites/default/settings.php"
 echo "include '${APP_ROOT}/test.settings.php';" >> "${APP_ROOT}/web/sites/default/settings.php"
 
 drush en memcache -y
-
-drush core-requirements | grep -q "PHP\s\+Info\s\+5.3"
-drush core-requirements | grep -q "Memcache\s\+OK\s\+2.2.0"

@@ -2,9 +2,21 @@
 
 set -e
 
-if [[ ! -z "${DEBUG}" ]]; then
-  set -x
+if [[ -n "${DEBUG}" ]]; then
+    set -x
 fi
+
+check_rq() {
+    echo "Checking requirement: ${1} must be ${2}"
+    drush rq --format=json | jq ".\"${1}\".value" | grep -q "${2}"
+    echo "OK"
+}
+
+check_status() {
+    echo "Checking status: ${1} must be ${2}"
+    drush status --format=yaml | grep -q "${1}: ${2}"
+    echo "OK"
+}
 
 DB_NAME=drupal
 DB_HOST=mariadb
@@ -24,22 +36,31 @@ composer require \
 cd ./web
 
 drush si --db-url="${DB_URL}" -y
+
+# Test Drupal status and requirements
+check_status "drush-version" "8.*"
+check_status "root" "${APP_ROOT}/${DOCROOT_SUBDIR}"
+check_status "drupal-settings-file" "sites/default/settings.php"
+check_status "site" "sites/default"
+check_status "files" "sites/default/files"
+check_status "temp" "/tmp"
+
+check_rq "database_system" "MySQL, MariaDB, or equivalent"
+check_rq "image_gd" "bundled (2.1.0 compatible)"
+check_rq "php" "${PHP_VERSION}"
+check_rq "file system" "Writable (<em>public</em> download method)"
+
 drush en -y redis search_api search_api_solr varnish features
 
 # Enable redis
 chmod 755 "${PWD}/sites/default/settings.php"
 echo "include '${PWD}/sites/default/test.settings.php';" >> "${PWD}/sites/default/settings.php"
 drush cc all
+check_rq "redis" "Connected, using the <em>PhpRedis</em> client"
 
 # Test solr server connection
 drush en -y feature_search_api_solr
-drush core-requirements | grep -q "Solr servers\s\+OK"
-drush core-requirements | grep -q "The Solr server could be reached."
-
-drush core-requirements | grep -q "Database system\s\+Info\s\+MySQL, MariaDB"
-drush core-requirements | grep -q "Redis\s\+OK\s\+Connected, using the PhpRedis client"
-drush core-requirements | grep -q "PHP\s\+Info\s\+7.0"
-drush core-requirements | grep -q "Varnish status\s\+Info\s\+Running"
+check_rq "search_api_solr" "1 server"
 
 # Test varnish cache and purge
 curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"

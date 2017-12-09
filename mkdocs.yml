@@ -30,3 +30,5 @@ pages:
     - 'Varnish': 'containers/varnish.md'
     - 'AthenaPDF': 'containers/athenapdf.md'
     - 'Rsyslog': 'containers/rsyslog.md'
+    - 'Webgrind': 'containers/webgrind.md'
+    - 'Blackfire': 'containers/blackfire.md'

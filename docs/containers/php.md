@@ -1,4 +1,4 @@
-# PHP container
+# PHP
 
 PHP is used with Nginx via PHP-FPM. 
 
@@ -6,19 +6,19 @@ PHP is used with Nginx via PHP-FPM.
 
 PHP container has installed drush. When running drush make sure to open the shell as user 82 (www-data) to avoid access problems in the web server, which is running as user 82, too:
 ```bash
-$ docker-compose exec --user 82 php drush
+$ docker-compose exec php drush
 ```
 
 Also, you can use preconfigured drush alias @dev:
 ```bash
-$ docker-compose exec --user 82 php drush @dev
+$ docker-compose exec php drush @dev
 ```
 
 ## Composer
 
 PHP container has installed composer. Example:
 ```bash
-$ docker-compose exec --user 82 php composer update
+$ docker-compose exec php composer update
 ```
 
 ## Drupal Console

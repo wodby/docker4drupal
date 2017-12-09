@@ -2,10 +2,10 @@
 
 .PHONY: test
 
-drupal ?= 8
-php ?= 7.1
+DRUPAL_VER ?= 8
+PHP_VER ?= 7.1
 
 default: test
 
 test:
-	cd ./test/$(drupal)/$(php) && ./run.sh
+	cd ./test/$(DRUPAL_VER)/$(PHP_VER) && ./run.sh

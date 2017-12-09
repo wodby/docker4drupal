@@ -13,6 +13,7 @@ services:
     image: $DRUPAL7_PHP70
     environment:
       # To skip auto init.
+      WODBY_APP_NAME: drupal
       DRUPAL_VERSION: 7
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:

@@ -1,4 +1,4 @@
-# MariaDB container
+# MariaDB
 
 MariaDB uses a persistent volume defined in Dockerfile. 
 

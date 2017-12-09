@@ -1,4 +1,4 @@
-# Solr container
+# Solr
 
 To spin up a container with Apache Solr search engine uncomment lines with solr service definition in the compose file.  
 

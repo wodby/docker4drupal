@@ -13,6 +13,7 @@ services:
     image: $DRUPAL6_PHP53
     environment:
       # To skip auto init.
+      WODBY_APP_NAME: drupal
       DRUPAL_VERSION: 6
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
