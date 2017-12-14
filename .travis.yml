@@ -1,13 +1,9 @@
 language: bash
 
-sudo: required
-
 services:
   - docker
 
 env:
-  global:
-    - DOCKER_COMPOSE_VERSION=1.10.0
   matrix:
     - DRUPAL_VER=6 PHP_VER=5.3
     - DRUPAL_VER=6 PHP_VER=5.6
@@ -16,12 +12,6 @@ env:
     - DRUPAL_VER=7 PHP_VER=7.1
     - DRUPAL_VER=8 PHP_VER=7.0
     - DRUPAL_VER=8 PHP_VER=7.1
-
-install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
 
 script:
   - make test
@@ -38,3 +28,8 @@ deploy:
     - traefik.yml
   on:
     tags: true
+
+notifications:
+  slack:
+    on_failure: never
+    - secure: "qU6Ds2l/33PJO6AsAK/xkA/vWgrRtO/5yBcPGYPDD4AelM+JbXqmqdWBszlX6/Fp9jUE589DA+7U7VFDNWse5SrrLwM5W9VqDTX/mzR+y38eCPO36OOuYiFxN4aDdx9AyKJ+hlyuLokkilTAESv9SV9KBMyCtFZhmE+bkw5uhFwESbOm2Dystn+7/jKFHvEUKIiQuIJGz5JCUf/MrfBF0/VVLhzbjWi5E9Eelk8D/0Jzae8EE2+S6agw0FCVvbe+ZW3JxIZAqPorxeRrQjYBXXggZdM1f//d3Zv5J45UkUU3J322LtH8v1RwNzdj7ZdlHVZBO+FZy5CEyzxC1LX+lU6PhQjGLo/KPvRBxiBDtouLHEnVDInuzwdckX7SBGaMytvzgq3Y2mTNOOReJZpMk9vMsv/BQMw+bb+g6EM8df8jxIZ8vCMe2rMXBz53aefWuqJ3Bae56AaC7JzxUnQEY/HBuuaY+uWEdWG6VTe2gRL//hpSajyYcU8PciHwoxxFLu2VaOhtNK5rpXtcne8Akq37G+uLVIR80JyvLb4zSu814OXVqDPwSJar66zgq+EiDG92K4NIuLiOcMY9OxJlEx8Z6L18q+rZpOf/hczONzULI6yrYVzJxI9ZxLKPcjwU9rPk/1ho4eGRd0r5tNmM5+BJ3tV72MvTpKROtl3v+Yk="
