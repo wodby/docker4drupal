@@ -81,7 +81,7 @@ services:
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
-#      NGINX_DRUPAL_FILE_PROXY_URL: example.com
+#      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
       - codebase:/var/www/html
 # Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
