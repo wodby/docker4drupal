@@ -33,6 +33,7 @@ The Drupal stack consist of the following containers:
 [Apache]: containers/apache.md
 [PHP]: containers/php.md
 [MariaDB]: containers/mariadb.md
+[PostgreSQL]: containers/postgres.md
 [Redis]: containers/redis.md
 [Varnish]: containers/varnish.md
 [Solr]: containers/solr.md

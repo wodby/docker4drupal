@@ -15,7 +15,7 @@ services:
 
 #  postgres:
 #    image: wodby/postgres:10.1-1.2.0
-#    image: wodby/postgres:9.6-1.2.0
+##    image: wodby/postgres:9.6-1.2.0
 #    environment:
 #      POSTGRES_PASSWORD: password
 #      POSTGRES_DB: drupal
