@@ -1,6 +1,5 @@
 # Docker-based Drupal stack
 
-[![Documentation Status](https://readthedocs.org/projects/docker4drupal/badge/?version=latest)](http://docs.docker4drupal.org)
 [![Build Status](https://travis-ci.org/wodby/docker4drupal.svg?branch=master)](https://travis-ci.org/wodby/docker4drupal)
 [![Wodby Slack](http://slack.wodby.com/badge.svg)](http://slack.wodby.com)
 [![Wodby Twitter](https://img.shields.io/twitter/follow/wodbyhq.svg?style=social&label=Follow)](https://twitter.com/wodbyhq)
@@ -9,7 +8,7 @@
 
 Docker4Drupal is a set of docker images optimized for Drupal. Use `docker-compose.yml` file from the [latest stable release](https://github.com/wodby/docker4drupal/releases) to spin up local environment on Linux, Mac OS X and Windows. 
 
-Read [**Getting Started**](https://docker4drupal.readthedocs.io).
+Read [**Getting Started**](http://wodby.com/stacks/drupal/docs/local/quick-start).
 
 ## Stack
 
@@ -65,7 +64,7 @@ Supported Drupal versions: 8 / 7 / 6
 
 ## Documentation
 
-Full documentation is available at https://docker4drupal.readthedocs.io.
+Full documentation is available at https://wodby.com/stacks/drupal/docs/local.
 
 ## Deployment
 
