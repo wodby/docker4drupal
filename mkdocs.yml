@@ -8,6 +8,8 @@ markdown_extensions:
   - toc:
       permalink: True
 
+extra_javascript: ["redirect.js"]
+
 pages:
   - Getting Started: 'index.md'
   - Domains: 'domains.md'
