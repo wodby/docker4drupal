@@ -8,6 +8,8 @@ markdown_extensions:
   - toc:
       permalink: True
 
+extra_javascript: ["redirect.js"]
+
 pages:
   - Getting Started: 'index.md'
   - Domains: 'domains.md'
@@ -23,6 +25,7 @@ pages:
     - 'Apache': 'containers/apache.md'
     - 'PHP': 'containers/php.md'
     - 'MariaDB': 'containers/mariadb.md'
+    - 'PostgreSQL': 'containers/postgres.md'
     - 'Redis': 'containers/redis.md'
     - 'Node.js': 'containers/nodejs.md'
     - 'Memcached': 'containers/memcached.md'

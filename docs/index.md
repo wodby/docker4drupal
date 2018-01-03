@@ -13,6 +13,7 @@ The Drupal stack consist of the following containers:
 [wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
+[wodby/postgres]: https://github.com/wodby/postgres
 [wodby/redis]: https://github.com/wodby/redis
 [wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
 [wodby/drupal-solr]: https://github.com/wodby/drupal-solr
@@ -32,6 +33,7 @@ The Drupal stack consist of the following containers:
 [Apache]: containers/apache.md
 [PHP]: containers/php.md
 [MariaDB]: containers/mariadb.md
+[PostgreSQL]: containers/postgres.md
 [Redis]: containers/redis.md
 [Varnish]: containers/varnish.md
 [Solr]: containers/solr.md
@@ -42,28 +44,29 @@ The Drupal stack consist of the following containers:
 [Rsyslog]: containers/rsyslog.md
 [AthenaPDF]: containers/athenapdf.md
 
-| Container   | Versions           | Service name | Image                              | Enabled by default |
-| ---------   | ------------------ | ------------ | ---------------------------------- | ------------------ |
-| [Nginx]     | 1.13, 1.12         | nginx        | [wodby/drupal-nginx]               | ✓                  |
-| [Apache]    | 2.4                | apache       | [wodby/php-apache]                 |                    |
-| Drupal      | 8, 7, 6            | php          | [wodby/drupal]                     | ✓                  |
-| [PHP]       | 7.1, 7.0, 5.6, 5.3 | php          | [wodby/drupal-php]                 |                    |
-| [MariaDB]   | 10.1               | mariadb      | [wodby/mariadb]                    | ✓                  |
-| [Redis]     | 3.2, 4.0           | redis        | [wodby/redis]                      |                    |
-| [Varnish]   | 4.1                | varnish      | [wodby/drupal-varnish]             |                    |
-| [Solr]      | 6.x, 5.5, 5.4      | solr         | [wodby/drupal-solr]                |                    |
-| [Node.js]   | 1.0                | nodejs       | [wodby/drupal-node]                |                    |
-| [Memcached] | 1.4                | memcached    | [wodby/memcached]                  |                    |
-| [Webgrind]  | 1.5                | webgrind     | [wodby/webgrind]                   |                    |
-| [Blackfire] | latest             | blackfire    | [blackfire/blackfire]              |                    |
-| [Rsyslog]   | latest             | rsyslog      | [wodby/rsyslog]                    |                    |
-| [AthenaPDF] | 2.10.0             | athenapdf    | [arachnysdocker/athenapdf-service] |                    |
-| Mailhog     | latest             | mailhog      | [mailhog/mailhog]                  | ✓                  |
-| Adminer     | 4.3                | adminer      | [wodby/adminer]                    |                    |
-| phpMyAdmin  | latest             | pma          | [phpmyadmin/phpmyadmin]            |                    |
-| Node        | latest             | node         | [_/node]                           |                    |
-| Portainer   | latest             | portainer    | [portainer/portainer]              | ✓                  |
-| Traefik     | latest             | traefik      | [_/traefik]                        | ✓                  |
+| Container    | Versions           | Service name | Image                              | Enabled by default |
+| ------------ | ------------------ | ------------ | ---------------------------------- | ------------------ |
+| [Nginx]      | 1.13, 1.12         | `nginx`      | [wodby/drupal-nginx]               | ✓                  |
+| [Apache]     | 2.4                | `apache`     | [wodby/php-apache]                 |                    |
+| Drupal       | 8, 7, 6            | `php`        | [wodby/drupal]                     | ✓                  |
+| [PHP]        | 7.1, 7.0, 5.6, 5.3 | `php`        | [wodby/drupal-php]                 |                    |
+| [MariaDB]    | 10.2, 10.1         | `mariadb`    | [wodby/mariadb]                    | ✓                  |
+| [PostgreSQL] | 10.1, 9.6          | `postgres`   | [wodby/postgres]                   |                    |
+| [Redis]      | 4.0, 3.2           | `redis`      | [wodby/redis]                      |                    |
+| [Varnish]    | 4.1                | `varnish`    | [wodby/drupal-varnish]             |                    |
+| [Solr]       | 7.x, 6.x, 5.5, 5.4 | `solr`       | [wodby/drupal-solr]                |                    |
+| [Node.js]    | 1.0                | `nodejs`     | [wodby/drupal-node]                |                    |
+| [Memcached]  | 1.4                | `memcached`  | [wodby/memcached]                  |                    |
+| [Webgrind]   | 1.5                | `webgrind`   | [wodby/webgrind]                   |                    |
+| [Blackfire]  | latest             | `blackfire`  | [blackfire/blackfire]              |                    |
+| [Rsyslog]    | latest             | `rsyslog`    | [wodby/rsyslog]                    |                    |
+| [AthenaPDF]  | 2.10.0             | `athenapdf`  | [arachnysdocker/athenapdf-service] |                    |
+| Mailhog      | latest             | `mailhog`    | [mailhog/mailhog]                  | ✓                  |
+| Adminer      | 4.3                | `adminer`    | [wodby/adminer]                    |                    |
+| phpMyAdmin   | latest             | `pma`        | [phpmyadmin/phpmyadmin]            |                    |
+| Node         | latest             | `node`       | [_/node]                           |                    |
+| Portainer    | latest             | `portainer`  | [portainer/portainer]              | ✓                  |
+| Traefik      | latest             | `traefik`    | [_/traefik]                        | ✓                  |
 
 Supported Drupal versions: 8 / 7 / 6
 
