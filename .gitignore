@@ -1,2 +1,5 @@
+.env
 .idea/
 .docker-sync/
+docker-compose.yml
+Makefile.override

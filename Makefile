@@ -1,11 +1,4 @@
--include env_make
-
-.PHONY: test
-
-DRUPAL_VER ?= 8
-PHP_VER ?= 7.1
-
-default: test
-
-test:
-	cd ./test/$(DRUPAL_VER)/$(PHP_VER) && ./run.sh
+$(shell cp -n \.\/Makefile\.override\.default \.\/Makefile\.override)
+# INCLUDING CUSTOM Makefile.override.
+# Add there your own or edit existing target rules.
+include Makefile.override

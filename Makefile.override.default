@@ -1,0 +1,38 @@
+.PHONY: default_init default_up default_down default_net default_info default_test
+$(shell cp -n \.env.default \.env)
+$(shell cp -n \.\/docker-compose\.yml\.default \.\/docker-compose\.yml)
+include .env
+
+TESTS_DRUPAL_VERSION ?= 8
+TESTS_PHP_VERSION ?= 7.1
+
+default: default_init
+
+default_init:
+	make -s default_down
+	make -s default_up
+	make -s default_info
+
+default_up: default_net
+	@echo "Installing/Updating containers for for $(COMPOSE_PROJECT_NAME)..."
+	docker-compose pull --parallel
+	docker-compose up -d --remove-orphans
+
+default_down:
+	@echo "Removing containers for $(COMPOSE_PROJECT_NAME)..."
+	@docker-compose down -v --remove-orphans
+
+default_net:
+	@echo "Configuring network for $(COMPOSE_PROJECT_NAME)..."
+ifeq ($(strip $(shell docker network ls | grep $(COMPOSE_PROJECT_NAME)_front)),)
+	docker network create "$(COMPOSE_PROJECT_NAME)_front"
+endif
+	$(shell grep -q -F 'IP_RANGE=' .env || printf "\nIP_RANGE=$(shell docker network inspect $(COMPOSE_PROJECT_NAME)_front --format '{{(index .IPAM.Config 0).Subnet}}')" >> .env)
+
+default_info:
+	$(info Available containers for "$(COMPOSE_PROJECT_NAME)":)
+	$(eval CONTAINERS := $(shell docker ps -f name=$(COMPOSE_PROJECT_NAME) --format "{{ .ID }}"))
+	$(foreach CONTAINER, $(CONTAINERS), $(info $(shell docker inspect --format='{{.NetworkSettings.Networks.$(COMPOSE_PROJECT_NAME)_front.IPAddress}} : {{.Name}}' $(CONTAINER)) ))
+
+default_test:
+	cd ./test/$(TESTS_DRUPAL_VERSION)/$(TESTS_PHP_VERSION) && ./run.sh
