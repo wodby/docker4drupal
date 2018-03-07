@@ -15,7 +15,7 @@ services:
       # To skip auto init.
       WODBY_APP_NAME: drupal
       DEBUG: 1
-      DRUPAL_VERSION: 8
+      DRUPAL_VERSION: 7
       DB_HOST: $DB_HOST
       DB_NAME: $DB_NAME
       DB_USER: $DB_USER
