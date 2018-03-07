@@ -4,6 +4,7 @@ services:
   mariadb:
     image: wodby/mariadb:$MARIADB_TAG
     container_name: "${PROJECT_NAME}_mariadb"
+    stop_grace_period: 30s
     environment:
       MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
       MYSQL_DATABASE: $DB_NAME
@@ -68,6 +69,7 @@ services:
 #  postgres:
 #    image: wodby/postgres:$POSTGRES_TAG
 #    container_name: "${PROJECT_NAME}_postgres"
+#    stop_grace_period: 30s
 #    environment:
 #      POSTGRES_PASSWORD: password
 #      POSTGRES_DB: drupal
