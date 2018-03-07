@@ -18,11 +18,7 @@ check_status() {
     echo "OK"
 }
 
-DB_NAME=drupal
-DB_HOST=mariadb
-DB_USER=drupal
-DB_PASS=drupal
-DB_URL="mysql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}"
+DB_URL="${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}"
 
 make init -f /usr/local/bin/actions.mk
 
