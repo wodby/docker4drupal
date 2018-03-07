@@ -177,7 +177,7 @@ services:
 #      WEAVER_MAX_WORKERS: 10
 #      WEAVER_MAX_CONVERSION_QUEUE: 50
 #      WEAVER_WORKER_TIMEOUT: 90
-#      WEAVER_CONVERSION_FALLBACK: false
+#      WEAVER_CONVERSION_FALLBACK: "false"
 
 #  node:
 #    image: node:alpine
