@@ -15,3 +15,7 @@ $settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
 $settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
 
 $settings['container_yamls'][] = $contrib_path . '/redis/example.services.yml';
+
+$settings['trusted_host_patterns'] = array(
+  '\\.localhost$', '\\.local$', '\\.loc$'
+);
