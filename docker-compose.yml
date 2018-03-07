@@ -14,13 +14,10 @@ services:
 #      - /path/to/mariadb/data/on/host:/var/lib/mysql # I want to manage volumes manually.
 
   php:
-# Image variants: with vanilla Drupal or without for mounted codebase
-    image: wodby/drupal:$DRUPAL_TAG
-#    image: wodby/drupal-php:$PHP_TAG
+    image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_php"
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_FPM_CLEAR_ENV: "no"
       DB_HOST: $DB_HOST
       DB_USER: $DB_USER
       DB_PASSWORD: $DB_PASSWORD
@@ -30,13 +27,11 @@ services:
 #      PHP_XDEBUG_DEFAULT_ENABLE: 1
 #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
 #      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
-#      PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler
-#      PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces
 #      PHP_BLACKFIRE: 1
     volumes:
-      - codebase:/var/www/html
-## Options for macOS users (https://wodby.com/stacks/php/docs/local/docker-for-mac/)
-#      - codebase:/var/www/html:cached # User-guided caching
+      - ./:/var/www/html
+## For macOS users (https://wodby.com/stacks/php/docs/local/docker-for-mac/)
+#      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
 ## For Xdebug profiler files
 #      - files:/mnt/files
@@ -53,9 +48,9 @@ services:
       NGINX_SERVER_ROOT: /var/www/html/web
 #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
-      - codebase:/var/www/html
-# Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
-#      - codebase:/var/www/html:cached # User-guided caching
+      - ./:/var/www/html
+# For macOS users (https://wodby.com/stacks/php/docs/local/docker-for-mac/)
+#      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
     labels:
       - 'traefik.backend=nginx'
@@ -91,9 +86,9 @@ services:
 #      APACHE_BACKEND_HOST: php
 #      APACHE_SERVER_ROOT: /var/www/html/web
 #    volumes:
-#      - codebase:/var/www/html
-## Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
-##      - codebase:/var/www/html:cached # User-guided caching
+#      - ./:/var/www/html
+## For macOS users (https://wodby.com/stacks/php/docs/local/docker-for-mac/)
+##      - ./:/var/www/html:cached # User-guided caching
 ##      - docker-sync:/var/www/html # Docker-sync
 #    labels:
 #      - 'traefik.backend=apache'
@@ -238,8 +233,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-volumes:
-  codebase:
+#volumes:
 ## Docker-sync for macOS users
 #  docker-sync:
 #    external: true
