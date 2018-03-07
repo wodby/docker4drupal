@@ -1,4 +1,4 @@
--include env_make
+include boilerplate.mk
 
 .PHONY: test
 
@@ -8,4 +8,4 @@ PHP_VER ?= 7.1
 default: test
 
 test:
-	cd ./test/$(DRUPAL_VER)/$(PHP_VER) && ./run.sh
+	cd ./test/$(DRUPAL_VER)/$(PHP_VER) && ./run
