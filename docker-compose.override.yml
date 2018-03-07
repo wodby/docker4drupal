@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  php:
+    image: wodby/drupal:$DRUPAL_TAG
+    environment:
+      PHP_FPM_CLEAR_ENV: "no"
+    volumes:
+      - codebase:/var/www/html
+
+  nginx:
+    volumes:
+      - codebase:/var/www/html
+
+volumes:
+  codebase:

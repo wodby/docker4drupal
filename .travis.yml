@@ -25,7 +25,7 @@ deploy:
   file:
     - docker-compose.yml
     - docker-sync.yml
-    - boilerplate.mk
+    - docker.mk
     - .env
     - traefik.yml
   on:
