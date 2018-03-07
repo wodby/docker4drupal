@@ -2,27 +2,33 @@ version: "2"
 
 services:
   mariadb:
-    image: $MARIADB
+    image: wodby/mariadb:$MARIADB_TAG
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: drupal
-      MYSQL_USER: drupal
-      MYSQL_PASSWORD: drupal
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
 
   php:
-    image: $DRUPAL6_PHP53
+    image: wodby/drupal:$DRUPAL_TAG
     environment:
       # To skip auto init.
       WODBY_APP_NAME: drupal
+      DEBUG: 1
       DRUPAL_VERSION: 6
+      DB_HOST: $DB_HOST
+      DB_NAME: $DB_NAME
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_DRIVER: $DB_DRIVER
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - codebase:/var/www/html
-      - ./test.sh:/var/www/html/test.sh
+      - ./tests:/usr/local/bin/tests
       - ./test.settings.php:/var/www/html/test.settings.php
 
   nginx:
-    image: $DRUPAL6_NGINX
+    image: wodby/drupal-nginx:$NGINX_TAG
     environment:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
@@ -34,7 +40,7 @@ services:
       - php
 
   memcached:
-    image: $MEMCACHED
+    image: wodby/memcached:$MEMCACHED_TAG
 
 volumes:
   codebase:
