@@ -14,7 +14,9 @@ env:
     - DRUPAL_VER=6 PHP_VER=5.3
 
 script:
+  - set -e
   - make test
+  - tar docker4drupal.tar.gz docker-compose.yml docker-sync.yml docker.mk .env traefik.yml
 
 deploy:
   provider: releases
@@ -23,10 +25,6 @@ deploy:
   skip_cleanup: true
   file_glob: true
   file:
-    - docker-compose.yml
-    - docker-sync.yml
-    - docker.mk
-    - .env
-    - traefik.yml
+    - docker4drupal.tar.gz
   on:
     tags: true
