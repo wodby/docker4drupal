@@ -117,7 +117,7 @@ services:
 
 #  adminer:
 #    container_name: "${PROJECT_NAME}_adminer"
-#    image: wodby/adminer:4.3-1.1.0
+#    image: wodby/adminer:$ADMINER_TAG
 #    environment:
 #      ADMINER_SALT: adminer-salt
 #    labels:
