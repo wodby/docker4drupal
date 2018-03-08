@@ -129,9 +129,9 @@ services:
 #    image: phpmyadmin/phpmyadmin
 #    container_name: "${PROJECT_NAME}_pma"
 #    environment:
-#      PMA_HOST: mariadb
-#      PMA_USER: drupal
-#      PMA_PASSWORD: drupal
+#      PMA_HOST: $DB_HOST
+#      PMA_USER: $DB_USER
+#      PMA_PASSWORD: $DB_PASSWORD
 #      PHP_UPLOAD_MAX_FILESIZE: 1G
 #      PHP_MAX_INPUT_VARS: 1G
 #    labels:
