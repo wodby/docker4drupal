@@ -71,9 +71,9 @@ services:
 #    container_name: "${PROJECT_NAME}_postgres"
 #    stop_grace_period: 30s
 #    environment:
-#      POSTGRES_PASSWORD: password
-#      POSTGRES_DB: drupal
-#      POSTGRES_USER: drupal
+#      POSTGRES_PASSWORD: $DB_PASSWORD
+#      POSTGRES_DB: $DB_NAME
+#      POSTGRES_USER: $DB_USER
 #    volumes:
 #      - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
 #      - /path/to/postgres/data/on/host:/var/lib/postgresql/data # I want to manage volumes manually.
