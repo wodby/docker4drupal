@@ -10,12 +10,12 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
 
   php:
-    image: wodby/drupal:$DRUPAL_TAG
+    image: wodby/drupal:6-$PHP_VER-$DRUPAL_STABILITY_TAG
     environment:
       # To skip auto init.
       WODBY_APP_NAME: drupal
       DEBUG: 1
-      DRUPAL_VERSION: 7
+      DRUPAL_VERSION: 6
       DB_HOST: $DB_HOST
       DB_NAME: $DB_NAME
       DB_USER: $DB_USER
@@ -25,8 +25,7 @@ services:
     volumes:
       - codebase:/var/www/html
       - ./tests:/usr/local/bin/tests
-      - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
-      - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
+      - ./test.settings.php:/var/www/html/test.settings.php
 
   nginx:
     image: wodby/drupal-nginx:$NGINX_TAG
@@ -40,22 +39,8 @@ services:
     depends_on:
       - php
 
-  varnish:
-    image: wodby/drupal-varnish:$VARNISH_TAG
-    depends_on:
-      - nginx
-    environment:
-      VARNISH_SECRET: secret
-      VARNISH_BACKEND_HOST: nginx
-      VARNISH_BACKEND_PORT: 80
-
-  redis:
-    image: wodby/redis:$REDIS_TAG
-
-  solr:
-    image: wodby/drupal-solr:$SOLR_TAG
-    environment:
-      SOLR_HEAP: 1024m
+  memcached:
+    image: wodby/memcached:$MEMCACHED_TAG
 
 volumes:
   codebase:

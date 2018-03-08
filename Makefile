@@ -6,4 +6,4 @@ DRUPAL_VER ?= 8
 PHP_VER ?= 7.1
 
 test:
-	cd ./test/$(DRUPAL_VER)/$(PHP_VER) && ./run
+	cd ./test/$(DRUPAL_VER) && PHP_VER=$(PHP_VER) ./run
