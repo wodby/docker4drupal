@@ -1,6 +1,6 @@
 include .env
 
-.PHONY: up down stop info
+.PHONY: up down stop prune ps shell
 
 default: up
 
