@@ -31,7 +31,7 @@ services:
 #      PHP_BLACKFIRE: 1
     volumes:
       - ./:/var/www/html
-## For macOS users (https://wodby.com/stacks/php/docs/local/docker-for-mac/)
+## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
 #      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
 ## For Xdebug profiler files
@@ -50,7 +50,7 @@ services:
 #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
       - ./:/var/www/html
-# For macOS users (https://wodby.com/stacks/php/docs/local/docker-for-mac/)
+# For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
 #      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
     labels:
@@ -89,7 +89,7 @@ services:
 #      APACHE_SERVER_ROOT: /var/www/html/web
 #    volumes:
 #      - ./:/var/www/html
-## For macOS users (https://wodby.com/stacks/php/docs/local/docker-for-mac/)
+## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
 ##      - ./:/var/www/html:cached # User-guided caching
 ##      - docker-sync:/var/www/html # Docker-sync
 #    labels:
