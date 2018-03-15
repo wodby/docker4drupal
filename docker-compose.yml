@@ -235,6 +235,23 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
+  selenium-hub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+
+  chrome:
+    image: selenium/node-chrome-debug
+    ports:
+    - "5900:5900"
+    links:
+      - selenium-hub:hub
+    volumes:
+      - /dev/shm:/dev/shm # Mitigates the Chromium issue described at https://code.google.com/p/chromium/issues/detail?id=519952
+    environment:
+        HUB_PORT_4444_TCP_ADDR: selenium-hub
+        HUB_PORT_4444_TCP_PORT: 4444
+
 #volumes:
 ## Docker-sync for macOS users
 #  docker-sync:
