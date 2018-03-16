@@ -30,7 +30,7 @@ Read [**Getting Started**](http://wodby.com/stacks/drupal/docs/local/quick-start
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [wodby/adminer]: https://hub.docker.com/r/wodby/adminer
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
-[portainer/portainer]: https://hub.docker.com/portainer/portainer
+[portainer/portainer]: https://hub.docker.com/r/portainer/portainer
 [_/node]: https://hub.docker.com/_/node
 [_/traefik]: https://hub.docker.com/_/traefik
 
