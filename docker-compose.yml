@@ -24,12 +24,14 @@ services:
       DB_PASSWORD: $DB_PASSWORD
       DB_NAME: $DB_NAME
       DB_DRIVER: $DB_DRIVER
+## Read instructions at https://wodby.com/stacks/drupal/docs/local/xdebug/
 #      PHP_XDEBUG: 1
 #      PHP_XDEBUG_DEFAULT_ENABLE: 1
 #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
-#      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
 #      PHP_IDE_CONFIG: serverName=my-ide
-#      PHP_BLACKFIRE: 1
+#      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux
+#      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS
+#      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows
     volumes:
       - ./:/var/www/html
 ## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
