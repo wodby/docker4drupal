@@ -8,13 +8,17 @@ fi
 
 check_rq() {
     echo "Checking requirement: ${1} must be ${2}"
-    drush rq --format=json | jq ".\"${1}\".value" | grep -q "${2}"
+    # TODO: remove COLUMNS=0 with drush 8.1.17 release
+    # see https://github.com/drush-ops/drush/issues/3410
+    COLUMNS=0 drush rq --format=json | jq ".\"${1}\".value" | grep -q "${2}"
     echo "OK"
 }
 
 check_status() {
     echo "Checking status: ${1} must be ${2}"
-    drush status --format=yaml | grep -q "${1}: ${2}"
+    # TODO: remove COLUMNS=0 with drush 8.1.17 release
+    # see https://github.com/drush-ops/drush/issues/3410
+    COLUMNS=0 drush status --format=yaml | grep -q "${1}: ${2}"
     echo "OK"
 }
 
