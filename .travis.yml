@@ -11,7 +11,7 @@ env:
     - DRUPAL_VER=7 PHP_VER=7.0
     - DRUPAL_VER=7 PHP_VER=5.6
     - DRUPAL_VER=6 PHP_VER=5.6
-    - DRUPAL_VER=6 PHP_VER=5.3
+    - DRUPAL_VER=6 PHP_VER=5.3 GITHUB_RELEASE=1
 
 script:
   - set -e
@@ -29,3 +29,4 @@ deploy:
     - docker4drupal.tar.gz
   on:
     tags: true
+    condition: $GITHUB_RELEASE = 1
