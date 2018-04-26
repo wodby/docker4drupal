@@ -186,7 +186,7 @@ services:
 #      WEAVER_CONVERSION_FALLBACK: "false"
 
 #  node:
-#    image: node:alpine
+#    image: wodby/node:$NODE_TAG
 #    container_name: "${PROJECT_NAME}_node"
 #    working_dir: /app
 #    labels:
@@ -217,6 +217,24 @@ services:
 #      - 'traefik.frontend.rule=Host:webgrind.${PROJECT_BASE_URL}'
 #    volumes:
 #      - files:/mnt/files
+
+#  elasticsearch:
+#    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
+#    environment:
+#      ES_JAVA_OPTS: "-Xms500m -Xmx500m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+
+#  kibana:
+#    image: wodby/kibana:$KIBANA_TAG
+#    depends_on:
+#      - elasticsearch
+#    labels:
+#      - 'traefik.backend=kibana'
+#      - 'traefik.port=5601'
+#      - 'traefik.frontend.rule=Host:kibana.php.docker.localhost'
 
   portainer:
     image: portainer/portainer
