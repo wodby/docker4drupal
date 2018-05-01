@@ -16,7 +16,7 @@ Make sure you remove all commented services.
 ```
 
 ### .env file
-```yml
+```
 # Content of .env file. Make sure you remove all sensible information you might have there.
 ```
 
