@@ -47,6 +47,7 @@ services:
     depends_on:
       - php
     environment:
+#      NGINX_PAGESPEED: "on"
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
@@ -153,7 +154,7 @@ services:
 #      - 'traefik.port=8983'
 #      - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
 
-#  nodejs:
+#  drupal-node:
 #    image: wodby/drupal-node:$DRUPAL_NODE_TAG
 #    container_name: "${PROJECT_NAME}_drupal_nodejs"
 #    environment:
