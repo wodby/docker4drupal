@@ -12,5 +12,5 @@ docker-compose exec solr make check-ready -f /usr/local/bin/actions.mk max_try=1
 docker-compose exec solr make core=core1 -f /usr/local/bin/actions.mk
 docker-compose exec --user=0 php apk add --update jq
 docker-compose exec --user=0 php chown -R wodby:wodby /var/www/html
-docker-compose exec php tests
+docker-compose exec php tests.sh
 docker-compose down

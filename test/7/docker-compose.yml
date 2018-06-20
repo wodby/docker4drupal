@@ -24,7 +24,7 @@ services:
       PHP_SENDMAIL_PATH: '/bin/true'
     volumes:
       - codebase:/var/www/html
-      - ./tests:/usr/local/bin/tests
+      - ./tests.sh:/usr/local/bin/tests.sh
       - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
       - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
 
