@@ -237,6 +237,9 @@ services:
 #      - 'traefik.port=5601'
 #      - 'traefik.frontend.rule=Host:kibana.php.docker.localhost'
 
+#  opensmtpd:
+#    image: wodby/opensmtpd:$OPENSMTPD_TAG
+
   portainer:
     image: portainer/portainer
     container_name: "${PROJECT_NAME}_portainer"
