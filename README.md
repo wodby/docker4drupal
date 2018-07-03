@@ -24,8 +24,8 @@ The Drupal stack consist of the following containers:
 | [PostgreSQL]  | 10, 9.x                 | `postgres`      | [wodby/postgres]                   |         |
 | [Redis]       | 4.0, 3.2                | `redis`         | [wodby/redis]                      |         |
 | [Varnish]     | 4.1                     | `varnish`       | [wodby/drupal-varnish]             |         |
-| [Node]        | 9, 8                    | `node`          | [wodby/node]                       |         |
-| [Drupal node] | 1.0                     | `nodejs`        | [wodby/drupal-node]                |         |
+| [Node.js]     | 9.11, 8.11, 6.14        | `node`          | [wodby/node]                       |         |
+| [Drupal node] | 1.0                     | `drupal-node`   | [wodby/drupal-node]                |         |
 | [Solr]        | 7.x, 6.x, 5.5, 5.4      | `solr`          | [wodby/drupal-solr]                |         |
 | Elasticsearch | 6.x, 5.6, 5.5, 5.4      | `elasticsearch` | [wodby/elasticsearch]              |         |
 | Kibana        | 6.x, 5.6, 5.5, 5.4      | `kibana`        | [wodby/kibana]                     |         |
@@ -63,7 +63,7 @@ This project is licensed under the MIT open source license.
 [PostgreSQL]: https://wodby.com/stacks/drupal/docs/containers/postgres
 [Redis]: https://wodby.com/stacks/drupal/docs/containers/redis
 [Varnish]: https://wodby.com/stacks/drupal/docs/containers/varnish
-[Node]: https://wodby.com/stacks/drupal/docs/containers/node
+[Node.js]: https://wodby.com/stacks/drupal/docs/containers/node
 [Drupal node]: https://wodby.com/stacks/drupal/docs/containers/drupal-node
 [Solr]: https://wodby.com/stacks/drupal/docs/containers/solr/
 [Memcached]: https://wodby.com/stacks/drupal/docs/containers/memcached/
