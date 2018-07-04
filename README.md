@@ -26,7 +26,7 @@ The Drupal stack consist of the following containers:
 | [Varnish]     | 4.1                     | `varnish`       | [wodby/drupal-varnish]             |         |
 | [Node.js]     | 9.11, 8.11, 6.14        | `node`          | [wodby/node]                       |         |
 | [Drupal node] | 1.0                     | `drupal-node`   | [wodby/drupal-node]                |         |
-| [Solr]        | 7.x, 6.x, 5.5, 5.4      | `solr`          | [wodby/drupal-solr]                |         |
+| [Solr]        | 7.x, 6.6, 5.5, 5.4      | `solr`          | [wodby/drupal-solr]                |         |
 | Elasticsearch | 6.x, 5.6, 5.5, 5.4      | `elasticsearch` | [wodby/elasticsearch]              |         |
 | Kibana        | 6.x, 5.6, 5.5, 5.4      | `kibana`        | [wodby/kibana]                     |         |
 | [Memcached]   | 1.5                     | `memcached`     | [wodby/memcached]                  |         |
@@ -36,7 +36,7 @@ The Drupal stack consist of the following containers:
 | [AthenaPDF]   | 2.10.0                  | `athenapdf`     | [arachnysdocker/athenapdf-service] |         |
 | [Mailhog]     | latest                  | `mailhog`       | [mailhog/mailhog]                  | ✓       |
 | [OpenSMTPD]   | 6.0                     | `opensmtpd`     | [wodby/opensmtpd]                  |         |
-| Adminer       | 4.3                     | `adminer`       | [wodby/adminer]                    |         |
+| Adminer       | 4.6                     | `adminer`       | [wodby/adminer]                    |         |
 | phpMyAdmin    | latest                  | `pma`           | [phpmyadmin/phpmyadmin]            |         |
 | Portainer     | latest                  | `portainer`     | [portainer/portainer]              | ✓       |
 | Traefik       | latest                  | `traefik`       | [_/traefik]                        | ✓       |
