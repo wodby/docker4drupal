@@ -2,98 +2,90 @@ version: "2"
 
 services:
   mariadb:
-    image: wodby/mariadb:10.2-3.0.2
-#    image: wodby/mariadb:10.1-3.0.2
+    image: wodby/mariadb:$MARIADB_TAG
+    container_name: "${PROJECT_NAME}_mariadb"
+    stop_grace_period: 30s
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: drupal
-      MYSQL_USER: drupal
-      MYSQL_PASSWORD: drupal
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
 #    volumes:
 #      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 #      - /path/to/mariadb/data/on/host:/var/lib/mysql # I want to manage volumes manually.
 
-#  postgres:
-#    image: wodby/postgres:10.1-1.2.0
-##    image: wodby/postgres:9.6-1.2.0
-#    environment:
-#      POSTGRES_PASSWORD: password
-#      POSTGRES_DB: drupal
-#      POSTGRES_USER: drupal
-#    volumes:
-#      - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
-#      - /path/to/postgres/data/on/host:/var/lib/postgresql/data # I want to manage volumes manually.
-
   php:
-# 1. Images with vanilla Drupal – wodby/drupal:[DRUPAL_VERSION]-[PHP_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal:8-7.1-3.3.2
-#    image: wodby/drupal:8-7.0-3.3.2
-#    image: wodby/drupal:7-7.1-3.3.2
-#    image: wodby/drupal:7-7.0-3.3.2
-#    image: wodby/drupal:7-5.6-3.3.2
-#    image: wodby/drupal:6-5.6-3.3.2
-#    image: wodby/drupal:6-5.3-3.3.2
-# 2. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG].
-#    image: wodby/drupal-php:7.1-3.3.1
-#    image: wodby/drupal-php:7.0-3.3.1
-#    image: wodby/drupal-php:5.6-3.3.1
-#    image: wodby/drupal-php:5.3-3.3.1
-# 3. Images without Drupal – wodby/drupal-php:[PHP_VERSION]-[STABILITY_TAG]. Version for development (--enable-debug)
-#    image: wodby/drupal-php:7.1-dev-3.3.1
-#    image: wodby/drupal-php:7.0-dev-3.3.1
-#    image: wodby/drupal-php:5.6-dev-3.3.1
-#    image: wodby/drupal-php:5.3-dev-3.3.1
+    image: wodby/drupal-php:$PHP_TAG
+    container_name: "${PROJECT_NAME}_php"
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_FPM_CLEAR_ENV: "no"
-      DB_HOST: mariadb
-      DB_USER: drupal
-      DB_PASSWORD: drupal
-      DB_NAME: drupal
-      DB_DRIVER: mysql
+      DB_HOST: $DB_HOST
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      DB_DRIVER: $DB_DRIVER
+## Read instructions at https://wodby.com/stacks/drupal/docs/local/xdebug/
 #      PHP_XDEBUG: 1
 #      PHP_XDEBUG_DEFAULT_ENABLE: 1
 #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
-#      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
-#      PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler
-#      PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces
-#      PHP_BLACKFIRE: 1
+#      PHP_IDE_CONFIG: serverName=my-ide
+#      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ & Linux/Mac/Win
+#      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux, Docker < 18.03
+#      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+#      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
     volumes:
-      - codebase:/var/www/html
-## Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
-#      - codebase:/var/www/html:cached # User-guided caching
+      - ./:/var/www/html
+## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
+#      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
 ## For Xdebug profiler files
 #      - files:/mnt/files
 
   nginx:
-# wodby/drupal-nginx:[DRUPAL_VERSION]-[NGINX_VERSION]-[STABILITY_TAG].
-    image: wodby/drupal-nginx:8-1.13-3.0.2
-#    image: wodby/drupal-nginx:7-1.13-3.0.2
-#    image: wodby/drupal-nginx:6-1.13-3.0.2
-#    image: wodby/drupal-nginx:8-1.12-3.0.2
-#    image: wodby/drupal-nginx:7-1.12-3.0.2
-#    image: wodby/drupal-nginx:6-1.12-3.0.2
+    image: wodby/drupal-nginx:$NGINX_TAG
+    container_name: "${PROJECT_NAME}_nginx"
     depends_on:
       - php
     environment:
+#      NGINX_PAGESPEED: "on"
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
 #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
-      - codebase:/var/www/html
-# Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
-#      - codebase:/var/www/html:cached # User-guided caching
+      - ./:/var/www/html
+# For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
+#      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:drupal.docker.localhost'
+      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: "${PROJECT_NAME}_mailhog"
+    labels:
+      - 'traefik.backend=mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
+
+#  postgres:
+#    image: wodby/postgres:$POSTGRES_TAG
+#    container_name: "${PROJECT_NAME}_postgres"
+#    stop_grace_period: 30s
+#    environment:
+#      POSTGRES_PASSWORD: $DB_PASSWORD
+#      POSTGRES_DB: $DB_NAME
+#      POSTGRES_USER: $DB_USER
+#    volumes:
+#      - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
+#      - /path/to/postgres/data/on/host:/var/lib/postgresql/data # I want to manage volumes manually.
 
 #  apache:
-#    image: wodby/php-apache:2.4-2.0.2
+#    image: wodby/php-apache:$APACHE_TAG
+#    container_name: "${PROJECT_NAME}_apache"
 #    depends_on:
 #      - php
 #    environment:
@@ -101,17 +93,18 @@ services:
 #      APACHE_BACKEND_HOST: php
 #      APACHE_SERVER_ROOT: /var/www/html/web
 #    volumes:
-#      - codebase:/var/www/html
-## Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
-##      - codebase:/var/www/html:cached # User-guided caching
+#      - ./:/var/www/html
+## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
+##      - ./:/var/www/html:cached # User-guided caching
 ##      - docker-sync:/var/www/html # Docker-sync
 #    labels:
 #      - 'traefik.backend=apache'
 #      - 'traefik.port=80'
-#      - 'traefik.frontend.rule=Host:drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
 
 #  varnish:
-#    image: wodby/drupal-varnish:4.1-2.2.1
+#    image: wodby/drupal-varnish:$VARNISH_TAG
+#    container_name: "${PROJECT_NAME}_varnish"
 #    depends_on:
 #      - nginx
 #    environment:
@@ -121,128 +114,147 @@ services:
 #    labels:
 #      - 'traefik.backend=varnish'
 #      - 'traefik.port=6081'
-#      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:varnish.${PROJECT_BASE_URL}'
 
 #  redis:
-#    image: wodby/redis:4.0-2.1.4
-##    image: wodby/redis:3.2-2.1.4
+#    container_name: "${PROJECT_NAME}_redis"
+#    image: wodby/redis:$REDIS_TAG
 
 #  adminer:
-#    image: wodby/adminer:4.3-1.1.0
+#    container_name: "${PROJECT_NAME}_adminer"
+#    image: wodby/adminer:$ADMINER_TAG
 #    environment:
 #      ADMINER_SALT: adminer-salt
 #    labels:
 #      - 'traefik.backend=adminer'
 #      - 'traefik.port=9000'
-#      - 'traefik.frontend.rule=Host:adminer.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:adminer.${PROJECT_BASE_URL}'
 
 #  pma:
 #    image: phpmyadmin/phpmyadmin
+#    container_name: "${PROJECT_NAME}_pma"
 #    environment:
-#      PMA_HOST: mariadb
-#      PMA_USER: drupal
-#      PMA_PASSWORD: drupal
+#      PMA_HOST: $DB_HOST
+#      PMA_USER: $DB_USER
+#      PMA_PASSWORD: $DB_PASSWORD
 #      PHP_UPLOAD_MAX_FILESIZE: 1G
 #      PHP_MAX_INPUT_VARS: 1G
 #    labels:
 #      - 'traefik.backend=pma'
 #      - 'traefik.port=80'
-#      - 'traefik.frontend.rule=Host:pma.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:pma.${PROJECT_BASE_URL}'
 
 #  solr:
-## wodby/drupal-solr:[DRUPAL_VERSION]-[SOLR_VERSION]-[STABILITY_TAG].
-#    image: wodby/drupal-solr:8-6.6-2.3.0
-##    image: wodby/drupal-solr:8-6.5-2.3.0
-##    image: wodby/drupal-solr:8-6.4-2.3.0
-##    image: wodby/drupal-solr:8-6.3-2.3.0
-##    image: wodby/drupal-solr:8-5.5-2.3.0
-##    image: wodby/drupal-solr:8-7.0-2.3.0
-##    image: wodby/drupal-solr:8-7.1-2.3.0
-##    image: wodby/drupal-solr:7-5.4-2.3.0
+#    image: wodby/drupal-solr:$SOLR_TAG
+#    container_name: "${PROJECT_NAME}_solr"
 #    environment:
 #      SOLR_HEAP: 1024m
 #    labels:
 #      - 'traefik.backend=solr'
 #      - 'traefik.port=8983'
-#      - 'traefik.frontend.rule=Host:solr.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
 
-  mailhog:
-    image: mailhog/mailhog
-    labels:
-      - 'traefik.backend=mailhog'
-      - 'traefik.port=8025'
-      - 'traefik.frontend.rule=Host:mailhog.drupal.docker.localhost'
-
-#  nodejs:
-#    image: wodby/drupal-node:1.0-1.0.0
+#  drupal-node:
+#    image: wodby/drupal-node:$DRUPAL_NODE_TAG
+#    container_name: "${PROJECT_NAME}_drupal_nodejs"
 #    environment:
 #       NODE_SERVICE_KEY: node-service-key
 #    labels:
 #      - 'traefik.backend=nodejs'
 #      - 'traefik.port=8080'
-#      - 'traefik.frontend.rule=Host:nodejs.drupal.docker.localhost'
-#    volumes:
-#      - ./path/to/your/single-page-app:/app
-#    command: sh -c 'npm install && npm run start'
-
-#  node:
-#    image: node:alpine
-#    working_dir: /app
-#    labels:
-#      - 'traefik.backend=node'
-#      - 'traefik.port=3000'
-#      - 'traefik.frontend.rule=Host:front.drupal.docker.localhost'
-#    expose:
-#      - "3000"
+#      - 'traefik.frontend.rule=Host:nodejs.${PROJECT_BASE_URL}'
 #    volumes:
 #      - ./path/to/your/single-page-app:/app
 #    command: sh -c 'npm install && npm run start'
 
 #  memcached:
-#    image: wodby/memcached:1.4-2.0.0
+#    container_name: "${PROJECT_NAME}_memcached"
+#    image: wodby/memcached:$MEMCACHED_TAG
 
 #  rsyslog:
-#    image: wodby/rsyslog
+#    container_name: "${PROJECT_NAME}_rsyslog"
+#    image: wodby/rsyslog:$RSYSLOG_TAG
 
 #  athenapdf:
-#    image: arachnysdocker/athenapdf-service:2.10.0
+#    image: arachnysdocker/athenapdf-service:$ATHENAPDF_TAG
+#    container_name: "${PROJECT_NAME}_athenapdf"
 #    environment:
 #      WEAVER_AUTH_KEY: weaver-auth-key
 #      WEAVER_ATHENA_CMD: "athenapdf -S"
 #      WEAVER_MAX_WORKERS: 10
 #      WEAVER_MAX_CONVERSION_QUEUE: 50
 #      WEAVER_WORKER_TIMEOUT: 90
-#      WEAVER_CONVERSION_FALLBACK: false
+#      WEAVER_CONVERSION_FALLBACK: "false"
+
+#  node:
+#    image: wodby/node:$NODE_TAG
+#    container_name: "${PROJECT_NAME}_node"
+#    working_dir: /var/www/html/path/to/theme/to/build
+#    labels:
+#      - 'traefik.backend=node'
+#      - 'traefik.port=3000'
+#      - 'traefik.frontend.rule=Host:front.${PROJECT_BASE_URL}'
+#    expose:
+#      - "3000"
+#    volumes:
+#      - ./:/var/www/html
+#    command: sh -c 'yarn install && yarn run start'
 
 #  blackfire:
 #    image: blackfire/blackfire
+#    container_name: "${PROJECT_NAME}_blackfire"
 #    environment:
 #      BLACKFIRE_SERVER_ID: XXXXX
 #      BLACKFIRE_SERVER_TOKEN: YYYYY
 
 #  webgrind:
-#    image: wodby/webgrind:1.5-1.0.0
+#    image: wodby/webgrind:$WEBGRIND_TAG
+#    container_name: "${PROJECT_NAME}_webgrind"
 #    environment:
 #      WEBGRIND_PROFILER_DIR: /mnt/files/xdebug/profiler
 #    labels:
 #      - 'traefik.backend=webgrind'
 #      - 'traefik.port=8080'
-#      - 'traefik.frontend.rule=Host:webgrind.drupal.docker.localhost'
+#      - 'traefik.frontend.rule=Host:webgrind.${PROJECT_BASE_URL}'
 #    volumes:
 #      - files:/mnt/files
 
+#  elasticsearch:
+#    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
+#    environment:
+#      ES_JAVA_OPTS: "-Xms500m -Xmx500m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+
+#  kibana:
+#    image: wodby/kibana:$KIBANA_TAG
+#    depends_on:
+#      - elasticsearch
+#    labels:
+#      - 'traefik.backend=kibana'
+#      - 'traefik.port=5601'
+#      - 'traefik.frontend.rule=Host:kibana.php.docker.localhost'
+
+#  opensmtpd:
+#    container_name: "${PROJECT_NAME}_opensmtpd"
+#    image: wodby/opensmtpd:$OPENSMTPD_TAG
+
   portainer:
     image: portainer/portainer
+    container_name: "${PROJECT_NAME}_portainer"
     command: --no-auth -H unix:///var/run/docker.sock
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - 'traefik.backend=portainer'
       - 'traefik.port=9000'
-      - 'traefik.frontend.rule=Host:portainer.drupal.docker.localhost'
+      - 'traefik.frontend.rule=Host:portainer.${PROJECT_BASE_URL}'
 
   traefik:
     image: traefik
+    container_name: "${PROJECT_NAME}_traefik"
     command: -c /dev/null --web --docker --logLevel=INFO
     ports:
       - '8000:80'
@@ -250,8 +262,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-volumes:
-  codebase:
+#volumes:
 ## Docker-sync for macOS users
 #  docker-sync:
 #    external: true

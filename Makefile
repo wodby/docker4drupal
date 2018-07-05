@@ -1,11 +1,9 @@
--include env_make
+include docker.mk
 
 .PHONY: test
 
 DRUPAL_VER ?= 8
-PHP_VER ?= 7.1
-
-default: test
+PHP_VER ?= 7.2
 
 test:
-	cd ./test/$(DRUPAL_VER)/$(PHP_VER) && ./run.sh
+	cd ./test/$(DRUPAL_VER) && PHP_VER=$(PHP_VER) ./run.sh
