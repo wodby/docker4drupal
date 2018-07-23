@@ -12,7 +12,7 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
 #    volumes:
 #      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
-#      - /path/to/mariadb/data/on/host:/var/lib/mysql # I want to manage volumes manually.
+#      - /path/to/mariadb/data/on/host:/var/lib/mysql # Use bind mount
 
   php:
     image: wodby/drupal-php:$PHP_TAG
@@ -81,7 +81,7 @@ services:
 #      POSTGRES_USER: $DB_USER
 #    volumes:
 #      - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
-#      - /path/to/postgres/data/on/host:/var/lib/postgresql/data # I want to manage volumes manually.
+#      - /path/to/postgres/data/on/host:/var/lib/postgresql/data # Use bind mount
 
 #  apache:
 #    image: wodby/php-apache:$APACHE_TAG
