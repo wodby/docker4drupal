@@ -49,7 +49,7 @@ Full documentation is available at https://docs.wodby.com/stacks/drupal/local.
 
 ## Beyond local environment
 
-Docker4Drupal is a project designed to help you to spin up local environment with docker-compose. If you want to deploy a consistent stack with orchestrations to your own server, check out [Drupal stack](https://wodby.com/stacks/drupal) on Wodby ![](https://www.google.com/s2/favicons?domain=wodby.com).
+Docker4Drupal is a project designed to help you spin up local environment with docker-compose. If you want to deploy a consistent stack with orchestrations to your own server, check out [Drupal stack](https://wodby.com/stacks/drupal) on Wodby ![](https://www.google.com/s2/favicons?domain=wodby.com).
 
 ## Maintenance
 
