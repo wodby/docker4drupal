@@ -51,6 +51,10 @@ Full documentation is available at https://docs.wodby.com/stacks/drupal/local.
 
 Docker4Drupal is a project designed to help you to spin up local environment with docker-compose. If you want to deploy a consistent stack with orchestrations to your own server, check out [Drupal stack](https://wodby.com/stacks/drupal) on Wodby ![](https://www.google.com/s2/favicons?domain=wodby.com).
 
+## Maintenance
+
+We regularly update images used in this stack and release them together, see [releases page](https://github.com/wodby/docker4drupal/releases) for full changelog and update instructions.  
+
 ## License
 
 This project is licensed under the MIT open source license.
