@@ -42,16 +42,17 @@ services:
 #      - files:/mnt/files
 
   nginx:
-    image: wodby/drupal-nginx:$NGINX_TAG
+    image: wodby/nginx:$NGINX_TAG
     container_name: "${PROJECT_NAME}_nginx"
     depends_on:
       - php
     environment:
 #      NGINX_PAGESPEED: "on"
-      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_STATIC_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
+      NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
 #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
       - ./:/var/www/html
@@ -84,14 +85,15 @@ services:
 #      - /path/to/postgres/data/on/host:/var/lib/postgresql/data # Use bind mount
 
 #  apache:
-#    image: wodby/php-apache:$APACHE_TAG
+#    image: wodby/apache:$APACHE_TAG
 #    container_name: "${PROJECT_NAME}_apache"
 #    depends_on:
 #      - php
 #    environment:
 #      APACHE_LOG_LEVEL: debug
 #      APACHE_BACKEND_HOST: php
-#      APACHE_SERVER_ROOT: /var/www/html/web
+#      APACHE_VHOST_PRESET: php
+#      APACHE_DOCUMENT_ROOT: /var/www/html/web
 #    volumes:
 #      - ./:/var/www/html
 ## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)

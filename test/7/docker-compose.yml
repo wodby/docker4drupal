@@ -29,12 +29,12 @@ services:
       - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
 
   nginx:
-    image: wodby/drupal-nginx:$NGINX_TAG
+    image: wodby/nginx:$NGINX_TAG
     environment:
-      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
-      NGINX_ERROR_LOG_LEVEL: debug
+      NGINX_STATIC_OPEN_FILE_CACHE: "off"
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
+      NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
     volumes:
       - codebase:/var/www/html
     depends_on:
