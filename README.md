@@ -6,7 +6,7 @@
 
 Docker4Drupal is a set of docker images optimized for Drupal. Use `docker-compose.yml` file from the [latest stable release](https://github.com/wodby/docker4drupal/releases) to spin up local environment on Linux, Mac OS X and Windows. 
 
-* Read the docs on [**how to use**](https://docs.wodby.com/stacks/drupal/local#usage)
+* Read the docs on [**how to use**](https://wodby.com/docs/stacks/drupal/local#usage)
 * Follow [@wodbycloud](https://twitter.com/wodbycloud) for future announcements
 * Join [community slack](https://slack.wodby.com) to ask questions
 
@@ -45,7 +45,7 @@ Supported Drupal versions: 8 / 7 / 6
 
 ## Documentation
 
-Full documentation is available at https://docs.wodby.com/stacks/drupal/local.
+Full documentation is available at https://wodby.com/docs/stacks/drupal/local.
 
 ## Beyond local environment
 
