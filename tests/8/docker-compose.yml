@@ -22,6 +22,7 @@ services:
       DB_PASSWORD: $DB_PASSWORD
       DB_DRIVER: $DB_DRIVER
       PHP_SENDMAIL_PATH: '/bin/true'
+      COLUMNS: 80
     volumes:
       - codebase:/var/www/html
       - ./tests.sh:/usr/local/bin/tests.sh

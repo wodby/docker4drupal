@@ -63,10 +63,10 @@ drush en -y feature_search_api_solr
 check_rq "search_api_solr" "1 server"
 
 # Test varnish cache and purge
-curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
-curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
+curl -Is varnish:6081 | grep -q "X-VC-Cache: MISS"
+curl -Is varnish:6081 | grep -q "X-VC-Cache: HIT"
 
 drush varnish-purge-all
 
-curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
-curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
+curl -Is varnish:6081 | grep -q "X-VC-Cache: MISS"
+curl -Is varnish:6081 | grep -q "X-VC-Cache: HIT"
