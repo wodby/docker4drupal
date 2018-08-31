@@ -16,17 +16,17 @@ The Drupal stack consist of the following containers:
 
 | Container     | Versions                | Service name    | Image                              | Default |
 | ------------- | ----------------------- | --------------- | ---------------------------------- | ------- |
-| [Nginx]       | 1.15, 1.14, 1.13        | `nginx`         | [wodby/drupal-nginx]               | ✓       |
-| [Apache]      | 2.4                     | `apache`        | [wodby/php-apache]                 |         |
+| [Nginx]       | 1.15, 1.14              | `nginx`         | [wodby/nginx]                      | ✓       |
+| [Apache]      | 2.4                     | `apache`        | [wodby/apache]                     |         |
 | [Drupal]      | 8, 7, 6                 | `php`           | [wodby/drupal]                     | ✓       |
 | [PHP]         | 7.x, 5.6, 5.3           | `php`           | [wodby/drupal-php]                 |         |
 | [MariaDB]     | 10.3, 10.2, 10.1        | `mariadb`       | [wodby/mariadb]                    | ✓       |
 | [PostgreSQL]  | 10, 9.x                 | `postgres`      | [wodby/postgres]                   |         |
 | [Redis]       | 4.0, 3.2                | `redis`         | [wodby/redis]                      |         |
-| [Varnish]     | 4.1                     | `varnish`       | [wodby/drupal-varnish]             |         |
-| [Node.js]     | 9.11, 8.11, 6.14        | `node`          | [wodby/node]                       |         |
+| [Varnish]     | 4.1                     | `varnish`       | [wodby/varnish]                    |         |
+| [Node.js]     | 10.9, 8.11, 6.14        | `node`          | [wodby/node]                       |         |
 | [Drupal node] | 1.0                     | `drupal-node`   | [wodby/drupal-node]                |         |
-| [Solr]        | 7.x, 6.6, 5.5, 5.4      | `solr`          | [wodby/drupal-solr]                |         |
+| [Solr]        | 7.x, 6.6, 5.5, 5.4      | `solr`          | [wodby/solr]                       |         |
 | Elasticsearch | 6.x, 5.6, 5.5, 5.4      | `elasticsearch` | [wodby/elasticsearch]              |         |
 | Kibana        | 6.x, 5.6, 5.5, 5.4      | `kibana`        | [wodby/kibana]                     |         |
 | [Memcached]   | 1.5                     | `memcached`     | [wodby/memcached]                  |         |
@@ -78,15 +78,15 @@ This project is licensed under the MIT open source license.
 [Mailhog]: https://wodby.com/stacks/drupal/docs/containers/mailhog/
 [OpenSMTPD]: https://wodby.com/stacks/drupal/docs/containers/opensmtpd/
 
-[wodby/drupal-nginx]: https://github.com/wodby/drupal-nginx
-[wodby/php-apache]: https://github.com/wodby/php-apache
+[wodby/nginx]: https://github.com/wodby/nginx
+[wodby/apache]: https://github.com/wodby/apache
 [wodby/drupal]: https://github.com/wodby/drupal
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/mariadb]: https://github.com/wodby/mariadb
 [wodby/postgres]: https://github.com/wodby/postgres
 [wodby/redis]: https://github.com/wodby/redis
-[wodby/drupal-varnish]: https://github.com/wodby/drupal-varnish
-[wodby/drupal-solr]: https://github.com/wodby/drupal-solr
+[wodby/varnish]: https://github.com/wodby/varnish
+[wodby/solr]: https://github.com/wodby/solr
 [wodby/elasticsearch]: https://github.com/wodby/elasticsearch
 [wodby/kibana]: https://github.com/wodby/kibana
 [wodby/node]: https://github.com/wodby/node

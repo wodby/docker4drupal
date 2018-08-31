@@ -10,12 +10,12 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
 
   php:
-    image: wodby/drupal:8-$PHP_VER-$DRUPAL_STABILITY_TAG
+    image: wodby/drupal:7-$PHP_VER-$DRUPAL_STABILITY_TAG
     environment:
       # To skip auto init.
       WODBY_APP_NAME: drupal
       DEBUG: 1
-      DRUPAL_VERSION: 8
+      DRUPAL_VERSION: 7
       DB_HOST: $DB_HOST
       DB_NAME: $DB_NAME
       DB_USER: $DB_USER
@@ -26,8 +26,7 @@ services:
       - codebase:/var/www/html
       - ./tests.sh:/usr/local/bin/tests.sh
       - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
-      - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
-      - ./search-api-solr-server.yml:/var/www/html/web/search_api.server.solr_6_4.yml
+      - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -42,21 +41,23 @@ services:
       - php
 
   varnish:
-    image: wodby/drupal-varnish:$VARNISH_TAG
+    image: wodby/varnish:$VARNISH_TAG
     depends_on:
       - nginx
     environment:
       VARNISH_SECRET: secret
       VARNISH_BACKEND_HOST: nginx
       VARNISH_BACKEND_PORT: 80
+      VARNISH_CONFIG_PRESET: drupal
+      VARNISH_PURGE_EXTERNAL_REQUEST_HEADER: X-Real-IP
 
   redis:
     image: wodby/redis:$REDIS_TAG
 
   solr:
-    image: wodby/drupal-solr:$SOLR_TAG
+    image: wodby/solr:$SOLR_TAG
     environment:
-      SOLR_HEAP: 1024m
+      SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
 
 volumes:
   codebase:
