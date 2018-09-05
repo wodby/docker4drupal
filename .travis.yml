@@ -19,7 +19,7 @@ script:
   - set -e
   - make test
   - cp docker.mk Makefile
-  - tar -czf docker4drupal.tar.gz docker-compose.yml docker-sync.yml Makefile .env traefik.yml
+  - tar -czf docker4drupal.tar.gz docker-compose.yml docker-compose.override.yml docker-sync.yml Makefile .env traefik.yml
 
 deploy:
   provider: releases
