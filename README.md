@@ -64,8 +64,8 @@ This project is licensed under the MIT open source license.
 [Blackfire]: https://wodby.com/docs/stacks/drupal/containers#blackfire
 [Drupal node]: https://wodby.com/docs/stacks/drupal/containers#drupal-nodejs
 [Drupal]: https://wodby.com/docs/stacks/drupal/containers#php
-[Elasticsearch]: https://wodby.com/docs/stacks/drupal/containers#elasticsearch
-[Kibana]: https://wodby.com/docs/stacks/drupal/containers#elasticsearch
+[Elasticsearch]: https://wodby.com/docs/stacks/elasticsearch
+[Kibana]: https://wodby.com/docs/stacks/elasticsearch
 [Mailhog]: https://wodby.com/docs/stacks/drupal/containers#mailhog
 [MariaDB]: https://wodby.com/docs/stacks/drupal/containers#mariadb
 [Memcached]: https://wodby.com/docs/stacks/drupal/containers#memcached
