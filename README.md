@@ -73,7 +73,7 @@ This project is licensed under the MIT open source license.
 [Node.js]: https://wodby.com/docs/stacks/drupal/containers#nodejs
 [OpenSMTPD]: https://wodby.com/docs/stacks/drupal/containers#opensmtpd
 [PHP]: https://wodby.com/docs/stacks/drupal/containers#php
-[PostgreSQL]: https://wodby.com/docs/stacks/drupal/containers#postgres
+[PostgreSQL]: https://wodby.com/docs/stacks/drupal/containers#postgresql
 [Redis]: https://wodby.com/docs/stacks/drupal/containers#redis
 [Rsyslog]: https://wodby.com/docs/stacks/drupal/containers#rsyslog
 [Solr]: https://wodby.com/docs/stacks/drupal/containers#solr
