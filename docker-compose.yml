@@ -129,7 +129,6 @@ services:
 #    container_name: "${PROJECT_NAME}_adminer"
 #    image: wodby/adminer:$ADMINER_TAG
 #    environment:
-#      ADMINER_DEFAULT_DB_DRIVER: server
 ## For PostgreSQL:
 ##      ADMINER_DEFAULT_DB_DRIVER: pgsql
 #      ADMINER_DEFAULT_DB_HOST: $DB_HOST
