@@ -18,8 +18,8 @@ The Drupal stack consist of the following containers:
 | --------------- | ----------------------- | --------------- | ---------------------------------- | ------- |
 | [Nginx]         | 1.15, 1.14              | `nginx`         | [wodby/nginx]                      | ✓       |
 | [Apache]        | 2.4                     | `apache`        | [wodby/apache]                     |         |
-| [Drupal]        | 8, 7, 6                 | `php`           | [wodby/drupal]                     | ✓       |
-| [PHP]           | 7.x, 5.6, 5.3           | `php`           | [wodby/drupal-php]                 |         |
+| [Drupal]        | 8, 7                    | `php`           | [wodby/drupal]                     | ✓       |
+| [PHP]           | 7.2, 7.1, 5.6           | `php`           | [wodby/drupal-php]                 |         |
 | [MariaDB]       | 10.3, 10.2, 10.1        | `mariadb`       | [wodby/mariadb]                    | ✓       |
 | [PostgreSQL]    | 10, 9.x                 | `postgres`      | [wodby/postgres]                   |         |
 | [Redis]         | 4.0, 3.2                | `redis`         | [wodby/redis]                      |         |
@@ -41,7 +41,7 @@ The Drupal stack consist of the following containers:
 | Portainer       | latest                  | `portainer`     | [portainer/portainer]              | ✓       |
 | Traefik         | latest                  | `traefik`       | [_/traefik]                        | ✓       |
 
-Supported Drupal versions: 8 / 7 / 6
+Supported Drupal versions: 8 / 7
 
 ## Documentation
 
