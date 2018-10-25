@@ -39,7 +39,7 @@ services:
 ## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
 #      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
-## For Xdebug profiler files
+## For XHProf and Xdebug profiler traces
 #      - files:/mnt/files
 
   nginx:
@@ -249,6 +249,16 @@ services:
 #  opensmtpd:
 #    container_name: "${PROJECT_NAME}_opensmtpd"
 #    image: wodby/opensmtpd:$OPENSMTPD_TAG
+
+#  xhprof:
+#    image: wodby/xhprof:$XHPROF_TAG
+#    restart: always
+#    volumes:
+#      - files:/mnt/files
+#    labels:
+#      - 'traefik.backend=xhprof'
+#      - 'traefik.port=8080'
+#      - 'traefik.frontend.rule=Host:xhprof.${PROJECT_BASE_URL}'
 
   portainer:
     image: portainer/portainer
