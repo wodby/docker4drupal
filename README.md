@@ -36,7 +36,7 @@ The Drupal stack consist of the following containers:
 | [Rsyslog]       | latest                  | `rsyslog`       | [wodby/rsyslog]                    |         |
 | [Blackfire]     | latest                  | `blackfire`     | [blackfire/blackfire]              |         |
 | [Webgrind]      | 1.5                     | `webgrind`      | [wodby/webgrind]                   |         |
-| [Xhprof viewer] | latest                  | `xhprof`        | [wodby/xhprof]                     |         |
+| [Xhprof]        | latest                  | `xhprof`        | [wodby/xhprof]                     |         |
 | Adminer         | 4.6                     | `adminer`       | [wodby/adminer]                    |         |
 | phpMyAdmin      | latest                  | `pma`           | [phpmyadmin/phpmyadmin]            |         |
 | Portainer       | latest                  | `portainer`     | [portainer/portainer]              | ✓       |
@@ -80,6 +80,7 @@ This project is licensed under the MIT open source license.
 [Solr]: https://wodby.com/docs/stacks/drupal/containers#solr
 [Varnish]: https://wodby.com/docs/stacks/drupal/containers#varnish
 [Webgrind]: https://wodby.com/docs/stacks/drupal/containers#webgrind
+[XHProf]: https://wodby.com/docs/stacks/php/containers#xhprof
 
 [_/traefik]: https://hub.docker.com/_/traefik
 [arachnysdocker/athenapdf-service]: https://hub.docker.com/r/arachnysdocker/athenapdf-service
