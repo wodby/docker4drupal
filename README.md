@@ -56,6 +56,12 @@ Docker4Drupal is a project designed to help you spin up local environment with d
 
 We regularly update images used in this stack and release them together, see [releases page](https://github.com/wodby/docker4drupal/releases) for full changelog and update instructions.  
 
+## Other Docker4x projects
+
+* [docker4php](https://github.com/wodby/docker4php)
+* [docker4wordpress](https://github.com/wodby/docker4wordpress)
+* [docker4ruby](https://github.com/wodby/docker4ruby)
+
 ## License
 
 This project is licensed under the MIT open source license.
