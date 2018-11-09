@@ -48,13 +48,23 @@ Supported Drupal versions: 8 / 7
 
 Full documentation is available at https://wodby.com/docs/stacks/drupal/local.
 
-## Beyond local environment
+## Images' tags
 
-Docker4Drupal is a project designed to help you spin up local environment with docker-compose. If you want to deploy a consistent stack with orchestrations to your own server, check out [Drupal stack](https://wodby.com/stacks/drupal) on Wodby ![](https://www.google.com/s2/favicons?domain=wodby.com).
+Images tags format is `[VERSION]-[STABILITY_TAG]` where:
+
+`[VERSION]` is usually a version (without patch version) of an application running in a container, e.g. `wodby/nginx:1.15-x.x.x` where Nginx version is `1.15` and `x.x.x` is a stability tag. Sometimes it includes two versions, e.g. `wodby/drupal:8-7.2-x.x.x` where `8` is the version of vanilla Drupal, `7.2` is the version of PHP. For some images we include both major and minor version like PHP `7.2`, for others we include only major like Redis 5. 
+
+`[STABILITY_TAG]` is a version of an image (not application) that corresponds to a git tag of the image repository, e.g. `wodby/mariadb:10.2-3.3.9` has MariaDB `10.2` and stability tag [`3.3.9`](https://github.com/wodby/mariadb/releases/tag/3.3.8). New stability tags include patch updates for applications and other fixes/improvements, detailed changelog can be found in a git tag description. Stability tags follow [semantic versioning](https://semver.org/).
+
+We highly encourage to use images only with stability tags.
 
 ## Maintenance
 
-We regularly update images used in this stack and release them together, see [releases page](https://github.com/wodby/docker4drupal/releases) for full changelog and update instructions.  
+We regularly update images used in this stack and release them together, see [releases page](https://github.com/wodby/docker4drupal/releases) for full changelog and update instructions. Most of routine updates for images and this project performed by [the bot](https://github.com/wodbot) via scripts located at [wodby/images](https://github.com/wodby/images).
+
+## Beyond local environment
+
+Docker4Drupal is a project designed to help you spin up local environment with docker-compose. If you want to deploy a consistent stack with orchestrations to your own server, check out [Drupal stack](https://wodby.com/stacks/drupal) on Wodby ![](https://www.google.com/s2/favicons?domain=wodby.com).
 
 ## Other Docker4x projects
 
