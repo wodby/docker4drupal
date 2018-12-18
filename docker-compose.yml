@@ -48,7 +48,6 @@ services:
     depends_on:
       - php
     environment:
-#      NGINX_PAGESPEED: "on"
       NGINX_STATIC_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
