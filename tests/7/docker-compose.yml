@@ -23,6 +23,8 @@ services:
       DB_DRIVER: $DB_DRIVER
       PHP_SENDMAIL_PATH: '/bin/true'
       COLUMNS: 80
+      PHP_FPM_USER: wodby
+      PHP_FPM_GROUP: wodby
     volumes:
       - codebase:/var/www/html
       - ./tests.sh:/usr/local/bin/tests.sh
