@@ -115,7 +115,7 @@ services:
 #      VARNISH_BACKEND_HOST: nginx
 #      VARNISH_BACKEND_PORT: 80
 #      VARNISH_CONFIG_PRESET: drupal
-#      VARNISH_PURGE_EXTERNAL_REQUEST_HEADER: X-Real-IP
+#      VARNISH_ALLOW_UNRESTRICTED_PURGE: 1
 #    labels:
 #      - 'traefik.backend=${PROJECT_NAME}_varnish'
 #      - 'traefik.port=6081'
