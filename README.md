@@ -19,7 +19,7 @@ The Drupal stack consist of the following containers:
 | [Nginx]         | 1.15, 1.14          | `nginx`         | [wodby/nginx]                      | ✓       |
 | [Apache]        | 2.4                 | `apache`        | [wodby/apache]                     |         |
 | [Drupal]        | 8, 7                | `php`           | [wodby/drupal]                     | ✓       |
-| [PHP]           | 7.3, 7.2, 7.1, 5.6* | `php`           | [wodby/drupal-php]                 |         |
+| [PHP]           | 7.3, 7.2, 7.1, 5.6  | `php`           | [wodby/drupal-php]                 |         |
 | [MariaDB]       | 10.3, 10.2, 10.1    | `mariadb`       | [wodby/mariadb]                    | ✓       |
 | [PostgreSQL]    | 11, 10, 9.x         | `postgres`      | [wodby/postgres]                   |         |
 | [Redis]         | 5, 4                | `redis`         | [wodby/redis]                      |         |
@@ -44,7 +44,7 @@ The Drupal stack consist of the following containers:
 
 Supported Drupal versions: 8 / 7
 
-*❕PHP 5.6 [has reached end of life](http://php.net/supported-versions.php) and no longer supported by PHP team, we strongly advise you to migrate to the latest stable 7.x version.
+❗️PHP 5.6 [has reached end of life](http://php.net/supported-versions.php) and no longer supported by PHP team. PHP 7.1 is currently in security fix only mode. We strongly advise you to migrate to the latest stable PHP version.   
 
 ## Documentation
 
