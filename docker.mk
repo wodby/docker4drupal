@@ -6,30 +6,42 @@ default: up
 
 DRUPAL_ROOT ?= /var/www/html/web
 
+## help	:	Print commands help.
+help : docker.mk
+	@sed -n 's/^##//p' $<
+
+## up	:	Start up containers.
 up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
 	docker-compose pull
 	docker-compose up -d --remove-orphans
 
+## down	:	Stop containers.
 down: stop
 
+## stop	:	Stop containers.
 stop:
 	@echo "Stopping containers for $(PROJECT_NAME)..."
 	@docker-compose stop
 
+## prune	:	Remove containers and their volumes.
 prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
 	@docker-compose down -v
 
+## ps	:	List running containers.
 ps:
 	@docker ps --filter name='$(PROJECT_NAME)*'
 
+## shell	:	Remote in to runninng `php` container.
 shell:
 	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") sh
 
+## drush	:	Execute `drush` command without additional arguments.
 drush:
 	docker exec $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
+## logs	:	View containers logs.
 logs:
 	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
 
