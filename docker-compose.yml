@@ -65,7 +65,7 @@ services:
     labels:
       - 'traefik.backend=${PROJECT_NAME}_nginx'
       - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL},${PROJECT_ALIAS_URL}'
 
   mailhog:
     image: mailhog/mailhog
