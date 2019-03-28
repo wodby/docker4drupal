@@ -19,6 +19,11 @@ up:
 ## down	:	Stop containers.
 down: stop
 
+## start	:	Start containers without updating.
+start:
+	@echo "Starting containers for $(PROJECT_NAME) from where you left off..."
+	@docker-compose start
+
 ## stop	:	Stop containers.
 stop:
 	@echo "Stopping containers for $(PROJECT_NAME)..."
