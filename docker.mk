@@ -30,9 +30,12 @@ stop:
 	@docker-compose stop
 
 ## prune	:	Remove containers and their volumes.
+##		You can optionally pass an argument with the service name to prune single container
+##		prune mariadb	: Prune `mariadb` container and remove its volumes.
+##		prune mariadb solr	: Prune `mariadb` and `solr` containers and remove their volumes.
 prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker-compose down -v
+	@docker-compose down -v $(filter-out $@,$(MAKECMDGOALS))
 
 ## ps	:	List running containers.
 ps:
