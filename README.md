@@ -28,8 +28,8 @@ The Drupal stack consist of the following containers:
 | [Node.js]       | 10, 8, 6            | `node`          | [wodby/node]                       |         |
 | [Drupal node]   | 1.0                 | `drupal-node`   | [wodby/drupal-node]                |         |
 | [Solr]          | 7.x, 6.6, 5.5, 5.4  | `solr`          | [wodby/solr]                       |         |
-| [Elasticsearch] | 6.x, 5.6, 5.5, 5.4  | `elasticsearch` | [wodby/elasticsearch]              |         |
-| [Kibana]        | 6.x, 5.6, 5.5, 5.4  | `kibana`        | [wodby/kibana]                     |         |
+| [Elasticsearch] | 6.x, 5.6            | `elasticsearch` | [wodby/elasticsearch]              |         |
+| [Kibana]        | 6.x, 5.6            | `kibana`        | [wodby/kibana]                     |         |
 | [OpenSMTPD]     | 6.0                 | `opensmtpd`     | [wodby/opensmtpd]                  |         |
 | [Mailhog]       | latest              | `mailhog`       | [mailhog/mailhog]                  | ✓       |
 | [AthenaPDF]     | 2.10.0              | `athenapdf`     | [arachnysdocker/athenapdf-service] |         |
