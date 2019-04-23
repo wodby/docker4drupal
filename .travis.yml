@@ -1,23 +1,23 @@
 language: bash
 
 services:
-  - docker
+- docker
 
 env:
   matrix:
-    - DRUPAL_VER=8 PHP_VER=7.3
-    - DRUPAL_VER=8 PHP_VER=7.2
-    - DRUPAL_VER=8 PHP_VER=7.1
-    - DRUPAL_VER=7 PHP_VER=7.3
-    - DRUPAL_VER=7 PHP_VER=7.2
-    - DRUPAL_VER=7 PHP_VER=7.1
-    - DRUPAL_VER=7 PHP_VER=5.6 GITHUB_RELEASE=1
+  - DRUPAL_VER=8 PHP_VER=7.3
+  - DRUPAL_VER=8 PHP_VER=7.2
+  - DRUPAL_VER=8 PHP_VER=7.1
+  - DRUPAL_VER=7 PHP_VER=7.3
+  - DRUPAL_VER=7 PHP_VER=7.2
+  - DRUPAL_VER=7 PHP_VER=7.1
+  - DRUPAL_VER=7 PHP_VER=5.6 GITHUB_RELEASE=1
 
 script:
-  - set -e
-  - make test
-  - cp docker.mk Makefile
-  - tar -czf docker4drupal.tar.gz docker-compose.yml docker-compose.override.yml docker-sync.yml Makefile .env traefik.yml
+- set -e
+- make test
+- cp docker.mk Makefile
+- tar -czf docker4drupal.tar.gz docker-compose.yml docker-compose.override.yml docker-sync.yml Makefile .env traefik.yml
 
 deploy:
   provider: releases
@@ -26,7 +26,14 @@ deploy:
   skip_cleanup: true
   file_glob: true
   file:
-    - docker4drupal.tar.gz
+  - docker4drupal.tar.gz
   on:
     tags: true
     condition: $GITHUB_RELEASE = 1
+
+notifications:
+  email:
+    recipients:
+    - travisci@wodby.com
+    on_success: never
+    on_failure: always
