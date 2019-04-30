@@ -18,11 +18,13 @@ Paste here
 **Contents of your `docker-compose.yml`**
 ```
 Paste here
+REMOVE COMMENTED LINES
 ```
 
 **Contents of your `.env`**
 ```
 Paste here
+REMOVE COMMENTED LINES
 ```
 
 **Logs output `docker-compose logs`**
