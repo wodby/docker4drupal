@@ -1,9 +1,10 @@
 include .env
 
-.PHONY: up down stop prune ps shell drush logs
+.PHONY: up down stop prune ps shell composer drush logs
 
 default: up
 
+COMPOSER_ROOT ?= /var/www/html
 DRUPAL_ROOT ?= /var/www/html/web
 
 ## help	:	Print commands help.
@@ -44,6 +45,12 @@ ps:
 ## shell	:	Access `php` container via shell.
 shell:
 	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") sh
+
+## composer	:	Executes `composer` command in a specified `COMPOSER_ROOT` directory (default is `/var/www/html`).
+##		To use "--flag" arguments include them in quotation marks.
+##		For example: make composer "update drupal/core --with-dependencies"
+composer:
+	docker exec $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") composer --working-dir=$(COMPOSER_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
 ## drush	:	Executes `drush` command in a specified `DRUPAL_ROOT` directory (default is `/var/www/html/web`).
 ## 		Doesn't support --flag arguments.
