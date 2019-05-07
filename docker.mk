@@ -8,8 +8,13 @@ COMPOSER_ROOT ?= /var/www/html
 DRUPAL_ROOT ?= /var/www/html/web
 
 ## help	:	Print commands help.
+ifneq (,$(wildcard docker.mk))
 help : docker.mk
 	@sed -n 's/^##//p' $<
+else
+help : Makefile
+	@sed -n 's/^##//p' $<
+endif
 
 ## up	:	Start up containers.
 up:
