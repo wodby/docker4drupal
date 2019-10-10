@@ -65,17 +65,14 @@ services:
 #      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
     labels:
-      - 'traefik.backend=${PROJECT_NAME}_nginx'
-      - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+      - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
   mailhog:
     image: mailhog/mailhog
     container_name: "${PROJECT_NAME}_mailhog"
     labels:
-      - 'traefik.backend=${PROJECT_NAME}_mailhog'
-      - 'traefik.port=8025'
-      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
+      - "traefik.http.services.${PROJECT_NAME}_mailhog.loadbalancer.server.port=8025"
+      - "traefik.http.routers.${PROJECT_NAME}_mailhog.rule=Host(`mailhog.${PROJECT_BASE_URL}`)"
 
 #  postgres:
 #    image: wodby/postgres:$POSTGRES_TAG
@@ -105,9 +102,7 @@ services:
 ##      - ./:/var/www/html:cached # User-guided caching
 ##      - docker-sync:/var/www/html # Docker-sync
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_apache'
-#      - 'traefik.port=80'
-#      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+#      - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
 
 #  varnish:
 #    image: wodby/varnish:$VARNISH_TAG
@@ -121,9 +116,8 @@ services:
 #      VARNISH_CONFIG_PRESET: drupal
 #      VARNISH_ALLOW_UNRESTRICTED_PURGE: 1
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_varnish'
-#      - 'traefik.port=6081'
-#      - 'traefik.frontend.rule=Host:varnish.${PROJECT_BASE_URL}'
+#      - "traefik.http.services.${PROJECT_NAME}_varnish.loadbalancer.server.port=6081"
+#      - "traefik.http.routers.${PROJECT_NAME}_varnish.rule=Host(`varnish.${PROJECT_BASE_URL}`)"
 
 #  redis:
 #    container_name: "${PROJECT_NAME}_redis"
@@ -138,9 +132,7 @@ services:
 #      ADMINER_DEFAULT_DB_HOST: $DB_HOST
 #      ADMINER_DEFAULT_DB_NAME: $DB_NAME
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_adminer'
-#      - 'traefik.port=9000'
-#      - 'traefik.frontend.rule=Host:adminer.${PROJECT_BASE_URL}'
+#      - "traefik.http.routers.${PROJECT_NAME}_adminer.rule=Host(`adminer.${PROJECT_BASE_URL}`)"
 
 #  pma:
 #    image: phpmyadmin/phpmyadmin
@@ -152,9 +144,7 @@ services:
 #      PHP_UPLOAD_MAX_FILESIZE: 1G
 #      PHP_MAX_INPUT_VARS: 1G
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_pma'
-#      - 'traefik.port=80'
-#      - 'traefik.frontend.rule=Host:pma.${PROJECT_BASE_URL}'
+#      - "traefik.http.routers.${PROJECT_NAME}_pma.rule=Host(`pma.${PROJECT_BASE_URL}`)"
 
 #  solr:
 #    image: wodby/solr:$SOLR_TAG
@@ -163,9 +153,7 @@ services:
 #      SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
 #      SOLR_HEAP: 1024m
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_solr'
-#      - 'traefik.port=8983'
-#      - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
+#      - "traefik.http.routers.${PROJECT_NAME}_solr.rule=Host(`solr.${PROJECT_BASE_URL}`)"
 
 #  drupal-node:
 #    image: wodby/drupal-node:$DRUPAL_NODE_TAG
@@ -173,9 +161,7 @@ services:
 #    environment:
 #       NODE_SERVICE_KEY: node-service-key
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_nodejs'
-#      - 'traefik.port=8080'
-#      - 'traefik.frontend.rule=Host:nodejs.${PROJECT_BASE_URL}'
+#      - "traefik.http.routers.${PROJECT_NAME}_drupal_node.rule=Host(`drupal_node.${PROJECT_BASE_URL}`)"
 #    volumes:
 #      - ./path/to/your/single-page-app:/app
 #    command: sh -c 'npm install && npm run start'
@@ -204,9 +190,8 @@ services:
 #    container_name: "${PROJECT_NAME}_node"
 #    working_dir: /var/www/html/path/to/theme/to/build
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_node'
-#      - 'traefik.port=3000'
-#      - 'traefik.frontend.rule=Host:front.${PROJECT_BASE_URL}'
+#      - "traefik.http.services.${PROJECT_NAME}_node.loadbalancer.server.port=3000"
+#      - "traefik.http.routers.${PROJECT_NAME}_node.rule=Host(`node.${PROJECT_BASE_URL}`)"
 #    expose:
 #      - "3000"
 #    volumes:
@@ -226,9 +211,7 @@ services:
 #    environment:
 #      WEBGRIND_PROFILER_DIR: /mnt/files/xdebug/profiler
 #    labels:
-#      - 'traefik.backend=webgrind'
-#      - 'traefik.port=8080'
-#      - 'traefik.frontend.rule=Host:webgrind.${PROJECT_BASE_URL}'
+#      - "traefik.http.routers.${PROJECT_NAME}_webgrind.rule=Host(`webgrind.${PROJECT_BASE_URL}`)"
 #    volumes:
 #      - files:/mnt/files
 
@@ -246,9 +229,8 @@ services:
 #    depends_on:
 #      - elasticsearch
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_kibana'
-#      - 'traefik.port=5601'
-#      - 'traefik.frontend.rule=Host:kibana.php.docker.localhost'
+#      - "traefik.http.services.${PROJECT_NAME}_kibana.loadbalancer.server.port=5601"
+#      - "traefik.http.routers.${PROJECT_NAME}_kibana.rule=Host(`kibana.${PROJECT_BASE_URL}`)"
 
 #  opensmtpd:
 #    container_name: "${PROJECT_NAME}_opensmtpd"
@@ -260,9 +242,7 @@ services:
 #    volumes:
 #      - files:/mnt/files
 #    labels:
-#      - 'traefik.backend=${PROJECT_NAME}_xhprof'
-#      - 'traefik.port=8080'
-#      - 'traefik.frontend.rule=Host:xhprof.${PROJECT_BASE_URL}'
+#      - "traefik.http.routers.${PROJECT_NAME}_xhprof.rule=Host(`xhprof.${PROJECT_BASE_URL}`)"
 
   portainer:
     image: portainer/portainer
@@ -271,14 +251,12 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
-      - 'traefik.backend=${PROJECT_NAME}_portainer'
-      - 'traefik.port=9000'
-      - 'traefik.frontend.rule=Host:portainer.${PROJECT_BASE_URL}'
+      - "traefik.http.routers.${PROJECT_NAME}_portainer.rule=Host(`portainer.${PROJECT_BASE_URL}`)"
 
   traefik:
-    image: traefik:v1.7.16-alpine
+    image: traefik:v2.0
     container_name: "${PROJECT_NAME}_traefik"
-    command: -c /dev/null --web --docker --logLevel=INFO
+    command: --api.insecure=true --providers.docker
     ports:
       - '8000:80'
 #      - '8080:8080' # Dashboard
