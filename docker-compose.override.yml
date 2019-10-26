@@ -5,12 +5,33 @@ services:
     image: wodby/drupal:$DRUPAL_TAG
     environment:
       PHP_FPM_CLEAR_ENV: "no"
+      SIMPLETEST_BASE_URL: "http://nginx"
+      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
+      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+#      SYMFONY_DEPRECATIONS_HELPER: enabled
+
     volumes:
       - codebase:/var/www/html
 
   nginx:
     volumes:
       - codebase:/var/www/html
+
+  chrome:
+    image: selenium/standalone-chrome:3.141.59
+    container_name: "${PROJECT_NAME}_chrome"
+    volumes:
+      - /dev/shm:/dev/shm
+    #    ports:
+    #      - "9515:9515" #no needs to expose the port as containers communicate within internal network.
+    entrypoint:
+      - chromedriver
+      - "--no-sandbox"
+      - "--disable-dev-shm-usage"
+      - "--log-path=/tmp/chromedriver.log"
+      - "--verbose"
+      - "--whitelisted-ips="
+
 
 volumes:
   codebase:
