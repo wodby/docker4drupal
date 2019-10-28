@@ -39,6 +39,11 @@ services:
 #      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
 #      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
 #      PHP_XDEBUG_REMOTE_LOG: /tmp/php-xdebug.log
+## PHPUnit Drupal testing configurations
+#      SIMPLETEST_BASE_URL: "http://nginx"
+#      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
+#      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+
     volumes:
       - ./:/var/www/html
 ## For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
@@ -243,6 +248,19 @@ services:
 #      - files:/mnt/files
 #    labels:
 #      - "traefik.http.routers.${PROJECT_NAME}_xhprof.rule=Host(`xhprof.${PROJECT_BASE_URL}`)"
+
+#  chrome:
+#    image: selenium/standalone-chrome:$SELENIUM_CHROME_TAG
+#    container_name: "${PROJECT_NAME}_chrome"
+#    volumes:
+#      - /dev/shm:/dev/shm
+#    entrypoint:
+#      - chromedriver
+#      - "--no-sandbox"
+#      - "--disable-dev-shm-usage"
+#      - "--log-path=/tmp/chromedriver.log"
+#      - "--verbose"
+#      - "--whitelisted-ips="
 
   portainer:
     image: portainer/portainer
