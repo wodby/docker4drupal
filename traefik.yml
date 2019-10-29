@@ -1,10 +1,9 @@
-version: '2'
+version: '3'
 
 services:
   traefik:
-    image: traefik
-    restart: unless-stopped
-    command: -c /dev/null --web --docker --logLevel=DEBUG
+    image: traefik:v2.0
+    command: --api.insecure=true --providers.docker
     networks:
       - project1
       - project2
