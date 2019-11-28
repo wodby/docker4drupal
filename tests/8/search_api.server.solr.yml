@@ -1,4 +1,4 @@
-uuid: d924874e-1b45-4be6-b245-1d5b361b3183
+uuid: bb94e21c-693c-4df9-a9d3-64368fa3428d
 langcode: en
 status: true
 dependencies:
@@ -35,6 +35,7 @@ backend_config:
     jmx: false
     solr_install_dir: ../../..
   disabled_field_types: {  }
+  rows: 10
   retrieve_data: false
   highlight_data: false
   skip_schema_check: false
