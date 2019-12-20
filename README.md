@@ -45,7 +45,7 @@ The Drupal stack consist of the following containers:
 
 Supported Drupal versions: 8 / 7
 
-❗️PHP 5.6 [has reached end of life](http://php.net/supported-versions.php) and no longer supported by PHP team. PHP 7.1 is currently in security fix only mode. We strongly advise you to migrate to the latest stable PHP version.   
+❗️PHP 7.1 and 5.6 [have reached end of life](http://php.net/supported-versions.php) and no longer supported by PHP team. We strongly advise you to migrate to the latest stable PHP version.   
 
 ## Documentation
 
