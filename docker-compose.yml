@@ -164,8 +164,10 @@ services:
 #  drupal-node:
 #    image: wodby/drupal-node:$DRUPAL_NODE_TAG
 #    container_name: "${PROJECT_NAME}_drupal_nodejs"
+#    labels:
+#      - "traefik.http.routers.${PROJECT_NAME}_drupal_node.rule=Host(`drupal_node.${PROJECT_BASE_URL}`)"
 #    environment:
-#       NODE_SERVICE_KEY: node-service-key
+#      NODE_SERVICE_KEY: node-service-key
 
 #  memcached:
 #    container_name: "${PROJECT_NAME}_memcached"
