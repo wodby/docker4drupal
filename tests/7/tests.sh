@@ -22,7 +22,7 @@ DB_URL="${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}"
 
 make init -f /usr/local/bin/actions.mk
 
-composer require \
+composer require -n \
     drupal/redis \
     drupal/search_api \
     drupal/search_api_solr \
