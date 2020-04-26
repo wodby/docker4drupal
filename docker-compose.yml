@@ -272,7 +272,7 @@ services:
       - "traefik.http.routers.${PROJECT_NAME}_portainer.rule=Host(`portainer.${PROJECT_BASE_URL}`)"
 
   traefik:
-    image: traefik:v2.0
+    image: traefik:$TRAEFIK_TAG
     container_name: "${PROJECT_NAME}_traefik"
     command: --api.insecure=true --providers.docker
     ports:
