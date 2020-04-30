@@ -101,10 +101,9 @@ services:
 #      APACHE_VHOST_PRESET: php
 #      APACHE_DOCUMENT_ROOT: /var/www/html/web
 #    volumes:
-#      - ./:/var/www/html
-## For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
-##      - ./:/var/www/html:cached # User-guided caching
-##      - docker-sync:/var/www/html # Docker-sync
+#      - ./:/var/www/html:cached
+## Alternative for macOS users: docker-sync https://wodby.com/docs/stacks/drupal/local#docker-for-mac
+#      - docker-sync:/var/www/html
 #    labels:
 #      - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
 
