@@ -44,13 +44,21 @@ services:
 #      SIMPLETEST_BASE_URL: "http://nginx"
 #      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
 #      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
-
     volumes:
       - ./:/var/www/html:cached
 ## Alternative for macOS users: docker-sync https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #      - docker-sync:/var/www/html
 ## For XHProf and Xdebug profiler traces
 #      - files:/mnt/files
+
+  crond:
+    image: wodby/drupal-php:$PHP_TAG
+    container_name: "${PROJECT_NAME}_crond"
+    environment:
+      CRONTAB: "0 1 * * * drush -r /var/www/html/web cron"
+    command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
+    volumes:
+      - ./:/var/www/html:cached
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
