@@ -55,7 +55,7 @@ services:
     image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_crond"
     environment:
-      CRONTAB: "0 1 * * * drush -r /var/www/html/web cron"
+      CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
     command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
     volumes:
       - ./:/var/www/html:cached
