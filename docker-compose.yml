@@ -111,7 +111,7 @@ services:
 #    volumes:
 #      - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#      - codebase:/var/www/html
+#      - mutagen:/var/www/html
 #    labels:
 #      - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
 
@@ -295,6 +295,6 @@ services:
 
 #volumes:
 ## For macOS users (Mutagen)
-#  codebase:
+#  mutagen:
 ## For Xdebug profiler
 #  files:
