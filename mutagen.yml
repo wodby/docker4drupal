@@ -9,7 +9,7 @@ sync:
       permissions:
         defaultFileMode: 644
         defaultDirectoryMode: 755
-    codebase:
+    mutagen:
       alpha: "."
       beta: "docker://mutagen/var/www/html"
       mode: "two-way-resolved"
@@ -21,4 +21,3 @@ sync:
           - "/web/themes/contrib/"
           - "/web/sites/*/files/"
 
-  
