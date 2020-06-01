@@ -13,11 +13,12 @@ sync:
       alpha: "."
       beta: "docker://mutagen/var/www/html"
       mode: "two-way-resolved"
-      ignore:
-        paths:
-          - "/vendor/"
-          - "/web/core/"
-          - "/web/modules/contrib/"
-          - "/web/themes/contrib/"
-          - "/web/sites/*/files/"
+      # # Example of optimisation (not required)
+      # ignore:
+      #   paths:
+      #     - "/vendor/"
+      #     - "/web/core/"
+      #     - "/web/modules/contrib/"
+      #     - "/web/themes/contrib/"
+      #     - "/web/sites/*/files/"
 
