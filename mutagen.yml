@@ -6,14 +6,17 @@ sync:
           - .DS_Store
           - .history
           - .idea
-      permissions:
-        defaultFileMode: 644
-        defaultDirectoryMode: 755
     mutagen:
       alpha: "."
       beta: "docker://mutagen/var/www/html"
       mode: "two-way-resolved"
-      # # Example of optimisation (not required)
+      configurationBeta:
+        permissions:
+          defaultFileMode: 644
+          defaultDirectoryMode: 755
+          defaultOwner: "wodby"
+          defaultGroup: "wodby"
+      # # Example of optimisation (not required by default)
       # ignore:
       #   paths:
       #     - "/vendor/"
