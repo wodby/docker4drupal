@@ -287,7 +287,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock 
 
   # mutagen:
-  #   build: ./mutagen
+  #   build: 
+  #     context: .
+  #     dockerfile: mutagen/Dockerfile
   #   init: true
   #   container_name: "${PROJECT_NAME}_mutagen"
   #   volumes:
