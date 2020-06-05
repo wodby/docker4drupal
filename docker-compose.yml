@@ -291,7 +291,7 @@ services:
   #     context: .
   #     dockerfile: mutagen/Dockerfile
   #   init: true
-  #   container_name: "${PROJECT_NAME}_mutagen"
+  #   container_name: "mutagen"
   #   volumes:
   #     - mutagen:/var/www/html   
 
