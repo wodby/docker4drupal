@@ -16,7 +16,7 @@ The Drupal stack consist of the following containers:
 
 | Container       | Versions               | Service name    | Image                              | Default |
 | --------------  | ---------------------- | --------------- | ---------------------------------- | ------- |
-| [Nginx]         | 1.17, 1.16             | `nginx`         | [wodby/nginx]                      | ✓       |
+| [Nginx]         | 1.19, 1.18             | `nginx`         | [wodby/nginx]                      | ✓       |
 | [Apache]        | 2.4                    | `apache`        | [wodby/apache]                     |         |
 | [Drupal]        | 9, 8, 7                | `php`           | [wodby/drupal]                     | ✓       |
 | [PHP]           | 7.4, 7.3, 7.2          | `php`           | [wodby/drupal-php]                 |         |
