@@ -70,7 +70,7 @@ check_rq "Trusted Host Settings" "Enabled"
 # @todo enabled when drupal console will be installed.
 # Import solr server
 #drupal cis --file search_api.server.solr.yml --directory /var/www/html/web
-#check_rq "Solr servers" "1 server"
+#drush sapi-sl | grep -q enabled
 
 # @TODO return varnish tests after purge module drush commands support drush 9
 
