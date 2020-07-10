@@ -26,7 +26,7 @@ The Drupal stack consist of the following containers:
 | [Redis]         | 6, 5                   | `redis`         | [wodby/redis]                      |         |
 | [Memcached]     | 1                      | `memcached`     | [wodby/memcached]                  |         |
 | [Varnish]       | 6.0, 4.1               | `varnish`       | [wodby/varnish]                    |         |
-| [Node.js]       | 12, 10, 8              | `node`          | [wodby/node]                       |         |
+| [Node.js]       | 14, 12, 10             | `node`          | [wodby/node]                       |         |
 | [Drupal node]   | 1.0                    | `drupal-node`   | [wodby/drupal-node]                |         |
 | [Solr]          | 8, 7, 6, 5             | `solr`          | [wodby/solr]                       |         |
 | [Elasticsearch] | 7, 6                   | `elasticsearch` | [wodby/elasticsearch]              |         |
