@@ -1,6 +1,13 @@
-# Docker-based Drupal stack
+# Tweaked ( simplified ) Docker-based Drupal stack based on the Wodby Docker4Drupal repo
 
 [![Build Status](https://travis-ci.org/wodby/docker4drupal.svg?branch=master)](https://travis-ci.org/wodby/docker4drupal)
+
+## TL;DR;
+
+All important project settings ( including hostname ) are in `.env` 
+The current state of this repo will deploy a LEMP ( Nginx ) stack on port 80 after running `docker-compose up -d`
+The `/var/www/html/web` directory will be populated with vanilla Drupal 8 source. Delete and replace if you already have a site. 
+
 
 ## Introduction
 
