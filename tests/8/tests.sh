@@ -45,7 +45,7 @@ check_rq "Database system" "MySQL, MariaDB, Percona Server, or equivalent"
 check_rq "Image toolkit" "gd"
 check_rq "PHP OPcode caching" "Enabled"
 check_rq "PHP" "${PHP_VERSION}"
-check_rq "File system" "Writable (<em>public</em> download method)"
+check_rq "File system" "Writable"
 check_rq "Configuration files" "Protected"
 
 drush en -y \
