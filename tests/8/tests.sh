@@ -62,7 +62,7 @@ drush en -y \
 # Enable redis
 chmod 755 "${PWD}/sites/default/settings.php"
 echo "include '${PWD}/sites/default/test.settings.php';" >> "${PWD}/sites/default/settings.php"
-check_rq "Redis" "Connected, using the <em>PhpRedis</em> client"
+check_rq "Redis" "Connected"
 
 check_rq "Trusted Host Settings" "Enabled"
 
