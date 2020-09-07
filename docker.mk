@@ -53,9 +53,10 @@ ps:
 	@docker ps --filter name='$(PROJECT_NAME)*'
 
 ## shell	:	Access `php` container via shell.
+##		You can optionally pass an argument with a service name to open a shell on the specified container
 .PHONY: shell
 shell:
-	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") sh
+	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_$(or $(filter-out $@,$(MAKECMDGOALS)), 'php')' --format "{{ .ID }}") sh
 
 ## composer	:	Executes `composer` command in a specified `COMPOSER_ROOT` directory (default is `/var/www/html`).
 ##		To use "--flag" arguments include them in quotation marks.
