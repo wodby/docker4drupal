@@ -16,9 +16,9 @@ The Drupal stack consist of the following containers:
 
 | Container       | Versions               | Service name    | Image                              | Default |
 | --------------  | ---------------------- | --------------- | ---------------------------------- | ------- |
-| [Nginx]         | 1.17, 1.16             | `nginx`         | [wodby/nginx]                      | ✓       |
+| [Nginx]         | 1.19, 1.18             | `nginx`         | [wodby/nginx]                      | ✓       |
 | [Apache]        | 2.4                    | `apache`        | [wodby/apache]                     |         |
-| [Drupal]        | 8, 7                   | `php`           | [wodby/drupal]                     | ✓       |
+| [Drupal]        | 9, 8, 7                | `php`           | [wodby/drupal]                     | ✓       |
 | [PHP]           | 7.4, 7.3, 7.2          | `php`           | [wodby/drupal-php]                 |         |
 | Crond           |                        | `crond`         | [wodby/drupal-php]                 | ✓       |
 | [MariaDB]       | 10.4, 10.3, 10.2, 10.1 | `mariadb`       | [wodby/mariadb]                    | ✓       |
@@ -26,7 +26,7 @@ The Drupal stack consist of the following containers:
 | [Redis]         | 6, 5                   | `redis`         | [wodby/redis]                      |         |
 | [Memcached]     | 1                      | `memcached`     | [wodby/memcached]                  |         |
 | [Varnish]       | 6.0, 4.1               | `varnish`       | [wodby/varnish]                    |         |
-| [Node.js]       | 12, 10, 8              | `node`          | [wodby/node]                       |         |
+| [Node.js]       | 14, 12, 10             | `node`          | [wodby/node]                       |         |
 | [Drupal node]   | 1.0                    | `drupal-node`   | [wodby/drupal-node]                |         |
 | [Solr]          | 8, 7, 6, 5             | `solr`          | [wodby/solr]                       |         |
 | [Elasticsearch] | 7, 6                   | `elasticsearch` | [wodby/elasticsearch]              |         |
@@ -44,7 +44,7 @@ The Drupal stack consist of the following containers:
 | Portainer       | latest                 | `portainer`     | [portainer/portainer]              | ✓       |
 | Traefik         | latest                 | `traefik`       | [_/traefik]                        | ✓       |
 
-Supported Drupal versions: 8 / 7
+Supported Drupal versions: 9 / 8 / 7
 
 ## Documentation
 

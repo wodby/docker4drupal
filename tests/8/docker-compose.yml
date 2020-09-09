@@ -26,11 +26,11 @@ services:
       PHP_FPM_USER: wodby
       PHP_FPM_GROUP: wodby
     volumes:
-      - codebase:/var/www/html
-      - ./tests.sh:/usr/local/bin/tests.sh
-      - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
-      - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
-      - ./search_api.server.solr.yml:/var/www/html/web/search_api.server.solr.yml
+    - codebase:/var/www/html
+    - ./tests.sh:/usr/local/bin/tests.sh
+    - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
+    - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
+    - ./search_api.server.solr.yml:/var/www/html/web/search_api.server.solr.yml
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -40,14 +40,14 @@ services:
       NGINX_SERVER_ROOT: /var/www/html/web
       NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
     volumes:
-      - codebase:/var/www/html
+    - codebase:/var/www/html
     depends_on:
-      - php
+    - php
 
   varnish:
     image: wodby/varnish:$VARNISH_TAG
     depends_on:
-      - nginx
+    - nginx
     environment:
       VARNISH_SECRET: secret
       VARNISH_BACKEND_HOST: nginx
