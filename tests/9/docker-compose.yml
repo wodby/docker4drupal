@@ -10,12 +10,12 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
 
   php:
-    image: "wodby/drupal:7-${PHP_VER}-${DRUPAL_STABILITY_TAG}"
+    image: "wodby/drupal:9-${PHP_VER}-${DRUPAL_STABILITY_TAG}"
     environment:
       # To skip auto init.
       WODBY_APP_NAME: drupal
       DEBUG: 1
-      DRUPAL_VERSION: 7
+      DRUPAL_VERSION: 8
       DB_HOST: $DB_HOST
       DB_NAME: $DB_NAME
       DB_USER: $DB_USER
@@ -25,11 +25,13 @@ services:
       COLUMNS: 80
       PHP_FPM_USER: wodby
       PHP_FPM_GROUP: wodby
+      COMPOSER_MEMORY_LIMIT: -1
     volumes:
     - codebase:/var/www/html
     - ./tests.sh:/usr/local/bin/tests.sh
     - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
-    - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
+    - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
+    - ./search_api.server.solr.yml:/var/www/html/web/search_api.server.solr.yml
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
