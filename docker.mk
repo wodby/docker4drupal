@@ -22,6 +22,11 @@ up:
 	docker-compose pull
 	docker-compose up -d --remove-orphans
 
+.PHONE: mutagen
+mutagen:
+	docker-compose up -d mutagen
+	mutagen project start
+
 ## down	:	Stop containers.
 .PHONY: down
 down: stop
