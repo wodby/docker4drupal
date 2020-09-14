@@ -5,8 +5,14 @@
 ## TL;DR;
 
 All important project settings ( including hostname ) are in `.env` 
+
 The current state of this repo will deploy a LEMP ( Nginx ) stack on port 80 after running `docker-compose up -d`
+
 The `/var/www/html/web` directory will be populated with vanilla Drupal 8 source. Delete and replace if you already have a site. 
+
+Once the codebase is there, simply load the Database onto the database container
+
+You can run apc_clear_cache() and apcu_clear_cache() if you ever switch to composer and move modules from modules/... to modules/contrib/... 
 
 
 ## Introduction
