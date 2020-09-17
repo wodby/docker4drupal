@@ -22,7 +22,7 @@ up:
 	docker-compose pull
 	docker-compose up -d --remove-orphans
 
-.PHONE: mutagen
+.PHONY: mutagen
 mutagen:
 	docker-compose up -d mutagen
 	mutagen project start -f mutagen/config.yml
