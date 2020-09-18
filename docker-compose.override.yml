@@ -18,7 +18,8 @@ services:
       COLUMNS: 80 # Set 80 columns for docker exec -it.
 
   nginx:
-    NGINX_SERVER_ROOT: /var/www/html/aadlorg/web
+    environment:
+      NGINX_SERVER_ROOT: /var/www/html/aadlorg/web
 
   nginx2:
     image: wodby/nginx:$NGINX_TAG
