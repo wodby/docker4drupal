@@ -1,0 +1,97 @@
+{
+    "name": "aadl/drupal",
+    "description": "aadl.org website",
+    "type": "project",
+    "require": {
+        "abraham/twitteroauth": "^0.7.4",
+        "cweagans/composer-patches": "^1.6.0",
+        "drupal/ckwordcount": "^1.0",
+        "drupal/console": "^1.8",
+        "drupal/core": "^8.7.11",
+        "drupal/devel": "^1.2",
+        "drupal/domain": "^1.0@alpha",
+        "drupal/domain_theme_switch": "^1.2",
+        "drupal/elasticsearch_connector": "^5.0@alpha",
+        "drupal/field_group": "^1.0",
+        "drupal/fullcalendar_view": "^2.2",
+        "drupal/honeypot": "^1.27",
+        "drupal/mimemail": "1.x-dev",
+        "drupal/neato": "^1.6",
+        "drupal/notification": "^1.0",
+        "drupal/persistent_login": "^1.0@alpha",
+        "drupal/redis": "^1.0@RC",
+        "drupal/rules": "^3.0",
+        "drupal/scheduler": "^1.0",
+        "drupal/search_api": "^1.11",
+        "drupal/simplenews": "1.x-dev",
+        "drupal/super_login": "^1.0",
+        "drupal/ubercart": "4.x-dev",
+        "drupal/views_bulk_edit": "^2.4",
+        "drupal/views_bulk_operations": "^2.1",
+        "drupal/webform": "^5.0@RC",
+        "drush/drush": "~8.0",
+        "elasticsearch/elasticsearch": "^5.0",
+        "hussainweb/drupal-composer-helper": "^1.0",
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "php-on-couch/php-on-couch": "^2.0",
+        "predis/predis": "^1.1",
+        "sabre/vobject": "^4.1",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi-fpdf": "^2.0",
+        "square/connect": "^2.5",
+        "twilio/sdk": "^5.19"
+    },
+    "require-dev": {
+        "behat/mink": "~1.7",
+        "behat/mink-goutte-driver": "~1.2",
+        "jcalderonzumba/gastonjs": "~1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+        "mikey179/vfsstream": "~1.2",
+        "phpunit/phpunit": ">=4.8.28 <5",
+        "symfony/css-selector": "~2.8"
+    },
+    "authors": [
+        {
+            "name": "Ann Arbor District Library",
+            "email": "github@aadl.org"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/FESliders.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/arborelastic.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/arborcat.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "drupal-composer-helper": {
+            "web-prefix": "web"
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ]
+        }
+    },
+    "prefer-stable": true,
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
