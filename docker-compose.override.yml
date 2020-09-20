@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mariadb:
-    stop_grace_period: 2000s
+    stop_grace_period: 3600s # increase timeout for initial load of database
     volumes:
       - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
   php:
