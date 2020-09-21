@@ -3,6 +3,7 @@
     "description": "aadl.org website",
     "type": "project",
     "require": {
+        "aadl/arborcat": "dev-master",
         "abraham/twitteroauth": "^0.7.4",
         "cweagans/composer-patches": "^1.6.0",
         "drupal/ckwordcount": "^1.0",
