@@ -2,4 +2,4 @@
 *
 # Except these files
 !.gitignore
-!.composer.json
+!composer.json
