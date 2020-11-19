@@ -17,7 +17,7 @@ jobs:
         drupal_ver: [ 9,8,7 ]
         php_ver: [ 7.4,7.3,7.2 ]
         exclude:
-          drupal_ver: 9
+        - drupal_ver: 9
           php_ver: 7.2
     runs-on: ubuntu-latest
     steps:
