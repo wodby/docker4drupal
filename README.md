@@ -7,10 +7,10 @@
 1. Copy domain aliases from etc_hosts file to host machine's /etc/hosts
 1. Get Access Token from github for private AADL repositories
 1. Run `docker-compose up` to create docker containers
-1. Open shell in aadldev_php container
-1. `cd /var/www/html/aadlorg` in container
-1. run `drush dl drupal --drupal-project-rename=web`
-1. run `composer update`
+1. Open terminal window in the aadldev_php container
+	1. Clone AADL API from github `cd /var/www/html && git clone https://github.com/aadl/api.git`
+	1. Download drupal `cd /var/www/html/aadlorg && drush dl drupal --drupal-project-rename=web`
+	1. Install modules `composer update`
 1. open `http://aadldev.test:8000/` in browser and go through install process
     1. Select `standard` install profile
     1. Database connection info:
@@ -18,6 +18,9 @@
         * username: `drupal`
         * password: `drupal`
         * Advanced info host: `mariadb`
+1. Install theme from github, copy on top of existing themes directory
+1. Change path to '/../vendor/autoload.php' in aadlorg/web/autoload.php
+1. Install API `cd /var/www/html/api %% composer install`
 
 ## Introduction
 
