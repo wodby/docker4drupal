@@ -1,0 +1,59 @@
+name: Run tests
+
+on:
+  push:
+    branches:
+    - master
+
+    tags:
+    - '*'
+
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        drupal_ver: [ 9,8,7 ]
+        php_ver: [ 7.4,7.3,7.2 ]
+        exclude:
+          drupal_ver: 9
+          php_ver: 7.2
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: test
+      env:
+        DRUPAL_VER: ${{ matrix.drupal_ver }}
+        PHP_VER: ${{ matrix.php_ver }}
+      run: make test
+  release:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+    - name: prepare artifact
+      run: cp docker.mk Makefile && tar -czf docker4drupal.tar.gz docker-compose.yml docker-compose.override.yml mutagen Makefile .env traefik.yml
+    - uses: octokit/request-action@v2.x
+      id: get_latest_release
+      with:
+        route: GET /repos/:repository/releases/latest
+        repository: ${{ github.repository }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: get upload url
+      id: get_upload_url
+      run: |
+        url=$(echo "$response" | jq -r '.upload_url')
+        echo "::set-output name=url::$url"
+      env:
+        response:  ${{ steps.get_latest_release.outputs.data }}
+    - uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{steps.get_upload_url.outputs.url}}
+        asset_path: ./docker4drupal.tar.gz
+        asset_name: docker4drupal.tar.gz
+        asset_content_type: application/tar+gzip
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    needs:
+      test
