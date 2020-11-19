@@ -37,6 +37,8 @@ services:
     - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #    - mutagen:/var/www/html
+    labels:
+    - "traefik.http.routers.${PROJECT_NAME}_nginx2.rule=Host(`api.${PROJECT_BASE_URL}`)"
 
   pma:
     image: phpmyadmin/phpmyadmin
