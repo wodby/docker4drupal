@@ -30,30 +30,17 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
+    needs: test
     steps:
+    - uses: actions/checkout@v2
     - name: prepare artifact
       run: cp docker.mk Makefile && tar -czf docker4drupal.tar.gz docker-compose.yml docker-compose.override.yml mutagen Makefile .env traefik.yml
-    - uses: octokit/request-action@v2.x
-      id: get_latest_release
-      with:
-        route: GET /repos/:repository/releases/latest
-        repository: ${{ github.repository }}
+    - uses: xresloader/upload-to-github-release@v1
+      id: upload_artifact
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: get upload url
-      id: get_upload_url
-      run: |
-        url=$(echo "$response" | jq -r '.upload_url')
-        echo "::set-output name=url::$url"
-      env:
-        response:  ${{ steps.get_latest_release.outputs.data }}
-    - uses: actions/upload-release-asset@v1
       with:
-        upload_url: ${{steps.get_upload_url.outputs.url}}
-        asset_path: ./docker4drupal.tar.gz
-        asset_name: docker4drupal.tar.gz
-        asset_content_type: application/tar+gzip
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    needs:
-      test
+        file: docker4drupal.tar.gz
+        overwrite: true
+        tags: true
+        draft: true
