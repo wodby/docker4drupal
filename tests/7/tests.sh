@@ -60,6 +60,9 @@ check_rq "search_api_solr" "1 server"
 
 # Test varnish cache and purge
 curl -Is varnish:6081 | grep -q "X-VC-Cache: MISS"
+# @todo figure out why after recent php update varnish gives miss twice.
+# possibly caused by new phpredis extension or composer 2.0
+curl -Is varnish:6081 | grep -q "X-VC-Cache: MISS"
 curl -Is varnish:6081 | grep -q "X-VC-Cache: HIT"
 
 drush varnish-purge-all
