@@ -6,7 +6,7 @@ $contrib_path = is_dir('sites/all/modules/contrib')
 
 $settings['redis.connection']['host'] = 'redis';
 $settings['redis.connection']['port'] = '6379';
-$settings['redis.connection']['password'] = '';
+$settings['redis.connection']['password'] = 'bad-password';
 $settings['redis.connection']['base'] = 0;
 $settings['redis.connection']['interface'] = 'PhpRedis';
 $settings['cache']['default'] = 'cache.backend.redis';

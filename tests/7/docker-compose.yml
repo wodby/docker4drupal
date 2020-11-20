@@ -56,6 +56,8 @@ services:
 
   redis:
     image: wodby/redis:$REDIS_TAG
+    environment:
+      REDIS_PASSWORD: bad-password
 
   solr:
     image: wodby/solr:$SOLR_TAG
