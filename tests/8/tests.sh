@@ -51,13 +51,14 @@ check_rq "Configuration files" "Protected"
 drush en -y \
     redis \
     search_api \
-    search_api_solr \
-    purge \
-    purge_queuer_coretags \
-    purge_drush \
-    varnish_purger \
-    varnish_purge_tags \
-    cache_tags
+    search_api_solr
+# @TODO return varnish tests after purge module drush commands support drush 9
+#    purge \
+#    purge_queuer_coretags \
+#    purge_drush \
+#    varnish_purger \
+#    varnish_purge_tags \
+#    cache_tags
 
 # Enable redis
 chmod 755 "${PWD}/sites/default/settings.php"
@@ -67,8 +68,9 @@ check_rq "Redis" "Connected"
 check_rq "Trusted Host Settings" "Enabled"
 
 # Import solr server
-drupal cis --file search_api.server.solr.yml --directory /var/www/html/web
-drush sapi-sl | grep -q enabled
+# @todo return after console returned.
+#drupal cis --file search_api.server.solr.yml --directory /var/www/html/web
+#drush sapi-sl | grep -q enabled
 
 # @TODO return varnish tests after purge module drush commands support drush 9
 
