@@ -68,9 +68,8 @@ check_rq "Redis" "Connected"
 check_rq "Trusted Host Settings" "Enabled"
 
 # Import solr server
-# @todo return after console returned.
-#drupal cis --file search_api.server.solr.yml --directory /var/www/html/web
-#drush sapi-sl | grep -q enabled
+drupal cis --file search_api.server.solr.yml --directory /var/www/html/web
+drush sapi-sl | grep -q enabled
 
 # @TODO return varnish tests after purge module drush commands support drush 9
 
