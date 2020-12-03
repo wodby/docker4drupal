@@ -40,6 +40,10 @@ services:
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_nginx2.rule=Host(`api.${PROJECT_BASE_URL}`)"
 
+  redis:
+    container_name: "${PROJECT_NAME}_redis"
+    image: wodby/redis:$REDIS_TAG
+
   pma:
     image: phpmyadmin/phpmyadmin
     container_name: "${PROJECT_NAME}_pma"
