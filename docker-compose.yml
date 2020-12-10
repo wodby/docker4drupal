@@ -31,15 +31,13 @@ services:
 #      COLUMNS: 80 # Set 80 columns for docker exec -it.
 #      # Read instructions at https://wodby.com/docs/stacks/php/local/#xdebug
 #      PHP_XDEBUG: 1
-#      PHP_XDEBUG_DEFAULT_ENABLE: 1
-#      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+#      PHP_XDEBUG_MODE: debug
 #      PHP_IDE_CONFIG: serverName=my-ide
 #      PHP_XDEBUG_IDEKEY: "my-ide"
-#      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ Mac/Win
-#      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux
-#      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
-#      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
-#      PHP_XDEBUG_REMOTE_LOG: /tmp/php-xdebug.log
+#      PHP_XDEBUG_CLIENT_HOST: 172.17.0.1 # Linux
+#      PHP_XDEBUG_CLIENT_HOST: host.docker.internal # Docker 18.03+ Mac/Win
+#      PHP_XDEBUG_CLIENT_HOST: 10.0.75.1 # Windows, Docker < 18.03
+#      PHP_XDEBUG_LOG: /tmp/php-xdebug.log
 #      # PHPUnit Drupal testing configurations
 #      SIMPLETEST_BASE_URL: "http://nginx"
 #      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
@@ -219,7 +217,7 @@ services:
 #    image: wodby/webgrind:$WEBGRIND_TAG
 #    container_name: "${PROJECT_NAME}_webgrind"
 #    environment:
-#      WEBGRIND_PROFILER_DIR: /mnt/files/xdebug/profiler
+#      WEBGRIND_PROFILER_DIR: /mnt/files/xdebug
 #    labels:
 #    - "traefik.http.routers.${PROJECT_NAME}_webgrind.rule=Host(`webgrind.${PROJECT_BASE_URL}`)"
 #    volumes:
