@@ -22,13 +22,19 @@ DB_URL="${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}"
 
 make init -f /usr/local/bin/actions.mk
 
-composer -vvv require -n drupal/redis
-composer -vvv require -n drupal/search_api
-composer -vvv require -n drupal/search_api_solr
-composer -vvv require -n drupal/purge
-composer -vvv require -n drupal/varnish_purge
+composer require -n \
+  drupal/redis \
+  drupal/purge \
+  drupal/varnish_purge
 #    does not support Drupal 9 yet
 #composer require -n drupal/cache_tags
+
+# does not yet support php 8.x
+if [[ "${PHP_VERSION:0:1}" == "7" ]]; then
+  composer require -n \
+   drupal/search_api \
+   drupal/search_api_solr:~4
+fi
 
 cd ./web
 
@@ -50,8 +56,6 @@ check_rq "Configuration files" "Protected"
 
 drush en -y \
   redis \
-  search_api \
-  search_api_solr \
   purge \
   purge_queuer_coretags \
   purge_drush \
@@ -59,6 +63,13 @@ drush en -y \
   varnish_purge_tags
 #  \
 #  cache_tags
+
+# does not yet support php 8.x
+if [[ "${PHP_VERSION:0:1}" == "7" ]]; then
+  drush en -y \
+    search_api \
+    search_api_solr
+fi
 
 # Enable redis
 chmod 755 "${PWD}/sites/default/settings.php"
