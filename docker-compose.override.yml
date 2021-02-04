@@ -17,6 +17,10 @@ services:
       PHP_FPM_GROUP: wodby
       COLUMNS: 80 # Set 80 columns for docker exec -it.
 
+  crond:
+    environment:
+      CRONTAB: "*/5 * * * * drush -r /var/www/html/aadlorg/web cron" # run cron every 5 minutes
+
   nginx:
     environment:
       NGINX_SERVER_ROOT: /var/www/html/aadlorg/web

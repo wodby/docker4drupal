@@ -29,7 +29,7 @@
         "abraham/twitteroauth": "^0.7.4",
         "cweagans/composer-patches": "^1.6.0",
         "drupal/ckwordcount": "^1.0",
-        "drupal/console": "^1.8",
+        "drupal/console": "~1.0",
         "drupal/core": "^8.7.11",
         "drupal/devel": "^1.2",
         "drupal/domain": "^1.0@alpha",
@@ -38,6 +38,7 @@
         "drupal/field_group": "^1.0",
         "drupal/fullcalendar_view": "^2.2",
         "drupal/honeypot": "^1.27",
+        "drupal/jquery_ui_checkboxradio": "^1.2",
         "drupal/mimemail": "1.x-dev",
         "drupal/neato": "^1.6",
         "drupal/notification": "^1.0",
@@ -51,7 +52,7 @@
         "drupal/ubercart": "4.x-dev",
         "drupal/views_bulk_edit": "^2.4",
         "drupal/views_bulk_operations": "^2.1",
-        "drupal/webform": "^5.0@RC",
+        "drupal/webform": "^6.0",
         "drush/drush": "~8.0",
         "elasticsearch/elasticsearch": "^5.0",
         "hussainweb/drupal-composer-helper": "^1.0",
@@ -62,7 +63,7 @@
         "setasign/fpdf": "^1.8",
         "setasign/fpdi-fpdf": "^2.0",
         "square/connect": "^2.5",
-        "twilio/sdk": "^5.19"
+        "twilio/sdk": "^6.16"
     },
     "require-dev": {
         "behat/mink": "~1.7",
