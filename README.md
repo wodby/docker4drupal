@@ -41,8 +41,7 @@ The Drupal stack consist of the following containers:
 | Adminer         | 4.6                    | [wodby/adminer]                    |               |                    |
 | phpMyAdmin      | latest                 | [phpmyadmin/phpmyadmin]            |               |                    |
 | Selenium chrome | 3.141                  | [selenium/standalone-chrome]       |               |                    |
-| Portainer       | latest                 | [portainer/portainer]              |               | ✓                  |
-| Traefik         | latest                 | [_/traefik]                        |               | ✓                  |
+| Traefik         | latest                 | [_/traefik]                        | ✓             | ✓                  |
  
 Supported Drupal versions: 9 / 8 / 7
 
@@ -106,7 +105,6 @@ This project is licensed under the MIT open source license.
 [blackfire/blackfire]: https://hub.docker.com/r/blackfire/blackfire
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
-[portainer/portainer]: https://hub.docker.com/r/portainer/portainer
 [selenium/standalone-chrome]: https://hub.docker.com/r/selenium/standalone-chrome
 [wodby/adminer]: https://hub.docker.com/r/wodby/adminer
 [wodby/apache]: https://github.com/wodby/apache
