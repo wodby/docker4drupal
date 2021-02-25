@@ -268,15 +268,6 @@ services:
 #    - "--verbose"
 #    - "--whitelisted-ips="
 
-  portainer:
-    image: portainer/portainer
-    container_name: "${PROJECT_NAME}_portainer"
-    command: --no-auth -H unix:///var/run/docker.sock
-    volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-    - "traefik.http.routers.${PROJECT_NAME}_portainer.rule=Host(`portainer.${PROJECT_BASE_URL}`)"
-
   traefik:
     image: traefik:v2.0
     container_name: "${PROJECT_NAME}_traefik"
