@@ -3,24 +3,40 @@
 [![Build Status](https://travis-ci.org/wodby/docker4drupal.svg?branch=master)](https://travis-ci.org/wodby/docker4drupal)
 
 ## AADL Dev Install Steps
-
+There are two web applications that will be installed to provide a local AADL development environment:
+1. The AADL Drupal web site.
+1. The AADL API Laravel web service.
+### Installing the Drupal Web site
+1. Download a recent database dump file from univac.aadl.org. Open a terminal window, change directory to the *docker4aadl* directory and enter the following scp command to copy the latest database backup from univac:   
+	`scp it@univac.aadl.org:/mnt/backups/latest/aadlexport_*.sql.gz  mariadb-init/`
 1. Copy domain aliases from etc_hosts file to host machine's /etc/hosts
 1. Get Access Token from github for private AADL repositories
-1. Run `docker-compose up` to create docker containers
-1. Open terminal window in the aadldev_php container
-	1. Clone AADL API from github `cd /var/www/html && git clone https://github.com/aadl/api.git`
+1. Run `docker-compose up` to create docker containers and to install the database backup.
+1. Open terminal window in the aadldev_php container. Use the docker command:  
+	`docker exec -it aadldev_php bash`
 	1. Download drupal `cd /var/www/html/aadlorg && drush dl drupal --drupal-project-rename=web`
 	1. Install modules `composer update`
-1. open `http://aadldev.test:8000/` in browser and go through install process
+1. In a browser, open `http://aadldev.test:8000/` and complete the Drupal install process.
     1. Select `standard` install profile
     1. Database connection info:
         * database: `drupal`
         * username: `drupal`
         * password: `drupal`
-        * Advanced info host: `mariadb`
-1. Install theme from github, copy on top of existing themes directory
+        * Advanced info host: `mariadb`  
+          
+    **Install the aadl theme from github**  
+  	1. Use the following git clone command to get the latest code:  
+		`git clone https://github.com/aadl/aadl.org-frontend.git`
+  	1. Copy on top of existing themes directory
+  	1. In the browser, navigate to the admin/appearance section and select the aadl theme as the Default
+  	1. Rebuilt the drupal cache. Run `drush cr` from a terminal window connected to the aadldev_php container - from the root level for the web site `aadlorg/web/`   
 1. Change path to '/../vendor/autoload.php' in aadlorg/web/autoload.php
-1. Install API `cd /var/www/html/api %% composer install`
+### Installing the API
+Open terminal window in the aadldev_php container  
+1. Clone AADL API from github  
+	`cd /var/www/html && git clone https://github.com/aadl/api.git`  
+2. Install API  
+	`cd /var/www/html/api %% composer install`
 
 ## Introduction
 
