@@ -28,8 +28,9 @@ There are two web applications that will be installed to provide a local AADL de
   	1. Use the following git clone command to get the latest code:  
 		`git clone https://github.com/aadl/aadl.org-frontend.git`
   	1. Copy on top of existing themes directory
-  	1. In the browser, navigate to the admin/appearance section and select the aadl theme as the Default
-  	1. Rebuilt the drupal cache. Run `drush cr` from a terminal window connected to the aadldev_php container - from the root level for the web site `aadlorg/web/`   
+  	1. Follow the installation steps in the aadl.org-frontend readme.md file
+  	2. In the browser, navigate to the admin/appearance section and select the aadl theme as the Default
+  	3. Rebuilt the drupal cache. Run `drush cr` from a terminal window connected to the aadldev_php container - from the root level for the web site `aadlorg/web/`   
 1. Change path to '/../vendor/autoload.php' in aadlorg/web/autoload.php
 ### Installing the API
 Open terminal window in the aadldev_php container  
