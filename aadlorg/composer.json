@@ -1,79 +1,8 @@
 {
-    "name": "aadl/drupal",
-    "description": "aadl.org website",
+    "name": "drupal-composer/drupal-project",
+    "description": "Project template for Drupal 8 projects with composer",
     "type": "project",
-    "require": {
-        "aadl/aadl-content-management": "dev-master",
-        "aadl/aadlfreespace": "dev-master",
-        "aadl/accountfix": "dev-master",
-        "aadl/arborcat": "dev-master",
-        "aadl/arborelastic": "dev-master",
-        "aadl/askus": "dev-master",
-        "aadl/bisac-assign": "dev-master",
-        "aadl/ccollections": "dev-master",
-        "aadl/events": "dev-master",
-        "aadl/ezproxy": "dev-8.x-1.x",
-        "aadl/fesliders": "dev-master",
-        "aadl/ill": "dev-master",
-        "aadl/itsallwrite": "dev-master",
-        "aadl/newslater": "dev-master",
-        "aadl/oldnews": "dev-master",
-        "aadl/patron_booking": "dev-master",
-        "aadl/patron_comments": "dev-master",
-        "aadl/pointsomatic": "dev-master",
-        "aadl/square": "dev-master",
-        "aadl/statusinator": "dev-master",
-        "aadl/summergame": "dev-master",
-        "aadl/twilio": "dev-master",
-        "aadl/uc_summergame": "dev-master",
-        "abraham/twitteroauth": "^0.7.4",
-        "cweagans/composer-patches": "^1.6.0",
-        "drupal/ckwordcount": "^1.0",
-        "drupal/console": "~1.0",
-        "drupal/core": "^8.7.11",
-        "drupal/devel": "^1.2",
-        "drupal/domain": "^1.0@alpha",
-        "drupal/domain_theme_switch": "^1.2",
-        "drupal/elasticsearch_connector": "^5.0@alpha",
-        "drupal/field_group": "^1.0",
-        "drupal/fullcalendar_view": "^2.2",
-        "drupal/honeypot": "^1.27",
-        "drupal/jquery_ui_checkboxradio": "^1.2",
-        "drupal/mimemail": "1.x-dev",
-        "drupal/neato": "^1.6",
-        "drupal/notification": "^1.0",
-        "drupal/persistent_login": "^1.0@alpha",
-        "drupal/redis": "^1.0@RC",
-        "drupal/rules": "^3.0",
-        "drupal/scheduler": "^1.0",
-        "drupal/search_api": "^1.11",
-        "drupal/simplenews": "1.x-dev",
-        "drupal/super_login": "^1.0",
-        "drupal/ubercart": "4.x-dev",
-        "drupal/views_bulk_edit": "^2.4",
-        "drupal/views_bulk_operations": "^2.1",
-        "drupal/webform": "^6.0",
-        "drush/drush": "~8.0",
-        "elasticsearch/elasticsearch": "^5.0",
-        "hussainweb/drupal-composer-helper": "^1.0",
-        "mobiledetect/mobiledetectlib": "^2.8",
-        "php-on-couch/php-on-couch": "^2.0",
-        "predis/predis": "^1.1",
-        "sabre/vobject": "^4.1",
-        "setasign/fpdf": "^1.8",
-        "setasign/fpdi-fpdf": "^2.0",
-        "square/connect": "^2.5",
-        "twilio/sdk": "^6.16"
-    },
-    "require-dev": {
-        "behat/mink": "~1.7",
-        "behat/mink-goutte-driver": "~1.2",
-        "jcalderonzumba/gastonjs": "~1.0.2",
-        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
-        "mikey179/vfsstream": "~1.2",
-        "phpunit/phpunit": ">=4.8.28 <5",
-        "symfony/css-selector": "~2.8"
-    },
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Ann Arbor District Library",
@@ -87,115 +16,74 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/aadl/CCollections.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/FESliders.git"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/aadl/aadl-content-management.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/aadlfreespace.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/accountfix.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/arborcat.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/arborelastic.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/askus.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/bisac-assign.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/pub-events.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/ezproxy.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/ill.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/itsallwrite.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/newslater.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/oldnews.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/patron_booking.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/patron_comments.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/pointsomatic.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/square.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/statusinator.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/summergame.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/twilio.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/uc_summergame.git"
         }
     ],
-    "minimum-stability": "dev",
-    "extra": {
-        "drupal-composer-helper": {
-            "web-prefix": "web"
-        },
-        "enable-patching": true,
-        "installer-paths": {
-            "web/core": [
-                "type:drupal-core"
-            ]
-        }
+    "require": {
+        "php": ">=7.0.8",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "drupal/console": "^1.0.2",
+        "drupal/core": "^8.8.0",
+        "drupal/core-composer-scaffold": "^8.8.0",
+        "drush/drush": "^9.7.1 | ^10.0.0",
+        "vlucas/phpdotenv": "^4.0",
+        "webflo/drupal-finder": "^1.0.0",
+        "zaporylie/composer-drupal-optimizations": "^1.0",
+        
+        "aadl/aadl-content-management": "dev-master"
+
     },
-    "prefer-stable": true,
+    "require-dev": {
+        "drupal/core-dev": "^8.8.0"
+    },
     "conflict": {
         "drupal/drupal": "*"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
-        "sort-packages": true,
-        "optimize-autoloader": true
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": ["load.environment.php"]
+    },
+
+    "scripts": {
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
+        }
     }
 }
