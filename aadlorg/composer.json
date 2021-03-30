@@ -1,14 +1,81 @@
 {
-    "name": "drupal-composer/drupal-project",
-    "description": "Project template for Drupal 8 projects with composer",
+    "name": "aadl/drupal",
+    "description": "aadl.org website",
     "type": "project",
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Ann Arbor District Library",
-            "email": "github@aadl.org"
-        }
-    ],
+    "require": {
+        "aadl/aadl-content-management": "dev-master",
+        "aadl/aadlfreespace": "dev-master",
+        "aadl/accountfix": "dev-master",
+        "aadl/arborcat": "dev-master",
+        "aadl/arborelastic": "dev-master",
+        "aadl/askus": "dev-master",
+        "aadl/bisac-assign": "dev-master",
+        "aadl/ccollections": "dev-master",
+        "aadl/events": "dev-master",
+        "aadl/ezproxy": "dev-8.x-1.x",
+        "aadl/fesliders": "dev-master",
+        "aadl/ill": "dev-master",
+        "aadl/itsallwrite": "dev-master",
+        "aadl/newslater": "dev-master",
+        "aadl/oldnews": "dev-master",
+        "aadl/patron_booking": "dev-master",
+        "aadl/patron_comments": "dev-master",
+        "aadl/pointsomatic": "dev-master",
+        "aadl/square": "dev-master",
+        "aadl/statusinator": "dev-master",
+        "aadl/summergame": "dev-master",
+        "aadl/twilio": "dev-master",
+        "aadl/uc_summergame": "dev-master",
+        "aadl/ums_cardfile": "dev-drupal8migration",
+        "aadl/toolbooking": "dev-drupalDBTableAdditions2",
+        "aadl/aadl.org-frontend": "dev-tool-booking-UI",
+        "abraham/twitteroauth": "^0.7.4",
+        "cweagans/composer-patches": "^1.6.0",
+        "drupal/ckwordcount": "^1.0",
+        "drupal/console": "~1.0",
+        "drupal/core": "^8.8.2",
+        "drupal/devel": "^1.2",
+        "drupal/domain": "^1.0@alpha",
+        "drupal/domain_theme_switch": "^1.2",
+        "drupal/elasticsearch_connector": "^5.0@alpha",
+        "drupal/field_group": "^1.0",
+        "drupal/fullcalendar_view": "^2.2",
+        "drupal/honeypot": "^1.27",
+        "drupal/jquery_ui_checkboxradio": "^1.2",
+        "drupal/mimemail": "1.x-dev",
+        "drupal/neato": "^1.6",
+        "drupal/notification": "^1.0",
+        "drupal/persistent_login": "^1.0@alpha",
+        "drupal/redis": "^1.0@RC",
+        "drupal/rules": "^3.0",
+        "drupal/scheduler": "^1.0",
+        "drupal/search_api": "^1.11",
+        "drupal/simplenews": "1.x-dev",
+        "drupal/super_login": "^1.0",
+        "drupal/ubercart": "4.x-dev",
+        "drupal/views_bulk_edit": "^2.4",
+        "drupal/views_bulk_operations": "^2.1",
+        "drupal/webform": "^6.0",
+        "elasticsearch/elasticsearch": "^5.0",
+        "hussainweb/drupal-composer-helper": "^1.0",
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "php-on-couch/php-on-couch": "^2.0",
+        "predis/predis": "^1.1",
+        "sabre/vobject": "^4.1",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi-fpdf": "^2.0",
+        "square/connect": "^2.5",
+        "twilio/sdk": "^6.16"
+    },
+    "require-dev": {
+        "behat/mink": "~1.7",
+        "behat/mink-goutte-driver": "~1.2",
+        "jcalderonzumba/gastonjs": "~1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+        "mikey179/vfsstream": "~1.2",
+        "phpunit/phpunit": "^6.5",
+        "symfony/css-selector": "~2.8.9"
+    },
     "repositories": [
         {
             "type": "composer",
@@ -123,52 +190,11 @@
             "url": "https://github.com/aadl/aadl.org-frontend.git"
         }
     ],
-    "require": {
-        "php": ">=7.0.8",
-        "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6.5",
-        "drupal/console": "^1.0.2",
-        "drupal/core": "^8.8.0",
-        "drupal/core-composer-scaffold": "^8.8.0",
-        "drush/drush": "^9.7.1 | ^10.0.0",
-        "vlucas/phpdotenv": "^4.0",
-        "webflo/drupal-finder": "^1.0.0",
-        "zaporylie/composer-drupal-optimizations": "^1.0",
 
-        "aadl/aadl-content-management": "dev-master",
-        "aadl/aadlfreespace": "dev-master",
-        "aadl/accountfix": "dev-master",
-        "aadl/arborcat": "dev-master",
-        "aadl/arborelastic": "dev-master",
-        "aadl/askus": "dev-master",
-        "aadl/bisac-assign": "dev-master",
-        "aadl/ccollections": "dev-master",
-        "aadl/events": "dev-master",
-        "aadl/ezproxy": "dev-8.x-1.x",
-        "aadl/fesliders": "dev-master",
-        "aadl/ill": "dev-master",
-        "aadl/itsallwrite": "dev-master",
-        "aadl/newslater": "dev-master",
-        "aadl/oldnews": "dev-master",
-        "aadl/patron_booking": "dev-master",
-        "aadl/patron_comments": "dev-master",
-        "aadl/pointsomatic": "dev-master",
-        "aadl/square": "dev-master",
-        "aadl/statusinator": "dev-master",
-        "aadl/summergame": "dev-master",
-        "aadl/twilio": "dev-master",
-        "aadl/uc_summergame": "dev-master",
-        "aadl/ums_cardfile": "dev-drupal8migration",
-        "aadl/toolbooking": "dev-drupalDBTableAdditions2",
-        "aadl/aadl.org-frontend": "dev-tool-booking-UI"
-    },
-    "require-dev": {
-        "drupal/core-dev": "^8.8.0"
-    },
+    "minimum-stability": "dev",
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "sort-packages": true
@@ -197,15 +223,10 @@
         ]
     },
     "extra": {
-        "composer-exit-on-patch-failure": true,
-        "patchLevel": {
-            "drupal/core": "-p2"
+        "drupal-composer-helper": {
+            "web-prefix": "web"
         },
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "web/"
-            }
-        },
+        "enable-patching": true,
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],

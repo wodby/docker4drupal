@@ -9,6 +9,8 @@ There are two web applications that will be installed to provide a local AADL de
 ### Installing the Drupal Web site
 1. Download a recent database dump file from univac.aadl.org. Open a terminal window, change directory to the *docker4aadl* directory and enter the following scp command to copy the latest database backup from univac:   
 	`scp it@univac.aadl.org:/mnt/backups/latest/aadlexport_*.sql.gz  mariadb-init/`
+	
+1. Change directory to the *aadlorg* folder and install Drupal and the aadl custom modules by entering `composer install`
 1. Copy domain aliases from etc_hosts file to host machine's /etc/hosts
 1. Get Access Token from github for private AADL repositories
 1. Run `docker-compose up` to create docker containers and to install the database backup.
