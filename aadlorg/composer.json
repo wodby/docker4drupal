@@ -31,9 +31,19 @@
         "aadl/aadl.org-frontend": "dev-tool-booking-UI",
         "abraham/twitteroauth": "^0.7.4",
         "cweagans/composer-patches": "^1.6.0",
+
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "drupal/console": "^1.0.2",
+        "drupal/core": "^8.8.0",
+        "drupal/core-composer-scaffold": "^8.8.0",
+        "drush/drush": "^9.7.1 | ^10.0.0",
+        "vlucas/phpdotenv": "^4.0",
+        "webflo/drupal-finder": "^1.0.0",
+        "zaporylie/composer-drupal-optimizations": "^1.0",
+
+
         "drupal/ckwordcount": "^1.0",
-        "drupal/console": "~1.0",
-        "drupal/core": "^8.8.2",
         "drupal/devel": "^1.2",
         "drupal/domain": "^1.0@alpha",
         "drupal/domain_theme_switch": "^1.2",
@@ -66,15 +76,16 @@
         "setasign/fpdi-fpdf": "^2.0",
         "square/connect": "^2.5",
         "twilio/sdk": "^6.16"
+
     },
     "require-dev": {
+        "drupal/core-dev": "^8.8.0",
         "behat/mink": "~1.7",
         "behat/mink-goutte-driver": "~1.2",
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsstream": "~1.2",
-        "phpunit/phpunit": "^6.5",
-        "symfony/css-selector": "~2.8.9"
+        "phpunit/phpunit": "^6.5"
     },
     "repositories": [
         {
@@ -225,6 +236,11 @@
     "extra": {
         "drupal-composer-helper": {
             "web-prefix": "web"
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
         },
         "enable-patching": true,
         "installer-paths": {
