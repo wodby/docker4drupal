@@ -60,6 +60,16 @@ class ScriptHandler {
     }
   }
 
+  public static function setupAADLTheme(Event $event) {
+    $fs = new Filesystem();
+    $drupalFinder = new DrupalFinder();
+    $drupalFinder->locateRoot(getcwd());
+    $drupalRoot = $drupalFinder->getDrupalRoot();
+
+    echo('##### drupalRoot = ' . $drupalRoot);
+
+  }
+
   /**
    * Checks if the installed version of Composer is compatible.
    *
