@@ -4,11 +4,7 @@
 
 ## Introduction
 
-Docker4Drupal is a set of docker images optimized for Drupal. Use `docker-compose.yml` file from the [latest stable release](https://github.com/wodby/docker4drupal/releases) to spin up local environment on Linux, Mac OS X and Windows. 
-
-* Read the docs on [**how to use**](https://wodby.com/docs/stacks/drupal/local#usage)
-* Ask questions on [Slack](http://slack.wodby.com/)
-* Follow [@wodbycloud](https://twitter.com/wodbycloud) for future announcements
+This version of Drupal initialization development platform is base on Docker4Drupal [latest stable release](https://github.com/wodby/docker4drupal/releases) to spin up local environment on Linux, Mac OS X and Windows. 
 
 ## Stack
 
@@ -47,7 +43,20 @@ Supported Drupal versions: 9 / 8 / 7
 
 ## Documentation
 
-Full documentation is available at https://wodby.com/docs/stacks/drupal/local.
+This code version is based on the last edition of [wodby documentation](https://wodby.com/docs/stacks/drupal/local) using our code coverage.
+
+This version integrates some code to download automatically Drupal Core and inject database credentials.
+
+* create .env file from .env.dist file and inject the database credentials want to use.
+* you can change default information of project
+  * `PROJECT_NAME=your-project-name` *The project name used to create container*
+  * `PROJECT_BASE_URL=your-host-name.com` *Host name of project*
+  * `PROJECT_NAME_PORT=80` *Port associate to host name to access site*
+  * `PROJECT_ADMIN_NAME=admin` *name superuserdrupal uid 1* 
+  * `PROJECT_ADMIN_PASS=admin` *password superuser drupal uid 1*
+* execute `make install` to build container and download Drupal Core
+
+> To choose Drupal Core version override informations on web/composer.json before `make install`
 
 ## Images' tags
 
