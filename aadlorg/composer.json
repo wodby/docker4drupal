@@ -4,6 +4,7 @@
     "type": "project",
     "require": {
         "aadl/aadl-content-management": "dev-master",
+        "aadl/aadl.org-frontend": "dev-tool-booking-UI",
         "aadl/aadlfreespace": "dev-master",
         "aadl/accountfix": "dev-master",
         "aadl/arborcat": "dev-master",
@@ -24,26 +25,16 @@
         "aadl/square": "dev-master",
         "aadl/statusinator": "dev-master",
         "aadl/summergame": "dev-master",
+        "aadl/toolbooking": "dev-drupalDBTableAdditions2",
         "aadl/twilio": "dev-master",
         "aadl/uc_summergame": "dev-master",
         "aadl/ums_cardfile": "dev-drupal8migration",
-        "aadl/toolbooking": "dev-drupalDBTableAdditions2",
-        "aadl/aadl.org-frontend": "dev-tool-booking-UI",
         "abraham/twitteroauth": "^0.7.4",
-        "cweagans/composer-patches": "^1.6.0",
-
-        "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.6.5",
-        "drupal/console": "^1.0.2",
-        "drupal/core": "^8.8.0",
-        "drupal/core-composer-scaffold": "^8.8.0",
-        "drush/drush": "^9.7.1 | ^10.0.0",
-        "vlucas/phpdotenv": "^4.0",
-        "webflo/drupal-finder": "^1.0.0",
-        "zaporylie/composer-drupal-optimizations": "^1.0",
-
-
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/ckwordcount": "^1.0",
+        "drupal/console": "~1.0",
+        "drupal/core-composer-scaffold": "^9.1",
         "drupal/devel": "^1.2",
         "drupal/domain": "^1.0@alpha",
         "drupal/domain_theme_switch": "^1.2",
@@ -63,9 +54,12 @@
         "drupal/simplenews": "1.x-dev",
         "drupal/super_login": "^1.0",
         "drupal/ubercart": "4.x-dev",
+        "drupal/upgrade_status": "^3.0",
         "drupal/views_bulk_edit": "^2.4",
         "drupal/views_bulk_operations": "^2.1",
         "drupal/webform": "^6.0",
+        "drupal/webform_views": "^5.0@alpha",
+        "drush/drush": "10.4.1",
         "elasticsearch/elasticsearch": "^5.0",
         "hussainweb/drupal-composer-helper": "^1.0",
         "mobiledetect/mobiledetectlib": "^2.8",
@@ -75,18 +69,32 @@
         "setasign/fpdf": "^1.8",
         "setasign/fpdi-fpdf": "^2.0",
         "square/connect": "^2.5",
-        "twilio/sdk": "^6.16"
-
+        "symfony/browser-kit": "3.4.x-dev",
+        "twilio/sdk": "^6.16",
+        "vlucas/phpdotenv": "^5.1",
+        "webflo/drupal-finder": "^1.2"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.8.0",
         "behat/mink": "~1.7",
         "behat/mink-goutte-driver": "~1.2",
+        "drupal/core-dev": "8.9.13",
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsstream": "~1.2",
-        "phpunit/phpunit": "^6.5"
+        "phpunit/phpunit": "^6.5",
+        "symfony/css-selector": "^3.4.0",
+        "symfony/debug": "^3.4.0",
+        "symfony/dom-crawler": "3.4.x-dev",
+        "symfony/filesystem": "3.4.x-dev",
+        "symfony/finder": "3.4.x-dev",
+        "zaporylie/composer-drupal-optimizations": "^1.2"
     },
+    "authors": [
+        {
+            "name": "Ann Arbor District Library",
+            "email": "github@aadl.org"
+        }
+    ],
     "repositories": [
         {
             "type": "composer",
@@ -184,10 +192,6 @@
             "type": "vcs",
             "url": "https://github.com/aadl/uc_summergame.git"
         },
-        {
-            "type": "vcs",
-            "url": "https://github.com/aadl/uc_summergame.git"
-        },
        {
             "type": "vcs",
             "url": "https://github.com/aadl/ums_cardfile.git"
@@ -201,15 +205,38 @@
             "url": "https://github.com/aadl/aadl.org-frontend.git"
         }
     ],
-
     "minimum-stability": "dev",
+    "extra": {
+        "drupal-composer-helper": {
+            "web-prefix": "web"
+        },
+        "enable-patching": true,
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
+
+        }
+    },
+    "prefer-stable": true,
     "conflict": {
         "drupal/drupal": "*"
     },
-    "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "optimize-autoloader": true
     },
+
     "autoload": {
         "classmap": [
             "scripts/composer/ScriptHandler.php"
@@ -232,26 +259,5 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "DrupalProject\\composer\\ScriptHandler::setupAADLTheme"
         ]
-    },
-    "extra": {
-        "drupal-composer-helper": {
-            "web-prefix": "web"
-        },
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "web/"
-            }
-        },
-        "enable-patching": true,
-        "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
-        }
     }
 }
