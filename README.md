@@ -16,7 +16,7 @@ The Drupal stack consist of the following containers:
 
 | Container       | Versions               | Image                              | ARM64 support | Enabled by default |
 | --------------- | ---------------------- | ---------------------------------- | ------------- | ------------------ |
-| [Nginx]         | 1.19, 1.18             | [wodby/nginx]                      | ✓             | ✓                  |
+| [Nginx]         | 1.20, 1.19             | [wodby/nginx]                      | ✓             | ✓                  |
 | [Apache]        | 2.4                    | [wodby/apache]                     | ✓             |                    |
 | [Drupal]        | 9, 8, 7                | [wodby/drupal]                     | ✓             | ✓                  |
 | [PHP]           | 8.0, 7.4, 7.3          | [wodby/drupal-php]                 | ✓             |                    |
