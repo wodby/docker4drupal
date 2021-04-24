@@ -15,6 +15,13 @@ help : Makefile
 	@sed -n 's/^##//p' $<
 endif
 
+## first-run	:	Set up for the very first time, will delete everything!
+.PHONY: first-run
+first-run: 
+	make down && make prune && make up && sleep 30 && docker ps -a && ls -la codebase
+	rm -rf codebase/* codebase/.* || true && ls -la codebase
+	make composer create-project drupal/recommended-project /var/www/html
+
 ## up	:	Start up containers.
 .PHONY: up
 up:
