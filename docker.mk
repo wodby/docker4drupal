@@ -21,6 +21,16 @@ first-run:
 	make down && make prune && make up && sleep 30 && docker ps -a && ls -la codebase
 	rm -rf codebase/* codebase/.* || true && ls -la codebase
 	make composer create-project drupal/recommended-project /var/www/html
+	mkdir codebase/web/sites/default/files
+	chmod a+w codebase/web/sites/default/files
+	cp codebase/web/sites/default/default.settings.php codebase/web/sites/default/settings.php
+	chmod a+w codebase/web/sites/default/settings.php
+	echo "After install, run: make post-install"
+
+## post-install	:	Post-Install tasks i.e. permissions hardening.
+.PHONY: post-install
+post-install:
+	chmod go-w codebase/web/sites/default/settings.php
 
 ## up	:	Start up containers.
 .PHONY: up

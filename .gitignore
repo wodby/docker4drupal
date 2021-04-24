@@ -33,6 +33,7 @@ codebase/web/sites/default/default.services.pantheon.preproduction.yml
 codebase/web/sites/default/default.services.yml
 codebase/web/sites/default/default.settings.php
 codebase/web/sites/default/private
+codebase/web/sites/default/settings.php
 codebase/web/sites/default/settings.pantheon.php
 codebase/web/sites/default/temp
 codebase/web/sites/development.services.yml
