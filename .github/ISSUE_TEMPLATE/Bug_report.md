@@ -4,6 +4,12 @@ about: Create a report to help us improve
 
 ---
 
+***OS type***
+Linux/Windows/macOS
+
+***Drupal version***
+7 / 8
+
 ***Codebase***
 Built-in vanilla Drupal or mounted codebase
 
