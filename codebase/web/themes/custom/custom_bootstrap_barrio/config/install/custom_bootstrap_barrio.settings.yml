@@ -1,0 +1,52 @@
+# Library.
+# ----------------------------
+bootstrap_barrio_library: 'production'
+# Layout.
+# ----------------------------
+bootstrap_barrio_sidebar_position: 'both'
+bootstrap_barrio_content_offset: 0
+bootstrap_barrio_sidebar_first_width: 4
+bootstrap_barrio_sidebar_first_offset: 0
+bootstrap_barrio_sidebar_second_width: 3
+bootstrap_barrio_sidebar_second_offset: 0
+
+# Container.
+# ----------------------------
+bootstrap_barrio_fluid_container: 0
+
+# Buttons.
+# ----------------------------
+bootstrap_barrio_button: 1
+bootstrap_barrio_button_size: ''
+bootstrap_barrio_button_outline: 0
+
+# Navbar.
+# ----------------------------
+bootstrap_barrio_navbar_toggle: 'navbar-toggleable-lg'
+bootstrap_barrio_navbar_container: ''
+bootstrap_barrio_navbar_top_position: ''
+bootstrap_barrio_navbar_top_color: ''
+bootstrap_barrio_navbar_top_background: ''
+bootstrap_barrio_navbar_position: ''
+bootstrap_barrio_navbar_color: ''
+bootstrap_barrio_navbar_background: ''
+
+# Messages.
+# ----------------------------
+bootstrap_barrio_messages_widget: 'alerts'
+
+# Form.
+# ----------------------------
+bootstrap_barrio_radio: 'custom'
+bootstrap_barrio_checkbox: 'switch'
+bootstrap_barrio_select: 'custom'
+bootstrap_barrio_file: 'custom'
+
+# Colors.
+# ----------------------------
+bootstrap_barrio_system_messages: 'messages_white'
+
+# Tables.
+# ----------------------------
+bootstrap_barrio_table_hover: 1
+bootstrap_barrio_table_style: 'table-striped'

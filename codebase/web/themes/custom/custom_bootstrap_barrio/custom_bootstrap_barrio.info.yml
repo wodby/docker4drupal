@@ -1,0 +1,39 @@
+name: Custom BootStrap Barrio
+type: theme
+description: 'Basic structure for a Bootstrap Barrio SubTheme.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: bootstrap_barrio
+
+libraries:
+  - custom_bootstrap_barrio/bootstrap_cdn
+  - custom_bootstrap_barrio/global-styling
+
+regions:
+  top_header: 'Top header'
+  top_header_form: 'Top header form'
+  header: Header
+  header_form: 'Header form'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  featured_bottom_first: 'Featured bottom first'
+  featured_bottom_second: 'Featured bottom second'
+  featured_bottom_third: 'Featured bottom third'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_fourth: 'Footer fourth'
+  footer_fifth: 'Footer fifth'
+
+# Information added by Drupal.org packaging script on 2020-10-25
+version: '5.1.4'
+project: 'bootstrap_barrio'
+datestamp: 1603660712
