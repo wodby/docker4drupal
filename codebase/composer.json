@@ -16,9 +16,13 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/adminimal_theme": "^1.6",
+        "drupal/bootstrap_barrio": "^5.1",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
+        "drupal/eck": "dev-1.x",
+        "drupal/social_auth_google": "^3.0.0-rc1",
         "drupal/webform": "^6.0"
     },
     "conflict": {
