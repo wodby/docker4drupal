@@ -29,3 +29,12 @@ color.preview:
     color/preview.js: {}
   dependencies:
     - color/drupal.color
+ReactDisplay:
+  version: 1.0.0
+  footer: true
+  webpack: true
+  drupalSettings:
+    node: null
+  js:
+    js/ReactDisplay.entry.js: { preprocess: 0, source: 'js/ReactDisplay.entry.jsx' }
+
