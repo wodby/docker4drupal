@@ -49,7 +49,7 @@ Supported Drupal versions: 9 / 8 / 7
 
 Full documentation is available at https://wodby.com/docs/stacks/drupal/local.
 
-## Images' tags
+## Image's tags
 
 Images tags format is `[VERSION]-[STABILITY_TAG]` where:
 
