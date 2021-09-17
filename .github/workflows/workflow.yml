@@ -19,8 +19,6 @@ jobs:
         exclude:
         - drupal_ver: 8
           php_ver: '8.0'
-        - drupal_ver: 7
-          php_ver: '8.0'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
