@@ -21,6 +21,7 @@ if (file_exists($contrib_path . '/redis')) {
 
   $conf['redis_client_host'] = 'redis';
   $conf['redis_client_port'] = '6379';
+  $conf['redis_client_password'] = 'bad-password';
 }
 
 $base_url = 'http://varnish';
