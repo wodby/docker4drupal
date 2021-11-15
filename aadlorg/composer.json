@@ -4,8 +4,7 @@
     "type": "project",
     "require": {
         "aadl/aadl-content-management": "dev-master",
-        "aadl/aadl.org-frontend": "dev-tool-booking-UI",
-        "aadl/aadlfreespace": "dev-master",
+        "aadl/aadl.org-frontend": "dev-master",
         "aadl/accountfix": "dev-master",
         "aadl/arborcat": "dev-master",
         "aadl/arborelastic": "dev-master",
@@ -30,38 +29,43 @@
         "aadl/uc_summergame": "dev-master",
         "aadl/ums_cardfile": "dev-drupal8migration",
         "abraham/twitteroauth": "^0.7.4",
-        "composer/installers": "^1.9",
-        "cweagans/composer-patches": "^1.7",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.7.0",
         "drupal/ckwordcount": "^1.0",
-        "drupal/console": "~1.0",
-        "drupal/core-composer-scaffold": "^9.1",
-        "drupal/devel": "^1.2",
+        "drupal/console": "^1.8",
+        "drupal/core": "9.2.8 as 8.9.19",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-project-message": "^9",
+        "drupal/core-recommended": "^9",
         "drupal/domain": "^1.0@alpha",
         "drupal/domain_theme_switch": "^1.2",
         "drupal/elasticsearch_connector": "^5.0@alpha",
-        "drupal/field_group": "^1.0",
-        "drupal/fullcalendar_view": "^2.2",
-        "drupal/honeypot": "^1.27",
+        "drupal/field_group": "^3.2",
+        "drupal/fullcalendar_view": "^2.5",
+        "drupal/honeypot": "^2.0.1",
+        "drupal/jquery_ui_accordion": "^1.1",
         "drupal/jquery_ui_checkboxradio": "^1.2",
+        "drupal/jquery_ui_datepicker": "^1.1",
+        "drupal/memcache": "^2.2",
         "drupal/mimemail": "1.x-dev",
-        "drupal/neato": "^1.6",
+        "drupal/neato": "^1.9",
+        "drupal/node_access_rebuild_progressive": "^2.0",
         "drupal/notification": "^1.0",
         "drupal/persistent_login": "^1.0@alpha",
         "drupal/redis": "^1.0@RC",
-        "drupal/rules": "^3.0",
+        "drupal/rules": "3.x-dev",
         "drupal/scheduler": "^1.0",
         "drupal/search_api": "^1.11",
-        "drupal/simplenews": "1.x-dev",
+        "drupal/simplenews": "2.x",
         "drupal/super_login": "^1.0",
-        "drupal/ubercart": "4.x-dev",
-        "drupal/upgrade_status": "^3.0",
+        "drupal/typed_data": "^1.0@beta",
+        "drupal/upgrade_status": "^3.3",
         "drupal/views_bulk_edit": "^2.4",
-        "drupal/views_bulk_operations": "^2.1",
+        "drupal/views_bulk_operations": "^4.0",
         "drupal/webform": "^6.0",
         "drupal/webform_views": "^5.0@alpha",
         "drush/drush": "10.4.1",
-        "elasticsearch/elasticsearch": "^5.0",
-        "hussainweb/drupal-composer-helper": "^1.0",
+        "michelf/php-markdown": "^1.9",
         "mobiledetect/mobiledetectlib": "^2.8",
         "php-on-couch/php-on-couch": "^2.0",
         "predis/predis": "^1.1",
@@ -69,25 +73,16 @@
         "setasign/fpdf": "^1.8",
         "setasign/fpdi-fpdf": "^2.0",
         "square/connect": "^2.5",
-        "symfony/browser-kit": "3.4.x-dev",
-        "twilio/sdk": "^6.16",
-        "vlucas/phpdotenv": "^5.1",
-        "webflo/drupal-finder": "^1.2"
+        "twilio/sdk": "^6.16"
     },
     "require-dev": {
         "behat/mink": "~1.7",
         "behat/mink-goutte-driver": "~1.2",
-        "drupal/core-dev": "8.9.13",
         "jcalderonzumba/gastonjs": "~1.0.2",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
         "mikey179/vfsstream": "~1.2",
-        "phpunit/phpunit": "^6.5",
-        "symfony/css-selector": "^3.4.0",
-        "symfony/debug": "^3.4.0",
-        "symfony/dom-crawler": "3.4.x-dev",
-        "symfony/filesystem": "3.4.x-dev",
-        "symfony/finder": "3.4.x-dev",
-        "zaporylie/composer-drupal-optimizations": "^1.2"
+        "mglaman/drupal-check": "^1.2",
+        "drupal/core-dev": "^9"
     },
     "authors": [
         {
@@ -99,6 +94,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/arborcat.git"
         },
         {
             "type": "vcs",
@@ -192,72 +191,49 @@
             "type": "vcs",
             "url": "https://github.com/aadl/uc_summergame.git"
         },
-       {
+        {
             "type": "vcs",
             "url": "https://github.com/aadl/ums_cardfile.git"
         },
-       {
+        {
             "type": "vcs",
             "url": "https://github.com/aadl/toolbooking.git"
         },
-       {
+        {
             "type": "vcs",
             "url": "https://github.com/aadl/aadl.org-frontend.git"
         }
     ],
-    "minimum-stability": "dev",
-    "extra": {
-        "drupal-composer-helper": {
-            "web-prefix": "web"
-        },
-        "enable-patching": true,
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "web/"
-            }
-        },
-        "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
-
-        }
-    },
-    "prefer-stable": true,
     "conflict": {
         "drupal/drupal": "*"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "sort-packages": true,
         "optimize-autoloader": true
     },
 
-    "autoload": {
-        "classmap": [
-            "scripts/composer/ScriptHandler.php"
-        ],
-        "files": ["load.environment.php"]
-    },
+    "extra": {
+        "drupal-composer-helper": {
+            "web-prefix": "web"
+        },
+        "enable-patching": true,
+				"drupal-scaffold": {
+      	    "locations": {
+            "web-root": "web/"
+            }
+				},
+				"installer-paths": {
+								"web/core": ["type:drupal-core"],
+								"web/libraries/{$name}": ["type:drupal-library"],
+								"web/modules/contrib/{$name}": ["type:drupal-module"],
+								"web/modules/custom/{$name}": ["type:drupal-custom-module"],
+								"web/profiles/contrib/{$name}": ["type:drupal-profile"],
+								"web/themes/contrib/{$name}": ["type:drupal-theme"],
+								"web/themes/custom/{$name}": ["type:drupal-custom-theme"],
+								"drush/Commands/contrib/{$name}": ["type:drupal-drush"]
+				}
+	}
 
-    "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "DrupalProject\\composer\\ScriptHandler::setupAADLTheme"
-        ],
-        "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "DrupalProject\\composer\\ScriptHandler::setupAADLTheme"
-        ]
-    }
 }
