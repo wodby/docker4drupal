@@ -211,9 +211,11 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "aadl/*": "source"
+        }
     },
-
     "extra": {
         "drupal-composer-helper": {
             "web-prefix": "web"
@@ -223,17 +225,17 @@
       	    "locations": {
             "web-root": "web/"
             }
-				},
-				"installer-paths": {
-								"web/core": ["type:drupal-core"],
-								"web/libraries/{$name}": ["type:drupal-library"],
-								"web/modules/contrib/{$name}": ["type:drupal-module"],
-								"web/modules/custom/{$name}": ["type:drupal-custom-module"],
-								"web/profiles/contrib/{$name}": ["type:drupal-profile"],
-								"web/themes/contrib/{$name}": ["type:drupal-theme"],
-								"web/themes/custom/{$name}": ["type:drupal-custom-theme"],
-								"drush/Commands/contrib/{$name}": ["type:drupal-drush"]
-				}
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
+        }
 	}
 
 }
