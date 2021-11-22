@@ -93,6 +93,7 @@ services:
 #      POSTGRES_PASSWORD: $DB_PASSWORD
 #      POSTGRES_DB: $DB_NAME
 #      POSTGRES_USER: $DB_USER
+#      POSTGRES_DB_EXTENSIONS: pg_trgm
 #    volumes:
 #    - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
 #    - /path/to/postgres/data/on/host:/var/lib/postgresql/data # Use bind mount
