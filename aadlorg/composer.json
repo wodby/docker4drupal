@@ -3,8 +3,8 @@
     "description": "aadl.org website",
     "type": "project",
     "require": {
+        "aadl/aadl": "dev-master",
         "aadl/aadl-content-management": "dev-master",
-        "aadl/aadl.org-frontend": "dev-master",
         "aadl/accountfix": "dev-master",
         "aadl/arborcat": "dev-master",
         "aadl/arborelastic": "dev-master",
@@ -21,6 +21,7 @@
         "aadl/patron_booking": "dev-master",
         "aadl/patron_comments": "dev-master",
         "aadl/pointsomatic": "dev-master",
+        "aadl/pulp": "dev-master",
         "aadl/square": "dev-master",
         "aadl/statusinator": "dev-master",
         "aadl/summergame": "dev-master",
@@ -47,6 +48,7 @@
         "drupal/jquery_ui_accordion": "^1.1",
         "drupal/jquery_ui_checkboxradio": "^1.2",
         "drupal/jquery_ui_datepicker": "^1.1",
+        "drupal/jquery_ui_dialog": "^1.0",
         "drupal/memcache": "^2.2",
         "drupal/mimemail": "1.x-dev",
         "drupal/neato": "^1.9",
@@ -202,7 +204,11 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/aadl/aadl.org-frontend.git"
+            "url": "https://github.com/aadl/aadl-theme.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/pulp-theme.git"
         }
     ],
     "conflict": {
@@ -222,9 +228,9 @@
             "web-prefix": "web"
         },
         "enable-patching": true,
-				"drupal-scaffold": {
-      	    "locations": {
-            "web-root": "web/"
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
             }
         },
         "installer-paths": {
@@ -237,6 +243,5 @@
             "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         }
-	}
-
+    }
 }

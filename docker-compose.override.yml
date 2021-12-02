@@ -58,3 +58,17 @@ services:
       UPLOAD_LIMIT: 1G
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_pma.rule=Host(`pma.${PROJECT_BASE_URL}`)"
+
+  node:
+    image: wodby/node:8.17
+    container_name: "${PROJECT_NAME}_node"
+    working_dir: /var/www/html/aadlorg/web/themes/custom/aadl
+    user: wodby
+#    labels:
+#    - "traefik.http.services.${PROJECT_NAME}_node.loadbalancer.server.port=3000"
+#    - "traefik.http.routers.${PROJECT_NAME}_node.rule=Host(`node.${PROJECT_BASE_URL}`)"
+#    expose:
+#    - "3000"
+    volumes:
+    - ./:/var/www/html
+    command: sh -c 'id && echo INSTALLING GULP && npm install -g gulp && echo RUNNING NPM INSTALL && npm install'
