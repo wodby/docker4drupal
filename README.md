@@ -8,7 +8,7 @@ There are two web applications that will be installed to provide a local AADL de
 1. The AADL API Laravel web service.
 ### Installing the Drupal Web site
 1. Download a recent database dump file from univac.aadl.org. Open a terminal window, change directory to the *docker4aadl* directory and enter the following scp command to copy the latest database backup from univac:   
-	`scp it@univac.aadl.org:/mnt/backups/latest/aadlexport_*.sql.gz  mariadb-init/`	
+	`scp it@univac.aadl.org:/mnt/backups/latest/daily_migration.sql.gz  mariadb-init/`	
 1. Change directory to the *aadlorg* folder and install Drupal and the aadl custom modules by entering `composer install`
 1. Copy domain aliases from the 'etc_hosts' file in the docker4aadl directory to your local host machine's /etc/hosts file.
 1. Get Access Token from github for private AADL repositories
@@ -25,13 +25,12 @@ There are two web applications that will be installed to provide a local AADL de
         * password: `drupal`
         * Advanced info host: `mariadb`  
           
-    **Install the aadl theme from github**  
-  	1. Use the following git clone command to get the latest code:  
-		`git clone https://github.com/aadl/aadl.org-frontend.git`
-  	1. Copy on top of existing themes directory
-  	1. Follow the installation steps in the aadl.org-frontend readme.md file
-  	2. In the browser, navigate to the admin/appearance section and select the aadl theme as the Default
-  	3. Rebuilt the drupal cache. Run `drush cr` from a terminal window connected to the aadldev_php container - from the root level for the web site `aadlorg/web/`   
+1. Prepare the aadl theme
+    1. Change directory to web/themes/custom/aadl/
+  	1. Follow the installation steps in the aadl readme.md file
+  	1. Check that web/themes/contrib/ has the 'neato' and the 'neato 2' theme installed.  If 'neato 2' is missing, scp a copy from pinkeye.
+  	1. In the browser, navigate to the admin/appearance section and select the aadl theme as the Default
+  	1. Rebuilt the drupal cache. Run `drush cr` from a terminal window connected to the aadldev_php container - from the root level for the web site `aadlorg/web/`   
 1. Change path to '/../vendor/autoload.php' in aadlorg/web/autoload.php
 ### Installing the API
 Open terminal window in the aadldev_php container  
