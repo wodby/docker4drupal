@@ -39,6 +39,7 @@
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
         "drupal/devel": "^4.1",
+        "drupal/devel_php": "^1.3",
         "drupal/domain": "^1.0@alpha",
         "drupal/domain_theme_switch": "^1.2",
         "drupal/elasticsearch_connector": "^5.0@alpha",
