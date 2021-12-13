@@ -51,34 +51,34 @@ Docker4Drupal is a set of docker images optimized for Drupal. Use `docker-compos
 
 The Drupal stack consist of the following containers:
 
-| Container       | Versions               | Image                              | ARM64 support | Enabled by default |
-| --------------- | ---------------------- | ---------------------------------- | ------------- | ------------------ |
-| [Nginx]         | 1.21, 1.20, 1.19       | [wodby/nginx]                      | ✓             | ✓                  |
-| [Apache]        | 2.4                    | [wodby/apache]                     | ✓             |                    |
-| [Drupal]        | 9, 8, 7                | [wodby/drupal]                     | ✓             | ✓                  |
-| [PHP]           | 8.0, 7.4, 7.3          | [wodby/drupal-php]                 | ✓             |                    |
-| Crond           |                        | [wodby/drupal-php]                 | ✓             | ✓                  |
-| [MariaDB]       | 10.5, 10.4, 10.3, 10.2 | [wodby/mariadb]                    | ✓             | ✓                  |
-| [PostgreSQL]    | 13, 12, 11, 10, 9.6    | [wodby/postgres]                   | ✓             |                    |
-| [Redis]         | 6, 5                   | [wodby/redis]                      | ✓             |                    |
-| [Memcached]     | 1                      | [wodby/memcached]                  |               |                    |
-| [Varnish]       | 6.0, 4.1               | [wodby/varnish]                    |               |                    |
-| [Node.js]       | 16, 14, 12             | [wodby/node]                       |               |                    |
-| [Drupal node]   | 1.0                    | [wodby/drupal-node]                |               |                    |
-| [Solr]          | 8, 7, 6, 5             | [wodby/solr]                       |               |                    |
-| [Elasticsearch] | 7, 6                   | [wodby/elasticsearch]              |               |                    |
-| [Kibana]        | 7, 6                   | [wodby/kibana]                     |               |                    |
-| [OpenSMTPD]     | 6.0                    | [wodby/opensmtpd]                  |               |                    |
-| [Mailhog]       | latest                 | [mailhog/mailhog]                  |               | ✓                  |
-| [AthenaPDF]     | 2.16.0                 | [arachnysdocker/athenapdf-service] |               |                    |
-| [Rsyslog]       | latest                 | [wodby/rsyslog]                    |               |                    |
-| [Blackfire]     | latest                 | [blackfire/blackfire]              |               |                    |
-| [Webgrind]      | 1                      | [wodby/webgrind]                   |               |                    |
-| [Xhprof viewer] | latest                 | [wodby/xhprof]                     |               |                    |
-| Adminer         | 4.6                    | [wodby/adminer]                    |               |                    |
-| phpMyAdmin      | latest                 | [phpmyadmin/phpmyadmin]            |               |                    |
-| Selenium chrome | 3.141                  | [selenium/standalone-chrome]       |               |                    |
-| Traefik         | latest                 | [_/traefik]                        | ✓             | ✓                  |
+| Container       | Versions                | Image                              | ARM64 support | Enabled by default |
+| --------------- | ----------------------  | ---------------------------------- | ------------- | ------------------ |
+| [Nginx]         | 1.21, 1.20, 1.19        | [wodby/nginx]                      | ✓             | ✓                  |
+| [Apache]        | 2.4                     | [wodby/apache]                     | ✓             |                    |
+| [Drupal]        | 9, 8, 7                 | [wodby/drupal]                     | ✓             | ✓                  |
+| [PHP]           | 8.0, 7.4, 7.3           | [wodby/drupal-php]                 | ✓             |                    |
+| Crond           |                         | [wodby/drupal-php]                 | ✓             | ✓                  |
+| [MariaDB]       | 10.6, 10.5, 10.4, 10.3  | [wodby/mariadb]                    | ✓             | ✓                  |
+| [PostgreSQL]    | 14, 13, 12, 11, 10, 9.6 | [wodby/postgres]                   | ✓             |                    |
+| [Redis]         | 6, 5                    | [wodby/redis]                      | ✓             |                    |
+| [Memcached]     | 1                       | [wodby/memcached]                  |               |                    |
+| [Varnish]       | 6.0, 4.1                | [wodby/varnish]                    |               |                    |
+| [Node.js]       | 16, 14, 12              | [wodby/node]                       |               |                    |
+| [Drupal node]   | 1.0                     | [wodby/drupal-node]                |               |                    |
+| [Solr]          | 8, 7, 6, 5              | [wodby/solr]                       |               |                    |
+| [Elasticsearch] | 7, 6                    | [wodby/elasticsearch]              |               |                    |
+| [Kibana]        | 7, 6                    | [wodby/kibana]                     |               |                    |
+| [OpenSMTPD]     | 6.0                     | [wodby/opensmtpd]                  |               |                    |
+| [Mailhog]       | latest                  | [mailhog/mailhog]                  |               | ✓                  |
+| [AthenaPDF]     | 2.16.0                  | [arachnysdocker/athenapdf-service] |               |                    |
+| [Rsyslog]       | latest                  | [wodby/rsyslog]                    |               |                    |
+| [Blackfire]     | latest                  | [blackfire/blackfire]              |               |                    |
+| [Webgrind]      | 1                       | [wodby/webgrind]                   |               |                    |
+| [Xhprof viewer] | latest                  | [wodby/xhprof]                     |               |                    |
+| Adminer         | 4.6                     | [wodby/adminer]                    |               |                    |
+| phpMyAdmin      | latest                  | [phpmyadmin/phpmyadmin]            |               |                    |
+| Selenium chrome | 3.141                   | [selenium/standalone-chrome]       |               |                    |
+| Traefik         | latest                  | [_/traefik]                        | ✓             | ✓                  |
  
 Supported Drupal versions: 9 / 8 / 7
 
