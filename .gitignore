@@ -1,2 +1,7 @@
+.DS_Store
 .idea/
 mutagen.yml.lock
+api/
+aadlorg/web/
+aadlorg/composer.lock
+

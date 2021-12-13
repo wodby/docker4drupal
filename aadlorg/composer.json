@@ -1,0 +1,248 @@
+{
+    "name": "aadl/drupal",
+    "description": "aadl.org website",
+    "type": "project",
+    "require": {
+        "aadl/aadl": "dev-master",
+        "aadl/aadl-content-management": "dev-master",
+        "aadl/accountfix": "dev-master",
+        "aadl/arborcat": "dev-master",
+        "aadl/arborelastic": "dev-master",
+        "aadl/askus": "dev-master",
+        "aadl/bisac-assign": "dev-master",
+        "aadl/ccollections": "dev-master",
+        "aadl/events": "dev-master",
+        "aadl/ezproxy": "dev-8.x-1.x",
+        "aadl/fesliders": "dev-master",
+        "aadl/ill": "dev-master",
+        "aadl/itsallwrite": "dev-master",
+        "aadl/newslater": "dev-master",
+        "aadl/oldnews": "dev-master",
+        "aadl/patron_booking": "dev-master",
+        "aadl/patron_comments": "dev-master",
+        "aadl/pointsomatic": "dev-master",
+        "aadl/pulp": "dev-master",
+        "aadl/square": "dev-master",
+        "aadl/statusinator": "dev-master",
+        "aadl/summergame": "dev-master",
+        "aadl/toolbooking": "dev-drupalDBTableAdditions2",
+        "aadl/twilio": "dev-master",
+        "aadl/uc_summergame": "dev-master",
+        "aadl/ums_cardfile": "dev-drupal8migration",
+        "abraham/twitteroauth": "^0.7.4",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.7.0",
+        "drupal/ckwordcount": "^1.0",
+        "drupal/console": "^1.8",
+        "drupal/core": "9.2.8 as 8.9.19",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-project-message": "^9",
+        "drupal/core-recommended": "^9",
+        "drupal/devel": "^4.1",
+        "drupal/devel_php": "^1.3",
+        "drupal/domain": "^1.0@alpha",
+        "drupal/domain_theme_switch": "^1.2",
+        "drupal/elasticsearch_connector": "^5.0@alpha",
+        "drupal/field_group": "^3.2",
+        "drupal/fullcalendar_view": "^2.5",
+        "drupal/honeypot": "^2.0.1",
+        "drupal/jquery_ui_accordion": "^1.1",
+        "drupal/jquery_ui_checkboxradio": "^1.2",
+        "drupal/jquery_ui_datepicker": "^1.1",
+        "drupal/jquery_ui_dialog": "^1.0",
+        "drupal/memcache": "^2.2",
+        "drupal/mimemail": "1.x-dev",
+        "drupal/neato": "^1.9",
+        "drupal/node_access_rebuild_progressive": "^2.0",
+        "drupal/notification": "^1.0",
+        "drupal/persistent_login": "^1.0@alpha",
+        "drupal/redis": "^1.0@RC",
+        "drupal/rules": "3.x-dev",
+        "drupal/scheduler": "^1.0",
+        "drupal/search_api": "^1.11",
+        "drupal/simplenews": "2.x",
+        "drupal/super_login": "^1.0",
+        "drupal/typed_data": "^1.0@beta",
+        "drupal/upgrade_status": "^3.3",
+        "drupal/views_bulk_edit": "^2.4",
+        "drupal/views_bulk_operations": "^4.0",
+        "drupal/webform": "^6.0",
+        "drupal/webform_views": "^5.0@alpha",
+        "drush/drush": "10.4.1",
+        "michelf/php-markdown": "^1.9",
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "php-on-couch/php-on-couch": "^2.0",
+        "predis/predis": "^1.1",
+        "sabre/vobject": "^4.1",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi-fpdf": "^2.0",
+        "square/connect": "^2.5",
+        "twilio/sdk": "^6.16"
+    },
+    "require-dev": {
+        "behat/mink": "~1.7",
+        "behat/mink-goutte-driver": "~1.2",
+        "jcalderonzumba/gastonjs": "~1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+        "mikey179/vfsstream": "~1.2",
+        "mglaman/drupal-check": "^1.2",
+        "drupal/core-dev": "^9"
+    },
+    "authors": [
+        {
+            "name": "Ann Arbor District Library",
+            "email": "github@aadl.org"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/arborcat.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/CCollections.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/FESliders.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/aadl-content-management.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/aadlfreespace.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/accountfix.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/arborcat.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/arborelastic.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/askus.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/bisac-assign.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/pub-events.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/ezproxy.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/ill.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/itsallwrite.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/newslater.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/oldnews.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/patron_booking.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/patron_comments.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/pointsomatic.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/square.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/statusinator.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/summergame.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/twilio.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/uc_summergame.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/ums_cardfile.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/toolbooking.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/aadl-theme.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aadl/pulp-theme.git"
+        }
+    ],
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "aadl/*": "source"
+        }
+    },
+    "extra": {
+        "drupal-composer-helper": {
+            "web-prefix": "web"
+        },
+        "enable-patching": true,
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
+        }
+    }
+}

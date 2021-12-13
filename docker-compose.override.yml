@@ -1,23 +1,60 @@
 version: "3.7"
 
 services:
-  php:
-    image: wodby/drupal:$DRUPAL_TAG
-    environment:
-      PHP_FPM_CLEAR_ENV: "no"
+  mariadb:
+    stop_grace_period: 3600s # increase timeout for initial load of database
     volumes:
-    - codebase:/var/www/html
+      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+  php:
+    environment:
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      DB_DRIVER: $DB_DRIVER
+      PHP_FPM_USER: wodby
+      PHP_FPM_GROUP: wodby
+      COLUMNS: 80 # Set 80 columns for docker exec -it.
 
   crond:
-    image: wodby/drupal:$DRUPAL_TAG
     environment:
-      PHP_FPM_CLEAR_ENV: "no"
-    volumes:
-    - codebase:/var/www/html
+      CRONTAB: "*/5 * * * * drush -r /var/www/html/aadlorg/web cron" # run cron every 5 minutes
 
   nginx:
-    volumes:
-    - codebase:/var/www/html
+    environment:
+      NGINX_SERVER_ROOT: /var/www/html/aadlorg/web
 
-volumes:
-  codebase:
+  nginx2:
+    image: wodby/nginx:$NGINX_TAG
+    container_name: "${PROJECT_NAME}_nginx2"
+    depends_on:
+    - php
+    environment:
+      NGINX_STATIC_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
+      NGINX_BACKEND_HOST: php
+      NGINX_SERVER_ROOT: /var/www/html/api/public
+      NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
+    #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
+    volumes:
+    - ./:/var/www/html:cached
+## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
+#    - mutagen:/var/www/html
+    labels:
+    - "traefik.http.routers.${PROJECT_NAME}_nginx2.rule=Host(`api.${PROJECT_BASE_URL}`)"
+
+  redis:
+    container_name: "${PROJECT_NAME}_redis"
+    image: wodby/redis:$REDIS_TAG
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: "${PROJECT_NAME}_pma"
+    environment:
+      PMA_HOST: $DB_HOST
+      PMA_USER: $DB_USER
+      PMA_PASSWORD: $DB_PASSWORD
+      UPLOAD_LIMIT: 1G
+    labels:
+    - "traefik.http.routers.${PROJECT_NAME}_pma.rule=Host(`pma.${PROJECT_BASE_URL}`)"

@@ -1,0 +1,5 @@
+127.0.0.1       aadldev.test
+127.0.0.1       api.aadldev.test
+127.0.0.1       mailhog.aadldev.test
+127.0.0.1       pma.aadldev.test
+127.0.0.1       portainer.aadldev.test
