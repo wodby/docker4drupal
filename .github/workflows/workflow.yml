@@ -38,7 +38,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: prepare artifact
-      run: cp docker.mk Makefile && tar -czf docker4drupal.tar.gz docker-compose.yml docker-compose.override.yml mutagen Makefile .env traefik.yml
+      run: cp docker.mk Makefile && tar -czf docker4drupal.tar.gz docker-compose.yml docker-compose.override.yml Makefile .env traefik.yml
     - name: get tag name
       id: vars
       run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
