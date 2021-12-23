@@ -26,6 +26,7 @@ services:
       PHP_FPM_USER: wodby
       PHP_FPM_GROUP: wodby
       COMPOSER_MEMORY_LIMIT: -1
+      PHP_ERROR_REPORTING: E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
     volumes:
     - codebase:/var/www/html
     - ./tests.sh:/usr/local/bin/tests.sh
