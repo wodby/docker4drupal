@@ -45,7 +45,7 @@ services:
     volumes:
     - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - mutagen:/var/www/html
+#    - drupal:/var/www/html
 ## For XHProf and Xdebug profiler traces
 #    - files:/mnt/files
 
@@ -57,6 +57,8 @@ services:
     command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
     volumes:
     - ./:/var/www/html:cached
+## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
+#    - drupal:/var/www/html
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -73,7 +75,7 @@ services:
     volumes:
     - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - mutagen:/var/www/html
+#    - drupal:/var/www/html
 
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
@@ -111,7 +113,7 @@ services:
 #    volumes:
 #    - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - mutagen:/var/www/html
+#    - drupal:/var/www/html
 
 #    labels:
 #    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
@@ -279,17 +281,27 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-#  mutagen:
-#    build:
-#      context: .
-#      dockerfile: mutagen/Dockerfile
-#    init: true
-#    container_name: "mutagen"
-#    volumes:
-#    - mutagen:/var/www/html
+#x-mutagen:
+#  sync:
+#    defaults:
+#      ignore:
+#        vcs: true
+#        paths:
+#        - .DS_Store
+#        - .history
+#        - .idea
+#    drupal:
+#      alpha: "."
+#      beta: "volume://drupal"
+#      configurationBeta:
+#        permissions:
+#          defaultFileMode: 0644
+#          defaultDirectoryMode: 0755
+#          defaultOwner: "id:501"
+#          defaultGroup: "id:20"
 
 #volumes:
 ## For macOS users (Mutagen)
-#  mutagen:
+#  drupal:
 ## For Xdebug profiler
 #  files:
