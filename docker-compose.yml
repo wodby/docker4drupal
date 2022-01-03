@@ -26,6 +26,7 @@ services:
 #      DB_PASSWORD: $DB_PASSWORD
 #      DB_NAME: $DB_NAME
 #      DB_DRIVER: $DB_DRIVER
+#      DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:8000"
 #      PHP_FPM_USER: wodby
 #      PHP_FPM_GROUP: wodby
 #      COLUMNS: 80 # Set 80 columns for docker exec -it.
@@ -76,7 +77,6 @@ services:
     - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #    - drupal:/var/www/html
-
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
