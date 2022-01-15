@@ -29,12 +29,9 @@ composer require -n \
 #    does not support Drupal 9 yet
 #composer require -n drupal/cache_tags
 
-# does not yet support php 8.x
-if [[ "${PHP_VERSION:0:1}" == "7" ]]; then
-  composer require -n \
-   drupal/search_api \
-   drupal/search_api_solr:~4
-fi
+composer require -n \
+  drupal/search_api \
+  drupal/search_api_solr:~4
 
 cd ./web
 
