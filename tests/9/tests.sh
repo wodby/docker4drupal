@@ -61,12 +61,9 @@ drush en -y \
 #  \
 #  cache_tags
 
-# does not yet support php 8.x
-if [[ "${PHP_VERSION:0:1}" == "7" ]]; then
-  drush en -y \
-    search_api \
-    search_api_solr
-fi
+drush en -y \
+  search_api \
+  search_api_solr
 
 # Enable redis
 chmod 755 "${PWD}/sites/default/settings.php"
