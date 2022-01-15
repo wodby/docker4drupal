@@ -38,12 +38,7 @@ cd ./web
 drush si -y --db-url="${DB_URL}"
 
 # Test Drupal status and requirements
-if [[ "${PHP_VERSION:0:1}" == "7" ]]; then
-  check_status "drush-version" "10.*"
-else
-  check_status "drush-version" "11.*"
-fi
-
+check_status "drush-version" "11.*"
 check_status "root" "${APP_ROOT}/${DOCROOT_SUBDIR}"
 check_status "site" "sites/default"
 check_status "files" "sites/default/files"
