@@ -14,13 +14,9 @@ jobs:
   test:
     strategy:
       matrix:
-        drupal_ver: [ 9,8,7 ]
+        drupal_ver: [ 9,7 ]
         php_ver: [ '8.1','8.0','7.4' ]
         exclude:
-        - drupal_ver: 8
-          php_ver: '8.0'
-        - drupal_ver: 8
-          php_ver: '8.1'
         - drupal_ver: 7
           php_ver: '8.1'
     runs-on: ubuntu-latest
