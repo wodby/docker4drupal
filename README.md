@@ -25,10 +25,11 @@ The Drupal stack consist of the following containers:
 | [PostgreSQL]    | 14, 13, 12, 11, 10 | [wodby/postgres]                   | ✓             |                    |
 | [Redis]         | 6, 5               | [wodby/redis]                      | ✓             |                    |
 | [Memcached]     | 1                  | [wodby/memcached]                  |               |                    |
-| [Varnish]       | 6.0, 4.1           | [wodby/varnish]                    |               |                    |
+| [Varnish]       | 6.0, 4.1           | [wodby/varnish]                    | ✓             |                    |
 | [Node.js]       | 16, 14, 12         | [wodby/node]                       |               |                    |
 | [Drupal node]   | 1.0                | [wodby/drupal-node]                |               |                    |
 | [Solr]          | 8, 7, 6, 5         | [wodby/solr]                       |               |                    |
+| Zookeeper       | 3.8                | [zookeeper]                        |               |                    |
 | [Elasticsearch] | 7, 6               | [wodby/elasticsearch]              |               |                    |
 | [Kibana]        | 7, 6               | [wodby/kibana]                     |               |                    |
 | [OpenSMTPD]     | 6.0                | [wodby/opensmtpd]                  |               |                    |
@@ -125,3 +126,4 @@ This project is licensed under the MIT open source license.
 [wodby/varnish]: https://github.com/wodby/varnish
 [wodby/webgrind]: https://hub.docker.com/r/wodby/webgrind
 [wodby/xhprof]: https://hub.docker.com/r/wodby/xhprof
+[zookeeper]: https://hub.docker.com/_/zookeeper

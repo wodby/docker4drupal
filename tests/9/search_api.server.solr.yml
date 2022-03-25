@@ -1,4 +1,4 @@
-uuid: bb94e21c-693c-4df9-a9d3-64368fa3428d
+uuid: ddc2786c-c601-4e6c-a625-b8ce51768ea3
 langcode: en
 status: true
 dependencies:
@@ -31,22 +31,38 @@ name: solr
 description: ''
 backend: search_api_solr
 backend_config:
-  connector: standard
+  retrieve_data: false
+  highlight_data: false
+  site_hash: false
+  server_prefix: ''
+  domain: generic
+  environment: default
+  connector: solr_cloud_basic_auth
   connector_config:
     scheme: http
     host: solr
     port: 8983
     path: /
-    core: core1
+    core: default
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10
     finalize_timeout: 30
-    commit_within: 1000
+    skip_schema_check: false
     solr_version: ''
     http_method: AUTO
+    commit_within: 1000
     jmx: false
+    jts: false
     solr_install_dir: ''
+    username: solr
+    password: SolrRocks
+    checkpoints_collection: ''
+    stats_cache: org.apache.solr.search.stats.LRUStatsCache
+    distrib: true
+    context: solr
+  optimize: false
+  fallback_multiple: false
   disabled_field_types: {  }
   disabled_caches: {  }
   disabled_request_handlers:
@@ -56,11 +72,6 @@ backend_config:
   disabled_request_dispatchers:
   - request_dispatcher_httpcaching_default_7_0_0
   rows: 10
-  retrieve_data: false
-  highlight_data: false
-  skip_schema_check: false
-  server_prefix: ''
-  domain: generic
-  environment: default
-  optimize: false
-  site_hash: false
+  index_single_documents_fallback_count: 10
+  index_empty_text_fields: false
+  suppress_missing_languages: false

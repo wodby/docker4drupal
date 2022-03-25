@@ -26,8 +26,6 @@ composer require -n \
   drupal/redis \
   drupal/purge \
   drupal/varnish_purge
-#    does not support Drupal 9 yet
-#composer require -n drupal/cache_tags
 
 composer require -n \
   drupal/search_api \
@@ -58,12 +56,8 @@ drush en -y \
   purge_drush \
   varnish_purger \
   varnish_purge_tags
-#  \
-#  cache_tags
 
-drush en -y \
-  search_api \
-  search_api_solr
+drush en -y search_api_solr_admin
 
 # Enable redis
 chmod 755 "${PWD}/sites/default/settings.php"
@@ -72,33 +66,31 @@ check_rq "Redis" "Connected"
 
 check_rq "Trusted Host Settings" "Enabled"
 
-# @todo enabled when drupal console will be installed.
 # Import solr server
-#drupal cis --file search_api.server.solr.yml --directory /var/www/html/web
-#drush sapi-sl | grep -q enabled
-
-# @TODO return varnish tests after purge module drush commands support drush 9
+drush cim --source=/var/www/html/solr --partial -y
+drush solr-upload-conf solr
+drush sapi-sl | grep -q enabled
 
 ## Test varnish cache and purge
-#cp varnish-purger.yml purger.yml
-#
-#drush ppadd varnish
-#drush cr
+drush ppadd varnish
+drush cr
 
 ## Workaround for varnish purger import https://www.drupal.org/node/2856221
-#PURGER_ID=$(drush ppls --format=json | jq -r "keys[0]")
-#
-#sed -i "s/PLUGIN_ID/${PURGER_ID}/g" purger.yml
-#mv purger.yml "varnish_purger.settings.${PURGER_ID}.yml"
-#drupal cis --file "varnish_purger.settings.${PURGER_ID}.yml"
-#
-#drush -y config-set system.performance cache.page.max_age 43200
-#
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
-#
-#drush cc render
-#drush pqw
-#
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: MISS"
-#curl -Is varnish:6081 | grep -q "X-Varnish-Cache: HIT"
+PURGER_ID=$(drush ppls --format=json | jq -r "keys[0]")
+
+mkdir -p /var/www/html/varnish
+# We copy mounted file because we can't edit mounted file (resource busy error).
+cp /var/www/html/varnish-purger.yml /var/www/html/varnish/purger.yml
+sed -i "s/PLUGIN_ID/${PURGER_ID}/g" /var/www/html/varnish/purger.yml
+mv /var/www/html/varnish/purger.yml "/var/www/html/varnish/varnish_purger.settings.${PURGER_ID}.yml"
+drush -y cim --source=/var/www/html/varnish --partial
+drush -y config-set system.performance cache.page.max_age 43200
+
+curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: MISS"
+curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: HIT"
+
+drush cc render
+drush pqw
+
+curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: MISS"
+curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: HIT"

@@ -31,8 +31,8 @@ services:
     - codebase:/var/www/html
     - ./tests.sh:/usr/local/bin/tests.sh
     - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
-    - ./varnish-purger.yml:/var/www/html/web/varnish-purger.yml
-    - ./search_api.server.solr.yml:/var/www/html/web/search_api.server.solr.yml
+    - ./varnish-purger.yml:/var/www/html/varnish-purger.yml
+    - ./search_api.server.solr.yml:/var/www/html/solr/search_api.server.solr.yml
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -66,6 +66,16 @@ services:
     image: wodby/solr:$SOLR_TAG
     environment:
       SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
+      ZK_HOST: zookeeper:2181
+    depends_on:
+    - zookeeper
+
+  zookeeper:
+    image: zookeeper:$ZOOKEEPER_TAG
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper:2888:3888;2181
+      ZOO_4LW_COMMANDS_WHITELIST: mntr, conf, ruok
 
 volumes:
   codebase:
