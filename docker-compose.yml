@@ -18,8 +18,9 @@ services:
     image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_php"
     environment:
-      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-#      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S opensmtpd:25
+      SSMTP_MAILHUB: mailhog:1025
+#      SSMTP_MAILHUB: opensmtpd:25
+      PHP_SENDMAIL_PATH: '/usr/bin/dos2unix -u | /usr/sbin/ssmtp -f -t'
 #      DB_HOST: $DB_HOST
 #      DB_PORT: $DB_PORT
 #      DB_USER: $DB_USER
