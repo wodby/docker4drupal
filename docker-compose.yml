@@ -20,7 +20,7 @@ services:
     environment:
       SSMTP_MAILHUB: mailhog:1025
 #      SSMTP_MAILHUB: opensmtpd:25
-      PHP_SENDMAIL_PATH: '"/usr/bin/dos2unix -u | /usr/sbin/ssmtp -f -t"'
+      PHP_SENDMAIL_PATH: '"/usr/bin/dos2unix -u | /usr/sbin/ssmtp -t -f"'
 #      DB_HOST: $DB_HOST
 #      DB_PORT: $DB_PORT
 #      DB_USER: $DB_USER
