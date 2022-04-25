@@ -1,0 +1,256 @@
+{
+    "name": "linnovate/openideal-composer",
+    "description": "Project template for OpenideaL Drupal 8 projects.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "composer/installers": "^1.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "drupal/ajax_comments": "1.x-dev#4b0c423",
+        "drupal/ckeditor_mentions": "2.x-dev#272a28e7",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-project-message": "^8.8",
+        "drupal/core-recommended": "^8.8",
+        "drupal/rules": "^3.0@alpha",
+        "drush/drush": "^10",
+        "linnovate/openideal": "^3.0",
+        "wikimedia/composer-merge-plugin": "^2.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "wikimedia/composer-merge-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "oomphinc/composer-installers-extender": true
+        }
+    },
+    "scripts": {},
+    "extra": {
+        "enable-patching": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-types": ["bower-asset", "npm-asset"],
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/ckeditor/plugins/{$name}": ["vendor:ckeditor"],
+            "web/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        },
+        "merge-plugin": {
+            "include": [
+                "web/profiles/contrib/idea/composer.json"
+            ],
+            "merge-extra": true
+        }
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/mentions",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/mentions/releases/mentions_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/autocomplete",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/autocomplete/releases/autocomplete_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/textmatch",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/textmatch/releases/textmatch_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/textwatcher",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/textwatcher/releases/textwatcher_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/ajax",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/ajax/releases/ajax_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/xml",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/xml/releases/xml_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/embed",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/embed/releases/embed_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/embedsemantic",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/embedsemantic/releases/embedsemantic_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/embedbase",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/embedbase/releases/embedbase_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/autoembed",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/autoembed/releases/autoembed_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/autolink",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/autolink/releases/autolink_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/notification",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/notification/releases/notification_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/notificationaggregator",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/notificationaggregator/releases/notificationaggregator_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/fakeobjects",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/link",
+                "version": "4.17.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/link/releases/link_4.17.2.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ]
+}

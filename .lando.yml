@@ -1,0 +1,21 @@
+name: OpenideaL
+recipe: drupal8
+config:
+  webroot: web
+proxy:
+  mailhog:
+    - mail.openideal.lndo.site
+services:
+  appserver:
+    type: php:7.3
+    overrides:
+      environment:
+        DRUSH_OPTIONS_URI: https://openideal.lndo.site
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+tooling:
+  drupal:
+    cmd:
+      - "/app/vendor/bin/drupal"
