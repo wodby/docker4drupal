@@ -1,0 +1,11 @@
+{
+    "require": {
+        "drupal/console": "~1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/console-extend-plugin": true
+        }
+    }
+}
