@@ -62,3 +62,6 @@
 .DS_Store
 
 /composer.lock
+/vendor
+/web/vendor
+.env
