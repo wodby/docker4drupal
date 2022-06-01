@@ -58,11 +58,6 @@ check_rq "redis" "Connected, using the <em>PhpRedis</em> client"
 drush en -y feature_search_api_solr
 check_rq "search_api_solr" "1 server"
 
-# Apply patch for compatibility with redis extension 5.x
-cd sites/all/modules/contrib/redis
-wget www.drupal.org/files/issues/2019-11-27/redis-n3074189-23.patch
-git apply redis-n3074189-23.patch
-
 # Test varnish cache and purge
 curl -Is varnish:6081 | grep -q "X-VC-Cache: MISS"
 curl -Is varnish:6081 | grep -q "X-VC-Cache: HIT"
