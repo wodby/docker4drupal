@@ -16,7 +16,7 @@ The Drupal stack consist of the following containers:
 
 | Container       | Versions           | Image                              | ARM64 support | Enabled by default |
 |-----------------|--------------------|------------------------------------|---------------|--------------------|
-| [Nginx]         | 1.21, 1.20, 1.19   | [wodby/nginx]                      | ✓             | ✓                  |
+| [Nginx]         | 1.23, 1.22, 1.21   | [wodby/nginx]                      | ✓             | ✓                  |
 | [Apache]        | 2.4                | [wodby/apache]                     | ✓             |                    |
 | [Drupal]        | 9, 8, 7            | [wodby/drupal]                     | ✓             | ✓                  |
 | [PHP]           | 8.1, 8.0, 7.4      | [wodby/drupal-php]                 | ✓             |                    |
@@ -26,7 +26,7 @@ The Drupal stack consist of the following containers:
 | [Redis]         | 7, 6, 5            | [wodby/redis]                      | ✓             |                    |
 | [Memcached]     | 1                  | [wodby/memcached]                  |               |                    |
 | [Varnish]       | 6.0, 4.1           | [wodby/varnish]                    | ✓             |                    |
-| [Node.js]       | 16, 14, 12         | [wodby/node]                       |               |                    |
+| [Node.js]       | 18,  16, 14        | [wodby/node]                       |               |                    |
 | [Drupal node]   | 1.0                | [wodby/drupal-node]                |               |                    |
 | [Solr]          | 8, 7, 6, 5         | [wodby/solr]                       |               |                    |
 | Zookeeper       | 3.8                | [zookeeper]                        |               |                    |
