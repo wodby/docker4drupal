@@ -56,7 +56,7 @@ services:
     container_name: "${PROJECT_NAME}_crond"
     environment:
       CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
-    command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
+    command: sudo -E crond -f -d 0
     volumes:
     - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
