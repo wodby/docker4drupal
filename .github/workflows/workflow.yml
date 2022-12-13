@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         drupal_ver: [ 9,7 ]
-        php_ver: [ '8.1','8.0','7.4' ]
+        php_ver: [ '8.1','8.0' ]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
