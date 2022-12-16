@@ -18,8 +18,8 @@ The Drupal stack consist of the following containers:
 |-----------------|--------------------|------------------------------------|---------------|--------------------|
 | [Nginx]         | 1.23, 1.22, 1.21   | [wodby/nginx]                      | ✓             | ✓                  |
 | [Apache]        | 2.4                | [wodby/apache]                     | ✓             |                    |
-| [Drupal]        | 9, 7               | [wodby/drupal]                     | ✓             | ✓                  |
-| [PHP]           | 8.1, 8.0           | [wodby/drupal-php]                 | ✓             |                    |
+| [Drupal]        | 10, 9, 7           | [wodby/drupal]                     | ✓             | ✓                  |
+| [PHP]           | 8.2, 8.1, 8.0      | [wodby/drupal-php]                 | ✓             |                    |
 | Crond           |                    | [wodby/drupal-php]                 | ✓             | ✓                  |
 | [MariaDB]       | 10.9-10.3          | [wodby/mariadb]                    | ✓             | ✓                  |
 | [PostgreSQL]    | 15, 14, 13, 12, 11 | [wodby/postgres]                   | ✓             |                    |
@@ -44,7 +44,7 @@ The Drupal stack consist of the following containers:
 | Selenium chrome | 3.141              | [selenium/standalone-chrome]       |               |                    |
 | Traefik         | latest             | [_/traefik]                        | ✓             | ✓                  |
  
-Supported Drupal versions: 9 / 8 / 7
+Supported Drupal versions: 10 / 9 / 7
 
 ## Documentation
 
@@ -52,7 +52,7 @@ Full documentation is available at https://wodby.com/docs/stacks/drupal/local.
 
 ## Image's tags
 
-Images tags format is `[VERSION]-[STABILITY_TAG]` where:
+Images' tags format is `[VERSION]-[STABILITY_TAG]` where:
 
 `[VERSION]` is the _version of an application_ (without patch version) running in a container, e.g. `wodby/nginx:1.15-x.x.x` where Nginx version is `1.15` and `x.x.x` is a stability tag. For some images we include both major and minor version like PHP `7.2`, for others we include only major like Redis `5`. 
 
