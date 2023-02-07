@@ -19,5 +19,9 @@ services:
     volumes:
     - codebase:/var/www/html
 
+#  webgrind:
+#    volumes:
+#    - codebase:/mnt/codebase
+
 volumes:
   codebase:

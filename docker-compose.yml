@@ -34,6 +34,8 @@ services:
 #      # Read instructions at https://wodby.com/docs/stacks/php/local/#xdebug
 #      PHP_XDEBUG: 1
 #      PHP_XDEBUG_MODE: debug
+#      PHP_XDEBUG_MODE: profile
+#      PHP_XDEBUG_USE_COMPRESSION: false
 #      PHP_IDE_CONFIG: serverName=my-ide
 #      PHP_XDEBUG_IDEKEY: "my-ide"
 #      PHP_XDEBUG_CLIENT_HOST: 172.17.0.1 # Linux
@@ -237,6 +239,7 @@ services:
 #    - "traefik.http.routers.${PROJECT_NAME}_webgrind.rule=Host(`webgrind.${PROJECT_BASE_URL}`)"
 #    volumes:
 #    - files:/mnt/files
+#    - ./:/mnt/codebase:cached
 
 #  elasticsearch:
 #    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
@@ -312,8 +315,8 @@ services:
 #          defaultOwner: "id:501"
 #          defaultGroup: "id:20"
 
-#volumes:
+volumes:
 ## For macOS users (Mutagen)
 #  drupal:
-## For Xdebug profiler
-#  files:
+# For Xdebug profiler
+  files:
