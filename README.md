@@ -36,7 +36,6 @@ The Drupal stack consist of the following containers:
 | [Mailhog]       | latest             | [mailhog/mailhog]                  |               | ✓                  |
 | [AthenaPDF]     | 2.16.0             | [arachnysdocker/athenapdf-service] |               |                    |
 | [Rsyslog]       | latest             | [wodby/rsyslog]                    |               |                    |
-| [Blackfire]     | latest             | [blackfire/blackfire]              |               |                    |
 | [Webgrind]      | 1                  | [wodby/webgrind]                   |               |                    |
 | [Xhprof viewer] | latest             | [wodby/xhprof]                     |               |                    |
 | Adminer         | 4.6                | [wodby/adminer]                    |               |                    |
@@ -81,7 +80,6 @@ This project is licensed under the MIT open source license.
 
 [Apache]: https://wodby.com/docs/stacks/drupal/containers#apache
 [AthenaPDF]: https://wodby.com/docs/stacks/drupal/containers#athenapdf
-[Blackfire]: https://wodby.com/docs/stacks/drupal/containers#blackfire
 [Drupal node]: https://wodby.com/docs/stacks/drupal/containers#drupal-nodejs
 [Drupal]: https://wodby.com/docs/stacks/drupal/containers#php
 [Elasticsearch]: https://wodby.com/docs/stacks/elasticsearch
@@ -103,7 +101,6 @@ This project is licensed under the MIT open source license.
 
 [_/traefik]: https://hub.docker.com/_/traefik
 [arachnysdocker/athenapdf-service]: https://hub.docker.com/r/arachnysdocker/athenapdf-service
-[blackfire/blackfire]: https://hub.docker.com/r/blackfire/blackfire
 [mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [selenium/standalone-chrome]: https://hub.docker.com/r/selenium/standalone-chrome
