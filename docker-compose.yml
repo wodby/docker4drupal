@@ -223,13 +223,6 @@ services:
 #    - ./:/var/www/html
 #    command: sh -c 'yarn install && yarn run start'
 
-#  blackfire:
-#    image: blackfire/blackfire
-#    container_name: "${PROJECT_NAME}_blackfire"
-#    environment:
-#      BLACKFIRE_SERVER_ID: XXXXX
-#      BLACKFIRE_SERVER_TOKEN: YYYYY
-
 #  webgrind:
 #    image: wodby/webgrind:$WEBGRIND_TAG
 #    container_name: "${PROJECT_NAME}_webgrind"
