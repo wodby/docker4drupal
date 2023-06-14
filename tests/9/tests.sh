@@ -36,7 +36,7 @@ cd ./web
 drush si -y --db-url="${DB_URL}"
 
 # Test Drupal status and requirements
-check_status "drush-version" "11.*"
+check_status "drush-version" "12.*"
 check_status "root" "${APP_ROOT}/${DOCROOT_SUBDIR}"
 check_status "site" "sites/default"
 check_status "files" "sites/default/files"
