@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   mariadb:
     image: wodby/mariadb:$MARIADB_TAG
