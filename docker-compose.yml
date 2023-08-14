@@ -52,6 +52,7 @@ services:
 #    - files:/mnt/files
 
   crond:
+    init: true
     image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_crond"
     environment:
@@ -140,6 +141,7 @@ services:
 
 #  adminer:
 #    container_name: "${PROJECT_NAME}_adminer"
+#    init: true
 #    image: wodby/adminer:$ADMINER_TAG
 #    environment:
 #      # For PostgreSQL:
