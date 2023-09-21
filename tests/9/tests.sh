@@ -68,7 +68,7 @@ check_rq "Trusted Host Settings" "Enabled"
 
 # Import solr server
 drush cim --source=/var/www/html/solr --partial -y
-drush solr-upload-conf solr 1
+drush solr-upload-conf solr
 drush sapi-sl | grep -q enabled
 
 ## Test varnish cache and purge
