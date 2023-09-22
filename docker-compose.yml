@@ -40,7 +40,6 @@ services:
 #      PHP_XDEBUG_CLIENT_HOST: 172.17.0.1 # Linux
 #      PHP_XDEBUG_CLIENT_HOST: host.docker.internal # Docker 18.03+ Mac/Win
 #      PHP_XDEBUG_CLIENT_HOST: 10.0.75.1 # Windows, Docker < 18.03
-#      PHP_XDEBUG_LOG_LEVEL: 0
 #      PHP_XDEBUG_LOG: /tmp/php-xdebug.log
 #      # PHPUnit Drupal testing configurations
 #      SIMPLETEST_BASE_URL: "http://nginx"
