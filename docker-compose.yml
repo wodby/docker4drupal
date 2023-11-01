@@ -16,9 +16,15 @@ services:
     image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_php"
     environment:
-      SSMTP_MAILHUB: mailhog:1025
+      # For PHP 8.2 use busybox sendmail together with "PHP_MAIL_MIXED_LF_AND_CRLF=On".
+      PHP_MAIL_MIXED_LF_AND_CRLF: On
+      PHP_SENDMAIL_PATH: '/bin/busybox sendmail -t -i -S mailhog:25'
+#      PHP_SENDMAIL_PATH: '/bin/busybox sendmail -t -i -S opensmtpd:25'
+#      # For PHP <8.2 use ssmtp instead of sendmail.
+#      SSMTP_MAILHUB: mailhog:1025
 #      SSMTP_MAILHUB: opensmtpd:25
-      PHP_SENDMAIL_PATH: '"/usr/bin/dos2unix -u | /usr/sbin/ssmtp -t -f"'
+#      PHP_SENDMAIL_PATH: '"/usr/bin/dos2unix -u | /usr/sbin/ssmtp -t -f"'
+#      #
 #      DB_HOST: $DB_HOST
 #      DB_PORT: $DB_PORT
 #      DB_USER: $DB_USER
