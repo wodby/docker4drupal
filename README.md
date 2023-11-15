@@ -31,8 +31,8 @@ The Drupal stack consist of the following containers:
 | [Drupal node]   | 1.0                | [wodby/drupal-node]                |               |                    |
 | [Solr]          | 8, 7, 6, 5         | [wodby/solr]                       |               |                    |
 | Zookeeper       | 3.8                | [zookeeper]                        |               |                    |
-| [Elasticsearch] | 7, 6               | [wodby/elasticsearch]              |               |                    |
-| [Kibana]        | 7, 6               | [wodby/kibana]                     |               |                    |
+| [Elasticsearch] | 7                  | [wodby/elasticsearch]              |               |                    |
+| [Kibana]        | 7                  | [wodby/kibana]                     |               |                    |
 | [OpenSMTPD]     | 6.0                | [wodby/opensmtpd]                  |               |                    |
 | [Mailhog]       | latest             | [mailhog/mailhog]                  |               | ✓                  |
 | [AthenaPDF]     | 2.16.0             | [arachnysdocker/athenapdf-service] |               |                    |
