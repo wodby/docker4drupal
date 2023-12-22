@@ -20,7 +20,7 @@ The Drupal stack consist of the following containers:
 | [Nginx]         | 1.25, 1.24                  | [wodby/nginx]                      | ✓             | ✓                  |
 | [Apache]        | 2.4                         | [wodby/apache]                     | ✓             |                    |
 | [Drupal]        | 10, 7                       | [wodby/drupal]                     | ✓             | ✓                  |
-| [PHP]           | 8.2, 8.1                    | [wodby/drupal-php]                 | ✓             |                    |
+| [PHP]           | 8.3, 8.2, 8.1               | [wodby/drupal-php]                 | ✓             |                    |
 | Crond           |                             | [wodby/drupal-php]                 | ✓             | ✓                  |
 | [MariaDB]       | 11, 10.11, 10.6, 10.5, 10.4 | [wodby/mariadb]                    | ✓             | ✓                  |
 | [PostgreSQL]    | 16, 15, 14, 13, 12          | [wodby/postgres]                   | ✓             |                    |
