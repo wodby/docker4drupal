@@ -15,7 +15,7 @@ A clear and concise description of your issue.
 Paste here
 ```
 
-**Contents of your `docker-compose.yml`**
+**Contents of your `compose.yml`**
 ```
 Paste here
 ```
@@ -25,7 +25,7 @@ Paste here
 Paste here
 ```
 
-**Logs output `docker-compose logs`**
+**Logs output `docker compose logs`**
 ```
 Paste here
 ```
