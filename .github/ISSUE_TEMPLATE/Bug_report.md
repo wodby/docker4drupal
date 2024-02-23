@@ -21,7 +21,7 @@ A clear and concise description of what the bug is.
 Paste here
 ```
 
-**Contents of your `docker-compose.yml`**
+**Contents of your `compose.yml`**
 ```
 Paste here
 REMOVE COMMENTED LINES
@@ -33,7 +33,7 @@ Paste here
 REMOVE COMMENTED LINES
 ```
 
-**Logs output `docker-compose logs`**
+**Logs output `docker compose logs`**
 ```
 Paste here
 ```
