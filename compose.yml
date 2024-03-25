@@ -17,6 +17,8 @@ services:
     image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_php"
     environment:
+      # By default xdebug extension also disabled.
+      PHP_EXTENSIONS_DISABLE: xhprof
       # PHP 8.2+ supports "PHP_MAIL_MIXED_LF_AND_CRLF=On" and does not need dos2unix workaround.
       PHP_MAIL_MIXED_LF_AND_CRLF: On
       PHP_SENDMAIL_PATH: '/usr/bin/msmtp -t'
@@ -39,7 +41,6 @@ services:
 #      PHP_FPM_GROUP: wodby
 #      COLUMNS: 80 # Set 80 columns for docker exec -it.
 #      # Read instructions at https://wodby.com/docs/stacks/php/local/#xdebug
-#      PHP_XDEBUG: 1
 #      PHP_XDEBUG_MODE: debug
 #      PHP_XDEBUG_MODE: profile
 #      PHP_XDEBUG_USE_COMPRESSION: false
