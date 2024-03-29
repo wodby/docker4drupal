@@ -18,7 +18,7 @@ services:
     container_name: "${PROJECT_NAME}_php"
     environment:
       # By default xdebug extension also disabled.
-      PHP_EXTENSIONS_DISABLE: xhprof
+      PHP_EXTENSIONS_DISABLE: xhprof,spx
       # PHP 8.2+ supports "PHP_MAIL_MIXED_LF_AND_CRLF=On" and does not need dos2unix workaround.
       PHP_MAIL_MIXED_LF_AND_CRLF: On
       PHP_SENDMAIL_PATH: '/usr/bin/msmtp -t'
