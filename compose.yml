@@ -19,11 +19,7 @@ services:
     environment:
       # By default xdebug extension also disabled.
       PHP_EXTENSIONS_DISABLE: xhprof,spx
-      # PHP 8.2+ supports "PHP_MAIL_MIXED_LF_AND_CRLF=On" and does not need dos2unix workaround.
       PHP_MAIL_MIXED_LF_AND_CRLF: On
-      PHP_SENDMAIL_PATH: '/usr/bin/msmtp -t'
-#     # PHP 8.1 and previous version require dos2unix workaround.
-#      PHP_SENDMAIL_PATH: '"/usr/bin/dos2unix -u | /usr/bin/msmtp -t"'
       # Mailhog:
       MSMTP_HOST: mailhog
       MSMTP_PORT: 1025
