@@ -19,7 +19,7 @@ if (file_exists($contrib_path . '/redis')) {
   $conf['cache_default_class'] = 'Redis_Cache';
   $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 
-  $conf['redis_client_host'] = 'redis';
+  $conf['redis_client_host'] = 'valkey';
   $conf['redis_client_port'] = '6379';
   $conf['redis_client_password'] = 'bad-password';
 }

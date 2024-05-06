@@ -52,10 +52,10 @@ services:
       VARNISH_CONFIG_PRESET: drupal
       VARNISH_PURGE_EXTERNAL_REQUEST_HEADER: X-Real-IP
 
-  redis:
-    image: wodby/redis:$REDIS_TAG
+  valkey:
+    image: wodby/valkey:$VALKEY_TAG
     environment:
-      REDIS_PASSWORD: bad-password
+      VALKEY_PASSWORD: bad-password
 
   solr:
     image: wodby/solr:$SOLR_TAG
