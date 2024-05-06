@@ -96,6 +96,7 @@ This project is licensed under the MIT open source license.
 [PHP]: https://wodby.com/docs/stacks/drupal/containers#php
 [PostgreSQL]: https://wodby.com/docs/stacks/drupal/containers#postgresql
 [Redis]: https://wodby.com/docs/stacks/drupal/containers#redis
+[Valkey]: https://wodby.com/docs/stacks/valkey/containers#valkey
 [Rsyslog]: https://wodby.com/docs/stacks/drupal/containers#rsyslog
 [Solr]: https://wodby.com/docs/stacks/drupal/containers#solr
 [Varnish]: https://wodby.com/docs/stacks/drupal/containers#varnish
