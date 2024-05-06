@@ -138,9 +138,9 @@ services:
 #    - "traefik.http.services.${PROJECT_NAME}_varnish.loadbalancer.server.port=6081"
 #    - "traefik.http.routers.${PROJECT_NAME}_varnish.rule=Host(`varnish.${PROJECT_BASE_URL}`)"
 
-#  redis:
-#    container_name: "${PROJECT_NAME}_redis"
-#    image: wodby/redis:$REDIS_TAG
+#  valkey:
+#    container_name: "${PROJECT_NAME}_valkey"
+#    image: wodby/valkey:$VALKEY_TAG
 
 #  adminer:
 #    container_name: "${PROJECT_NAME}_adminer"

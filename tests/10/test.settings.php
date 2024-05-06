@@ -4,7 +4,7 @@ $contrib_path = is_dir('sites/all/modules/contrib')
   ? 'sites/all/modules/contrib'
   : 'sites/all/modules';
 
-$settings['redis.connection']['host'] = 'redis';
+$settings['redis.connection']['host'] = 'valkey';
 $settings['redis.connection']['port'] = '6379';
 $settings['redis.connection']['password'] = 'bad-password';
 $settings['redis.connection']['base'] = 0;

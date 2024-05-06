@@ -24,7 +24,7 @@ The Drupal stack consist of the following containers:
 | Crond           |                             | [wodby/drupal-php]                 | ✓             | ✓                  |
 | [MariaDB]       | 11, 10.11, 10.6, 10.5, 10.4 | [wodby/mariadb]                    | ✓             | ✓                  |
 | [PostgreSQL]    | 16, 15, 14, 13, 12          | [wodby/postgres]                   | ✓             |                    |
-| [Redis]         | 7, 6                        | [wodby/redis]                      | ✓             |                    |
+| [Valkey]        | 7                           | [wodby/valkey]                     | ✓             |                    |
 | [Memcached]     | 1                           | [wodby/memcached]                  |               |                    |
 | [Varnish]       | 6.0                         | [wodby/varnish]                    | ✓             |                    |
 | [Node.js]       | 20, 18                      | [wodby/node]                       |               |                    |
@@ -120,7 +120,7 @@ This project is licensed under the MIT open source license.
 [wodby/node]: https://github.com/wodby/node
 [wodby/opensmtpd]: https://github.com/wodby/opensmtpd
 [wodby/postgres]: https://github.com/wodby/postgres
-[wodby/redis]: https://github.com/wodby/redis
+[wodby/valkey]: https://github.com/wodby/valkey
 [wodby/rsyslog]: https://hub.docker.com/r/wodby/rsyslog
 [wodby/solr]: https://github.com/wodby/solr
 [wodby/varnish]: https://github.com/wodby/varnish
