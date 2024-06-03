@@ -237,25 +237,6 @@ services:
 #    - files:/mnt/files
 #    - ./:/mnt/codebase:cached
 
-#  elasticsearch:
-#    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
-#    container_name: "${PROJECT_NAME}_elasticsearch"
-#    environment:
-#      ES_JAVA_OPTS: "-Xms500m -Xmx500m"
-#    ulimits:
-#      memlock:
-#        soft: -1
-#        hard: -1
-
-#  kibana:
-#    image: wodby/kibana:$KIBANA_TAG
-#    container_name: "${PROJECT_NAME}_kibana"
-#    depends_on:
-#    - elasticsearch
-#    labels:
-#    - "traefik.http.services.${PROJECT_NAME}_kibana.loadbalancer.server.port=5601"
-#    - "traefik.http.routers.${PROJECT_NAME}_kibana.rule=Host(`kibana.${PROJECT_BASE_URL}`)"
-
 #  opensmtpd:
 #    container_name: "${PROJECT_NAME}_opensmtpd"
 #    image: wodby/opensmtpd:$OPENSMTPD_TAG
