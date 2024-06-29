@@ -1,3 +1,5 @@
 .idea/
+mariadb-init
+postgres-init
 mutagen.yml.lock
 .vscode
