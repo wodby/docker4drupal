@@ -33,7 +33,7 @@ The Drupal stack consist of the following containers:
 | Zookeeper       | 3.8                         | [zookeeper]                        |               |                    |
 | [Elasticsearch] | 7                           | [wodby/elasticsearch]              |               |                    |
 | [Kibana]        | 7                           | [wodby/kibana]                     |               |                    |
-| [OpenSMTPD]     | 6.0                         | [wodby/opensmtpd]                  |               |                    |
+| [OpenSMTPD]     | 7                           | [wodby/opensmtpd]                  |               |                    |
 | [Mailhog]       | latest                      | [mailhog/mailhog]                  |               | ✓                  |
 | [AthenaPDF]     | 2.16.0                      | [arachnysdocker/athenapdf-service] |               |                    |
 | [Rsyslog]       | latest                      | [wodby/rsyslog]                    |               |                    |
