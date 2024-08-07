@@ -2,7 +2,7 @@ include docker.mk
 
 .PHONY: test
 
-DRUPAL_VER ?= 10
+DRUPAL_VER ?= 11
 PHP_VER ?= 8.3
 
 test:
