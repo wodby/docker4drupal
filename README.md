@@ -15,34 +15,34 @@ Docker4Drupal is a set of docker images optimized for Drupal. Use `compose.yml` 
 
 The Drupal stack consist of the following containers:
 
-| Container       | Versions                    | Image                              | ARM64 support | Enabled by default |
-|-----------------|-----------------------------|------------------------------------|---------------|--------------------|
-| [Nginx]         | 1.27, 1.26                  | [wodby/nginx]                      | ✓             | ✓                  |
-| [Apache]        | 2.4                         | [wodby/apache]                     | ✓             |                    |
-| [Drupal]        | 11, 10, 7                   | [wodby/drupal]                     | ✓             | ✓                  |
-| [PHP]           | 8.3, 8.2, 8.1               | [wodby/drupal-php]                 | ✓             |                    |
-| Crond           |                             | [wodby/drupal-php]                 | ✓             | ✓                  |
-| [MariaDB]       | 11, 10.11, 10.6, 10.5, 10.4 | [wodby/mariadb]                    | ✓             | ✓                  |
-| [PostgreSQL]    | 16, 15, 14, 13, 12          | [wodby/postgres]                   | ✓             |                    |
-| [Valkey]        | 7                           | [wodby/valkey]                     | ✓             |                    |
-| [Memcached]     | 1                           | [wodby/memcached]                  |               |                    |
-| [Varnish]       | 6.0                         | [wodby/varnish]                    | ✓             |                    |
-| [Node.js]       | 20, 18                      | [wodby/node]                       |               |                    |
-| [Drupal node]   | 1.0                         | [wodby/drupal-node]                |               |                    |
-| [Solr]          | 8, 7, 6, 5                  | [wodby/solr]                       |               |                    |
-| Zookeeper       | 3.8                         | [zookeeper]                        |               |                    |
-| [Elasticsearch] | 7                           | [wodby/elasticsearch]              |               |                    |
-| [Kibana]        | 7                           | [wodby/kibana]                     |               |                    |
-| [OpenSMTPD]     | 7                           | [wodby/opensmtpd]                  | ✓             |                    |
-| Mailpit         | latest                      | [axllent/mailpit]                  | ✓             | ✓                  |
-| [AthenaPDF]     | 2.16.0                      | [arachnysdocker/athenapdf-service] |               |                    |
-| [Rsyslog]       | latest                      | [wodby/rsyslog]                    |               |                    |
-| [Webgrind]      | 1                           | [wodby/webgrind]                   | ✓             |                    |
-| [Xhprof viewer] | latest                      | [wodby/xhprof]                     | ✓             |                    |
-| Adminer         | 4.6                         | [wodby/adminer]                    |               |                    |
-| phpMyAdmin      | latest                      | [phpmyadmin/phpmyadmin]            |               |                    |
-| Selenium chrome | 3.141                       | [selenium/standalone-chrome]       |               |                    |
-| Traefik         | latest                      | [_/traefik]                        | ✓             | ✓                  |
+| Container       | Versions                    | Image                        | ARM64 support | Enabled by default |
+|-----------------|-----------------------------|------------------------------|---------------|--------------------|
+| [Nginx]         | 1.27, 1.26                  | [wodby/nginx]                | ✓             | ✓                  |
+| [Apache]        | 2.4                         | [wodby/apache]               | ✓             |                    |
+| [Drupal]        | 11, 10, 7                   | [wodby/drupal]               | ✓             | ✓                  |
+| [PHP]           | 8.3, 8.2, 8.1               | [wodby/drupal-php]           | ✓             |                    |
+| Crond           |                             | [wodby/drupal-php]           | ✓             | ✓                  |
+| [MariaDB]       | 11, 10.11, 10.6, 10.5, 10.4 | [wodby/mariadb]              | ✓             | ✓                  |
+| [PostgreSQL]    | 16, 15, 14, 13, 12          | [wodby/postgres]             | ✓             |                    |
+| [Valkey]        | 7                           | [wodby/valkey]               | ✓             |                    |
+| [Memcached]     | 1                           | [wodby/memcached]            |               |                    |
+| [Varnish]       | 6.0                         | [wodby/varnish]              | ✓             |                    |
+| [Node.js]       | 20, 18                      | [wodby/node]                 |               |                    |
+| [Drupal node]   | 1.0                         | [wodby/drupal-node]          |               |                    |
+| [Solr]          | 8, 7, 6, 5                  | [wodby/solr]                 |               |                    |
+| Zookeeper       | 3.8                         | [zookeeper]                  | ✓             |                    |
+| [Elasticsearch] | 7                           | [wodby/elasticsearch]        |               |                    |
+| [Kibana]        | 7                           | [wodby/kibana]               |               |                    |
+| [OpenSMTPD]     | 7                           | [wodby/opensmtpd]            | ✓             |                    |
+| Mailpit         | latest                      | [axllent/mailpit]            | ✓             | ✓                  |
+| Gotenberg       | latest                      | [gotenberg/gotenberg]        | ✓             |                    |
+| [Rsyslog]       | latest                      | [wodby/rsyslog]              |               |                    |
+| [Webgrind]      | 1                           | [wodby/webgrind]             | ✓             |                    |
+| [Xhprof viewer] | latest                      | [wodby/xhprof]               | ✓             |                    |
+| Adminer         | 4.6                         | [wodby/adminer]              | ✓             |                    |
+| phpMyAdmin      | latest                      | [phpmyadmin/phpmyadmin]      |               |                    |
+| Selenium chrome | 3.141                       | [selenium/standalone-chrome] |               |                    |
+| Traefik         | latest                      | [_/traefik]                  | ✓             | ✓                  |
  
 ## Documentation
 
@@ -80,7 +80,6 @@ Docker4Drupal is a project designed to help you spin up local environment with D
 This project is licensed under the MIT open source license.
 
 [Apache]: https://wodby.com/docs/stacks/drupal/containers#apache
-[AthenaPDF]: https://wodby.com/docs/stacks/drupal/containers#athenapdf
 [Drupal node]: https://wodby.com/docs/stacks/drupal/containers#drupal-nodejs
 [Drupal]: https://wodby.com/docs/stacks/drupal/containers#php
 [Elasticsearch]: https://wodby.com/docs/stacks/elasticsearch
@@ -101,7 +100,7 @@ This project is licensed under the MIT open source license.
 [XHProf viewer]: https://wodby.com/docs/stacks/php/containers#xhprof-viewer
 
 [_/traefik]: https://hub.docker.com/_/traefik
-[arachnysdocker/athenapdf-service]: https://hub.docker.com/r/arachnysdocker/athenapdf-service
+[gotenberg/gotenberg]: https://hub.docker.com/r/gotenberg/gotenberg
 [axllent/mailpit]: https://hub.docker.com/r/axllent/mailpit
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [selenium/standalone-chrome]: https://hub.docker.com/r/selenium/standalone-chrome

@@ -204,16 +204,9 @@ services:
 #    container_name: "${PROJECT_NAME}_rsyslog"
 #    image: wodby/rsyslog:$RSYSLOG_TAG
 
-#  athenapdf:
-#    image: arachnysdocker/athenapdf-service:$ATHENAPDF_TAG
-#    container_name: "${PROJECT_NAME}_athenapdf"
-#    environment:
-#      WEAVER_AUTH_KEY: weaver-auth-key
-#      WEAVER_ATHENA_CMD: "athenapdf -S"
-#      WEAVER_MAX_WORKERS: 10
-#      WEAVER_MAX_CONVERSION_QUEUE: 50
-#      WEAVER_WORKER_TIMEOUT: 90
-#      WEAVER_CONVERSION_FALLBACK: "false"
+#  gotenberg:
+#    image: gotenberg/gotenberg
+#    container_name: "${PROJECT_NAME}_gotenberg"
 
 #  node:
 #    image: wodby/node:$NODE_TAG
