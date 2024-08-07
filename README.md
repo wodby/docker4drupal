@@ -19,7 +19,7 @@ The Drupal stack consist of the following containers:
 |-----------------|-----------------------------|------------------------------------|---------------|--------------------|
 | [Nginx]         | 1.27, 1.26                  | [wodby/nginx]                      | ✓             | ✓                  |
 | [Apache]        | 2.4                         | [wodby/apache]                     | ✓             |                    |
-| [Drupal]        | 10, 7                       | [wodby/drupal]                     | ✓             | ✓                  |
+| [Drupal]        | 11, 10, 7                   | [wodby/drupal]                     | ✓             | ✓                  |
 | [PHP]           | 8.3, 8.2, 8.1               | [wodby/drupal-php]                 | ✓             |                    |
 | Crond           |                             | [wodby/drupal-php]                 | ✓             | ✓                  |
 | [MariaDB]       | 11, 10.11, 10.6, 10.5, 10.4 | [wodby/mariadb]                    | ✓             | ✓                  |
@@ -44,8 +44,6 @@ The Drupal stack consist of the following containers:
 | Selenium chrome | 3.141                       | [selenium/standalone-chrome]       |               |                    |
 | Traefik         | latest                      | [_/traefik]                        | ✓             | ✓                  |
  
-Supported Drupal versions: 10 / 7
-
 ## Documentation
 
 Full documentation is available at https://wodby.com/docs/stacks/drupal/local.

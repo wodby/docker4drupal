@@ -8,12 +8,12 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
 
   php:
-    image: "wodby/drupal:10-${PHP_VER}-${DRUPAL_STABILITY_TAG}"
+    image: "wodby/drupal:11-${PHP_VER}-${DRUPAL_STABILITY_TAG}"
     environment:
       # To skip auto init.
       WODBY_APP_NAME: drupal
       DEBUG: 1
-      DRUPAL_VERSION: 10
+      DRUPAL_VERSION: 11
       DB_HOST: $DB_HOST
       DB_NAME: $DB_NAME
       DB_USER: $DB_USER

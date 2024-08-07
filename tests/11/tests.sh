@@ -22,8 +22,8 @@ DB_URL="${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}"
 
 make init -f /usr/local/bin/actions.mk
 
-composer require -n \
-  drupal/redis
+#composer require -n \
+#  drupal/redis
 #  \
 #  drupal/purge \
 #  drupal/varnish_purge
@@ -50,8 +50,8 @@ check_rq "PHP" "${PHP_VERSION}"
 check_rq "File system" "Writable"
 check_rq "Configuration files" "Protected"
 
-drush en -y \
-  redis
+#drush en -y \
+#  redis
 #   \
 #  purge \
 #  purge_queuer_coretags \
@@ -62,9 +62,9 @@ drush en -y \
 #drush en -y search_api_solr_admin
 
 # Enable redis
-chmod 755 "${PWD}/sites/default/settings.php"
-echo "include '${PWD}/sites/default/test.settings.php';" >>"${PWD}/sites/default/settings.php"
-check_rq "Redis" "Connected"
+#chmod 755 "${PWD}/sites/default/settings.php"
+#echo "include '${PWD}/sites/default/test.settings.php';" >>"${PWD}/sites/default/settings.php"
+#check_rq "Redis" "Connected"
 
 check_rq "Trusted Host Settings" "Enabled"
 
