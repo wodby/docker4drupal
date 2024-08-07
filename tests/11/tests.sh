@@ -62,9 +62,10 @@ check_rq "Configuration files" "Protected"
 #drush en -y search_api_solr_admin
 
 # Enable redis
-#chmod 755 "${PWD}/sites/default/settings.php"
-#echo "include '${PWD}/sites/default/test.settings.php';" >>"${PWD}/sites/default/settings.php"
+chmod 755 "${PWD}/sites/default/settings.php"
 #check_rq "Redis" "Connected"
+# @todo: uncomment redis in test.settings.php
+echo "include '${PWD}/sites/default/test.settings.php';" >>"${PWD}/sites/default/settings.php"
 
 check_rq "Trusted Host Settings" "Enabled"
 
