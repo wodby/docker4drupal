@@ -19,7 +19,7 @@ services:
     environment:
       # By default xdebug extension also disabled.
       PHP_EXTENSIONS_DISABLE: xhprof,spx
-      PHP_MAIL_MIXED_LF_AND_CRLF: On
+      PHP_MAIL_MIXED_LF_AND_CRLF: 'On'
       # Mailpit:
       MSMTP_HOST: mailpit
       MSMTP_PORT: 1025
