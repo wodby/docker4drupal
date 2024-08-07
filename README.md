@@ -33,12 +33,12 @@ The Drupal stack consist of the following containers:
 | Zookeeper       | 3.8                         | [zookeeper]                        |               |                    |
 | [Elasticsearch] | 7                           | [wodby/elasticsearch]              |               |                    |
 | [Kibana]        | 7                           | [wodby/kibana]                     |               |                    |
-| [OpenSMTPD]     | 7                           | [wodby/opensmtpd]                  |               |                    |
-| [Mailhog]       | latest                      | [mailhog/mailhog]                  |               | ✓                  |
+| [OpenSMTPD]     | 7                           | [wodby/opensmtpd]                  | ✓             |                    |
+| Mailpit         | latest                      | [axllent/mailpit]                  | ✓             | ✓                  |
 | [AthenaPDF]     | 2.16.0                      | [arachnysdocker/athenapdf-service] |               |                    |
 | [Rsyslog]       | latest                      | [wodby/rsyslog]                    |               |                    |
-| [Webgrind]      | 1                           | [wodby/webgrind]                   |               |                    |
-| [Xhprof viewer] | latest                      | [wodby/xhprof]                     |               |                    |
+| [Webgrind]      | 1                           | [wodby/webgrind]                   | ✓             |                    |
+| [Xhprof viewer] | latest                      | [wodby/xhprof]                     | ✓             |                    |
 | Adminer         | 4.6                         | [wodby/adminer]                    |               |                    |
 | phpMyAdmin      | latest                      | [phpmyadmin/phpmyadmin]            |               |                    |
 | Selenium chrome | 3.141                       | [selenium/standalone-chrome]       |               |                    |
@@ -87,7 +87,6 @@ This project is licensed under the MIT open source license.
 [Drupal]: https://wodby.com/docs/stacks/drupal/containers#php
 [Elasticsearch]: https://wodby.com/docs/stacks/elasticsearch
 [Kibana]: https://wodby.com/docs/stacks/elasticsearch
-[Mailhog]: https://wodby.com/docs/stacks/drupal/containers#mailhog
 [MariaDB]: https://wodby.com/docs/stacks/drupal/containers#mariadb
 [Memcached]: https://wodby.com/docs/stacks/drupal/containers#memcached
 [Nginx]: https://wodby.com/docs/stacks/drupal/containers#nginx
@@ -105,7 +104,7 @@ This project is licensed under the MIT open source license.
 
 [_/traefik]: https://hub.docker.com/_/traefik
 [arachnysdocker/athenapdf-service]: https://hub.docker.com/r/arachnysdocker/athenapdf-service
-[mailhog/mailhog]: https://hub.docker.com/r/mailhog/mailhog
+[axllent/mailpit]: https://hub.docker.com/r/axllent/mailpit
 [phpmyadmin/phpmyadmin]: https://hub.docker.com/r/phpmyadmin/phpmyadmin
 [selenium/standalone-chrome]: https://hub.docker.com/r/selenium/standalone-chrome
 [wodby/adminer]: https://hub.docker.com/r/wodby/adminer
