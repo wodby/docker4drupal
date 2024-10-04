@@ -42,7 +42,6 @@ check_status "files" "sites/default/files"
 check_status "temp" "/tmp"
 
 check_rq "database_system" "MySQL, MariaDB, or equivalent"
-check_rq "image_gd" "bundled (2.1.0 compatible)"
 check_rq "php" "${PHP_VERSION}"
 check_rq "file system" "Writable (<em>public</em> download method)"
 
