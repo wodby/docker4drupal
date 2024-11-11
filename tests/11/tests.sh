@@ -50,6 +50,7 @@ check_rq "PHP" "${PHP_VERSION}"
 check_rq "File system" "Writable"
 check_rq "Configuration files" "Protected"
 
+## @todo: also uncomment in test.settings.php
 #drush en -y \
 #  redis
 ##   \
