@@ -14,13 +14,14 @@ jobs:
   test:
     strategy:
       matrix:
-        drupal_ver: [ 11,10,7 ]
+#        drupal_ver: [ 11,10,7 ]
+        drupal_ver: [ 11,10, ]
         php_ver: [ '8.4','8.3','8.2','8.1' ]
         exclude:
-        - drupal_ver: 7
-          php_ver: '8.4' 
-        - drupal_ver: 7
-          php_ver: '8.3'
+#        - drupal_ver: 7
+#          php_ver: '8.4' 
+#        - drupal_ver: 7
+#          php_ver: '8.3'
         - drupal_ver: 11
           php_ver: '8.2'
         - drupal_ver: 11
