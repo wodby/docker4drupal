@@ -1,17 +1,19 @@
 services:
   php:
-    image: wodby/drupal:$DRUPAL_TAG
+    image: wodby/drupal-cms:$DRUPAL_CMS_TAG
+#    image: wodby/drupal:$DRUPAL_TAG
     environment:
       PHP_FPM_CLEAR_ENV: "no"
     volumes:
-    - codebase:/var/www/html
+      - codebase:/var/www/html
 
   crond:
-    image: wodby/drupal:$DRUPAL_TAG
+    image: wodby/drupal-cms:$DRUPAL_CMS_TAG
+#    image: wodby/drupal:$DRUPAL_TAG
     environment:
       PHP_FPM_CLEAR_ENV: "no"
     volumes:
-    - codebase:/var/www/html
+      - codebase:/var/www/html
 
   nginx:
     volumes:

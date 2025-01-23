@@ -14,14 +14,9 @@ jobs:
   test:
     strategy:
       matrix:
-#        drupal_ver: [ 11,10,7 ]
-        drupal_ver: [ 11,10, ]
+        drupal_ver: [ 11,10 ]
         php_ver: [ '8.4','8.3','8.2','8.1' ]
         exclude:
-#        - drupal_ver: 7
-#          php_ver: '8.4' 
-#        - drupal_ver: 7
-#          php_ver: '8.3'
         - drupal_ver: 11
           php_ver: '8.2'
         - drupal_ver: 11
@@ -34,6 +29,12 @@ jobs:
         DRUPAL_VER: ${{ matrix.drupal_ver }}
         PHP_VER: ${{ matrix.php_ver }}
       run: make test
+  test-cms:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: test
+      run: make test-cms
   release:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
