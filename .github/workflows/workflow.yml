@@ -38,7 +38,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
-    needs: test
+    needs: [test,test-cms]
     steps:
     - uses: actions/checkout@v4
     - name: prepare artifact
