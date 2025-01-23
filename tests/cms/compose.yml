@@ -8,12 +8,12 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
 
   php:
-    image: "wodby/drupal:7-${PHP_VER}-${DRUPAL_STABILITY_TAG}"
+    image: "wodby/drupal-cms:1-${DRUPAL_CMS_STABILITY_TAG}"
     environment:
       # To skip auto init.
       WODBY_APP_NAME: drupal
       DEBUG: 1
-      DRUPAL_VERSION: 7
+      DRUPAL_VERSION: 11
       DB_HOST: $DB_HOST
       DB_NAME: $DB_NAME
       DB_USER: $DB_USER
@@ -23,11 +23,14 @@ services:
       COLUMNS: 80
       PHP_FPM_USER: wodby
       PHP_FPM_GROUP: wodby
+      COMPOSER_MEMORY_LIMIT: -1
+      PHP_ERROR_REPORTING: E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
     volumes:
     - codebase:/var/www/html
     - ./tests.sh:/usr/local/bin/tests.sh
     - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
-    - ./feature_search_api_solr:/var/www/html/web/sites/all/modules/features/feature_search_api_solr
+    - ./varnish-purger.yml:/var/www/html/varnish-purger.yml
+    - ./search_api.server.solr.yml:/var/www/html/solr/search_api.server.solr.yml
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -61,6 +64,16 @@ services:
     image: wodby/solr:$SOLR_TAG
     environment:
       SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
+      ZK_HOST: zookeeper:2181
+    depends_on:
+    - zookeeper
+
+  zookeeper:
+    image: zookeeper:$ZOOKEEPER_TAG
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper:2888:3888;2181
+      ZOO_4LW_COMMANDS_WHITELIST: mntr, conf, ruok
 
 volumes:
   codebase:

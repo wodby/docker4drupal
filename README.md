@@ -19,7 +19,8 @@ The Drupal stack consist of the following containers:
 |-----------------|-------------------------|------------------------------|---------------|--------------------|
 | [Nginx]         | 1.27, 1.26              | [wodby/nginx]                | ✓             | ✓                  |
 | [Apache]        | 2.4                     | [wodby/apache]               | ✓             |                    |
-| [Drupal]        | 11, 10, 7               | [wodby/drupal]               | ✓             | ✓                  |
+| Drupal CMS      | 1                       | [wodby/drupal-cms]           | ✓             | ✓                  |
+| Vanilla Drupal  | 11, 10                  | [wodby/drupal]               | ✓             |                    |
 | [PHP]           | 8.4, 8.3, 8.2, 8.1      | [wodby/drupal-php]           | ✓             |                    |
 | Crond           |                         | [wodby/drupal-php]           | ✓             | ✓                  |
 | [MariaDB]       | 11.4, 10.11, 10.6, 10.5 | [wodby/mariadb]              | ✓             | ✓                  |
@@ -28,7 +29,7 @@ The Drupal stack consist of the following containers:
 | [Memcached]     | 1                       | [wodby/memcached]            |               |                    |
 | [Varnish]       | 6.0                     | [wodby/varnish]              | ✓             |                    |
 | [Node.js]       | 22, 20, 18              | [wodby/node]                 |               |                    |
-| [Solr]          | 8, 7, 6, 5              | [wodby/solr]                 |               |                    |
+| [Solr]          | 8                       | [wodby/solr]                 |               |                    |
 | Zookeeper       | 3.8                     | [zookeeper]                  | ✓             |                    |
 | [Elasticsearch] | 7                       | [wodby/elasticsearch]        |               |                    |
 | [Kibana]        | 7                       | [wodby/kibana]               |               |                    |
@@ -79,7 +80,8 @@ Docker4Drupal is a project designed to help you spin up local environment with D
 This project is licensed under the MIT open source license.
 
 [Apache]: https://wodby.com/docs/stacks/drupal/containers#apache
-[Drupal]: https://wodby.com/docs/stacks/drupal/containers#php
+[Drupal CMS]: https://wodby.com/docs/stacks/drupal/containers#php
+[Vanilla Drupal]: https://wodby.com/docs/stacks/drupal/containers#php
 [Elasticsearch]: https://wodby.com/docs/stacks/elasticsearch
 [Kibana]: https://wodby.com/docs/stacks/elasticsearch
 [MariaDB]: https://wodby.com/docs/stacks/drupal/containers#mariadb
@@ -106,6 +108,7 @@ This project is licensed under the MIT open source license.
 [wodby/apache]: https://github.com/wodby/apache
 [wodby/drupal-php]: https://github.com/wodby/drupal-php
 [wodby/drupal]: https://github.com/wodby/drupal
+[wodby/drupal-cms]: https://github.com/wodby/drupal-cms
 [wodby/elasticsearch]: https://github.com/wodby/elasticsearch
 [wodby/kibana]: https://github.com/wodby/kibana
 [wodby/mariadb]: https://github.com/wodby/mariadb
