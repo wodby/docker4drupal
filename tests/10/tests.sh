@@ -55,9 +55,8 @@ check_rq "PHP" "${PHP_VERSION}"
 check_rq "File system" "Writable"
 check_rq "Configuration files" "Protected"
 
-## @todo: also uncomment in test.settings.php
-#drush en -y \
-#  redis
+drush en -y \
+  redis
 #   \
 #  purge \
 #  purge_queuer_coretags \
@@ -71,7 +70,7 @@ chmod 755 "${PWD}/sites/default/settings.php"
 echo "include '${PWD}/sites/default/test.settings.php';" >>"${PWD}/sites/default/settings.php"
 
 # Enable redis
-#check_rq "Redis" "Connected"
+check_rq "Redis" "Connected"
 
 check_rq "Trusted Host Settings" "Enabled"
 
