@@ -29,7 +29,7 @@ The Drupal stack consist of the following containers:
 | [Memcached]     | 1                       | [wodby/memcached]            |               |                    |
 | [Varnish]       | 6.0                     | [wodby/varnish]              | ✓             |                    |
 | [Node.js]       | 22, 20, 18              | [wodby/node]                 |               |                    |
-| [Solr]          | 8                       | [wodby/solr]                 |               |                    |
+| [Solr]          | 9                       | [wodby/solr]                 |               |                    |
 | Zookeeper       | 3.8                     | [zookeeper]                  | ✓             |                    |
 | [Elasticsearch] | 7                       | [wodby/elasticsearch]        |               |                    |
 | [Kibana]        | 7                       | [wodby/kibana]               |               |                    |
