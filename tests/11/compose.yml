@@ -63,7 +63,6 @@ services:
   solr:
     image: wodby/solr:$SOLR_TAG
     environment:
-      SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
       ZK_HOST: zookeeper:2181
     depends_on:
     - zookeeper
