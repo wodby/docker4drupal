@@ -225,22 +225,23 @@ services:
 #    - files:/mnt/files
 #    - ./:/mnt/codebase:cached
 
-#  elasticsearch:
-#    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
+#  opensearch:
+#    image: opensearchproject/opensearch:$OPENSEARCH_TAG
 #    environment:
-#      ES_JAVA_OPTS: "-Xms500m -Xmx500m"
-#    ulimits:
-#      memlock:
-#        soft: -1
-#        hard: -1
-
-#  kibana:
-#    image: wodby/kibana:$KIBANA_TAG
+#      "discovery.type": "single-node"
+#      "plugins.security.disabled": true
+#      OPENSEARCH_INITIAL_ADMIN_PASSWORD: $OPENSEARCH_ADMIN_PASSWORD
+#
+#  opensearch-dashboards:
+#    image: opensearchproject/opensearch-dashboards:$OPENSEARCH_TAG
+#    environment:
+#      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
+#      DISABLE_SECURITY_DASHBOARDS_PLUGIN: true
 #    depends_on:
-#    - elasticsearch
+#    - opensearch
 #    labels:
-#    - "traefik.http.services.${PROJECT_NAME}_kibana.loadbalancer.server.port=5601"
-#    - "traefik.http.routers.${PROJECT_NAME}_kibana.rule=Host(`kibana.${PROJECT_BASE_URL}`)"
+#    - "traefik.http.services.${PROJECT_NAME}_opensearch.loadbalancer.server.port=5601"
+#    - "traefik.http.routers.${PROJECT_NAME}_opensearch.rule=Host(`opensearch.${PROJECT_BASE_URL}`)"
 
 #  opensmtpd:
 #    container_name: "${PROJECT_NAME}_opensmtpd"
