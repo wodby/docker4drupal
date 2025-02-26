@@ -172,6 +172,7 @@ services:
 #    container_name: "${PROJECT_NAME}_solr"
 #    environment:
 #      SOLR_OPTS: "-Dsolr.config.lib.enabled=true"
+#      SOLR_MODULES: extraction,langid,ltr,analysis-extras
 #      ZK_HOST: zookeeper:2181
 #      SOLR_HEAP: 1024m
 #    depends_on:
