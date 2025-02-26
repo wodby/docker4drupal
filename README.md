@@ -16,34 +16,34 @@ Docker4Drupal is a set of docker images optimized for Drupal. Use
 
 The Drupal stack consist of the following containers:
 
-| Container             | Versions                | Image                                    | ARM64 support | Enabled by default |
-|-----------------------|-------------------------|------------------------------------------|---------------|--------------------|
-| [Nginx]               | 1.27, 1.26              | [wodby/nginx]                            | ✓             | ✓                  |
-| [Apache]              | 2.4                     | [wodby/apache]                           | ✓             |                    |
-| Drupal CMS            | 1                       | [wodby/drupal-cms]                       | ✓             | ✓                  |
-| Vanilla Drupal        | 11, 10                  | [wodby/drupal]                           | ✓             |                    |
-| [PHP]                 | 8.4, 8.3, 8.2, 8.1      | [wodby/drupal-php]                       | ✓             |                    |
-| Crond                 |                         | [wodby/drupal-php]                       | ✓             | ✓                  |
-| [MariaDB]             | 11.4, 10.11, 10.6, 10.5 | [wodby/mariadb]                          | ✓             | ✓                  |
-| [PostgreSQL]          | 17, 16, 15, 14, 13      | [wodby/postgres]                         | ✓             |                    |
-| [Valkey]              | 8, 7                    | [wodby/valkey]                           | ✓             |                    |
-| [Memcached]           | 1                       | [wodby/memcached]                        | ✓             |                    |
-| [Varnish]             | 6.0                     | [wodby/varnish]                          | ✓             |                    |
-| [Node.js]             | 22, 20, 18              | [wodby/node]                             | ✓             |                    |
-| [Solr]                | 9                       | [wodby/solr]                             | ✓             |                    |
-| Zookeeper             | 3.8                     | [zookeeper]                              | ✓             |                    |
-| OpenSearch            | 2                       | [opensearchproject/opensearch]           | ✓             |                    |
-| OpenSearch Dashboards | 2                       | [opensearchproject/opensearch-dashboard] | ✓             |                    |
-| [OpenSMTPD]           | 7                       | [wodby/opensmtpd]                        | ✓             |                    |
-| Mailpit               | latest                  | [axllent/mailpit]                        | ✓             | ✓                  |
-| Gotenberg             | latest                  | [gotenberg/gotenberg]                    | ✓             |                    |
-| [Rsyslog]             | latest                  | [wodby/rsyslog]                          | ✓             |                    |
-| [Webgrind]            | 1                       | [wodby/webgrind]                         | ✓             |                    |
-| [Xhprof viewer]       | latest                  | [wodby/xhprof]                           | ✓             |                    |
-| Adminer               | 4.6                     | [wodby/adminer]                          | ✓             |                    |
-| phpMyAdmin            | latest                  | [phpmyadmin/phpmyadmin]                  |               |                    |
-| Selenium chrome       | 3.141                   | [selenium/standalone-chrome]             |               |                    |
-| Traefik               | latest                  | [_/traefik]                              | ✓             | ✓                  |
+| Container             | Versions                | Image                                     | ARM64 support | Enabled by default |
+|-----------------------|-------------------------|-------------------------------------------|---------------|--------------------|
+| [Nginx]               | 1.27, 1.26              | [wodby/nginx]                             | ✓             | ✓                  |
+| [Apache]              | 2.4                     | [wodby/apache]                            | ✓             |                    |
+| Drupal CMS            | 1                       | [wodby/drupal-cms]                        | ✓             | ✓                  |
+| Vanilla Drupal        | 11, 10                  | [wodby/drupal]                            | ✓             |                    |
+| [PHP]                 | 8.4, 8.3, 8.2, 8.1      | [wodby/drupal-php]                        | ✓             |                    |
+| Crond                 |                         | [wodby/drupal-php]                        | ✓             | ✓                  |
+| [MariaDB]             | 11.4, 10.11, 10.6, 10.5 | [wodby/mariadb]                           | ✓             | ✓                  |
+| [PostgreSQL]          | 17, 16, 15, 14, 13      | [wodby/postgres]                          | ✓             |                    |
+| [Valkey]              | 8, 7                    | [wodby/valkey]                            | ✓             |                    |
+| [Memcached]           | 1                       | [wodby/memcached]                         | ✓             |                    |
+| [Varnish]             | 6.0                     | [wodby/varnish]                           | ✓             |                    |
+| [Node.js]             | 22, 20, 18              | [wodby/node]                              | ✓             |                    |
+| [Solr]                | 9                       | [wodby/solr]                              | ✓             |                    |
+| Zookeeper             | 3.8                     | [zookeeper]                               | ✓             |                    |
+| OpenSearch            | 2                       | [opensearchproject/opensearch]            | ✓             |                    |
+| OpenSearch Dashboards | 2                       | [opensearchproject/opensearch-dashboards] | ✓             |                    |
+| [OpenSMTPD]           | 7                       | [wodby/opensmtpd]                         | ✓             |                    |
+| Mailpit               | latest                  | [axllent/mailpit]                         | ✓             | ✓                  |
+| Gotenberg             | latest                  | [gotenberg/gotenberg]                     | ✓             |                    |
+| [Rsyslog]             | latest                  | [wodby/rsyslog]                           | ✓             |                    |
+| [Webgrind]            | 1                       | [wodby/webgrind]                          | ✓             |                    |
+| [Xhprof viewer]       | latest                  | [wodby/xhprof]                            | ✓             |                    |
+| Adminer               | 4.6                     | [wodby/adminer]                           | ✓             |                    |
+| phpMyAdmin            | latest                  | [phpmyadmin/phpmyadmin]                   |               |                    |
+| Selenium chrome       | 3.141                   | [selenium/standalone-chrome]              |               |                    |
+| Traefik               | latest                  | [_/traefik]                               | ✓             | ✓                  |
 
 ## Documentation
 
@@ -166,4 +166,4 @@ This project is licensed under the MIT open source license.
 
 [opensearchproject/opensearch]: https://hub.docker.com/r/opensearchproject/opensearch
 
-[opensearchproject/opensearch]: https://hub.docker.com/r/opensearchproject/opensearch-dashboards
+[opensearchproject/opensearch-dashboards]: https://hub.docker.com/r/opensearchproject/opensearch-dashboards
