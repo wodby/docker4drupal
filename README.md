@@ -18,7 +18,7 @@ The Drupal stack consist of the following containers:
 
 | Container             | Versions                | Image                                     | ARM64 support | Enabled by default |
 |-----------------------|-------------------------|-------------------------------------------|---------------|--------------------|
-| [Nginx]               | 1.28, 1.27              | [wodby/nginx]                             | ✓             | ✓                  |
+| [Nginx]               | 1.29, 1.28              | [wodby/nginx]                             | ✓             | ✓                  |
 | [Apache]              | 2.4                     | [wodby/apache]                            | ✓             |                    |
 | Drupal CMS            | 1                       | [wodby/drupal-cms]                        | ✓             | ✓                  |
 | Vanilla Drupal        | 11, 10                  | [wodby/drupal]                            | ✓             |                    |
