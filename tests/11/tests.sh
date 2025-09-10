@@ -43,12 +43,12 @@ check_status "site" "sites/default"
 check_status "files" "sites/default/files"
 check_status "temp" "/tmp"
 
-#check_rq "Database system" "MariaDB"
-#check_rq "Image toolkit" "gd"
-#check_rq "PHP OPcode caching" "Enabled"
-#check_rq "PHP" "${PHP_VERSION}"
-#check_rq "File system" "Writable"
-#check_rq "Configuration files" "Protected"
+check_rq "Database system" "MariaDB"
+check_rq "Image toolkit" "gd"
+check_rq "PHP OPcode caching" "Enabled"
+check_rq "PHP" "${PHP_VERSION}"
+check_rq "File system" "Writable"
+check_rq "Configuration files" "Protected"
 
 ## @todo: also uncomment in test.settings.php
 #drush en -y \
@@ -66,7 +66,7 @@ chmod 755 "${PWD}/sites/default/settings.php"
 echo "include '${PWD}/sites/default/test.settings.php';" >>"${PWD}/sites/default/settings.php"
 
 ## Enable redis
-#check_rq "Redis" "Connected"
+check_rq "Redis" "Connected"
 
 #check_rq "Trusted Host Settings" "Enabled"
 
