@@ -107,7 +107,7 @@ This project is licensed under the MIT open source license.
 
 [Redis]: https://wodby.com/docs/stacks/drupal/containers#redis
 
-[Valkey]: https://wodby.com/docs/stacks/valkey/containers#valkey
+[Valkey]: https://wodby.com/docs/stacks/drupal/containers#valkey
 
 [Rsyslog]: https://wodby.com/docs/stacks/drupal/containers#rsyslog
 
