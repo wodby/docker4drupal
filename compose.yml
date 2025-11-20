@@ -144,6 +144,10 @@ services:
 #    container_name: "${PROJECT_NAME}_valkey"
 #    image: wodby/valkey:$VALKEY_TAG
 
+#  redis:
+#    container_name: "${PROJECT_NAME}_redis"
+#    image: wodby/redis:$REDIS_TAG
+
 #  adminer:
 #    container_name: "${PROJECT_NAME}_adminer"
 #    init: true

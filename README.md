@@ -24,10 +24,11 @@ The Drupal stack consist of the following containers:
 | Vanilla Drupal        | 11, 10                  | [wodby/drupal]                            | ✓             |                    |
 | [PHP]                 | 8.4, 8.3, 8.2, 8.1      | [wodby/drupal-php]                        | ✓             |                    |
 | Crond                 |                         | [wodby/drupal-php]                        | ✓             | ✓                  |
-| [MariaDB]             | 11.4, 10.11, 10.6, 10.5 | [wodby/mariadb]                           | ✓             | ✓                  |
-| [PostgreSQL]          | 17, 16, 15, 14, 13      | [wodby/postgres]                          | ✓             |                    |
-| [Valkey]              | 8.1, 8.0, 7             | [wodby/valkey]                            | ✓             |                    |
-| [Memcached]           | 1                       | [wodby/memcached]                         | ✓             |                    |
+| [MariaDB]             | 11.8, 11.4, 10.11, 10.6 | [wodby/mariadb]                           | ✓             | ✓                  |
+| [PostgreSQL]          | 18, 17, 16, 15, 14      | [wodby/postgres]                          | ✓             |                    |
+| [Valkey]              | 9.0, 8.1, 8.0, 7        | [wodby/valkey]                            | ✓             |                    |
+| [Redis]               | 8.2, 8.0, 7.4           | [wodby/redis]                             | ✓             |                    |
+| [Memcached]           | 1.6                     | [wodby/memcached]                         | ✓             |                    |
 | [Varnish]             | 6.0                     | [wodby/varnish]                           | ✓             |                    |
 | [Node.js]             | 24, 22, 20              | [wodby/node]                              | ✓             |                    |
 | [Solr]                | 9                       | [wodby/solr]                              | ✓             |                    |
@@ -151,6 +152,8 @@ This project is licensed under the MIT open source license.
 [wodby/postgres]: https://github.com/wodby/postgres
 
 [wodby/valkey]: https://github.com/wodby/valkey
+
+[wodby/redis]: https://github.com/wodby/redis
 
 [wodby/rsyslog]: https://hub.docker.com/r/wodby/rsyslog
 
