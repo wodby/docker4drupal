@@ -274,7 +274,7 @@ services:
 #    - "--whitelisted-ips="
 
   traefik:
-    image: traefik:v3.6
+    image: traefik:v3
     container_name: "${PROJECT_NAME}_traefik"
     command: --api.insecure=true --providers.docker 
     ports:
