@@ -14,7 +14,7 @@ Docker4Drupal is a set of docker images optimized for Drupal. Use
 
 ## Stack
 
-The Drupal stack consist of the following containers:
+The Drupal stack consists of the following containers:
 
 | Container             | Versions                | Image                                     | ARM64 support | Enabled by default |
 |-----------------------|-------------------------|-------------------------------------------|---------------|--------------------|
@@ -22,7 +22,7 @@ The Drupal stack consist of the following containers:
 | [Apache]              | 2.4                     | [wodby/apache]                            | ✓             |                    |
 | Drupal CMS            | 1                       | [wodby/drupal-cms]                        | ✓             | ✓                  |
 | Vanilla Drupal        | 11, 10                  | [wodby/drupal]                            | ✓             |                    |
-| [PHP]                 | 8.4, 8.3, 8.2, 8.1      | [wodby/drupal-php]                        | ✓             |                    |
+| [PHP]                 | 8.5, 8.4, 8.3, 8.2, 8.1 | [wodby/drupal-php]                        | ✓             |                    |
 | Crond                 |                         | [wodby/drupal-php]                        | ✓             | ✓                  |
 | [MariaDB]             | 11.8, 11.4, 10.11, 10.6 | [wodby/mariadb]                           | ✓             | ✓                  |
 | [PostgreSQL]          | 18, 17, 16, 15, 14      | [wodby/postgres]                          | ✓             |                    |
