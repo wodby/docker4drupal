@@ -15,15 +15,17 @@ jobs:
     strategy:
       matrix:
         drupal_ver: [ 11,10 ]
-        php_ver: [ '8.4','8.3','8.2','8.1' ]
+        php_ver: [ '8.5','8.4','8.3','8.2','8.1' ]
         exclude:
         - drupal_ver: 11
           php_ver: '8.2'
         - drupal_ver: 11
           php_ver: '8.1'
+        - drupal_ver: 10
+          php_ver: '8.5'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: test
       env:
         DRUPAL_VER: ${{ matrix.drupal_ver }}
@@ -32,7 +34,7 @@ jobs:
   test-cms:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: test
       run: make test-cms
   release:
@@ -40,7 +42,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     needs: [test,test-cms]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: prepare artifact
       run: cp docker.mk Makefile && tar -czf docker4drupal.tar.gz compose.yml compose.override.yml Makefile .env traefik.yml
     - name: get tag name

@@ -1,7 +1,7 @@
 include docker.mk
 
 DRUPAL_VER ?= 11
-PHP_VER ?= 8.4
+PHP_VER ?= 8.5
 
 test:
 	cd ./tests/$(DRUPAL_VER) && PHP_VER=$(PHP_VER) ./run.sh
