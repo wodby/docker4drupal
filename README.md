@@ -32,7 +32,7 @@ The Drupal stack consists of the following containers:
 | [Varnish]             | 6.0                     | [wodby/varnish]                           | ✓             |                    |
 | [Node.js]             | 24, 22, 20              | [wodby/node]                              | ✓             |                    |
 | [Solr]                | 9                       | [wodby/solr]                              | ✓             |                    |
-| Zookeeper             | 3.8                     | [zookeeper]                               | ✓             |                    |
+| Zookeeper             | 3                       | [wodby/zookeeper]                         | ✓             |                    |
 | OpenSearch            | 2                       | [opensearchproject/opensearch]            | ✓             |                    |
 | OpenSearch Dashboards | 2                       | [opensearchproject/opensearch-dashboards] | ✓             |                    |
 | [OpenSMTPD]           | 7                       | [wodby/opensmtpd]                         | ✓             |                    |
@@ -165,7 +165,7 @@ This project is licensed under the MIT open source license.
 
 [wodby/xhprof]: https://hub.docker.com/r/wodby/xhprof
 
-[zookeeper]: https://hub.docker.com/_/zookeeper
+[wodby/zookeeper]: https://hub.docker.com/r/wodby/zookeeper
 
 [opensearchproject/opensearch]: https://hub.docker.com/r/opensearchproject/opensearch
 
