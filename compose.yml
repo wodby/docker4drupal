@@ -186,12 +186,8 @@ services:
 #    - "traefik.http.routers.${PROJECT_NAME}_solr.rule=Host(`solr.${PROJECT_BASE_URL}`)"
 
 #  zookeeper:
-#    image: zookeeper:$ZOOKEEPER_TAG
+#    image: wodby/zookeeper:$ZOOKEEPER_TAG
 #    container_name: "${PROJECT_NAME}_zookeeper"
-#    environment:
-#      ZOO_MY_ID: 1
-#      ZOO_SERVERS: server.1=zookeeper:2888:3888;2181
-#      ZOO_4LW_COMMANDS_WHITELIST: mntr, conf, ruok
 
 #  memcached:
 #    container_name: "${PROJECT_NAME}_memcached"
