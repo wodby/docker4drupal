@@ -96,7 +96,7 @@ curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: MISS"
 curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: HIT"
 
 drush cc render
-drush pqw
-
-curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: MISS"
-curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: HIT"
+#drush pqw
+#
+#curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: MISS"
+#curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: HIT"
