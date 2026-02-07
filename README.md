@@ -20,7 +20,7 @@ The Drupal stack consists of the following containers:
 |-----------------------|-------------------------|-------------------------------------------|---------------|--------------------|
 | [Nginx]               | 1.29, 1.28              | [wodby/nginx]                             | ✓             | ✓                  |
 | [Apache]              | 2.4                     | [wodby/apache]                            | ✓             |                    |
-| Drupal CMS            | 1                       | [wodby/drupal-cms]                        | ✓             | ✓                  |
+| Drupal CMS            | 2                       | [wodby/drupal-cms]                        | ✓             | ✓                  |
 | Vanilla Drupal        | 11, 10                  | [wodby/drupal]                            | ✓             |                    |
 | [PHP]                 | 8.5, 8.4, 8.3, 8.2, 8.1 | [wodby/drupal-php]                        | ✓             |                    |
 | Crond                 |                         | [wodby/drupal-php]                        | ✓             | ✓                  |
