@@ -22,7 +22,7 @@ The Drupal stack consists of the following containers:
 | [Apache]              | 2.4                     | [wodby/apache]                            | ✓             |                    |
 | Drupal CMS            | 2                       | [wodby/drupal-cms]                        | ✓             | ✓                  |
 | Vanilla Drupal        | 11, 10                  | [wodby/drupal]                            | ✓             |                    |
-| [PHP]                 | 8.5, 8.4, 8.3, 8.2, 8.1 | [wodby/drupal-php]                        | ✓             |                    |
+| [PHP]                 | 8.5, 8.4, 8.3, 8.2      | [wodby/drupal-php]                        | ✓             |                    |
 | Crond                 |                         | [wodby/drupal-php]                        | ✓             | ✓                  |
 | [MariaDB]             | 11.8, 11.4, 10.11, 10.6 | [wodby/mariadb]                           | ✓             | ✓                  |
 | [PostgreSQL]          | 18, 17, 16, 15, 14      | [wodby/postgres]                          | ✓             |                    |

@@ -15,12 +15,10 @@ jobs:
     strategy:
       matrix:
         drupal_ver: [ 11,10 ]
-        php_ver: [ '8.5','8.4','8.3','8.2','8.1' ]
+        php_ver: [ '8.5','8.4','8.3','8.2' ]
         exclude:
         - drupal_ver: 11
           php_ver: '8.2'
-        - drupal_ver: 11
-          php_ver: '8.1'
         - drupal_ver: 10
           php_ver: '8.5'
     runs-on: ubuntu-latest
