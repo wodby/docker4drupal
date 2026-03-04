@@ -125,9 +125,9 @@ services:
 #    labels:
 #    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
 
-#  varnish:
-#    image: wodby/varnish:$VARNISH_TAG
-#    container_name: "${PROJECT_NAME}_varnish"
+#  vinyl:
+#    image: wodby/vinyl:$VARNISH_TAG
+#    container_name: "${PROJECT_NAME}_vinyl"
 #    depends_on:
 #    - nginx
 #    environment:
@@ -137,8 +137,8 @@ services:
 #      VARNISH_CONFIG_PRESET: drupal
 #      VARNISH_ALLOW_UNRESTRICTED_PURGE: 1
 #    labels:
-#    - "traefik.http.services.${PROJECT_NAME}_varnish.loadbalancer.server.port=6081"
-#    - "traefik.http.routers.${PROJECT_NAME}_varnish.rule=Host(`varnish.${PROJECT_BASE_URL}`)"
+#    - "traefik.http.services.${PROJECT_NAME}_vinyl.loadbalancer.server.port=6081"
+#    - "traefik.http.routers.${PROJECT_NAME}_vinyl.rule=Host(`vinyl.${PROJECT_BASE_URL}`)"
 
 #  valkey:
 #    container_name: "${PROJECT_NAME}_valkey"

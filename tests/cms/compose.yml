@@ -44,8 +44,8 @@ services:
     depends_on:
     - php
 
-  varnish:
-    image: wodby/varnish:$VARNISH_TAG
+  vinyl:
+    image: wodby/vinyl:$VINYL_TAG
     depends_on:
     - nginx
     environment:

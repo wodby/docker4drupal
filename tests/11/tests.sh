@@ -87,11 +87,11 @@ mv /var/www/html/varnish/purger.yml "/var/www/html/varnish/varnish_purger.settin
 drush -y cim --source=/var/www/html/varnish --partial
 drush -y config-set system.performance cache.page.max_age 43200
 
-curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: MISS"
-curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: HIT"
+curl -Is -H 'Host: drupal.localhost' vinyl:6081 | grep -q "X-VC-Cache: MISS"
+curl -Is -H 'Host: drupal.localhost' vinyl:6081 | grep -q "X-VC-Cache: HIT"
 
 drush cc render
 drush pqw
 
-curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: MISS"
-curl -Is -H 'Host: drupal.localhost' varnish:6081 | grep -q "X-VC-Cache: HIT"
+curl -Is -H 'Host: drupal.localhost' vinyl:6081 | grep -q "X-VC-Cache: MISS"
+curl -Is -H 'Host: drupal.localhost' vinyl:6081 | grep -q "X-VC-Cache: HIT"

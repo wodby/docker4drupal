@@ -29,7 +29,7 @@ The Drupal stack consists of the following containers:
 | [Valkey]              | 9.0, 8.1, 8.0, 7        | [wodby/valkey]                            | ✓             |                    |
 | [Redis]               | 8.4, 8.2, 8.0, 7.4      | [wodby/redis]                             | ✓             |                    |
 | [Memcached]           | 1.6                     | [wodby/memcached]                         | ✓             |                    |
-| [Varnish]             | 6.0                     | [wodby/varnish]                           | ✓             |                    |
+| Vynil ([Varnish])     | 6.0                     | [wodby/vinyl]                             | ✓             |                    |
 | [Node.js]             | 24, 22, 20              | [wodby/node]                              | ✓             |                    |
 | [Solr]                | 9                       | [wodby/solr]                              | ✓             |                    |
 | Zookeeper             | 3                       | [wodby/zookeeper]                         | ✓             |                    |
@@ -113,7 +113,7 @@ This project is licensed under the MIT open source license.
 
 [Solr]: https://wodby.com/docs/stacks/drupal/containers#solr
 
-[Varnish]: https://wodby.com/docs/stacks/drupal/containers#varnish
+[Vynil]: https://wodby.com/docs/stacks/drupal/containers#varnish
 
 [Webgrind]: https://wodby.com/docs/stacks/drupal/containers#webgrind
 
@@ -159,7 +159,7 @@ This project is licensed under the MIT open source license.
 
 [wodby/solr]: https://github.com/wodby/solr
 
-[wodby/varnish]: https://github.com/wodby/varnish
+[wodby/vinyl]: https://github.com/wodby/vinyl
 
 [wodby/webgrind]: https://hub.docker.com/r/wodby/webgrind
 
