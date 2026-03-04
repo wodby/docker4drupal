@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies: {  }
 id: PLUGIN_ID
-name: 'Varnish 4.1'
+name: 'Vinyl 4.1'
 invalidationtype: tag
-hostname: varnish
+hostname: vinyl
 port: 6081
 path: /
 request_method: BAN
