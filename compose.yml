@@ -126,7 +126,7 @@ services:
 #    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
 
 #  vinyl:
-#    image: wodby/vinyl:$VARNISH_TAG
+#    image: wodby/vinyl:$VINYL_TAG
 #    container_name: "${PROJECT_NAME}_vinyl"
 #    depends_on:
 #    - nginx
