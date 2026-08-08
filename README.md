@@ -41,7 +41,7 @@ The Drupal stack consists of the following containers:
 | [Rsyslog]             | latest                  | [wodby/rsyslog]                           | ✓             |                    |
 | [Webgrind]            | 1                       | [wodby/webgrind]                          | ✓             |                    |
 | [Xhprof viewer]       | latest                  | [wodby/xhprof]                            | ✓             |                    |
-| Adminer               | 5                       | [wodby/adminer]                           | ✓             |                    |
+| Adminer               | 6                       | [wodby/adminer]                           | ✓             |                    |
 | phpMyAdmin            | latest                  | [phpmyadmin/phpmyadmin]                   |               |                    |
 | Selenium chrome       | 3.141                   | [selenium/standalone-chrome]              |               |                    |
 | Traefik               | latest                  | [_/traefik]                               | ✓             | ✓                  |
