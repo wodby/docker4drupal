@@ -29,7 +29,7 @@ services:
     - codebase:/var/www/html
     - ./tests.sh:/usr/local/bin/tests.sh
     - ./test.settings.php:/var/www/html/web/sites/default/test.settings.php
-    - ./varnish-purger.yml:/var/www/html/varnish-purger.yml
+    - ./varnish:/var/www/html/varnish
     - ./search_api.server.solr.yml:/var/www/html/solr/search_api.server.solr.yml
 
   nginx:

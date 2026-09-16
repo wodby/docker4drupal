@@ -73,25 +73,8 @@ drush solr-upload-conf solr
 drush sapi-sl | grep -q enabled
 
 ## Test varnish cache and purge
-# Purge can generate numeric IDs that PHP casts to integer array keys.
-# Use a stable string ID to avoid intermittent failures in its ID validation.
-drush php:eval '
-  $purgers = \Drupal::service("purge.purgers");
-  $enabled = $purgers->getPluginsEnabled();
-  $enabled["docker4drupal"] = "varnish";
-  $purgers->setPluginsEnabled($enabled);
-'
-drush cr
-
-## Workaround for varnish purger import https://www.drupal.org/node/2856221
-PURGER_ID=$(drush ppls --format=json | jq -r "keys[0]")
-
-mkdir -p /var/www/html/varnish
-# We copy mounted file because we can't edit mounted file (resource busy error).
-cp /var/www/html/varnish-purger.yml /var/www/html/varnish/purger.yml
-sed -i "s/PLUGIN_ID/${PURGER_ID}/g" /var/www/html/varnish/purger.yml
-mv /var/www/html/varnish/purger.yml "/var/www/html/varnish/varnish_purger.settings.${PURGER_ID}.yml"
 drush -y cim --source=/var/www/html/varnish --partial
+drush cr
 drush -y config-set system.performance cache.page.max_age 43200
 
 curl -Is -H 'Host: drupal.localhost' vinyl:6081 | grep -q "X-VC-Cache: MISS"

@@ -1,0 +1,5 @@
+# A fixed string ID avoids Purge generating numeric array keys.
+purgers:
+  - instance_id: docker4drupal
+    plugin_id: varnish
+    order_index: 2

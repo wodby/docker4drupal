@@ -2,7 +2,7 @@ uuid: 91faa2b9-fd7a-4419-8dae-fc5a91b782b6
 langcode: en
 status: true
 dependencies: {  }
-id: PLUGIN_ID
+id: docker4drupal
 name: 'Vinyl 4.1'
 invalidationtype: tag
 hostname: vinyl
