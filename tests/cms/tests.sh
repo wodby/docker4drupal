@@ -73,7 +73,14 @@ drush solr-upload-conf solr
 drush sapi-sl | grep -q enabled
 
 ## Test varnish cache and purge
-drush ppadd varnish
+# Purge can generate numeric IDs that PHP casts to integer array keys.
+# Use a stable string ID to avoid intermittent failures in its ID validation.
+drush php:eval '
+  $purgers = \Drupal::service("purge.purgers");
+  $enabled = $purgers->getPluginsEnabled();
+  $enabled["docker4drupal"] = "varnish";
+  $purgers->setPluginsEnabled($enabled);
+'
 drush cr
 
 ## Workaround for varnish purger import https://www.drupal.org/node/2856221
