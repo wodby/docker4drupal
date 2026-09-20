@@ -50,20 +50,24 @@ The Drupal stack consists of the following containers:
 
 Full documentation is available at https://wodby.com/docs/stacks/drupal/local.
 
-## Image's tags
+## Image tags
 
-Images' tags format is `[VERSION]-[STABILITY_TAG]` where:
+Wodby images that package upstream software use `[VERSION]-r[N]` tags, for example
+`wodby/mariadb:11.4-r0`. `11.4` selects the MariaDB version line and `r0` identifies
+the Wodby image revision. Revisions include application updates and image changes;
+review the image release notes before upgrading because the revision number does
+not indicate compatibility.
 
-`[VERSION]` is the _version of an application_ (without patch version) running in a container, e.g.
-`wodby/nginx:1.31-x.x.x` where Nginx version is `1.31` and
-`x.x.x` is a stability tag. For some images we include both major and minor version like PHP
-`7.2`, for others we include only major like Valkey `7`.
+Major/minor tags share a revision counter per image repository. Full-version tags,
+such as `11.4.2-r0`, start at `r0` again for each exact upstream version. Matching
+Git tags identify the source commit for each published revision. Development
+variants retain their qualifier, for example `8.5-dev-r0`.
 
-`[STABILITY_TAG]` is the _version of an image_ that corresponds to a git tag of the image repository, e.g.
-`wodby/mariadb:10.2-3.3.8` has MariaDB `10.2` and stability tag [
-`3.3.8`](https://github.com/wodby/mariadb/releases/tag/3.3.8). New stability tags include patch updates for applications and image's fixes/improvements (new env vars, orchestration actions fixes, etc). Stability tag changes described in the corresponding a git tag description. Stability tags follow [semantic versioning](https://semver.org/).
-
-We highly encourage to use images only with stability tags.
+Use the versioned image tags supplied in `.env` instead of floating tags such as
+`latest`. Previously published tags remain available. Wodby software such as Backup
+uses semantic product versions, and third-party images follow their own tag formats.
+See the [image revision policy](https://github.com/wodby/images#image-revisions)
+for details.
 
 ## Maintenance
 
