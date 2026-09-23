@@ -69,6 +69,9 @@ uses semantic product versions, and third-party images follow their own tag form
 See the [image revision policy](https://github.com/wodby/images#image-revisions)
 for details.
 
+Test fixtures use `*_IMAGE_REVISION` environment variables for the image release
+suffix.
+
 ## Maintenance
 
 We regularly update images used in this stack and release them together, see [releases page](https://github.com/wodby/docker4drupal/releases) for full changelog and update instructions. Most of routine updates for images and this project performed by [the bot](https://github.com/wodbot) via scripts located at [wodby/images](https://github.com/wodby/images).
