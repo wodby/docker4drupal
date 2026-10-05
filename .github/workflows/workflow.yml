@@ -35,10 +35,19 @@ jobs:
     - uses: actions/checkout@v6
     - name: test
       run: make test-cms
+  test-mariadb-12-3:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        drupal_ver: [11, 10]
+    steps:
+      - uses: actions/checkout@v6
+      - name: Test MariaDB 12.3 LTS
+        run: make test MARIADB_TAG=12.3-r4 PHP_VER=8.4 DRUPAL_VER=${{ matrix.drupal_ver }}
   release:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
-    needs: [test,test-cms]
+    needs: [test,test-cms,test-mariadb-12-3]
     steps:
     - uses: actions/checkout@v6
     - name: prepare artifact
