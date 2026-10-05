@@ -29,7 +29,7 @@ The Drupal stack consists of the following containers:
 | [Valkey]              | 9.0, 8.1, 8.0, 7        | [wodby/valkey]                            |                    |
 | [Redis]               | 8.6, 8.4, 8.2, 7.4      | [wodby/redis]                             |                    |
 | [Memcached]           | 1.6                     | [wodby/memcached]                         |                    |
-| Vinyl ([Varnish])     | 8.0, 6.0                | [wodby/vinyl]                             |                    |
+| Vinyl ([Varnish])     | 9.1, 6.0                | [wodby/vinyl]                             |                    |
 | [Node.js]             | 26, 24, 22              | [wodby/node]                              |                    |
 | [Solr]                | 9                       | [wodby/solr]                              |                    |
 | Zookeeper             | 3                       | [wodby/zookeeper]                         |                    |
