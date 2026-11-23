@@ -8,6 +8,7 @@ Docker4Drupal is a set of docker images optimized for Drupal. Use
 `compose.yml` file from the [latest stable release](https://github.com/wodby/docker4drupal/releases) to spin up local environment on Linux, Mac OS X and Windows.
 
 * Read the docs on [**how to use**](https://wodby.com/docs/1.0/stacks/drupal/local#usage)
+* Deploy to production with the [Drupal stack on Wodby](https://wodby.com/deploy-drupal)
 * Ask questions on [Discord](http://discord.wodby.com/)
 * Ask questions on [Slack](http://slack.wodby.com/)
 * Follow [@wodbycloud](https://twitter.com/wodbycloud) for future announcements
@@ -73,9 +74,19 @@ for details.
 
 We regularly update images used in this stack and release them together, see [releases page](https://github.com/wodby/docker4drupal/releases) for full changelog and update instructions. Most of routine updates for images and this project performed by [the bot](https://github.com/wodbot) via scripts located at [wodby/images](https://github.com/wodby/images).
 
-## Beyond local environment
+## Deploy to production
 
-Docker4Drupal is a project designed to help you spin up local environment with Docker Compose. If you want to deploy a consistent stack with orchestrations to your own server, check out [Drupal stack](https://wodby.com/stacks/drupal) on Wodby ![](https://www.google.com/s2/favicons?domain=wodby.com).
+Docker4Drupal is for local development with Docker Compose. To run the same stack in production, use the [Drupal stack on Wodby](https://wodby.com/deploy-drupal).
+
+It runs your Composer-based Drupal repository on Kubernetes with the same `wodby/drupal-php` image you use locally, behind Nginx, with MariaDB or PostgreSQL, Valkey, Solr, and Vinyl (Varnish) as optional services. You choose where it runs: Wodby Cloud, a Kubernetes cluster in your own cloud account, or a single server of your own.
+
+* Start from the Drupal CMS or Vanilla Drupal boilerplate, or connect your own repository
+* Database, file path, and trusted host settings are generated from the services you link
+* CI/CD and backups are built in, and Drush cron runs on a schedule
+* Cache rebuild, one-time login link, and database updates are actions you start from the dashboard
+* A free plan is available, including on a server of your own
+
+Read the [Drupal stack guide](https://wodby.com/docs/2.0/stacks/catalog/drupal/), or see [Drupal hosting on Wodby](https://wodby.com/drupal-hosting) and [pricing](https://wodby.com/pricing).
 
 ## Other Docker4x projects
 
